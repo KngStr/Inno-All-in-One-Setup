@@ -1,0 +1,592 @@
+<?xml version="1.0" ?>
+{#PadStyleSheet}
+<XML_DIZ_INFO>
+	<MASTER_PAD_VERSION_INFO>
+		<MASTER_PAD_VERSION>2.01</MASTER_PAD_VERSION>
+		<MASTER_PAD_EDITOR>Inno Setup Script Includes http://www.albartus.com/issi/</MASTER_PAD_EDITOR>
+		<MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://www.asp-shareware.org/pad</MASTER_PAD_INFO>
+	</MASTER_PAD_VERSION_INFO>
+	<Company_Info>
+		<Company_Name>{#Company_Name}</Company_Name>
+		<Address_1>{#Address_1}</Address_1>
+		<Address_2>{#Address_2}</Address_2>
+		<City_Town>{#City_Town}</City_Town>
+		<State_Province>{#State_Province}</State_Province>
+		<Zip_Postal_Code>{#Zip_Postal_Code}</Zip_Postal_Code>
+		<Country>{#Country}</Country>
+		<Company_WebSite_URL>{#Company_WebSite_URL}</Company_WebSite_URL>
+		<Contact_Info>
+			<Author_First_Name>{#Author_First_Name}</Author_First_Name>
+			<Author_Last_Name>{#Author_Last_Name}</Author_Last_Name>
+			<Author_Email>{#Author_Email}</Author_Email>
+			<Contact_First_Name>{#Contact_First_Name}</Contact_First_Name>
+			<Contact_Last_Name>{#Contact_Last_Name}</Contact_Last_Name>
+			<Contact_Email>{#Contact_Email}</Contact_Email>
+		</Contact_Info>
+		<Support_Info>
+			<Sales_Email>{#Sales_Email}</Sales_Email>
+			<Support_Email>{#Support_Email}</Support_Email>
+			<General_Email>{#General_Email}</General_Email>
+			<Sales_Phone>{#Sales_Phone}</Sales_Phone>
+			<Support_Phone>{#Support_Phone}</Support_Phone>
+			<General_Phone>{#General_Phone}</General_Phone>
+			<Fax_Phone>{#Fax_Phone}</Fax_Phone>
+		</Support_Info>
+	</Company_Info>
+	<Program_Info>
+		<Program_Name>{#Program_Name}</Program_Name>
+		<Program_Version>{#Program_Version}</Program_Version>
+		<Program_Release_Month>{#Program_Release_Month}</Program_Release_Month>
+		<Program_Release_Day>{#Program_Release_Day}</Program_Release_Day>
+		<Program_Release_Year>{#Program_Release_Year}</Program_Release_Year>
+		<Program_Cost_Dollars>{#Program_Cost_Dollars}</Program_Cost_Dollars>
+		<Program_Cost_Other_Code>{#Program_Cost_Other_Code}</Program_Cost_Other_Code>
+		<Program_Cost_Other>{#Program_Cost_Other}</Program_Cost_Other>
+		<Program_Type>{#Program_Type}</Program_Type>
+		<Program_Release_Status>{#Program_Release_Status}</Program_Release_Status>
+		<Program_Install_Support>{#Program_Install_Support}</Program_Install_Support>
+		<Program_OS_Support>{#Program_OS_Support}</Program_OS_Support>
+		<Program_Language>{#Program_Language}</Program_Language>
+		<Program_Change_Info>{#Program_Change_Info}</Program_Change_Info>
+		<Program_Specific_Category>{#Program_Specific_Category}</Program_Specific_Category>
+		<Program_Category_Class>{#Program_Category_Class}</Program_Category_Class>
+		<Program_Categories>{#Program_Categories}</Program_Categories>
+		<Program_System_Requirements>{#Program_System_Requirements}</Program_System_Requirements>
+		<Includes_JAVA_VM>{#Includes_JAVA_VM}</Includes_JAVA_VM>
+		<Includes_VB_Runtime>{#Includes_VB_Runtime}</Includes_VB_Runtime>
+		<Includes_DirectX>{#Includes_DirectX}</Includes_DirectX>
+		<File_Info>
+			<Filename_Versioned>{#Filename_Versioned}</Filename_Versioned>
+			<Filename_Previous>{#Filename_Previous}</Filename_Previous>
+			<Filename_Generic>{#Filename_Generic}</Filename_Generic>
+			<Filename_Long>{#Filename_Long}</Filename_Long>
+			<File_Size_Bytes>{#File_Size_Bytes}</File_Size_Bytes>
+			<File_Size_K>{#File_Size_K}</File_Size_K>
+			<File_Size_MB>{#File_Size_MB}</File_Size_MB>
+		</File_Info>
+		<Expire_Info>
+			<Has_Expire_Info>{#Has_Expire_Info}</Has_Expire_Info>
+			<Expire_Count>{#Expire_Count}</Expire_Count>
+			<Expire_Based_On>{#Expire_Based_On}</Expire_Based_On>
+			<Expire_Other_Info>{#Expire_Other_Info}</Expire_Other_Info>
+			<Expire_Month>{#Expire_Month}</Expire_Month>
+			<Expire_Day>{#Expire_Day}</Expire_Day>
+			<Expire_Year>{#Expire_Year}</Expire_Year>
+		</Expire_Info>
+	</Program_Info>
+	<Program_Descriptions>
+		#if defined Char_Desc_Arabic_45 && defined Char_Desc_Arabic_80 && defined Char_Desc_Arabic_250 && defined Char_Desc_Arabic_450 && defined Char_Desc_Arabic_2000
+		<Arabic>
+			<Keywords>{#Keywords_Arabic}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Arabic_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Arabic_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Arabic_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Arabic_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Arabic_2000}</Char_Desc_2000>
+		</Arabic>
+		#endif
+		#if defined Char_Desc_ChineseSimplified_45 && defined Char_Desc_ChineseSimplified_80 && defined Char_Desc_ChineseSimplified_250 && defined Char_Desc_ChineseSimplified_450 && defined Char_Desc_ChineseSimplified_2000
+		<ChineseSimplified>
+			<Keywords>{#Keywords_ChineseSimplified}</Keywords>
+			<Char_Desc_45>{#Char_Desc_ChineseSimplified_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_ChineseSimplified_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_ChineseSimplified_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_ChineseSimplified_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_ChineseSimplified_2000}</Char_Desc_2000>
+		</ChineseSimplified>
+		#endif
+		#if defined Char_Desc_ChineseTraditional_45 && defined Char_Desc_ChineseTraditional_80 && defined Char_Desc_ChineseTraditional_250 && defined Char_Desc_ChineseTraditional_450 && defined Char_Desc_ChineseTraditional_2000
+		<ChineseTraditional>
+			<Keywords>{#Keywords_ChineseTraditional}</Keywords>
+			<Char_Desc_45>{#Char_Desc_ChineseTraditional_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_ChineseTraditional_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_ChineseTraditional_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_ChineseTraditional_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_ChineseTraditional_2000}</Char_Desc_2000>
+		</ChineseTraditional>
+		#endif
+		#if defined Char_Desc_Czech_45 && defined Char_Desc_Czech_80 && defined Char_Desc_Czech_250 && defined Char_Desc_Czech_450 && defined Char_Desc_Czech_2000
+		<Czech>
+			<Keywords>{#Keywords_Czech}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Czech_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Czech_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Czech_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Czech_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Czech_2000}</Char_Desc_2000>
+		</Czech>
+		#endif
+		#if defined Char_Desc_Danish_45 && defined Char_Desc_Danish_80 && defined Char_Desc_Danish_250 && defined Char_Desc_Danish_450 && defined Char_Desc_Danish_2000
+		<Danish>
+			<Keywords>{#Keywords_Danish}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Danish_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Danish_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Danish_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Danish_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Danish_2000}</Char_Desc_2000>
+		</Danish>
+		#endif
+		#if defined Char_Desc_Dutch_45 && defined Char_Desc_Dutch_80 && defined Char_Desc_Dutch_250 && defined Char_Desc_Dutch_450 && defined Char_Desc_Dutch_2000
+		<Dutch>
+			<Keywords>{#Keywords_Dutch}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Dutch_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Dutch_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Dutch_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Dutch_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Dutch_2000}</Char_Desc_2000>
+		</Dutch>
+		#endif
+		#if defined Char_Desc_45 && defined Char_Desc_80 && defined Char_Desc_250 && defined Char_Desc_450 && defined Char_Desc_2000
+		<English>
+			<Keywords>{#Keywords}</Keywords>
+			<Char_Desc_45>{#Char_Desc_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_2000}</Char_Desc_2000>
+		</English>
+		#endif
+		#if defined Char_Desc_Finnish_45 && defined Char_Desc_Finnish_80 && defined Char_Desc_Finnish_250 && defined Char_Desc_Finnish_450 && defined Char_Desc_Finnish_2000
+		<Finnish>
+			<Keywords>{#Keywords_Finnish}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Finnish_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Finnish_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Finnish_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Finnish_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Finnish_2000}</Char_Desc_2000>
+		</Finnish>
+		#endif
+		#if defined Char_Desc_French_45 && defined Char_Desc_French_80 && defined Char_Desc_French_250 && defined Char_Desc_French_450 && defined Char_Desc_French_2000
+		<French>
+			<Keywords>{#Keywords_French}</Keywords>
+			<Char_Desc_45>{#Char_Desc_French_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_French_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_French_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_French_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_French_2000}</Char_Desc_2000>
+		</French>
+		#endif
+		#if defined Char_Desc_German_45 && defined Char_Desc_German_80 && defined Char_Desc_German_250 && defined Char_Desc_German_450 && defined Char_Desc_German_2000
+		<German>
+			<Keywords>{#Keywords_German}</Keywords>
+			<Char_Desc_45>{#Char_Desc_German_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_German_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_German_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_German_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_German_2000}</Char_Desc_2000>
+		</German>
+		#endif
+		#if defined Char_Desc_Greek_45 && defined Char_Desc_Greek_80 && defined Char_Desc_Greek_250 && defined Char_Desc_Greek_450 && defined Char_Desc_Greek_2000
+		<Greek>
+			<Keywords>{#Keywords_Greek}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Greek_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Greek_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Greek_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Greek_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Greek_2000}</Char_Desc_2000>
+		</Greek>
+		#endif
+		#if defined Char_Desc_Hindi_45 && defined Char_Desc_Hindi_80 && defined Char_Desc_Hindi_250 && defined Char_Desc_Hindi_450 && defined Char_Desc_Hindi_2000
+		<Hindi>
+			<Keywords>{#Keywords_Hindi}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Hindi_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Hindi_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Hindi_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Hindi_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Hindi_2000}</Char_Desc_2000>
+		</Hindi>
+		#endif
+		#if defined Char_Desc_Hungarian_45 && defined Char_Desc_Hungarian_80 && defined Char_Desc_Hungarian_250 && defined Char_Desc_Hungarian_450 && defined Char_Desc_Hungarian_2000
+		<Hungarian>
+			<Keywords>{#Keywords_Hungarian}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Hungarian_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Hungarian_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Hungarian_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Hungarian_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Hungarian_2000}</Char_Desc_2000>
+		</Hungarian>
+		#endif
+		#if defined Char_Desc_Italian_45 && defined Char_Desc_Italian_80 && defined Char_Desc_Italian_250 && defined Char_Desc_Italian_450 && defined Char_Desc_Italian_2000
+		<Italian>
+			<Keywords>{#Keywords_Italian}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Italian_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Italian_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Italian_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Italian_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Italian_2000}</Char_Desc_2000>
+		</Italian>
+		#endif
+		#if defined Char_Desc_Japanese_45 && defined Char_Desc_Japanese_80 && defined Char_Desc_Japanese_250 && defined Char_Desc_Japanese_450 && defined Char_Desc_Japanese_2000
+		<Japanese>
+			<Keywords>{#Keywords_Japanese}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Japanese_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Japanese_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Japanese_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Japanese_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Japanese_2000}</Char_Desc_2000>
+		</Japanese>
+		#endif
+		#if defined Char_Desc_Korean_45 && defined Char_Desc_Korean_80 && defined Char_Desc_Korean_250 && defined Char_Desc_Korean_450 && defined Char_Desc_Korean_2000
+		<Korean>
+			<Keywords>{#Keywords_Korean}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Korean_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Korean_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Korean_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Korean_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Korean_2000}</Char_Desc_2000>
+		</Korean>
+		#endif
+		#if defined Char_Desc_Polish_45 && defined Char_Desc_Polish_80 && defined Char_Desc_Polish_250 && defined Char_Desc_Polish_450 && defined Char_Desc_Polish_2000
+		<Polish>
+			<Keywords>{#Keywords_Polish}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Polish_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Polish_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Polish_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Polish_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Polish_2000}</Char_Desc_2000>
+		</Polish>
+		#endif
+		#if defined Char_Desc_Portuguese_45 && defined Char_Desc_Portuguese_80 && defined Char_Desc_Portuguese_250 && defined Char_Desc_Portuguese_450 && defined Char_Desc_Portuguese_2000
+		<Portuguese>
+			<Keywords>{#Keywords_Portuguese}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Portuguese_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Portuguese_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Portuguese_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Portuguese_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Portuguese_2000}</Char_Desc_2000>
+		</Portuguese>
+		#endif
+		#if defined Char_Desc_Romanian_45 && defined Char_Desc_Romanian_80 && defined Char_Desc_Romanian_250 && defined Char_Desc_Romanian_450 && defined Char_Desc_Romanian_2000
+		<Romanian>
+			<Keywords>{#Keywords_Romanian}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Romanian_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Romanian_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Romanian_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Romanian_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Romanian_2000}</Char_Desc_2000>
+		</Romanian>
+		#endif
+		#if defined Char_Desc_Russian_45 && defined Char_Desc_Russian_80 && defined Char_Desc_Russian_250 && defined Char_Desc_Russian_450 && defined Char_Desc_Russian_2000
+		<Russian>
+			<Keywords>{#Keywords_Russian}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Russian_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Russian_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Russian_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Russian_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Russian_2000}</Char_Desc_2000>
+		</Russian>
+		#endif
+		#if defined Char_Desc_Spanish_45 && defined Char_Desc_Spanish_80 && defined Char_Desc_Spanish_250 && defined Char_Desc_Spanish_450 && defined Char_Desc_Spanish_2000
+		<Spanish>
+			<Keywords>{#Keywords_Spanish}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Spanish_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Spanish_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Spanish_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Spanish_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Spanish_2000}</Char_Desc_2000>
+		</Spanish>
+		#endif
+		#if defined Char_Desc_Swedish_45 && defined Char_Desc_Swedish_80 && defined Char_Desc_Swedish_250 && defined Char_Desc_Swedish_450 && defined Char_Desc_Swedish_2000
+		<Swedish>
+			<Keywords>{#Keywords_Swedish}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Swedish_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Swedish_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Swedish_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Swedish_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Swedish_2000}</Char_Desc_2000>
+		</Swedish>
+		#endif
+		#if defined Char_Desc_Turkish_45 && defined Char_Desc_Turkish_80 && defined Char_Desc_Turkish_250 && defined Char_Desc_Turkish_450 && defined Char_Desc_Turkish_2000
+		<Turkish>
+			<Keywords>{#Keywords_Turkish}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Turkish_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Turkish_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Turkish_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Turkish_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Turkish_2000}</Char_Desc_2000>
+		</Turkish>
+		#endif
+		#if defined Char_Desc_Urdu_45 && defined Char_Desc_Urdu_80 && defined Char_Desc_Urdu_250 && defined Char_Desc_Urdu_450 && defined Char_Desc_Urdu_2000
+		<Urdu>
+			<Keywords>{#Keywords_Urdu}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Urdu_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Urdu_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Urdu_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Urdu_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Urdu_2000}</Char_Desc_2000>
+		</Urdu>
+		#endif
+		#if defined Char_Desc_Vietnamese_45 && defined Char_Desc_Vietnamese_80 && defined Char_Desc_Vietnamese_250 && defined Char_Desc_Vietnamese_450 && defined Char_Desc_Vietnamese_2000
+		<Vietnamese>
+			<Keywords>{#Keywords_Vietnamese}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Vietnamese_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Vietnamese_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Vietnamese_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Vietnamese_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Vietnamese_2000}</Char_Desc_2000>
+		</Vietnamese>
+		#endif
+		#if defined Char_Desc_Yiddish_45 && defined Char_Desc_Yiddish_80 && defined Char_Desc_Yiddish_250 && defined Char_Desc_Yiddish_450 && defined Char_Desc_Yiddish_2000
+		<Yiddish>
+			<Keywords>{#Keywords_Yiddish}</Keywords>
+			<Char_Desc_45>{#Char_Desc_Yiddish_45}</Char_Desc_45>
+			<Char_Desc_80>{#Char_Desc_Yiddish_80}</Char_Desc_80>
+			<Char_Desc_250>{#Char_Desc_Yiddish_250}</Char_Desc_250>
+			<Char_Desc_450>{#Char_Desc_Yiddish_450}</Char_Desc_450>
+			<Char_Desc_2000>{#Char_Desc_Yiddish_2000}</Char_Desc_2000>
+		</Yiddish>
+		#endif
+	</Program_Descriptions>
+	<Web_Info>
+		<Application_URLs>
+			<Application_Info_URL>{#Application_Info_URL}</Application_Info_URL>
+			<Application_Order_URL>{#Application_Order_URL}</Application_Order_URL>
+			<Application_Screenshot_URL>{#Application_Screenshot_URL}</Application_Screenshot_URL>
+			<Application_Icon_URL>{#Application_Icon_URL}</Application_Icon_URL>
+			<Application_XML_File_URL>{#Application_XML_File_URL}</Application_XML_File_URL>
+		</Application_URLs>
+		<Download_URLs>
+			<Primary_Download_URL>{#Primary_Download_URL}</Primary_Download_URL>
+			<Secondary_Download_URL>{#Secondary_Download_URL}</Secondary_Download_URL>
+			<Additional_Download_URL_1>{#Additional_Download_URL_1}</Additional_Download_URL_1>
+			<Additional_Download_URL_2>{#Additional_Download_URL_2}</Additional_Download_URL_2>
+		</Download_URLs>
+	</Web_Info>
+	<Permissions>
+		#ifdef Distribution_Permissions_FileName
+		#if Distribution_Permissions_FileName == ""
+		<Distribution_Permissions>{#Distribution_Permissions}</Distribution_Permissions>
+		#else
+		<Distribution_Permissions>
+		#include Distribution_Permissions_FileName
+		</Distribution_Permissions>
+		#endif
+		#else
+		<Distribution_Permissions>{#Distribution_Permissions}</Distribution_Permissions>
+		#endif
+		#ifdef EULA_FileName
+		#if EULA_FileName == ""
+		<EULA>{#EULA}</EULA>
+		#else
+		<EULA>
+		#include EULA_FileName
+		</EULA>
+		#endif
+		#else
+		<EULA>{#EULA}</EULA>
+		#endif
+	</Permissions>
+	#ifdef ASP_Member_Number
+        #if ASP_Member_Number != ""
+	<ASP>
+		<ASP_FORM>Y</ASP_FORM>
+		<ASP_Member>Y</ASP_Member>
+		<ASP_Member_Number>{#ASP_Member_Number}</ASP_Member_Number>
+	</ASP>
+	#endif
+	#endif
+	#ifdef TPA_Member_ID
+        #if TPA_Member_ID != ""
+	<TPA>
+		<TPA_FORM>Y</TPA_FORM>
+		<TPA_Member>Y</TPA_Member>
+		<TPA_Member_ID>{#TPA_Member_ID}</PAD_TPA_Member_ID>
+		<Trial_License_Type>{#TPA_Trial_License_Type}</Trial_License_Type>
+	</TPA>
+	#endif
+	#endif
+	#ifdef ESC_Member_Number
+        #if ESC_Member_Number != ""
+	<ESC>
+		<ESC_FORM>Y</ESC_FORM>
+		<ESC_Member>Y</ESC_Member>
+		<ESC_Member_Number>{#ESC_Member_Number}</ESC_Member_Number>
+	</ESC>
+	#endif
+	#endif
+	#ifdef MSN_IS_32bit
+        #if MSN_IS_32bit == "Y"
+	<MSN>
+		<MSN_FORM>Y</MSN_FORM>
+		<MSN_IS_32bit>Y</MSN_IS_32bit>
+	</MSN>
+	#endif
+	#endif
+	#ifdef PADRING1
+        #if PADRING1 != ""
+	<PADRING>
+		<PADRING_FORM>Y</PADRING_FORM>
+		<PADRING>{#PADRING1}
+#ifdef PADRING2
+#if PADRING2 != "" 
+{#PADRING2}
+#endif
+#endif
+#ifdef PADRING3
+#if PADRING3 != ""
+{#PADRING3}
+#endif
+#endif
+#ifdef PADRING4
+#if PADRING4 != ""
+{#PADRING4}
+#endif
+#endif
+#ifdef PADRING5
+#if PADRING5 != ""
+{#PADRING5}
+#endif
+#endif
+#ifdef PADRING6
+#if PADRING6 != ""
+{#PADRING6}
+#endif
+#endif
+#ifdef PADRING7
+#if PADRING7 != ""
+{#PADRING7}
+#endif
+#endif
+#ifdef PADRING8
+#if PADRING8 != ""
+{#PADRING8}
+#endif
+#endif
+#ifdef PADRING9
+#if PADRING9 != ""
+{#PADRING9}
+#endif
+#endif
+#ifdef PADRING10
+#if PADRING10 != ""
+{#PADRING10}
+#endif
+#endif
+</PADRING>
+	</PADRING>
+	#endif
+	#endif
+	#ifdef DELPHI_FORM
+        #if DELPHI_FORM == "Y"
+	<DELPHI>
+		<DELPHI_FORM>Y</DELPHI_FORM>
+		<DELPHI_D1_URL>{#DELPHI_D1_URL}</DELPHI_D1_URL>
+		<DELPHI_D2_URL>{#DELPHI_D2_URL}</DELPHI_D2_URL>
+		<DELPHI_D3_URL>{#DELPHI_D3_URL}</DELPHI_D3_URL>
+		<DELPHI_D4_URL>{#DELPHI_D4_URL}</DELPHI_D4_URL>
+		<DELPHI_D5_URL>{#DELPHI_D5_URL}</DELPHI_D5_URL>
+		<DELPHI_D6_URL>{#DELPHI_D6_URL}</DELPHI_D6_URL>
+		<DELPHI_BCB1_URL>{#DELPHI_BCB1_URL}</DELPHI_BCB1_URL>
+		<DELPHI_BCB3_URL>{#DELPHI_BCB3_URL}</DELPHI_BCB3_URL>
+		<DELPHI_BCB4_URL>{#DELPHI_BCB4_URL}</DELPHI_BCB4_URL>
+		<DELPHI_BCB5_URL>{#DELPHI_BCB5_URL}</DELPHI_BCB5_URL>
+		<DELPHI_K1_URL>{#DELPHI_K1_URL}</DELPHI_K1_URL>
+		<DELPHI_Type>{#DELPHI_Type}</DELPHI_Type>
+		<DELPHI_Price>{#DELPHI_Price}</DELPHI_Price>
+		<DELPHI_Source>{#DELPHI_Source}</DELPHI_Source>
+		<DELPHI_File_Location>{#DELPHI_File_Location}</DELPHI_File_Location>
+		<DELPHI_Link_URL>{#DELPHI_Link_URL}</DELPHI_Link_URL>
+		<DELPHI_Download_URL>{#DELPHI_Download_URL}</DELPHI_Download_URL>
+		<DELPHI_Version>{#DELPHI_Version}</DELPHI_Version>
+		<DELPHI_Notes>{#DELPHI_Notes}</DELPHI_Notes>
+	</DELPHI>
+	#endif
+	#endif
+	#ifdef Affiliates_FORM
+        #if Affiliates_FORM == "Y"
+	<Affiliates>
+		<Affiliates_FORM>Y</Affiliates_FORM>
+		<Affiliates_VERSION>1.1</Affiliates_VERSION>
+		<Affiliates_URL>http://www.asp-shareware.org/pad/extensions/Affiliates.htm</Affiliates_URL>
+		<Affiliates_Information_Page>{#Affiliates_Information_Page}</Affiliates_Information_Page>
+		<Affiliates_BMTMicro_Order_Page>{#Affiliates_BMTMicro_Order_Page}</Affiliates_BMTMicro_Order_Page>
+		<Affiliates_BMTMicro_Vendor_ID>{#Affiliates_BMTMicro_Vendor_ID}</Affiliates_BMTMicro_Vendor_ID>
+		<Affiliates_BMTMicro_Product_ID>{#Affiliates_BMTMicro_Product_ID}</Affiliates_BMTMicro_Product_ID>
+		<Affiliates_BMTMicro_Maximum_Commission_Rate>{#Affiliates_BMTMicro_Maximum_Commission_Rate}</Affiliates_BMTMicro_Maximum_Commission_Rate>
+		<Affiliates_clixGalore_Order_Page>{#Affiliates_clixGalore_Order_Page}</Affiliates_clixGalore_Order_Page>
+		<Affiliates_clixGalore_Vendor_ID>{#Affiliates_clixGalore_Vendor_ID}</Affiliates_clixGalore_Vendor_ID>
+		<Affiliates_clixGalore_Product_ID></Affiliates_clixGalore_Product_ID>
+		<Affiliates_clixGalore_Maximum_Commission_Rate>{#Affiliates_clixGalore_Maximum_Commission_Rate}</Affiliates_clixGalore_Maximum_Commission_Rate>
+		<Affiliates_CommissionJunction_Order_Page>{#Affiliates_CommissionJunction_Order_Page}</Affiliates_CommissionJunction_Order_Page>
+		<Affiliates_CommissionJunction_Vendor_ID>{#Affiliates_CommissionJunction_Vendor_ID></Affiliates_CommissionJunction_Vendor_ID>
+		<Affiliates_CommissionJunction_Product_ID>{#Affiliates_CommissionJunction_Product_ID}</Affiliates_CommissionJunction_Product_ID>
+		<Affiliates_CommissionJunction_Maximum_Commission_Rate>{#Affiliates_CommissionJunction_Maximum_Commission_Rate}</Affiliates_CommissionJunction_Maximum_Commission_Rate>
+		<Affiliates_DigiBuy_Order_Page>{#Affiliates_DigiBuy_Order_Page}</Affiliates_DigiBuy_Order_Page>
+		<Affiliates_DigiBuy_Vendor_ID>{#Affiliates_DigiBuy_Vendor_ID}</Affiliates_DigiBuy_Vendor_ID>
+		<Affiliates_DigiBuy_Product_ID>{#Affiliates_DigiBuy_Product_ID}</Affiliates_DigiBuy_Product_ID>
+		<Affiliates_DigiBuy_Maximum_Commission_Rate>{#Affiliates_DigiBuy_Maximum_Commission_Rate}</Affiliates_DigiBuy_Maximum_Commission_Rate>
+		<Affiliates_DigitalCandle_Order_Page>{#Affiliates_DigitalCandle_Order_Page}</Affiliates_DigitalCandle_Order_Page>
+		<Affiliates_DigitalCandle_Vendor_ID>{#Affiliates_DigitalCandle_Vendor_ID}</Affiliates_DigitalCandle_Vendor_ID>
+		<Affiliates_DigitalCandle_Product_ID>{#Affiliates_DigitalCandle_Product_ID}</Affiliates_DigitalCandle_Product_ID>
+		<Affiliates_DigitalCandle_Maximum_Commission_Rate>{#Affiliates_DigitalCandle_Maximum_Commission_Rate}</Affiliates_DigitalCandle_Maximum_Commission_Rate>
+		<Affiliates_Emetrix_Order_Page>{#Affiliates_Emetrix_Order_Page}</Affiliates_Emetrix_Order_Page>
+		<Affiliates_Emetrix_Vendor_ID>{#Affiliates_Emetrix_Vendor_ID}</Affiliates_Emetrix_Vendor_ID>
+		<Affiliates_Emetrix_Product_ID>{#Affiliates_Emetrix_Product_ID}</Affiliates_Emetrix_Product_ID>
+		<Affiliates_Emetrix_Maximum_Commission_Rate>{#Affiliates_Emetrix_Maximum_Commission_Rate}</Affiliates_Emetrix_Maximum_Commission_Rate>
+		<Affiliates_eSellerate_Order_Page>{#Affiliates_eSellerate_Order_Page}</Affiliates_eSellerate_Order_Page>
+		<Affiliates_eSellerate_Vendor_ID>{#Affiliates_eSellerate_Vendor_ID}</Affiliates_eSellerate_Vendor_ID>
+		<Affiliates_eSellerate_Product_ID>{#Affiliates_eSellerate_Product_ID}</Affiliates_eSellerate_Product_ID>
+		<Affiliates_eSellerate_Maximum_Commission_Rate>{#Affiliates_eSellerate_Maximum_Commission_Rate}</Affiliates_eSellerate_Maximum_Commission_Rate>
+		<Affiliates_Kagi_Order_Page>{#Affiliates_Kagi_Order_Page}</Affiliates_Kagi_Order_Page>
+		<Affiliates_Kagi_Vendor_ID>{#Affiliates_Kagi_Vendor_ID}</Affiliates_Kagi_Vendor_ID>
+		<Affiliates_Kagi_Product_ID>{#Affiliates_Kagi_Product_ID}</Affiliates_Kagi_Product_ID>
+		<Affiliates_Kagi_Maximum_Commission_Rate>{#Affiliates_Kagi_Maximum_Commission_Rate}</Affiliates_Kagi_Maximum_Commission_Rate>
+		<Affiliates_LinkShare_Order_Page>{#Affiliates_LinkShare_Order_Page}</Affiliates_LinkShare_Order_Page>
+		<Affiliates_LinkShare_Vendor_ID>{#Affiliates_LinkShare_Vendor_ID}</Affiliates_LinkShare_Vendor_ID>
+		<Affiliates_LinkShare_Product_ID>{#Affiliates_LinkShare_Product_ID}</Affiliates_LinkShare_Product_ID>
+		<Affiliates_LinkShare_Maximum_Commission_Rate>{#Affiliates_LinkShare_Maximum_Commission_Rate}</Affiliates_LinkShare_Maximum_Commission_Rate>
+		<Affiliates_NorthStarSol_Order_Page>{#Affiliates_NorthStarSol_Order_Page}</Affiliates_NorthStarSol_Order_Page>
+		<Affiliates_NorthStarSol_Vendor_ID>{#Affiliates_NorthStarSol_Vendor_ID}</Affiliates_NorthStarSol_Vendor_ID>
+		<Affiliates_NorthStarSol_Product_ID>{#Affiliates_NorthStarSol_Product_ID}</Affiliates_NorthStarSol_Product_ID>
+		<Affiliates_NorthStarSol_Maximum_Commission_Rate>{#Affiliates_NorthStarSol_Maximum_Commission_Rate}</Affiliates_NorthStarSol_Maximum_Commission_Rate>
+		<Affiliates_Order1_Order_Page>{#Affiliates_Order1_Order_Page}</Affiliates_Order1_Order_Page>
+		<Affiliates_Order1_Vendor_ID>{#Affiliates_Order1_Vendor_ID}</Affiliates_Order1_Vendor_ID>
+		<Affiliates_Order1_Product_ID>{#Affiliates_Order1_Product_ID}</Affiliates_Order1_Product_ID>
+		<Affiliates_Order1_Maximum_Commission_Rate>{#Affiliates_Order1_Maximum_Commission_Rate}</Affiliates_Order1_Maximum_Commission_Rate>
+		<Affiliates_Osolis_Order_Page>{#Affiliates_Osolis_Order_Page}</Affiliates_Osolis_Order_Page>
+		<Affiliates_Osolis_Vendor_ID>{#Affiliates_Osolis_Vendor_ID}</Affiliates_Osolis_Vendor_ID>
+		<Affiliates_Osolis_Product_ID>{#Affiliates_Osolis_Product_ID}</Affiliates_Osolis_Product_ID>
+		<Affiliates_Osolis_Maximum_Commission_Rate>{#Affiliates_Osolis_Maximum_Commission_Rate}</Affiliates_Osolis_Maximum_Commission_Rate>
+		<Affiliates_Plimus_Order_Page>{#Affiliates_Plimus_Order_Page}</Affiliates_Plimus_Order_Page>
+		<Affiliates_Plimus_Vendor_ID>{#Affiliates_Plimus_Vendor_ID}</Affiliates_Plimus_Vendor_ID>
+		<Affiliates_Plimus_Product_ID>{#Affiliates_Plimus_Product_ID}</Affiliates_Plimus_Product_ID>
+		<Affiliates_Plimus_Maximum_Commission_Rate>{#Affiliates_Plimus_Maximum_Commission_Rate}</Affiliates_Plimus_Maximum_Commission_Rate>
+		<Affiliates_Regnet_Order_Page>{#Affiliates_Regnet_Order_Page}</Affiliates_Regnet_Order_Page>
+		<Affiliates_Regnet_Vendor_ID>{#Affiliates_Regnet_Vendor_ID}</Affiliates_Regnet_Vendor_ID>
+		<Affiliates_Regnet_Product_ID>{#Affiliates_Regnet_Product_ID}</Affiliates_Regnet_Product_ID>
+		<Affiliates_Regnet_Maximum_Commission_Rate>{#Affiliates_Regnet_Maximum_Commission_Rate}</Affiliates_Regnet_Maximum_Commission_Rate>
+		<Affiliates_Regnow_Order_Page>{#Affiliates_Regnow_Order_Page}</Affiliates_Regnow_Order_Page>
+		<Affiliates_Regnow_Vendor_ID>{#Affiliates_Regnow_Vendor_ID}</Affiliates_Regnow_Vendor_ID>
+		<Affiliates_Regnow_Product_ID>{#Affiliates_Regnow_Product_ID}</Affiliates_Regnow_Product_ID>
+		<Affiliates_Regnow_Maximum_Commission_Rate>{#Affiliates_Regnow_Maximum_Commission_Rate}</Affiliates_Regnow_Maximum_Commission_Rate>
+		<Affiliates_Regsoft_Order_Page>{#Affiliates_Regsoft_Order_Page}</Affiliates_Regsoft_Order_Page>
+		<Affiliates_Regsoft_Vendor_ID>{#Affiliates_Regsoft_Vendor_ID}</Affiliates_Regsoft_Vendor_ID>
+		<Affiliates_Regsoft_Product_ID>{#Affiliates_Regsoft_Product_ID}</Affiliates_Regsoft_Product_ID>
+		<Affiliates_Regsoft_Maximum_Commission_Rate>{#Affiliates_Regsoft_Maximum_Commission_Rate}</Affiliates_Regsoft_Maximum_Commission_Rate>
+		<Affiliates_ShareIt_Order_Page>{#Affiliates_ShareIt_Order_Page}</Affiliates_ShareIt_Order_Page>
+		<Affiliates_ShareIt_Vendor_ID>{#Affiliates_ShareIt_Vendor_ID}</Affiliates_ShareIt_Vendor_ID>
+		<Affiliates_ShareIt_Product_ID>{#Affiliates_ShareIt_Product_ID}</Affiliates_ShareIt_Product_ID>
+		<Affiliates_ShareIt_Maximum_Commission_Rate>{#Affiliates_ShareIt_Maximum_Commission_Rate}</Affiliates_ShareIt_Maximum_Commission_Rate>
+		<Affiliates_Shareasale_Order_Page>{#Affiliates_Shareasale_Order_Page}</Affiliates_Shareasale_Order_Page>
+		<Affiliates_Shareasale_Vendor_ID>{#Affiliates_Shareasale_Vendor_ID}</Affiliates_Shareasale_Vendor_ID>
+		<Affiliates_Shareasale_Product_ID>{#Affiliates_Shareasale_Product_ID}</Affiliates_Shareasale_Product_ID>
+		<Affiliates_Shareasale_Maximum_Commission_Rate>{#Affiliates_Shareasale_Maximum_Commission_Rate}</Affiliates_Shareasale_Maximum_Commission_Rate>
+		<Affiliates_SWReg_Order_Page>{#Affiliates_SWReg_Order_Page}</Affiliates_SWReg_Order_Page>
+		<Affiliates_SWReg_Vendor_ID>{#Affiliates_SWReg_Vendor_ID}</Affiliates_SWReg_Vendor_ID>
+		<Affiliates_SWReg_Product_ID>{#Affiliates_SWReg_Product_ID}</Affiliates_SWReg_Product_ID>
+		<Affiliates_SWReg_Maximum_Commission_Rate>{#Affiliates_SWReg_Maximum_Commission_Rate}</Affiliates_SWReg_Maximum_Commission_Rate>
+		<Affiliates_V-Share_Order_Page>{#Affiliates_V-Share_Order_Page}</Affiliates_V-Share_Order_Page>
+		<Affiliates_V-Share_Vendor_ID>{#Affiliates_V-Share_Vendor_ID}</Affiliates_V-Share_Vendor_ID>
+		<Affiliates_V-Share_Product_ID>{#Affiliates_V-Share_Product_ID}</Affiliates_V-Share_Product_ID>
+		<Affiliates_V-Share_Maximum_Commission_Rate>{#Affiliates_V-Share_Maximum_Commission_Rate}</Affiliates_V-Share_Maximum_Commission_Rate>
+		<Affiliates_VFree_Order_Page>{#Affiliates_VFree_Order_Page}</Affiliates_VFree_Order_Page>
+		<Affiliates_VFree_Vendor_ID>{#Affiliates_VFree_Vendor_ID}</Affiliates_VFree_Vendor_ID>
+		<Affiliates_VFree_Product_ID>{#Affiliates_VFree_Product_ID}</Affiliates_VFree_Product_ID>
+		<Affiliates_VFree_Maximum_Commission_Rate>{#Affiliates_VFree_Maximum_Commission_Rate}</Affiliates_VFree_Maximum_Commission_Rate>
+		<Affiliates_Yaskifo_Order_Page>{#Affiliates_Yaskifo_Order_Page}</Affiliates_Yaskifo_Order_Page>
+		<Affiliates_Yaskifo_Vendor_ID>{#Affiliates_Yaskifo_Vendor_ID}</Affiliates_Yaskifo_Vendor_ID>
+		<Affiliates_Yaskifo_Product_ID>{#Affiliates_Yaskifo_Product_ID}</Affiliates_Yaskifo_Product_ID>
+		<Affiliates_Yaskifo_Maximum_Commission_Rate>{#Affiliates_Yaskifo_Maximum_Commission_Rate}</Affiliates_Yaskifo_Maximum_Commission_Rate>
+	</Affiliates>
+	#endif
+	#endif
+</XML_DIZ_INFO>

@@ -1,0 +1,11 @@
+[LangOptions]
+LanguageName=Euskara
+LanguageID=$042D
+LanguageCodePage=0
+TitleFontName=Arial
+WelcomeFontName=Verdana
+CopyrightFontName=Arial
+DialogFontSize=8
+TitleFontSize=29
+WelcomeFontSize=12
+CopyrightFontSize=8

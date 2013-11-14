@@ -1,0 +1,11 @@
+[LangOptions]
+LanguageName=Castellano-Nicaragua
+LanguageID=$4C0A
+LanguageCodePage=1252
+TitleFontName=Arial
+WelcomeFontName=Verdana
+CopyrightFontName=Arial
+DialogFontSize=8
+TitleFontSize=29
+WelcomeFontSize=12
+CopyrightFontSize=8
