@@ -1,0 +1,556 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0045)http://restools.hanzify.org/article.asp?id=47 -->
+<HTML lang=UTF-8 xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Inno Setup 编译器编辑功能增强版 - RESTOOLS</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<META http-equiv=Content-Language content=UTF-8>
+<META content=all name=robots>
+<META content=restools@21cn.com,xin name=author>
+<META content="RESTOOLS Copyright 1996-2012" name=Copyright>
+<META 
+content="RESTOOLS,ResScope,freeRes,GetVBRes,LoveString,GetStrRes,Resource,Inno Setup,NSIS,VC++,Delphi,Blog,ASP,designing,with,web,standards,xhtml,css,graphic,design,layout,usability,accessibility,w3c,w3,w3cn" 
+name=keywords>
+<META content="RESTOOLS - 打造最强的资源编辑工具系列" name=description><LINK 
+title="订阅 RESTOOLS - NSIS &amp; InnoSetup 所有文章(rss2)" 
+href="http://restools.hanzify.org/feed.asp?cateID=4" type=application/rss+xml 
+rel=alternate><LINK title="订阅 RESTOOLS - NSIS &amp; InnoSetup 所有文章(atom)" 
+href="http://restools.hanzify.org/atom.asp?cateID=4" type=application/atom+xml 
+rel=alternate><LINK rev=stylesheet media=all 
+href="imgs/global.css" 
+type=text/css rel=stylesheet><!--全局样式表--><LINK rev=stylesheet media=all 
+href="imgs/layout.css" 
+type=text/css rel=stylesheet><!--层次样式表--><LINK rev=stylesheet media=all 
+href="imgs/typography.css" 
+type=text/css rel=stylesheet><!--局部样式表--><LINK rev=stylesheet media=all 
+href="imgs/link.css" 
+type=text/css rel=stylesheet><!--超链接样式表--><LINK rev=stylesheet media=all 
+href="imgs/editor.css" 
+type=text/css rel=stylesheet><!--UBB编辑器代码--><LINK href="favicon.ico" 
+type=image/x-icon rel=icon><LINK href="favicon.ico" type=image/x-icon 
+rel="shortcut icon">
+<SCRIPT src="imgs/common.js" 
+type=text/javascript></SCRIPT>
+<!--<script type="text/javascript" src="common/nicetitle.js"></script>-->
+<META content="MSHTML 6.00.2900.2180" name=GENERATOR></HEAD>
+<BODY onkeydown=PressKey() onload=initJS()><A accessKey=i 
+href="http://restools.hanzify.org/default.asp"></A><A accessKey=z 
+href="javascript:history.go(-1)"></A>
+<DIV class=Content-body id=logPanel> 
+  <h1>&nbsp;    </h1>
+  <h1>Inno Setup 增强版 </h1>
+  <p> <STRONG>附图：</STRONG><BR>
+    <IMG alt="" 
+src="imgs/p110207_1.png" 
+border=0><BR>
+    <IMG alt="" 
+src="imgs/p110207_2.png" 
+border=0><BR>
+    <IMG alt="" 
+src="imgs/p110207_3.png" 
+border=0><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      050925</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1. 基于<A 
+href="http://www.jrsoftware.org/isinfo.php" target=_blank> Inno Setup </A>5.1.5 
+      重新编译。<BR>
+      2. 在编译级别汉化本程序，汉化资源使用了莫名的汉化资源，在此感谢莫名提供汉化资源，减少了本人不少的工作量。<BR>
+      3. 
+      稍微修改了调试时的显示方式。跟 Delphi 更加的接近。<BR>
+      4. 增加部分的关键字，参数的高亮显示，跟 ISTOOL 相同。<BR>
+      5. 增加复制为 
+      UBB 代码的功能，方便论坛发帖使用。<BR>
+      6. 为方便编程控制事件，把里面部分控件换为 Delphi 5.0 
+      有的更高级的控件。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      051002</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1. 修正向导中的一个BUG。(汉化时产生)<BR>
+      2. 
+      加入代码模板功能。可以快速输入 INNO 一些常用代码，可自己添加。<BR>
+      (例如: 
+      你有一些经常使用的代码，你可以为它们建立自己的代号，然后就很容易快速输入该段代码)</SPAN><BR>
+    <STRONG>附图：</STRONG><BR>
+    <IMG 
+alt="" src="imgs/p051002.gif" 
+border=0><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      080428</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.添加一个代码分析视图，所有区段分析。code 
+      段是重点，因为实现自动完成代码功能的前期工作都在这个视图中实现了，包括每个 procedure 和 function 
+      的局部变量也被枚举了出来，只是没有在视图中显示。<BR>
+      2.修正中文显示问题。<BR>
+      3.改善一些界面上的显示。</SPAN><BR>
+    <STRONG>附图：</STRONG><BR>
+    <IMG 
+alt="" src="imgs/p080428.jpg" 
+border=0><BR>
+    <SPAN style="COLOR: blue">1. 区段分析。<BR>
+      2. 必须选项。<BR>
+      3. record 
+      类型。<BR>
+      4. 全局 var 变量。<BR>
+      5. 全局 const 常量。<BR>
+      6. procedure 分析。<BR>
+      7. funciton 
+      分析。<BR>
+      8. 内部支持过程。<BR>
+      9. 结构有问题的 function 或者 
+      procedure。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      080502</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.添加书签标记。<BR>
+      2.开放了大部分在<A 
+href="http://restools.hanzify.org/article.asp?id=43" target=_blank> VNISEdit </A>中同样存在的编辑器选项。<BR>
+      3.显示缩进竖线，方便代码阅读。<BR>
+      4.修正部分编辑器的显示问题。</SPAN><BR>
+    <STRONG>附图：</STRONG><BR>
+    <IMG 
+alt="" 
+src="imgs/320085202245.gif" 
+border=0><BR>
+    <IMG alt="" 
+src="imgs/m20085202315.gif" 
+border=0><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      080503</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.添加列块缩进处理，Tab 和 Shift+Tab 
+      快捷键。<BR>
+      2.添加注释选择文本功能，“;”和“/”控制，会自动检测所属区段的注释是用“;”还是“/”符号。只需要按“;”或者“/”键即可按照所属区段所使用的注释符号注释大量文本。<BR>
+      2.开放了编辑器语法颜色选项。<BR>
+      3.添加另存为 
+      HTML 格式。并且开放 UBB 和 HTML 复制的几个选项。</SPAN><BR>
+    <STRONG>附图：</STRONG><BR>
+    <IMG alt="" 
+src="imgs/g200853153245.gif" 
+border=0><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      080508</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.添加对 set of(集合) 和 array 
+      of(数组) 结构的代码分析。<BR>
+      2.开放视图的高级提示，可显示过程函数明细，例如局部变量。(菜单中打开此功能)<BR>
+      3.添加对 Bracket 
+      的支持。包括 begin, end, (, ),的对应。如果你用过 Visual Assist X 
+      ，就知道这个功能对于代码编写有多大的作用。颜色设置里面也可以设置该功能的颜色。错误配对也会显示红色。</SPAN><BR>
+    <IMG alt="" 
+src="imgs/m200858213016.jpg" 
+border=0><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      080511</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.完善 Type, var 
+      代码结构分析。<BR>
+      2.添加 try end 配对显示。<BR>
+      3.恢复功能：拖放文件，ESC 
+      关闭查找替换窗口。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      080513</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.修正配对显示在自动换行下的显示问题。<BR>
+      2.添加 
+      Type , var 中关于 function 和 procedure 的定义。至此，基本完成了<A 
+href="http://www.jrsoftware.org/isinfo.php" target=_blank> Inno Setup </A>所有我知道的定义类型的视图分析，如果还有未能正确分析的请告诉我。<BR>
+      3.添加 HotLink 
+      实现技术，但是目前并无实际效用，因为并未加诸应用。以后将会用在变量，函数，类型，过程等等的跳转。同样能够进行颜色设定。(功能键：Ctrl + 鼠标左键点击，类似 
+      Delphi)<BR>
+      4.修正编辑器粘贴时的显示问题。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      080519</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.修正显示、操作问题，尤其在 Win98 
+      下测试发现的问题一并处理。<BR>
+      2.修正新版本 SynEdit 控件的 
+      BUG，包括语法高亮，覆盖编辑，撤销重做问题。<BR>
+      3.添加一页，内部支持函数，过程，类，的声明页面，不可编辑，只是以后用来作为脚本跳转时源头，自动完成列表提取源头。<BR>
+      4.修正多 
+      code 段时的处理方法。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      080525</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.修正代码模版的执行方法，撤消重做无论在任何编辑器选项下都能正常使用了。并且增加模版每一项的描述。所以之前的模版文件在这版本中不能使用，需要替换掉。<BR>
+      2.修正双击选择中文的问题。<BR>
+      3.更改除 
+      code 段外所有区段代码的分析算法，力求更高效和更完整的分析，以备以后有需要的时候使用，可能以后会拿 Setup 段来实现<A 
+href="http://www.istool.org/" target=_blank> ISTool </A>的功能，不过不会扩展到所有区段，这部分是无责任烂尾，只是用来实验<A href="http://www.istool.org/" 
+target=_blank> ISTool </A>如何实现功能而已。开放了所有区段的高级视图提示。<BR>
+      4.改善切换页面时的效率问题。<BR>
+      5.经测试后，之前版本存在严重内存泄漏问题，这版本基本去除已发现的内存泄漏，不过线程处理很容易造成内存偶尔泄漏，所以接下来需要长时间的压力测试。就目前来说未再发现泄漏。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 080530</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.修正一个视图显示的问题。<BR>
+      2.修正一个 begin end 
+      配对的显示问题。<BR>
+      3.增加一个当前光标竖线颜色设置的选项，对于我自己来说，经常编写多层 begin end 
+      代码，所以我最终还是忍受不住太多的竖线仍然让我看得眼花缭乱，必须把我想知道的竖线加深颜色以便查看。<BR>
+      4.模板菜单中显示模板的描述，可方便初期使用时知道那些缩写究竟代表什么代码。<BR>
+      5.修正批量注释时的处理方法。<BR>
+      6.修正多处视图错误分析。<BR>
+      7.自动参数提示，包括内部支持过程函数和当前编辑脚本中的过程函数的参数提示。至于“#include”的包含文件方式，以后会想办法解决。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 080608</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.实现了近乎完美的弹出参数提示算法，已经能在任何输入下(包括中间夹杂了，字符串，注释，内含括号的计算公式，函数中再包含函数等等的影响)，都能正确标注出当前的要输入的第几项参数，同时也允许在换行输入下继续提示参数而不再消失。<BR>
+      2.修正编辑器的中文显示问题。<BR>
+      3.增加<A 
+href="http://www.jrsoftware.org/isinfo.php" target=_blank> Inno Setup </A>内部支持类成员函数和过程的参数弹出提示，CreateOleObject 创建的 Com 
+      对象除外，至此，基本建立了一个较为完整的检索类声明的分析体系，想来接下来的弹出列表应该问题不大了，with do 
+      结构以后想办法处理。<BR>
+      4.在内部支持页中补全了所有支持的类型，变量，常量声明，部分在帮助中并未提及。<BR>
+      5.修正常量声明语法分析和部分视图分析的问题。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 080609</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.修正在无语法高亮时的中文显示问题。<BR>
+      2.增加内部支持类所属的属性，过程，函数的自动完成列表。</SPAN><BR>
+    <IMG 
+alt="" 
+src="imgs/q200869154414.gif" 
+border=0><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      080618</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.修正参数提示弹出算法。<BR>
+      2.修正属性列表显示问题，弹出算法，支持 function 
+      返回类的弹出列表，例如<BR>
+    &nbsp;&nbsp;CreateInputQueryPage(AfterID,ACaption,ADescription,ASubCaption).Description<BR>
+    &nbsp;&nbsp;这样的返回类弹出列表，支持 
+      function 和 Class 混合语法分析弹出属性列表和函数参数提示，例如这种 <BR>
+    &nbsp;&nbsp;function_return_class().property_return_class.property_function() 
+      。<BR>
+    &nbsp;&nbsp;所以把 Mainform 和 WizardForm 声明修正为 function。<BR>
+      3.增加“function 
+      UninstallProgressForm: TUninstallProgressForm;”声明，使 UninstallProgressForm 
+      能正常使用参数弹出和属性列表弹出。<BR>
+      4.增加弹出列表排序功能。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 080628</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.修正函数参数弹出算法。同时增加快捷键 Ctrl+Shift+Space 
+      激活参数提示。<BR>
+      2.当行后无字符时，当输入“(”的时候，同时检测到之前的标识符属于支持函数，将会自动补充一个“)”字符。<BR>
+      3.增加 #include 
+      包含文件中的代码分析。支持多层包含文件代码分析，例如在一个包含文件中又包含另外一个包含文件。包含文件被修改后，重新返回该编辑器编辑的时候也会自动更新代码分析，当检测到包含文件循环崁套或者多次包含都只会载入一次以避免进入死循环。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 080724</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.当输入“@”符号时，提供当前声明的 proc 和 func 列表以供选择。<BR>
+      2.调整在 proc 和 func 
+      定义错误时的局部变量和全局变量的判断。尽可能的避免局部变量的定义变成了全局变量定义。<BR>
+      3.修正参数弹出算法，调整参数显示算法，当太多参数的时候，会自动根据屏幕宽度调整参数换行。<BR>
+      4.增加一个打开当前脚本文件夹的菜单。<BR>
+      5.修正最后一个 
+      function 段的分析。<BR>
+      6.修正 Chr 和 ord 的声明分析。<BR>
+      7.增加 record 
+      类型的成员弹出列表。<BR>
+      8.允许列表弹出设置弹出延迟时间。<BR>
+      9.增加编辑器一些选项。例如设置成较为女性化的编辑器底色。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 080921</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">仍然没有增加新的功能，只是修正大量错误。这里不一一细述了。<BR>
+      稍微调整的就是能自动分辨增强版编译器，以使用新的声明。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 090110</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.with do 结构分析。支持多层 with do 
+      结构分析。<BR>
+      2.修正多处参数，属性列表弹出代码分析错误算法，更加精准。<BR>
+      3.改善 Vista 下的界面显示效果。</SPAN><BR>
+    <IMG 
+alt="" 
+src="imgs/n2009110215917.gif" 
+border=0><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      090115</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.with do 结构分析: 能够分析诸如 with 
+      TButton.Create(WizardForm) do 这样的结构<BR>
+      2.增加 2 种关键字匹配方式，务求更快捷的输入代码。<BR>
+    <IMG 
+alt="" 
+src="imgs/e2009115183343.gif" 
+border=0><BR>
+      3.改善 Vista 下的界面显示效果。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 090215</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.改善部分语法分析，不过目前来说仍然有不太完善的地方，慢慢改。<BR>
+      2.增加所有标识符的弹出列表。编辑器选项中可以设置弹出延迟时间。<BR>
+    <IMG 
+alt="" 
+src="imgs/02009215222448.gif" 
+border=0><BR>
+      3.如果上面的弹出列表显得太厌烦可以关闭自动弹出，已经增加了快捷键 Ctrl+J 
+      弹出列表。<BR>
+      4.高亮当前行。选项可以设置是否高亮。<BR>
+      5.补充完整一些常量，类型声明。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 090308</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.修正部分语法分析算法，处理 with do 
+      结构内的所有标识符弹出列表算法。<BR>
+      2.添加窗口菜单以方便切换到已经打开的脚本。<BR>
+      3.解决了进程间的通信方式问题，将会自动检索已经打开的脚本，不会重复打开。<BR>
+      （这也是代码跳转，乃至脚本间代码跳转的前期工作）<BR>
+      4.添加支持 
+      FullVCL 编译版本的编译器内核的所有弹出列表的处理。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 090319</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.修正部分语法分析算法。<BR>
+      2.修正几处列表弹出算法。<BR>
+      3.窗口激活，窗口切换。窗口重排。<BR>
+      4.代码跳转算法，可以遍及整个 
+      Code 
+      段的代码跳转。包括，函数，参数，局部变量，全局<BR>
+    &nbsp;&nbsp;变量，记录，类型，集合，控件类、属性、函数。包含文件的脚本间的代码跳转也一并实现。<BR>
+    &nbsp;&nbsp;(使用方法：Ctrl 
+      + Mouse Click)</SPAN><BR>
+    <IMG alt="" 
+src="imgs/i2009319205738.gif" 
+border=0><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      090505</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">1.修正部分语法分析算法。<BR>
+      2.修正几处列表自动完成算法。<BR>
+      3.改善一些界面效果。<BR>
+      4.处理代码段所有标识符的提示，分为调试状态和非调试状态，在非调试状态下，提示同样遍及整个 
+      Code 段的代码提示。包括，函数，参数，局部变量，全局变量，记录，类型，集合，控件类、属性、函数。</SPAN><BR>
+    <IMG alt="" 
+src="imgs/5200955223636.gif" 
+border=0><BR>
+    <BR>
+    <STRONG><SPAN style="COLOR: red">build 
+      090506</SPAN></STRONG><BR>
+    <SPAN 
+style="COLOR: blue">紧急修正一个严重错误。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 090824</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1. 
+      修正多处语法高亮显示算法，能更好的以多种颜色显示代码。<BR>
+      2. 修正多处自动完成代码语法分析算法，更有效率，尽可能少的影响代码录入的速度。<BR>
+      3. 
+      分析了 ISPP 预处理代码的语法分析，在视图中显示出来。(暂时还不能在预处理代码中实现代码自动完成功能)<BR>
+      4. procedure 可分列 
+      External 类声明。<BR>
+      5. 同步更新至 5.3.4 代码。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 091007</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1. 修正多处语法高亮显示算法。<BR>
+      2. 修正 ISPP 分析算法。<BR>
+      Unicode 版本更新：<BR>
+      同步所有 ANSI 版本的功能，但是由于自动换行会影响程序打开速度，所以禁止了默认使用自动换行，但是换行功能仍然保留。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 091103</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.增加断开调试器的功能。<BR>2.工具菜单下增加插入颜色功能，同时为颜色对话框提供颜色拾取功能。<BR><IMG alt="" 
+src="imgs/y2009114224046.gif" 
+border=0>
+<BR>3.工具菜单下增加所有内部支持事件的定位功能。<BR>4.增加当前标识符的高亮显示。<BR><IMG alt="" 
+src="imgs/1200911422416.gif" 
+border=0><BR>5.修正多处语法高亮显示的问题。<BR>6.增加直接打开生成安装程序所在目录的功能。</SPAN><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 091128</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1. 修正多处语法高亮显示算法。<BR>
+2. 编辑器文字显示针对非等宽但视觉上同样等宽的字体（例如：宋体，新宋体等等）提供紧凑显示模式。</SPAN><BR><IMG alt="" 
+src="imgs/p20091128221144.gif" 
+border=0><BR>
+    <BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 100102</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1. 修正了多处语法高亮问题。<BR>
+2. 增加了 WizardForm 的可视化设计功能，我可以大胆的说一句，目前没有任何的安装程序制作工具能够有 Inno Setup 那样大的界面设计自由度。<BR>
+3. 查找替换框增加了“从脚本起始处开始”的选项。</SPAN><BR><IMG alt="" 
+src="imgs/n20101214157.gif" 
+border=0><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 100121</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">同步到 5.3.7 版本，并添加支持多个属于增强版本的控件的可视化设计，未来将会完善更多控件和属性的可视化设计。</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 100212</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1. 支持 Interface 结构的解释，具体可查看 Inno Setup 例子中的 CodeAutomation2.iss 脚本。<BR>
+2. 其他大量的可视化设计功能中的修正，这里就不一一细述了。</SPAN><BR><IMG alt="" 
+src="imgs/82010212172353.gif" 
+border=0><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 100221</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1. 同步至 5.3.8。<BR>2. WizardForm Designer 中支持 TRichEditViewer.RTFText 属性的可视化编辑。</SPAN><BR><IMG alt="" 
+src="imgs/c2010221195524.gif" 
+border=0><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 100322</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1. 添加多语言界面支持。<BR>
+2. 为 WizardForm Designer 改善多处功能。
+</SPAN><BR><IMG alt="" 
+src="imgs/f201032222453.gif" 
+border=0><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 100608</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">同步至 5.3.9 版本。并进行一些功能上的修正。</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 100707</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">同步至 5.3.10 版本。并进行一些功能上的修正。</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 101205</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">同步至 5.4.0 版本。并进行一些功能上的修正。
+</SPAN><BR><IMG alt="" 
+src="imgs/q2010125224242.gif" 
+border=0><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 101211</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">增加 Bitmap 和 Icon 的可视化处理。并修正一个影响 Unicode 版本可视化编辑的问题。
+</SPAN><BR><IMG alt="" 
+src="imgs/g2010121121751.gif" 
+border=0><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 101226</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">增加 控件事件 的可视化处理。并把原版的例子 CodeClasses.iss 修改成可视化版本，在这个例子中，你可以充分体验到可视化编辑带来的方便易用性，可以随意修改界面上控件的位置属性，而且非常方便的定位到相关控件的事件中。
+</SPAN><BR><IMG alt="" 
+src="imgs/e201012261418.gif" 
+border=0><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 110102</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">修正多处可视化设计中的 BUG.
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 110103</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.继续修正多处可视化设计中的 BUG.<BR>
+2.增加扩展控件 TTimer 的可视化设计.<BR>
+3.增加非可视化控件的创建顺序的调整.
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 110116</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.增加扩展控件 TImageList 的可视化设计。<BR>
+2.修正并调整语法高亮中的一些问题。并增加 Code 段语法高亮中的字符串内显示{#XXX}的特殊颜色。<BR>
+3.修正复制 UBB 和 HTML 代码时自动检测是否只复制 Code 段代码以便采用 Pas 高亮颜色处理。<BR>
+4.修正在可视化处理时，某些时候会出现令到可视化设计界面部分消失的情况。<BR>
+5.修正一处小的内存泄漏。<BR>
+6.修正一处自动完成列表弹出功能中的BUG。
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 110123</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.修正一处自动完成列表算法中的问题。<BR>
+2.修正一些可视化设计中的问题。<BR>
+3.增加控件 TNewNotebook 的可视化设计。
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 110202</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.对于原 WizardForm 控件提供了改变父控件的方法。<BR>
+2.修正一些可视化设计中的问题。
+</SPAN><BR><IMG alt="" 
+src="imgs/k20112223631.gif" 
+border=0><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 110208</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.修正脚本向导中的一个错误。<BR>
+2.可视化设计中修正“更改父控件”中的一个错误。<BR>
+3.可视化设计中增加控件的锁定功能，防止控件被不小心的移位。<BR>
+4.增加“TNewSpeedButton”的可视化设计。<BR>
+5.修正可视化设计中部分控件的 OnMouseEnter 和 OnMouseLeave 的事件显示。
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 110209</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.修正可视化设计中的一些错误。<BR>
+2.可视化设计中添加缩放功能。<BR>
+3.在 Unicode 版本中，脚本可以强制保存为 UTF-8 编码格式。
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 110213</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">同步至 5.4.1 版本，由于编辑器修改的程度已经日渐增大，以 Compil32Ex.exe 的名字出现，
+    复制到原版中使用，不再以覆盖的方式使用，所以请用户自行选择编辑器使用。
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 110301</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">修正多处可视化编辑中的问题。
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 110319</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">同步至 5.4.2, 并进行一些小的修正。
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 120112</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">同步至 5.4.3, 并进行一些小的错误修正和显示上的改善。
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 120808</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">同步至 5.5.1, 并进行一些小的错误修正，增加了一点对增强版编译器的控件属性支持。
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 121002</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">1.编辑菜单增加只读的选项，可以设置文件的只读属性，方便在参照脚本编辑时防止误编辑了被参照脚本。<BR>
+2.可视化设计生成代码时可以选择是否生成 Name 属性的代码，这个可在“设计器选项”中设置。<BR>
+3.修正生成代码时的一些问题。
+</SPAN><BR><BR>
+    <STRONG><SPAN 
+style="COLOR: red">build 121216</SPAN></STRONG><BR>
+    <SPAN style="COLOR: blue">同步至 5.5.2。
+</SPAN><BR><BR>
+<SPAN 
+style="COLOR: red">下载地址：</SPAN><BR>
+    适用于 5.1.5 版本 功能扩展到 build 051002<BR>
+    <SPAN 
+style="FONT-SIZE: 13pt"><STRONG><A 
+href="http://restools.hanzify.org/inno/InnoCompiler051002.zip" 
+target=_blank>http://restools.hanzify.org/inno/InnoCompiler051002.zip</A></STRONG></SPAN><BR>
+    <BR>
+    适用于 
+    5.2.3 版本 功能扩展到 build 090506<BR>
+    <SPAN style="FONT-SIZE: 13pt"><STRONG><A 
+href="http://restools.hanzify.org/inno/InnoCompiler090506.zip" 
+target=_blank>http://restools.hanzify.org/inno/InnoCompiler090506.zip</A></STRONG></SPAN><BR>
+    <SPAN 
+style="COLOR: red"><STRONG>For English:</STRONG></SPAN><BR>
+    <SPAN 
+style="FONT-SIZE: 13pt"><STRONG><A 
+href="http://restools.hanzify.org/inno/InnoCompiler090506_English.zip" 
+target=_blank>http://restools.hanzify.org/inno/InnoCompiler090506_English.zip</A></STRONG></SPAN><BR>
+    <BR>
+    适用于 
+    5.2.4 - 5.4.0 版本 功能扩展到 build 110209<BR>
+    <SPAN 
+style="COLOR: red"><STRONG>Multilanguage support: English, Chinese</STRONG></SPAN><BR>
+    <SPAN style="FONT-SIZE: 13pt"><STRONG><A 
+href="http://restools.hanzify.org/inno/InnoCompiler110209(7zip).zip" 
+target=_blank>http://restools.hanzify.org/inno/InnoCompiler110209(7zip).zip</A></STRONG></SPAN><BR>
+    <BR>
+    适用于 
+    5.4.1 - 5.4.3 版本 功能扩展到 build 120112<BR>
+    <SPAN 
+style="COLOR: red"><STRONG>Multilanguage support: English, Chinese</STRONG></SPAN><BR>
+    <SPAN style="FONT-SIZE: 13pt"><STRONG><A 
+href="http://restools.hanzify.org/inno/InnoCompiler120112(7zip).zip" 
+target=_blank>http://restools.hanzify.org/inno/InnoCompiler120112(7zip).zip</A></STRONG></SPAN><BR>
+    <BR>
+    适用于 
+    5.5.0 - 5.5.2 版本 功能扩展到 build 121216<BR>
+    <SPAN 
+style="COLOR: red"><STRONG>Multilanguage support: English, Chinese, Russian</STRONG></SPAN><BR>
+    <SPAN style="FONT-SIZE: 13pt"><STRONG><A 
+href="http://restools.hanzify.org/inno/InnoCompiler121216(7zip).zip" 
+target=_blank>http://restools.hanzify.org/inno/InnoCompiler121216(7zip).zip</A></STRONG></SPAN><BR>
+  <p>&nbsp;</p>
+</DIV>
+<SCRIPT type=text/javascript>initAccessKey()  //转换AccessKey For IE</SCRIPT>
+</BODY></HTML>

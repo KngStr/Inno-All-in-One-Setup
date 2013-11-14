@@ -1,0 +1,207 @@
+#container {
+	BACKGROUND: url(top.jpg) no-repeat right top; MARGIN: 0px auto; WIDTH: 100%; PADDING-TOP: 5px; TEXT-ALIGN: center
+}
+#container #header {
+	HEIGHT: 0px
+}
+#container #header #blogname {
+	DISPLAY: none
+}
+#container #header #blogname #blogTitle {
+	DISPLAY: none
+}
+#container #header #menu {
+	PADDING-RIGHT: 215px; PADDING-TOP: 0px; HEIGHT: 10px
+}
+#container #header #menu #Left {
+	
+}
+#container #header #menu #Right {
+	
+}
+#container #header #menu UL {
+	FLOAT: left; MARGIN: 2px 0px 0px 285px; LIST-STYLE-TYPE: none; HEIGHT: 10px
+}
+#container #header #menu UL LI {
+	FLOAT: left; HEIGHT: 10px
+}
+.menuDiv {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 4px; PADDING-TOP: 0px
+}
+#container #Tbody {
+	BACKGROUND: url(title.jpg) no-repeat left top; MARGIN: 6px 0px 0px 20px; WIDTH: 970px; TEXT-ALIGN: left
+}
+#sidebar {
+	FLOAT: right; MARGIN: 40px 0px 0px; WIDTH: 260px; TEXT-ALIGN: left
+}
+#innersidebar {
+	
+}
+#sidebar-topimg {
+	WIDTH: 260px; HEIGHT: 30px
+}
+#sidebar-bottomimg {
+	OVERFLOW: hidden; WIDTH: 260px; HEIGHT: 10px
+}
+.sidepanel {
+	MARGIN: 0px; WIDTH: 250px
+}
+.Ptitle {
+	PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 16px; MARGIN: 0px; COLOR: #d8692d; LINE-HEIGHT: 26px; FONT-FAMILY: Georgia,Arial, Helvetica, sans-serif; HEIGHT: 28px; TEXT-ALIGN: left
+}
+.Pcontent {
+	PADDING-LEFT: 5px; LINE-HEIGHT: 150%; PADDING-TOP: 4px; TEXT-ALIGN: left
+}
+.Pfoot {
+	MARGIN: 0px 0px 10px
+}
+#mainContent {
+	FLOAT: left; MARGIN: 130px 0px 0px; OVERFLOW: hidden; WIDTH: 690px; FONT-FAMILY: Tahoma, 宋体, Verdana, serif; TEXT-ALIGN: left
+}
+#innermainContent {
+	OVERFLOW: visible; MARGIN-RIGHT: 300px
+}
+#mainContent-topimg {
+	OVERFLOW: hidden; HEIGHT: 0px
+}
+#mainContent-bottomimg {
+	OVERFLOW: hidden; HEIGHT: 10px
+}
+.content-width {
+	MARGIN: 0px auto; WIDTH: 690px
+}
+.pageContent {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 0px auto; PADDING-TOP: 3px; HEIGHT: 18px; TEXT-ALIGN: left
+}
+.NavTitle {
+	FONT-WEIGHT: bold; FLOAT: left
+}
+.page {
+	PADDING-RIGHT: 5px; HEIGHT: 18px
+}
+.page UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.page UL LI {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.page UL LI.PageL {
+	WIDTH: 9px; HEIGHT: 16px
+}
+.page UL LI.PageR {
+	WIDTH: 9px; HEIGHT: 16px
+}
+.PageLbutton {
+	DISPLAY: block; BACKGROUND: url(../../images/BttnLeft.gif) 0px 0px; WIDTH: 9px; HEIGHT: 16px
+}
+.PageRbutton {
+	DISPLAY: block; BACKGROUND: url(../../images/BttnRight.gif) 0px 0px; WIDTH: 9px; HEIGHT: 16px
+}
+.Content {
+	MARGIN: 0px auto; FONT-FAMILY: Verdana, Tahoma, "宋体", Arial
+}
+.Content-body:first-letter {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 0px; FONT: bold 2.8em/1em Tahoma, "楷体_GB2312", "宋体"; COLOR: #403c31; PADDING-TOP: 0px
+}
+.Content-top {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; COLOR: #50514d; PADDING-TOP: 6px; TEXT-ALIGN: left
+}
+.Content-top .ContentLeft {
+	FLOAT: left; WIDTH: 0px
+}
+.Content-top .ContentRight {
+	FLOAT: right; WIDTH: 0px
+}
+.Content-top .ContentTitle {
+	FONT-SIZE: 14px; PADDING-BOTTOM: 4px; MARGIN: 0px; COLOR: #796bda
+}
+.Content-top .ContentAuthor {
+	PADDING-LEFT: 2px; FONT-WEIGHT: normal; FONT-SIZE: 11px; MARGIN: 0px; COLOR: #d6d1bd; PADDING-TOP: 4px
+}
+.Content-body IMG {
+	BORDER-RIGHT: #faf7ef 1px solid; BORDER-TOP: #faf7ef 1px solid; MARGIN: 0px; BORDER-LEFT: #faf7ef 1px solid; BORDER-BOTTOM: #faf7ef 1px solid
+}
+.Content-body {
+	MARGIN: 8px auto; OVERFLOW: hidden; WIDTH: 98%; LINE-HEIGHT: 180%; TEXT-ALIGN: left
+}
+.Content-bottom {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND: url(down.gif) repeat-x; PADDING-BOTTOM: 20px; COLOR: #88866f; PADDING-TOP: 1px; HEIGHT: 30px; TEXT-ALIGN: right
+}
+.Content-bottom UL {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #a3bec3; PADDING-TOP: 6px; LIST-STYLE-TYPE: none
+}
+.Content-bottom UL LI {
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 8px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.Content-bottom UL LI.bDiv {
+	
+}
+.Content-bottom .ContentBLeft {
+	FLOAT: left; WIDTH: 0px
+}
+.Content-bottom .ContentBRight {
+	FLOAT: right; WIDTH: 0px
+}
+.Content-Info {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 4px 6px; PADDING-TOP: 0px
+}
+.Content-Info .InfoAuthor {
+	TEXT-ALIGN: left
+}
+.Content-Info .InfoOther {
+	FLOAT: right; TEXT-ALIGN: right
+}
+.comment {
+	BORDER-RIGHT: #ddd6c2 0px solid; BORDER-TOP: #ddd6c2 0px solid; MARGIN: 10px 12px 4px; BORDER-LEFT: #ddd6c2 3px solid; WIDTH: 620px; BORDER-BOTTOM: #ddd6c2 0px solid; TEXT-ALIGN: left
+}
+.commentinfo {
+	FONT-SIZE: 11px; COLOR: #97957f
+}
+.commenttop {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; BORDER-BOTTOM: #ddd6c2 1px solid
+}
+.commentcontent {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; OVERFLOW: hidden; WIDTH: 95%; LINE-HEIGHT: 180%; PADDING-TOP: 10px
+}
+.UBBPanel {
+	BORDER-RIGHT: #ddd6c2 1px solid; BORDER-TOP: #ddd6c2 1px solid; BORDER-LEFT: #ddd6c2 3px solid; BORDER-BOTTOM: #ddd6c2 1px solid
+}
+.UBBTitle {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: bold; BACKGROUND: #f8f3e4; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; BORDER-BOTTOM: #ddd6c2 1px dotted
+}
+.UBBContent {
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px; PADDING-BOTTOM: 6px; LINE-HEIGHT: 160%; PADDING-TOP: 6px
+}
+.UBBContent TEXTAREA {
+	MARGIN-BOTTOM: 2px; WIDTH: 95%
+}
+.UBBLink:link {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana
+}
+.UBBLink:visited {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana
+}
+#MsgContent {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 50px 0px 10px; WIDTH: 630px; PADDING-TOP: 20px
+}
+#MsgContent #MsgHead {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: bold; PADDING-BOTTOM: 4px; WIDTH: 620px; COLOR: #88866f; PADDING-TOP: 4px; BORDER-BOTTOM: #88866f 1px dotted; TEXT-ALIGN: right
+}
+#MsgContent #MsgBody {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; WIDTH: 620px; COLOR: #88866f; LINE-HEIGHT: 180%; PADDING-TOP: 4px
+}
+.LDialog {
+	BORDER-RIGHT: #795b50 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #795b50 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; MARGIN: 3px auto; BORDER-LEFT: #795b50 1px solid; PADDING-TOP: 1px; BORDER-BOTTOM: #795b50 1px solid
+}
+.LDialog .LHead {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-WEIGHT: bold; BACKGROUND: #faf7ef; PADDING-BOTTOM: 1px; COLOR: #fff; PADDING-TOP: 1px; TEXT-ALIGN: center
+}
+.LDialog .LBody {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; LINE-HEIGHT: 200%; PADDING-TOP: 4px
+}
+#container #foot {
+	PADDING-LEFT: 200px; FONT-SIZE: 11px; BACKGROUND: url(down.jpg) no-repeat left bottom; COLOR: #88866f; PADDING-TOP: 20px; HEIGHT: 50px; TEXT-ALIGN: left
+}
+.attachmentBody {
+	FONT-SIZE: 12px; MARGIN: 0px
+}

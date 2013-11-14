@@ -1,0 +1,54 @@
+A:link {
+	COLOR: #88866f; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #88866f; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #7c71dd; TEXT-DECORATION: none
+}
+.menuA:link {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 12px; FLOAT: left; PADDING-BOTTOM: 0px; COLOR: #88866f; LINE-HEIGHT: 140%; PADDING-TOP: 0px; HEIGHT: 20px; TEXT-ALIGN: center
+}
+.menuA:visited {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 12px; FLOAT: left; PADDING-BOTTOM: 0px; COLOR: #88866f; LINE-HEIGHT: 140%; PADDING-TOP: 0px; HEIGHT: 20px; TEXT-ALIGN: center
+}
+.menuA:hover {
+	COLOR: #cfcdb5; TEXT-DECORATION: none
+}
+.titleA:link {
+	FONT-WEIGHT: bold; COLOR: #d8692d; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.titleA:visited {
+	FONT-WEIGHT: bold; COLOR: #d8692d; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.titleA:hover {
+	COLOR: #796bda; TEXT-DECORATION: none
+}
+.sideA:link {
+	MARGIN-TOP: 2px; DISPLAY: block; MARGIN-BOTTOM: 2px; PADDING-BOTTOM: 3px; OVERFLOW: hidden; WIDTH: 220px; COLOR: #88866f; LINE-HEIGHT: 180%; PADDING-TOP: 3px; BORDER-BOTTOM: #ddd6c2 1px dotted; HEIGHT: 16px; TEXT-DECORATION: none
+}
+.sideA:visited {
+	MARGIN-TOP: 2px; DISPLAY: block; MARGIN-BOTTOM: 2px; PADDING-BOTTOM: 3px; OVERFLOW: hidden; WIDTH: 220px; COLOR: #88866f; LINE-HEIGHT: 180%; PADDING-TOP: 3px; BORDER-BOTTOM: #ddd6c2 1px dotted; HEIGHT: 16px; TEXT-DECORATION: none
+}
+.sideA:hover {
+	PADDING-LEFT: 15px; OVERFLOW: hidden; COLOR: #7c71dd; HEIGHT: 16px; TEXT-DECORATION: none
+}
+.CategoryA:link {
+	MARGIN-TOP: 2px; MARGIN-BOTTOM: 2px; PADDING-BOTTOM: 4px; OVERFLOW: hidden; COLOR: #88866f; LINE-HEIGHT: 200%; PADDING-TOP: 2px; BORDER-BOTTOM: #ddd6c2 1px dotted; HEIGHT: 16px; TEXT-DECORATION: none
+}
+.CategoryA:visited {
+	MARGIN-TOP: 2px; MARGIN-BOTTOM: 2px; PADDING-BOTTOM: 4px; OVERFLOW: hidden; COLOR: #88866f; LINE-HEIGHT: 200%; PADDING-TOP: 2px; BORDER-BOTTOM: #ddd6c2 1px dotted; HEIGHT: 16px; TEXT-DECORATION: none
+}
+.CategoryA:hover {
+	PADDING-LEFT: 15px; OVERFLOW: hidden; COLOR: #7c71dd; HEIGHT: 16px; TEXT-DECORATION: none
+}
+.more:link {
+	PADDING-LEFT: 0px; MARGIN: 0px; COLOR: #88866f; TEXT-DECORATION: none
+}
+.more:visited {
+	PADDING-LEFT: 0px; MARGIN: 0px; COLOR: #88866f; TEXT-DECORATION: none
+}
+.more:hover {
+	COLOR: #7c71dd; TEXT-DECORATION: underline
+}

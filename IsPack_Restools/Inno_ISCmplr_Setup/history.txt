@@ -1,0 +1,348 @@
+Inno Setup 是一个免费的 Windows 安装程序制作软件。第一次发表是在 1997 年，
+Inno Setup 今天在功能设置和稳定性上的竞争力可能已经超过一些商业的安装程序制作软
+件。
+
+本程序为编译增强版，所有产生的错误原则上不是由 Inno Setup 原作者产生。
+
+同时，这个修改后的版本，也不会承担任何用户在使用过程中产生错误而造成的损失。
+
+版本历史：
+
+因为安装主体程序[Setup.e32]涉及安装程序大小，所以将会在每个更新版本中标明
+[Setup.e32] 的大小，以方便各位能方便判断是否有必要使用增强版，正常来说，如果没有
+使用到增强版的功能，建议使用原版安装主体程序[Setup.e32]，因为每增加一项功能文件
+大小都会有所增长。
+
+增强版没有作汉化处理，原本打算汉化的，因为对于中文的 Unicode 来说，比起英文的要
+短，如果作汉化，会为安装主体程序[Setup.e32]节省大概 6~8 KB 大小，不过为了能很好
+的在任何系统中运行多语言安装程序(汉化的也能运行，只不过提示信息在非中文语系的系
+统中会出现提示信息乱码)，所以未作汉化。
+
+制作成安装程序后会经过压缩算法压缩该文件的大小。压缩会减少超过一半大小。
+
+和之前编译编辑器增强版不同，编译编辑器无关安装程序大小，所以我并不关心它的大小，
+但是该安装主体程序关系到安装程序大小，有时候会因为不同的功能和不同的大小而去选择
+某一个 build 版本，所以为了方便你选择任何一个 build 版本，我尽可能的保留任何一个 
+build 版本，除非那个版本存在错误将不会保留，如果最新版本比之前的版本要小，那么之
+前所有版本也将不会被保留。
+
+build 080805 
+1.Components 组件列表控件被修改为 TreeView 模式，并修正里面几个显示问题(包括原作
+  者发现并部分修正的问题 - 在 2000/XP/2003 环境下，鼠标滚动和垂直滚动条翻页都会
+  造成一个错误的视觉效果，就是列表向相反方向滚动，而作者只修正鼠标滚动的效果，滚
+  动条翻页根据作者注释，因为不太明显，所以未修正，而且原作者采用模拟的方法来修正
+  ，跟系统效果并非完全一样，尤其是在滚动时的显示速度上，所以我重新修改了修正方法
+  解决所有滚动视觉效果问题，关于这个解决的效果各位可以做测试对比一下就知道)，虽
+  然组件列表被修改为 TreeView 模式，但是仍然支持原来的显示模式，TreeView 模式只
+  作为一个安装选项来激活，具体使用方法参阅脚本例子。
+2.增加内部支持函数( function GetPassword: String; )如发现脚本存在该函数，同时该
+  函数提供的密码是正确的时候，会自动跳过 Password 输入页面，同时该函数优先于所有
+  释放文件函数，所以无须为初始安装时释放的文件打上 noencryption 标记。具体使用方
+  法请参考附带的脚本例子。需要加密模块 ISCrypt.dll 支持。
+
+build 080815 
+1. property ItemHeightFixed: Boolean; read write;
+   该项设置为 True，以单行高显示每项，显示不完全的可以以 Hint 显示完整一行。
+2. TItemArea = (iaOther, iaButton, iaCheckmark, iaItem, iaSubItem);
+   TItemMouseMoveEvent = procedure(Sender: TObject; X, Y: Integer; Index: Integer; Area: TItemArea);
+   property OnItemMouseMove: TItemMouseMoveEvent; read write;
+   增加一个在 Item 上移动鼠标的事件。
+3. property AbsItemIndex: Integer; read;
+   当前项绝对索引 AbsItemIndex。
+4. 在不等高情况下，仍然维持原作者的滚动视觉解决方法。
+上面的选项的具体使用在例子中已经详细解释，这里就不做更详细的解释了。
+
+build 080816 
+1. 指定项是展开还是收缩子项
+     property ItemExpanded[Index]: Boolean; read write;
+2. 是否在没有焦点的情况下仍然显示被选择的项
+     property HideSelection: Boolean; read write;
+使用方法看例子。
+
+build 080914 
+修正原版就有的错误，尤其是部分帮助中提及的类的支持，改善显示，主要是 CheckListbox
+的显示。
+
+build 081121 
+TNewCheckListBox 增加 2 个属性。
+     property ItemFontStyle[Index: Integer]: TFontStyles; read write;
+     property SubItemFontStyle[Index: Integer]: TFontStyles; read write;
+
+build 081207 
+1. 修改 GetPassword 定义。
+2. 增加 1 个密码设置函数 SetPassword，具体使用方法可以参考例子。
+     procedure SetPassword(const Password: String);
+
+build 090222 
+增加 FullVCL 版本的编译器。此为全属性编译版本。拥有更多的事件触发，例如：
+OnMouseDown，OnMouseUp，OnMouseMove 等等，并拥有更多的 VCL 控件使用。例如：
+TTimer, Application, TMenu 等等。
+
+
+build 090225 
+增加 TScreen 组件。
+增加 Application.OnMessage 事件。
+增加 procedure Randomize; 函数。
+增加了几个有趣的例子。
+
+build 090225 
+FullVCL 版本更新:
+增加 TImageList, TIcon, TTreeView, TListView 组件。
+
+build 090424
+1. 修正 Delphi 2.0 编译的程序的 Hint 显示效果，修正为传统的 Windows 样式。
+2. 修正 Delphi 2.0 编译的安装程序在最小化时的动态缩小效果显示问题。
+3. 增加 TNewCheckListBox.LoadBtnBmpFromFile 方法，可自定义 RadioButtn 和 CheckBox
+   的按钮图片，同时在 [Setup] 段添加选项 ComponentsListBtnImageFile，功能跟前面说
+   的一样，就是载入自定义按钮图片。
+4. 增加 TFolderTreeView.ShowAllFolders 属性，可显示所有文件夹(包括系统隐藏属性)
+5. 修正 Inno Setup 在 PrivilegesRequired=admin 时(这是默认选项，可不用明确设置)
+    会同时设置安装程序的 Manifest 中的 requestedExecutionLevel level=requireAdministrator
+    以适应 Vista 中在非管理员状态下运行安装程序自动提示输入管理员密码。
+FullVCL 版本更新:
+1.  同步所有 MiniVCL 更新。
+2.  删除对 TGroupBox 的支持，因为它在 Delphi 2.0 中编译不支持 XP 主题，重新创建
+    一个支持 XP 主题的组件 TNewGroupBox。
+3.  删除对 TRadioGroup 的支持，因为可以用 TNewGroupBox 和 TNewRadioButton 来组成。
+4.  删除对 TNotebook 的支持，因为已经有 TNewNotebook 可以使用。
+5.  删除对 THeader 的支持，因为它不支持 XP 主题，增加组件 THeaderControl (支持XP主题)。
+6.  修正 Delphi 2.0 编译的 TTreeView 和 TListView 在 XP 主题下的边框显示问题。
+7.  删除对 TImage 的支持，增加 TNewIcon, TNewIconImage 组件，类似 TBitmapImage，
+    可以载入 Icon，并且支持真彩图标。
+8.  修正 TForm 和 TApplication 组件的 Icon 属性。
+9.  添加 TTrackBar, TUpDown, THotKey, TTabControl, TPageControl 组件。
+10. 修正所有组件的 PopupMenu 属性。
+11. 修正几个 菜单函数。
+又增加了几个有趣的例子，希望喜欢 Inno Setup 的朋友会更加的喜欢这个安装制作程序。
+
+build 090926
+同步至 InnoSetup 5.3.5 代码，ISPP 同步至 5.3.5 代码。
+MiniVCL 版本更新:
+1. 修正 CheckListBox 的 Showroot 时画虚线的小小失误。
+2. 修正 TRichEditViewer 在主题模式下的边框显示问题。
+3. 增加一个函数 CallbackAddr，直接支持脚本使用回调函数。
+4. TNewCheckbox 之前增强的 AddCheckBox，AddGroup，AddRadioButton 函数将会还原成
+   原来的样子，增强的功能被分拆为 AddCheckBoxEx，AddGroupEx，AddRadioButtonEx，
+   以保证和原版 Inno Setup 脚本的兼容性。
+FullVCL 版本更新:
+同步 MiniVCL 的修改。
+1. 修正 TForm.Menu 属性。
+Unicode 版本:
+同步 ANSI 版本的更新。扩展一些类的属性。具体看例子和 Support Classes.txt。
+ISPP 版本更新:
+1. 增加增强版的内部标志 #define IS_ENHANCED
+2. 增加两个内部变量：
+  IS_Ver_Str: String; // 返回 Inno Setup 编译器的版本字符串。
+  ISPP_Ver_Str: String; // 返回 ISPP 的版本字符串。
+
+build 091123
+同步至 5.3.6 版本。
+MiniVCL 版本更新:
+增加以下 2 个函数，最大的特点是可以换图标和能倒计时。
+function MsgBoxEx(AWnd: HWND; AText, ACaption: string; AType, AIcon: UINT; ATimeOut: Integer): Integer;
+function InputBoxEx(AWnd: HWND; AText, ACaption, ADefaut, APasswordChar: string; AIcon: UINT; AWidth, AHeight, ATimeOut: Integer; var AResultStr: String): Boolean;
+FullVCL 版本更新:
+同步 MiniVCL 更新,
+增加 TNewMonthCalendar 和 TNewDateTimePicker 两个日期时间控件,并增加以下函数:
+function Date: TDateTime;
+function DateTimeToStr(DateTime: TDateTime): String;
+procedure DateTimeToString(var Result: String; const Format: String; DateTime: TDateTime);
+function DateToStr(Date: TDateTime): String;
+function DayOfWeek(Date: TDateTime): Integer;
+procedure DecodeDate(Date: TDateTime; var Year, Month, Day: Word);
+procedure DecodeTime(Time: TDateTime; var Hour, Min, Sec, MSec: Word);
+function EncodeDate(Year, Month, Day: Word): TDateTime;
+function EncodeTime(Hour, Min, Sec, MSec: Word): TDateTime;
+function FormatDateTime(const Format: String; DateTime: TDateTime): String;
+function Now: TDateTime;
+function StrToDate(const S: String): TDateTime;
+function StrToDateTime(const S: String): TDateTime;
+function StrToTime(const S: String): TDateTime;
+function Time: TDateTime;
+function TimeToStr(Time: TDateTime): String;
+其他还有一些小的修正。
+
+build 100108
+同步至 5.3.7 版本。
+MiniVCL 版本更新:
+  ANSI版本修正调试状态下的提示会导致被调试程序退出，这个原版就有问题的。
+FullVCL 版本更新:
+  同步 MiniVCL 更新,
+  增加 TIPAddressEdit 控件。
+
+build 100210
+MiniVCL 版本更新:
+  TNewCheckbox, TNewRadioButton 增加 ParentBackground 属性。
+FullVCL 版本更新:
+  同步 MiniVCL 更新,
+  TNewGroupBox 增加 ParentBackground 属性，THotkey 增加 Color、ParentColor、Font、ParentFont 属性。
+  增加 TStatusbar 控件。
+  Unicode 版本中 TNewStaticText 增加 Transparent 属性。
+  Unicode 版本中恢复对 Interface 的支持，具体可测试编译 Inno Setup 例子中的 CodeAutomation2.iss 例子。
+
+build 100224 (5.3.8.e1 & 5.3.8.ee1)
+  同步至 5.3.8 版本。
+  修正 TNewCheckListbox 中的一个问题。
+  增加函数 procedure ExtractTemporaryFileEx(const FileName: String; const DestDir: String);
+
+build 100301 (5.3.8.e2 & 5.3.8.ee2)
+  修正属性 TNewCheckbox.ParentBackground, TNewRadioButton.ParentBackground，
+    TNewGroupBox.ParentBackground 的处理方法。 
+  修正函数 CallbackAddr 在某些 Windows 平台(例如: Windows XP SP3)出现不能正常运行的问题。
+    具体使用方法可参考例子：Example_Callback_1.iss 和 Example_Callback_2.iss
+
+build 100323 (5.3.8.e3 & 5.3.8.ee3)
+这次主要是针对 Unicode 版本的修正：
+1. 修正 PAnsiChar 类型的声明。
+2. 修正在 Win2000 系统下(不带 SP)不能正常运行的问题，在 CVS 上这个修正是属于
+   下一版本的，因为这个比较重要，所以我提前在 5.3.8 里面应用它了。
+
+build 100418 (5.3.9.e1 & 5.3.9.ee1)
+  同步至 5.3.9 版本。
+
+build 100613 (5.3.10.e1 & 5.3.10.ee1)
+  同步至 5.3.10 版本。
+
+build 100625 (5.3.10.e2 & 5.3.10.ee2)
+  1. 为配合 ISSkin 的应用, TRichEditViewer 增加属性 ThemeBorder , 默认被设为 True,
+     当它为 False 时, 控件边框可以被 ISSkin 应用主题.
+  2. TBitmapImage 的修改, 当 BackColor 和 ReplaceWithColor 的颜色都为 clNone 的时候,
+     将会以 ReplaceColor 作为图片的透明色使用.
+     TNewIconImage 的修改, 当 BackColor 的颜色为 clNone 的时候, 背景将会是透明的.
+     具体可查看例子 Example_TransparentBmp.iss
+
+build 100918 (5.3.11.e1 & 5.3.11.ee1)
+  1. 同步至 5.3.11 版本。
+  2. MiniVCL 版本增加类: TMemoryStream 和 TResourceStream 。
+  3. 增加函数 ExtractTemporaryFileToStream, 可把临时文件释放到内存中使用。
+     具体可查看例子 Example_ExtractTemporaryFileToStream.iss
+  4. 其他一下修正。
+
+build 101107 (5.4.0.e1 & 5.4.0.ee1)
+ANSI 版本：
+  1. 同步至 5.4.0 版本。
+  2. 增加函数 ExtractTemporaryFileToBuffer, 可把临时文件释放到内存中使用。
+     具体可查看例子 Example_ExtractTemporaryFileToBuffer.iss
+  3. Unicode 版本增加函数 CastAnsiStringToInteger 和 CastIntegerToAnsiString，
+     配合 ExtractTemporaryFileToBuffer 函数使用。
+
+build 101129 (5.4.0.e2 & 5.4.0.ee2)
+  1. 增加运行时常量 {apphwnd}, 相当于 Application.handle, 方便特殊场合使用,
+     具体可参考例子 Example_{apphwnd}.iss。
+  2. 为解决卸载界面的自定义, 经过再三思量, 想出了在安装部分提供一个函数
+     PerformPreviousUninstall, 这是一个能在安装程序中调用的卸载函数, 它会自动
+     检测之前安装的程序, 并且根据卸载的数据文件进行卸载的函数。为配合此函数,
+     同时提供 2 个函数 GetSetupPreviousData 和 SetSetupPreviousData, 类似于
+     GetPreviousData 和 SetPreviousData, 但是前 2 个函数的层级更高, 可以访问前
+     安装程序的卸载注册表信息(例如 UninstallString, InstallLocation 等等),
+     可以参阅 2 个例子: Example_Uninstall_1.iss 和 Example_Uninstall_2.iss
+     这两个例子充分体现了 PerformPreviousUninstall 在用户可定制方面的自由度,
+     我只是把它们做得尽量简单, 其实它完全可以扩充为更为复杂的定制安装卸载功能。
+
+build 110111 (5.4.0.e3 & 5.4.0.ee3)
+ANSI 版本：
+  1. ExtractTemporaryFile, ExtractTemporaryFileEx, ExtractTemporaryFileToStream
+     ExtractTemporaryFileToBuffer 这 4 个函数都支持文件序号方式的释出文件。
+     例如使用了相同目标文件名字的文件可以按照脚本顺序位置使用诸如：
+     ExtractTemporaryFile('logo.bmp:1') 这样的方式来释出，具体可参阅例子
+     Example_ExtractTemporaryFile.iss 。
+  2. MiniVCL 版本的 TBitmap 增加以下函数:
+       procedure LoadFromResourceName(Instance: THandle; const ResName: String);
+       procedure LoadFromResourceID(Instance: THandle; ResID: Integer);
+  3. FullVCL 版本的 TNewIcon 增加以下函数:
+       procedure LoadFromResourceName(Instance: THandle; const ResName: String);
+       procedure LoadFromResourceID(Instance: THandle; ResID: Integer);
+  4. MiniVCL 版本的 TStrings 增加以下函数:
+       procedure LoadFromStream(Stream: TStream);
+       procedure SaveToStream(Stream: TStream);
+  5. MiniVCL 版本的 TForm 增加属性
+       property ModalResult: Longint; read write;
+  6. Setup 段增加参数 BitmapResource, IconResource, RawDataResource , 这 3 个属性
+     主要是在安装程序中添加资源文件, 这样变相也为卸载程序提供了有效的图像来源和各
+     种文件来源的可能行, 同时也维持了一贯的程序的单文件性。具体可以参阅
+     Example_BitmapResource.iss， Example_IconResource_1.iss， Example_IconResource_2.iss
+     Example_RawDataResource.iss
+  7. 重开已被官方废弃的 Setup 参数 UninstallIconFile, 因为已经找到不影响 Win9x 下
+     运行的解决方案。具体可参阅 Example_UninstallIconFile.iss
+
+  额外的做了一个模仿 UninsHs 的例子，集中体现了以上增强功能的效果: Example_Uninstall_3.iss。
+     
+build 110206 (5.4.0.e4 & 5.4.0.ee4)
+MiniVCL 版本：
+  TLabel, TNewStaticText, TBitmapImage 增加事件: 
+       property OnMouseEnter: TNotifyEvent; read write;
+       property OnMouseLeave: TNotifyEvent; read write;
+     这两个事件的用处可以参考例子: Example_MouseEvent_ImgBtn.iss 和 Example_MouseEvent_URLLabel.iss
+  TButton 增加 procedure Click;
+FullVCL 版本:
+  除了同步 MiniVCL 版本的更新外, 很多其他控件都增加了事件, 例如 TEdit, TButton 都有这2个事件.
+       property OnMouseEnter: TNotifyEvent; read write;
+       property OnMouseLeave: TNotifyEvent; read write;
+  具体可参考例子: Example_MouseEvent_HotEdit.iss
+  另外还增加了新的控件 TNewSpeedButton, 例子有: Example_TNewSpeedButton_1.iss 和 Example_TNewSpeedButton_2.iss
+
+build 110214 (5.4.1.e1 & 5.4.1.ee1)
+  同步至 5.4.1 版本。另外修正控件 TNewSpeedButton 的一些问题。
+
+build 110220 (5.4.1.e2 & 5.4.1.ee2)
+  1.修正控件 TNewSpeedButton 的一些问题。
+  2.由于函数 Format 对于 Float 的局限性，所以增加了 FormatFloat 函数。将会更加方
+    便地对 Float 类型数据进行格式化，具体参考 Example_FormatFloat.iss。
+  3.TNewCheckListbox 增加以下函数:
+     procedure LoadBGBmpFromBitmap(Bmp: TBitmap; OffsetX, OffsetY: Integer);
+     procedure LoadBGBmpFromFile(FileName: String; OffsetX, OffsetY: Integer);
+    可以添加背景图片，这样就可以统一整个安装程序界面的背景，就像下图一样（参考 Example_NewCheckListBox.iss）
+  4.MinVCL 版本为 TStrings 增加以下函数:
+    procedure BeginUpdate;
+    procedure EndUpdate;
+
+build 110326 (5.4.2.e1 & 5.4.2.ee1)
+  同步至 5.4.2 版本。
+
+build 110329 (5.4.2.e2 & 5.4.2.ee2)
+  修正一个语言问题, 添加一个 Inno Setup 事件:
+      function InitializeLanguageDialog(Languages: String; var LanguageIndex: Integer): Boolean;
+  它是一个比 语言对话框 更早出现的 Inno Setup 事件。
+  Languages 是语言对话框会出现的语言列表, LanguageIndex 是将会选定的语言, 在事件
+  中可以重新指定. 返回值如果为假, 语言对话框将不会出现.
+
+build 111225 (5.4.3.e1 & 5.4.3.ee1)
+  同步至 5.4.3 版本。
+
+build 120726 (5.5.1.e1 & 5.5.1.ee1)
+  同步至 5.5.1 版本, 但是唯一同官方的区别是, 对于 Win2000 以下的系统(例如 Win98, WinNT 等等)仍然支持。
+  另外新增的支持:
+  1.组件 TTrackBar 增加以下属性, 主要可以调整滑块的大小.
+    property ThumbLength: Integer; read write;
+  2.修改一个 Inno Setup 事件(具体使用请参阅 Example_InitializeLanguageDialog.iss):
+    function InitializeLanguageDialog(Wnd: HWND; Languages: String; var LanguageIndex: Integer): Boolean;
+    修改主要增加了这个语言对话框的窗口句柄, 有了它就可以搜索它上面的控件做适当的调整.
+  3.当 WizardForm.FormStyle := fsStayOnTop 时, 所有相关的对话框都修正为不会被 WizardForm 所遮挡.
+    (具体参阅 Example_StayOnTop.iss)
+
+build 121002 (5.5.1.e2 & 5.5.1.ee2)
+ANSI 版本：
+(MiniVCL: Setup.e32 文件大小: 731 KB)
+(FullVCL: Setup.e32 文件大小: 901 KB)
+Unicode 版本：
+(MiniVCL: Setup.e32 文件大小: 1172 KB)
+(FullVCL: Setup.e32 文件大小: 1459 KB)
+  再次调整一个 Inno Setup 事件(具体使用请参阅 Example_InitializeLanguageDialog.iss):
+  去除全部传递的参数, 只保留一个返回值, 如果返回 真: 显示对话框; 如果返回 假: 显示对话框
+  并且, 在此函数当中可以使用以下控件, 属性和函数.
+    TSelectLanguageForm = class(TSetupForm)
+      property SelectLabel: TNewStaticText; read;
+      property LangCombo: TNewComboBox; read;
+      property OKButton: TNewButton; read;
+      property CancelButton: TNewButton; read;
+      property IconBitmapImage: TBitmapImage; read;
+    end;
+    function SelectLanguageForm: TSelectLanguageForm;
+
+
+
+restools (http://restools.hanzify.org)
+汉化新世纪论坛 (http://bbs.hanzify.org)
+
+
+
