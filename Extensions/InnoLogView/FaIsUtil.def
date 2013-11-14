@@ -1,0 +1,56 @@
+LIBRARY AuIsUtil
+
+EXPORTS
+
+FaOutputDebugString					@16
+RecursiveCopyIntoSubdir				@17
+FindFileRecursive					@18
+InnoUninstallLog_Read				@20
+InnoUninstallLog_CreateTextLog		@21
+InnoUninstallLog_FindFirstRecord	@22
+InnoUninstallLog_FindNextRecord		@23
+InnoUninstallLog_FindGetExtraData	@24
+InnoUninstallLog_PerformUninstall	@25
+InnoUninstallLog_Cleanup			@26
+InnoUninstallLog_FindGetString		@80
+InnoUninstallLog_FindGetEntryType	@81
+InnoUninstallLog_FindGetParamCount	@82
+InnoUninstallLog_GetLogHeader		@83
+InnoUninstallLog_FindGetExtraDataFlags @84
+
+Shortcut_BuildList					@28
+Shortcut_DestroyList				@29
+Shortcut_GetListCount				@30
+Shortcut_GetProperty				@31
+Shortcut_Select						@32
+Shortcut_GetSelCount				@33
+Shortcut_ModifyItem					@34
+Shortcut_IsItemSelected				@35
+
+UninstallList_Build					@36
+UninstallList_Destroy				@37
+UninstallList_SelectByIndex			@38
+UninstallList_Select				@39
+UninstallList_GetSelCount			@40
+UninstallList_GetCount				@41
+UninstallList_RestoreEntrys			@42
+UninstallList_MoveEntrys			@43
+UninstallList_GetItemProperty		@44
+UninstallList_GetItemName			@45
+UninstallList_IsItemSelected		@46
+UninstallList_DeleteEntrys			@47
+
+
+CheckUserCredentials				@53
+
+RegNode_Open						@54
+RegNode_Close						@55
+RegNode_GetSubkeyCount				@56
+RegNode_GetMaxSubkeyLen				@57
+RegNode_GetMaxValueNameLen			@58
+RegNode_GetValueCount				@59
+RegNode_GetSubkeyName				@60
+RegNode_GetValueName				@61
+
+Shortcut_Delete						@78
+
