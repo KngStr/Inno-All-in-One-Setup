@@ -1,0 +1,115 @@
+新增：
+源码存放到GitHub - https://github.com/WLDNA/Inno-All-in-One-Setup
+更新：
+更新Inno至5.5.4
+更新语言文件到最新版
+更新Botva2_Visual.Ish，优化按钮，复选框和单选框的位置。
+更新Botva2_Visual.Ish，单选组增加 GroupBtn1.AllowCancel := True; 使用方式，可设置是否允许全不选中（默认不许）
+更新Botva2_Visual.Ish，修改按钮隐藏方式（因ShowModal方式返回值必须按钮有Width。。。）
+更新Botva2_Visual.Ish，单选多选按钮支持刷新
+更新PreDefines.ish，支持PreDefines.ish所在目录为Include时，优先从Include所在目录设定常用路径
+更新PreDefines.ish，兼容ISPP SaveToFile，导出文件无需修改即可编译。
+bug修正：
+修正安装时，检测文件占用被主窗体挡住的bug，感谢Asion的反馈
+
+
+Inno_552_121113_WLDNA.exe(2012-11-13)
+新增
+1、InstFiles ISPP文件，及例子（在 Examples\ISPP文件夹下）
+2、MUI_Nsis_Adv开放，例子在：UI\Mui_Nsis（内含类似NSIS banner例子）
+3、因Inno内置了DirExists，增加了仅当此函数未定义的情况下使用
+更新：
+1、更新Inno至最新版 5.5.2
+2、因ISSP使用越来越多，故取消之前 设置 verboselevel 4的做法。
+3、更新Restools增强版至build 121002 (5.5.1.e2 & 5.5.1.ee2)
+4、更新Restools增强编辑器至build 121002
+5、更新SkyGz汉化增强版至5.5.2
+6、修改.ISH注释，SavetoFile的时候不包含注释
+
+Inno_551_120824_WLDNA.exe(2012-08-24)
+注意：本版本开始，由我（WLDNA）更新，并更名为 Inno 集成版（Inno All-in-One Setup），取消VIP功能
+新增：
+1、增加ISPP与Code脚本对应的预处理函数，支持灵活的预处理和Code脚本同步
+  （详见例子：[Ish]\PreFunction 且 {# PreInitializeSetup } 会自动释放所有需要的插件，下一步增加对ISH内部初始化函数的支持。）
+2、增加默认语言的选项，以适应不同人对语言的需要(在附加组件选择)
+3、Botva2_Visual示例从VIP移动到Botva2文件夹，开放Botva2_Visual.ish头文件
+更新：
+1、同步更新至 5.5.1 版本
+2、因InnoIDE停止更新故取消集成，更换Inno Script Studio
+3、增加插件 isgsg - 0.6.0.69
+4、将Inno默认编译器加进组件以便选择
+5、优化推荐配置的写入规则
+6、取消ISTOOL的集成
+7、更新简中和韩语语言文件，繁体暂未找到更新，取消一些语言
+8、取消ISSI的集成（脚本太过于集中，不方便更新）
+bug修正：
+1、修正 ISUnp.exe 无法关联的问题 (感谢 D8论坛 零度深蓝 的反馈)
+2、修正启动banner在Win7等系统，显示不全的问题。
+
+Inno_542_111103_VIP_D8.exe(2011-11-03)
+1、修正 托盘插件 卸载不完全问题
+2、修正 Win7 插件释放错误问题  (感谢 D8论坛 w910621 的反馈)
+3、修正 ee(FullVCL)版本，重复定义问题（感谢 Inno增强讨论群 の&ALPHA & QiuQuan 的反馈）
+
+Inno_542_111017_VIP_D8.exe (2011-10-17)
+1、为 Predefines.Ish 增加 AutoPDirs AddAutoPDirs 预处理功能，释放插件更简单
+2、设置 ISPP 默认 verboselevel 4，显示必要预处理信息
+3、调整 MsgCtrl.ish，修改调用位置，减少文件位置导致的，大文件解压慢的问题 （Maroc：MsgCtrl_SetWinHookEx）
+4、调整统一 CallbackCtrl.Ish 和 InnoCallBack.Ish，提供 InnoCallBack_External 和 CallbackCtrl_External 预定义 
+5、增加托盘图标选项
+6、增加自动更新检测功能
+7、增加/更新插件：
+      ISXDL v5.3
+      botva2 v0.9.5.130
+      ISWin7 v0.5
+      IssProc v1.1.4 (感谢 D8 huacaizi 汉化)
+VIP:
+1、增加 Botva2 插件可视化支持组件(Botva2_Visual.Ish) 及 示例 - （Botva2_Visual.Iss - Botva2_Visual.Ish）
+2、重新合并普通版本和VIP版本，VIP功能改为可选项，感谢大家的支持。
+
+
+2011-03-22
+1、更新 Inno 版本，及 各扩展版本为 5.4.2
+2、更新 Inno Setup 编译器&主体程序增强版 5.4.2 (build 110329)
+3、更新 Inno Setup 编译器编辑功能增强版 5.4.2 (build 110319)
+4、当使用Restools增强编辑器时恢复默认语言文件为英文，以兼容 增强版设计器 界面设计
+5、语言预定义暂时取消，等待想到好的方案后更新(欢迎大家提出好的建议)
+6、根据部分用户建议，默认版本减小文件体积，去除一些不常用的文件，减少报毒的可能
+7、大量更新 Unicode 版本的头文件及示例的兼容性
+8、其他细节调整
+VIP:
+1、移动 （Isxkb 分离头文件） 至 捐助用户 资源
+2、VIP版本单独制作，优化部分安装细节
+
+2010-11-13
+1、更新 Inno 版本，及 各扩展版本为 5.4.1
+2、增加安装时，恢复开始菜单默认排序功能
+3、更新 gifctrl.dll 插件至 2.1 
+4、PreDefines.ish 中取消 Trim 宏，增加 SimpleVersion 宏
+5、取消 不常用的 VCL_Win32SDK_Help 帮助
+6、增加设置卸载Dll资源输出位置预定义，PDir 卸载时支持 查找所有一级目录
+7、编写新规则说明，完善Ish头文件系统
+8、增加 IssProc 插件 及 头文件，（使用 xwhminghan 语言文件，感谢）
+9、其他一些小优化调整
+VIP:
+1、添加VIP资源，及VIP验证
+2、整理 Inno Setup Extensions Knowledge Base 中引用文件为头文件
+
+2010-11-12
+1、增加默认语言文件设置。 （感谢 千岛掠影）
+2、增加多语言，脚本语言 和 语言文件名保持一致，自动复制默认语言文件。
+3、调整加载 Banner 字体设置。（感谢 Ansifa 似水年华）
+4、进一步调整 Ish 设置，加大整合力度，增加 插件调用参数 定义。
+5、增加个语言预定义短名称，方便与头文件间协调
+6、整合 Inno官方部分图形资源
+7、增加对 ISSI引用单元的支持，（感谢 LOGAN）
+8、整理 SkyGz 原创资源，感谢 风铃夜思雨 大虾的付出
+9、增加 SendMessage 部分例子
+10、更新 botva2，添加 STS 例子，进一步整理头文件
+11、汉化 ISWin7 说明，分离头文件
+12、修正上个版本 ISTool 无法编译的问题
+13、修正 Unicode 版本中类型定义
+14、使用 Inno CVS 资源，更新
+15、增加DelphiKey.htm（详细的Delphi关键字注解），感谢 橙子 和 万一
+16、增加组件自动读取文件版本及修改时间，方便查看版本及更新
+17、例行更新，Inno更新至 5.4.0，部分增强编辑器仍使用旧版
