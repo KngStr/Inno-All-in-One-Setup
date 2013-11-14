@@ -1,0 +1,5 @@
+ISSkinEx 3.0.0.1 for InnoSetup & NSIS
+     modified by RESTOOLS
+
+          http://restools.hanzify.org
+                 2010.6.27
