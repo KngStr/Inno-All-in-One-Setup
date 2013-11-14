@@ -13,3 +13,16 @@ Inno Setup Header File
 
 I 'Create' this ext. This is for '#include', Just like '.inc' or '.nsh'
 Make Inno easier and more powerful
+
+
+Inno Setup Plugins
+=====================
+Most of plugins are from 
+
+Restools: http://restools.hanzify.org/
+
+SkyGz:    http://www.hanzify.org/software/11564.html
+
+Sherlock: http://www.sherlocksoftware.or/
+
+A Russion forum:  http://forum.ru-board.com/topic.cgi?forum=5&topic=46338
