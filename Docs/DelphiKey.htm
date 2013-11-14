@@ -1,0 +1,1564 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>Delphi 关键字详解</title>
+<script type="text/javascript" src="http://www.cnblogs.com/Files/del/del.js"></script>
+<style>
+<!--
+.k {color: #000080; font-weight: bold }
+.b {color: #0000FF}
+.g {color: #008000;}
+.t {color: #008284}
+.c1 {color: #008200;}
+.c2 {color: #008200;}
+.c3 {color: blue;}
+.c4 {color: blue;}
+.c5 {color: #008284;}
+pre { font-family: 'Courier New', Verdana, Arial; font-size: 14.8px; color: #000000; 
+               margin-left: 6; padding: 0px }
+legend {font-weight: bold; color:#800000; font-family: "Arial"; font-size:16.8px;}
+fieldset{background-color: #FFFFFF; line-height: 132%; position: font-size:14px; font-family: "Arial";}
+body         { font-size: 14.8;}
+-->
+</style>
+
+<base target="_blank">
+
+</head>
+
+<body>
+<font size="2" color="#C0C0C0">提示: 许可脚本运行, 会给代码着色.</font>
+<br>
+<center style="font-family: Arial Black; font-size: 36px; color:#FF0000; font-weight: bold; border-bottom: 1 solid #FF0000; width: 380px">   Delphi 关键字详解    </center>  
+<br>
+<fieldset><legend>absolute</legend>
+<pre class=Delphi>
+//它使得你能够创建一个新变量, 并且该变量的起始地址与另一个变量相同.
+var
+  Str: string[32];
+  StrLen: Byte absolute Str;
+
+//这个声明指定了变量StrLen起始地址与Str相同.
+//由于字符串的第0个位置保存了字符串的长度, 所以StrLen的值即字符串长度.
+begin
+  Str := 'abc';
+  Edit1.Text := IntToStr(StrLen);
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>abstract</legend><pre class=Delphi>
+//它允许你创建抽象的方法, 包括有抽象方法的类称为抽象类.
+//Abstract关键字必须与Virtual或Dynamic关键字同时使用, 因为抽象方法必须被覆盖式实现.
+//抽象类不能实例化, 抽象方法不能包含方法体.
+type
+  TDemo = class
+    private
+    protected
+      procedure X; virtual; abstract;
+    public
+      constructor Create;
+      destructor Destroy; override;
+    published
+  end;
+</pre></fieldset><br>
+
+<fieldset><legend>and</legend><pre class=Delphi>
+//一、表示逻辑与
+if (a&gt;0) and (b&gt;0) then
+
+//二、表示位运算
+var
+  a,b,c: Integer;
+begin
+  c := (a and b);
+end;
+
+//使用And表示逻辑时, And左右的表达式必须用小括号括起, 以避免以生条件的冲突.
+//例如:
+if a&gt;0 and b&gt;0 then
+//编译器可能会理解为:
+if a&gt;(0 and b)&gt;0 then
+//或:
+if (a&gt;0) and (b&gt;0) then
+//但是实际编译时, 编译器会产生一个冲突, 报告错误.
+//并且第一种可能包含了a&gt;b&gt;c的形式, 这在Delphi中不被支持.
+//所以使用And运算符时必须使用括号, 以区分左右的条件.
+//表示位运算时也必须加上括号, 将And以及左右参数括起.
+</pre></fieldset><br>
+
+<fieldset><legend>array</legend><pre class=Delphi>
+//Array用于表示数组, 任何的对象都能被声明成数组.数组分为静态和动态的２种.
+
+//静态数组
+var
+  Arr1: array [1..10] of Integer;
+
+//动态数组, 由于声明时不知其元素个数, 所以必须在后期用SetLength方法设置数组的大小
+var
+  Arr2: array of Integer;
+
+//数组作为参数时, 不能传入数组的大小, 只能传入数组名, 然后用Length方法获取数组的元素个数
+function X(A: array of Integer): Integer;
+var
+ i: Integer;
+begin
+  Result := 0;
+  for i := 0 to Length(A)-1 do
+  Result := Result + A[i];
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>as</legend><pre class=Delphi>
+//As用于将一个对象转换为另一个对象
+procedure BtnClick(Sender:TObject);
+begin
+  (Sender as TButton).Caption := 'Clicked';
+end;
+
+//对于对象填充接口的转换, 必须用As进行
+(HTTPRIO as IExp).GetConnection;
+
+//As不能用于数据类型的转换, 下面的代码是错误的:
+var
+  i: Integer;
+  s: string;
+begin
+  s := (i as string);
+end;
+//正确写法是:
+s := string(i);
+</pre></fieldset><br>
+
+<fieldset><legend>asm</legend><pre class=Delphi>
+//Asm关键字用于插入汇编代码, 使用汇编代码时, 必须使用asm...end;的结构, 而非begin...end;
+function IntToHex(Value: Integer; Digits: Integer): string;
+asm
+  CMP  EDX, 32
+  JBE  @A1
+  xor  EDX, EDX
+  @A1: PUSH ESI
+  MOV  ESI, ESP
+  SUB  ESP, 32
+  PUSH ECX
+  MOV  ECX, 16
+  CALL CvtInt
+  MOV  EDX, ESI
+  POP  EAX
+  CALL System.@LStrFromPCharLen
+  ADD  ESP, 32
+  POP  ESI
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>assembler</legend><pre class=Delphi>
+//Assembler关键字用于支持早期的汇编, 如80386等.
+//它和Asm的区别:Asm允许使用Win32汇编, 而Assembler只允许80x86汇编, 它不允许Invoke语句的出现.
+function IntToHex(AValue: Int64): string; assembler;
+</pre></fieldset><br>
+
+<fieldset><legend>automated</legend><pre class=Delphi>
+//Automated访问区分符用于描述一个自动类型的成员, 它能够使程序的版本向下兼容.
+//ComObj单元内的成员及其实例不能使用Automated访问区分符.
+type
+  TDemo = class
+    automated
+      Str:WideString;
+  end;
+
+//在程序的下一个版本中, 将Str做了修改, 变成
+type
+  TDemo = class
+    automated
+      Str: AnsiString;
+  end
+//则新版本的Str变量能够接受旧版本的WideString型数据, 并自动转换成AnsiString.
+//在实际开发中, 如果没有特殊的需要, 一般不用automated访问区分符.
+</pre></fieldset><br>
+
+<fieldset><legend>begin</legend><pre class=Delphi>
+//begin关键字用于表示一段程序或一个结构的开始, 必须用end关键字来结束.
+procedure X;
+begin
+  ShowMessage('A Demo');
+end;
+
+//一般的结构, 如If, For, While等也需要用begin关键字来标出结构起始点
+for i:=1 to 100 do
+begin
+  sum := sum + i;
+  if sum &gt; 1000 then Break;
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>case</legend><pre class=Delphi>
+//Case语句用于完成条件选择, Case语句的的被选择对象必须是有序类型, 包括整型, 枚举类型, 字符型等.
+//Case语句必须由end结束,如果没有相符合的选择项, 可以加入else来作出通用选择.
+function GetDays(AYear,AMonth: Integer): Integer;
+begin
+  case AMonth of
+    1,3,5,7,8,10,12: Result := 31;
+    4,6,9,11: Result := 30;
+    2: begin
+    if IsLeapYear(AYear) then
+      Result:=29
+    else
+      Result:=28;
+    end;
+  else
+    Result:=0;
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>cdecl</legend>
+<pre class=cpp>
+//Cdecl是函数调用协定的一种, 它规定了从C或C++编写的DLL中调用函数所必须遵守的规则.
+//它可以将C或C++中的数据类型转换为Delphi的.
+//例如C++中的代码:
+int X(int i)
+{
+  return i*2;
+}
+</pre>
+<pre class=Delphi>
+//这个函数被编译在Demo.dll中, 用Delphi调用时必须使用:
+function X(i: Integer): Integer; Cdecl; external 'Demo.dll';
+</pre></fieldset><br>
+
+<fieldset><legend>class</legend><pre class=Delphi>
+//Class关键字用于声明或继承一个类, 也可以使类和接口同时继承.
+//另外, Class关键字也能用于声明类通用方法, 使得父类可以从类内访问子类的方法.
+type
+  ClassDemo = class(TObject)
+    private
+    public
+      constructor Create;
+  end;
+
+//如果用class声明方法, 则该方法在类与相关类中都可以使用, 譬如:
+type
+  ClassA = class
+    private
+    public
+      procedure Y;
+  end;
+
+type
+  ClassB = class(ClassA)
+    private
+    public
+      class procedure X;
+  end;
+//则在使用时ClassA能够直接访问ClassB的X方法
+procedure ClassA.Y;
+begin
+  Self.X;
+end;
+//此时父类将子类的class方法作为自身的方法进行调用.
+</pre></fieldset><br>
+
+<fieldset><legend>const</legend><pre class=Delphi>
+//Const关键字用于声明常量, 使用const声明的数据将不能在程序中被改变.
+//也可以用来声明函数参数, 用const指定的参数不允许在函数中改变.
+const MyFileName = 'Delphi';
+const MyInteger = 100;
+
+//用Const声明常量不需要指出其数据类型, 系统会自动判断类型, 并作自动调整.
+//函数中可以用const声明不可更改的参数
+function X(const i: Integer): string;
+//此时在函数操作过程中, i的值不可改变.
+</pre></fieldset><br>
+
+<fieldset><legend>constructor</legend><pre class=Delphi>
+//constructor关键字用来声明一个类的构造函数, 当类被实例化时, 首先调用此函数
+//构造函数一般用Create表示, Create方法能够连带类中存在的CreateWnd方法.
+type
+  ClassDemo = class(TObject)
+    private
+      fValue: Integer;
+    public
+      constructor Create;
+  end;
+
+constructor ClassDemo.Create;
+begin
+  fValue := 0;
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>contains</legend><pre class=Delphi>
+//Contains关键字指出了某个包(Package)是否包含某个文件.
+//用Contains引入的文件必须被添加到包文件中, 它可以避免关键文件的引用丢失.
+package DATAX;
+  requires
+    rtl, clx;
+  contains
+    Db, DBLocal, DBXpress;
+end.
+</pre></fieldset><br>
+
+<fieldset><legend>default</legend><pre class=Delphi>
+//Default关键字用于指出一个属性的默认值
+//只有有序类型的属性才允许默认值的存在, 否则必须在构造函数中初始化属性值.
+type
+  ClassDemo = class
+    private
+      fValue: Integer;
+    published
+      property Value: Integer read fValue write fValue default 0;
+  end;
+
+//它也可以指出一个类的默认属性
+property strings[Index: Integer]: string read GetString write PutString; Default;
+</pre></fieldset><br>
+
+<fieldset><legend>destructor</legend><pre class=Delphi>
+//Destructor用于标识析构函数, 析构函数在类被释放时自动调用.
+//析构函数只允许覆盖, 再不允许重载.析构函数通常用Destroy作为函数名.
+type
+  ClassDemo = class(TComponent)
+    public
+      destructor Destroy;override;
+  end;
+
+//由于TComponent类中也有Destroy方法, 所以要将其重写
+//但是若要重载析构函数, 则不允许, 下面代码是错误的:
+destructor Destroy; overload;
+</pre></fieldset><br>
+
+<fieldset><legend>dispid</legend><pre class=Delphi>
+//DispId关键字被用在DispInterface接口中, 用于指定特定的适配序号.
+//在DispInterface接口中, 适配序号必须是唯一的, 
+//如果不指定DispId, 则系统会自动分配适配序号给接口内每一个方法.
+//可以通过适配序号访问DispInterface接口中的方法.
+type
+  IStringsDisp = dispinterface
+    ['{EE05DFE2-5549-11D0-9EA9-0020AF3D82DA}']
+    property ControlDefault[Index: Integer]: Olevariant dispid 0; default;
+    function Count: Integer; dispid 1;
+    property Item[Index: Integer]: Olevariant dispid 2;
+    procedure Remove(Index: Integer); dispid 3;
+    procedure Clear; dispid 4;
+    function Add(Item: Olevariant): Integer; dispid 5;
+    function _NewEnum: IUnknown; dispid -4;
+  end;
+</pre></fieldset><br>
+
+<fieldset><legend>dispinterface</legend><pre class=Delphi>
+//DispInterface用于声明一个特定的适配器接口, 这个适配器能够接受标准系统接口中传入传出的数据.
+//用DispInterface声明的接口不能被继承, 只能够被引用.
+//DispInterface中方法只能调用, 并且必须被动态绑定.
+//可以通过DispId为接口内方汉分配适配序号.
+//DispInterface仅能用于Windows平台, 如果在Linux下进行开发, 则此关键字会自动被系统屏蔽.
+//通常情况下, 不使用DispInterface.
+
+//实例请参见DispId
+</pre></fieldset><br>
+
+<fieldset><legend>div</legend><pre class=Delphi>
+//Div用于求两数之整数商.用于Div运算的两个数值必须均为整型, 其运算结果也为整型.
+var
+  a,b,c:Integer;
+begin
+  a := 20; b := 3;
+  c := a div b; {6}
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>do</legend><pre class=Delphi>
+//Do关键字用于For, While, On, With语句, 构成特定的结构
+
+//For语句:
+for i := 1 to 100 do sum:=sum+i;
+
+//While语句:
+while i &lt; 100 do
+begin
+　sum := sum + i;
+　Inc(i);
+end;
+
+//On语句(异常处理):
+try
+　i := StrToInt(s);
+except
+　on exception do ShowMessage('Error!');
+end;
+
+//With语句:
+with Memo1.Lines do
+begin
+　Clear;
+　Append('abc');
+　Append('123');
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>downto</legend><pre class=Delphi>
+//DownTo关键字用于For语句, 指明循环变量是递减的.
+for i := 100 downto 1 do
+  ListBox1.Items.Add(IntToStr(i));
+
+//在For语句中, 循环变量递增用To关键字, 递减用DownTo关键字.
+</pre></fieldset><br>
+
+<fieldset><legend>dynamic</legend><pre class=Delphi>
+//Dynamic用于声明一个动态的方法, 
+//动态方法可以被覆盖, 并且可以使代码大小尽可能的减少(区别于Virtual).
+procedure X(i: Integer); dynamic;
+</pre></fieldset><br>
+
+<fieldset><legend>else</legend><pre class=Delphi>
+//else用于引导程序的运行方向, 它可以与If, Case和On语句联用, 当条件不满足时, 转到else下运行
+
+//If语句(在If语句中, else前不允许有分号):
+if a &gt; b then
+  c := a
+else
+  c:=b;
+
+//Case语句:
+case Tag Of
+  1:Result:=1;
+  2:Result:=2;
+  3:Result:=3;
+else
+  Result:=0;
+end;
+
+//On语句(异常处理):
+try
+  i := StrToInt(s);
+Excpet
+  on EZeroDivide do Result := 1;
+  on EOverflow do Result := 2;
+else
+  Result := 0;
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>end</legend><pre class=Delphi>
+//End用于结束一个语句块或是一个单元.
+//它可以与begin, Case, Class, Interface, Asm, Unit, Package等相匹配.
+//对于语句块(局部结束), End后必须添加分号.
+//而对于单元或包(全局结束), end后必须添加句号.
+//在If语句中else关键字前的End后不允许添加符号.
+procedure X;
+begin
+　with Button1 do
+　begin
+　　if Button1.ShowHint then
+　　　Button1.Caption := 'Hinted'
+　　else
+　　　Button1.Caption := 'Not Hinted';
+　end;
+end;
+
+//在包内使用End来结束:
+package DATAX;
+  requires
+    rtl,
+    clx;
+  contains Db, DBLocal, DBXpress;
+end.
+</pre></fieldset><br>
+
+<fieldset><legend>except</legend><pre class=Delphi>
+//except关键字用于异常处理, 必须用在try语句内, 如果发生异常, 则执行except后的语句
+try
+  i := StrToInt(s);
+except
+  ShowMessage('Error!');
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>export</legend><pre class=Delphi>
+//Export标明了函数调用协定, 指出函数可以被输出, 输出的函数能被本地或远程调用.
+//其他程序可以用dll的形式调用程序内的函数.它是向下兼容的.
+function Add(a,b: Integer): Integer; export;
+
+//如果这个程序被编译为Demo.exe, 并且另一个程序需要调用这个函数, 可以使用以下语句
+function Add(a,b: Integer): Integer; stdcall; external 'Demo.exe';
+</pre></fieldset><br>
+
+<fieldset><legend>exports</legend><pre class=Delphi>
+//exports用于输出对象, 它必须被用在接口和实现之间, 可以同时输出多个项, 项与项之间用逗号分开.
+library Demo;
+
+function X(i: Integer): string; stdcall;
+begin
+　Result:=IntToStr(i);
+end;
+
+exports
+　X;
+
+begin
+end.
+
+//如果输出的对象被重载, 则必须给对象起个别名, 并注明参数.
+library Demo;
+
+function X(i: Integer): string; overload; stdcall;
+begin
+　Result := IntToStr(i);
+end;
+
+function X(s: string): Integer; overload; stdcall;
+begin
+　Result := StrToInt(s);
+end;
+
+exports
+  X(i: Integer) name 'x1',
+  X(s: string) name 'x2';
+
+begin
+end.
+</pre></fieldset><br>
+
+<fieldset><legend>external</legend><pre class=Delphi>
+//External关键字用于引用一个外部的或是OBJ内的方法.
+{$L Demo.OBJ}
+procedure X(i:Integer);external;
+
+//如果是从dll或外部程序中引用, 则可以使用以下代码:
+function A(FileName: string): string; external 'Demo.dll';
+
+//如果被引用的函数被重载, 则必须另外指出引用的名称.
+function A(Name: string): string; overload; stdcall; external 'Demo.dll' name 'A1';
+function A(Code: Integer): string; overload; stdcall; external 'Demo.dll' name 'A2';
+
+//使用External关键字时, 必须注意大小写, 否则将出现错误.
+</pre></fieldset><br>
+
+<fieldset><legend>far</legend><pre class=Delphi>
+//Far标明了函数调用协定, 指出函数可以被远程调用.
+//其他程序可以用dll的形式调用程序内的函数.它是向下兼容的.
+function Add(a,b: Integer): Integer; Far;
+
+//如果这个程序被编译为Demo.exe, 并且另一个处于其他计算机的程序需要调用这个函数, 可以使用以下语句:
+function Add(a,b: Integer): Integer; stdcall; external 'Demo.exe';
+</pre></fieldset><br>
+
+<fieldset><legend>file</legend><pre class=Delphi>
+//File关键字指出了文件操作类型, 文件必须被声明为File, 
+//如果在File后追加Of和文件类型, 则文件可以被定义为读写指定类型数据.
+type
+  TPerson = record
+    PName: string[32];
+    PAge: Integer;
+  end;
+var
+  PFile: file of TPerson;
+</pre></fieldset><br>
+
+<fieldset><legend>finalization</legend><pre class=Delphi>
+//finalization关键字标识了单元被释放时所要调用的方法, 
+//通常是释放掉单元中不能自动释放的对象, 也可以不用.
+//finalization最常用的情况是对OLE对象做反初始化.
+initialization
+  ActiveX.OleInitialize(nil);
+finalization
+  ActiveX.OleUninitialize;
+</pre></fieldset><br>
+
+<fieldset><legend>finally</legend><pre class=Delphi>
+//finally关键字指出了异常处理中最后必须要调用的方法, 
+//不论是否发生异常, finally后的语句总是在try语句结束时执行.
+try
+  Node := Node.GetNext;
+  Edit1.Text := Node.Text;
+finally
+　Node := nil;
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>for</legend><pre class=Delphi>
+//For关键字引出For循环结构, 用于做指定次数的循环.
+for i := 1 to 100 do sum := sum + i;
+
+//如果循环变量是递减的, 则可以用DownTo关键字
+for i := 100 downto 1 do Inc(sum);
+</pre></fieldset><br>
+
+<fieldset><legend>forward</legend><pre class=Delphi>
+//Forward关键字用于方法的前置定义.只定义方法声明, 然后在程序的后面对方法进行实现.
+//这么做有利于代码的可读性, 可以将所有的声明放在一起, 然后将所有的实现也放在一起.
+function X(i: Integer): Integer; forward;
+procedure Y(s: string); forward;
+...
+function X;
+begin
+  Result := i * 2;
+end;
+
+procedure Y;
+begin
+  WriteLn(s);
+end;
+
+//用Forward前置声明的方法在实现时不需要再输入方法的参数和返回值, 直接使用方法名即可.
+</pre></fieldset><br>
+
+<fieldset><legend>function</legend><pre class=Delphi>
+//Function用于声明函数
+function X(i: Integer): Integer;
+
+//它也可以用于动态函数的声明
+type
+　TFun = function(i: Integer): Integer of object;
+
+//动态声明时, 不需要指出函数名, 只需要指出参数和返回类型就可以, 具体的函数名可以在后期绑定.
+</pre></fieldset><br>
+
+<fieldset><legend>goto</legend><pre class=Delphi>
+//Goto语句用在跳转行号, 可以跳转到当前结构层内任意位置.
+//必须在声明处用label关键字声明行号.
+//由于Goto语句会破坏程序的结构, 不推荐使用.
+var
+　a,b: Integer;
+label
+　X,Y;
+begin
+　if a &gt; b then
+　　goto X
+　else
+　　goto Y;
+X:
+　WriteLn('a &gt; b');
+Y:
+　WriteLn('b &gt; a');
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>if</legend><pre class=Delphi>
+//If关键字引出If条件语句, 用于对条件进行判断.
+var
+　a,b: Integer;
+begin
+　a := 2; b := 3;
+　if a&gt;b then
+　　WriteLn('a=' + IntToStr(a))
+　else
+　　WriteLn('b=' + IntToStr(b));
+end;
+
+//If语句的通常结构是If...Then...else, else语句也可以不要.
+//在If语句内如果有多个子语句, 则必须用begin...End结构进行区分.
+if a &gt; b then
+begin
+　WriteLn('a&gt;b');
+　WriteLn('a=' + IntToStr(a));
+　WriteLn('b=' + IntToStr(b));
+End
+else
+　WriteLn('b&gt;a');
+</pre></fieldset><br>
+
+<fieldset><legend>implementation</legend><pre class=Delphi>
+//Implementation标识了单元中的实现部分, 单元的基本结构为:
+//Unit...Interface...implementation...end.
+//函数体, 过程体等必须写在implementation关键字后.
+//如果在implementation后引用对象, 则对象是非公开的, 仅能供单元自身使用.
+implementation
+  uses frmAbout;
+begin
+  FormAbout.Show;
+end;
+
+//一个完整的单元必须拥有implementation部分.
+</pre></fieldset><br>
+
+<fieldset><legend>implements</legend><pre class=Delphi>
+//Implements指出了一个属性从接口继承, 此时属性被转换成接口对象.
+//通过接口动态绑定属性, 并动态的设定属性值.
+type
+　IMyInterface = interface
+　　procedure P1;
+　　procedure P2;
+　end;
+　TMyImplclass = class
+　　procedure P1;
+　　procedure P2;
+　end;
+　TMyclass = class(TInterfacedObject, IMyInterface)
+　　FMyImplClass: TMyImplClass;
+　　property MyImplClass: TMyImplclass read FMyImplclass implements IMyInterface;
+　　procedure IMyInterface.P1 = MyP1;
+　　procedure MyP1;
+　end;
+
+//通过implements声明后, 可以在类声明时指出接口中方法的实体, 如上例中的:
+procedure IMyInterface.P1 = MyP1;
+</pre></fieldset><br>
+
+<fieldset><legend>in</legend><pre class=Delphi>
+//In用于判断一个集合中是否包含某个元素.被判断的内容必须是单个集合元素和一个集合的实例.
+type
+　TCol = (cA,cB,cC);
+　TCols = set of TCol;
+var
+　Cols: TCols;
+begin
+　Cols := [cA,cB];
+　if cA in Cols then
+　　ShowMessage('cA in Cols')
+　else
+　　ShowMessage('cA not in Cols');
+end;
+
+//In也用于工程文件中, 用于标识某个文件是否被工程所引用.
+Uses
+　Unit1 in 'Unit1.pas';
+
+//In可以被用在For语句中, 用于循环取出一个集合中的元素.
+var
+　s: string;
+　sl: TStringList;
+begin
+　...
+　for s In sl do
+　begin
+　　ShowMessage(s);
+　end;
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>index</legend><pre class=Delphi>
+//Index用于在属性中标识序号, 以便用相同的属性方法(Get,Set)对不同的属性进行操作.
+type
+　TForm1 = class(TForm)
+　private
+　　function GetInfo(const Index: Integer): Longint;
+　　procedure SetInfo(const Index: Integer; const Value: Longint);
+　public
+　　property iLeft:Longint index 0 read GetInfo write SetInfo;
+　　property iTop:Longint index 1 read GetInfo write SetInfo;
+　　property iWidth:Longint index 2 read GetInfo write SetInfo;
+　　property iHeight:Longint index 3 read GetInfo write SetInfo;
+　end;
+
+function TForm1.GetInfo(const Index: Integer): Longint;
+begin
+　case Index of
+　　0: result := self.Left;
+　　1: Result := self.Top;
+　　2: result := self.Width;
+　　3: result := self.Height;
+　end;
+end;
+
+//Index关键字也用于在属性中指出多个元素, 例如:
+property Selected[Index: Integer]: Boolean read GetSelected write SetSelected;
+</pre></fieldset><br>
+
+<fieldset><legend>inherited</legend><pre class=Delphi>
+//Inherited用于调用父类的方法.
+type
+　TDemo = class(TComponent)
+　public
+　　constructor Create(AOwner: TComponent); override;
+　end;
+
+constructor TDemo.Create(AOwner: TComponent);
+begin
+　inherited Create(AOwner);
+end;
+
+//如果调用的是与自身同名的方法, 则也可以省去方法名和参数.如上例中的
+inherited Create(AOwner);
+//可以改成:
+Inherited;
+</pre></fieldset><br>
+
+<fieldset><legend>initialization</legend><pre class=Delphi>
+//initialization关键字标识了单元被载入时所要调用的方法, 
+//通常是初始化一些不能自动初始化的对象, 也可以不用.
+//initialization最常用的情况是对OLE对象做初始化.
+initialization
+  ActiveX.OleInitialize(nil);
+finalization
+  ActiveX.OleUninitialize;
+</pre></fieldset><br>
+
+<fieldset><legend>inline</legend><pre class=Delphi>
+//InLine关键字用于Asm或assembler结构中, 
+//用于指出该汇编语句是向下兼容的.它对于程序的编译没有任何影响.
+function IntToStr(Value: Integer): string;
+asm
+　InLine;
+  PUSH  ESI
+  MOV   ESI, ESP
+  SUB   ESP, 16
+  xor   ECX, ECX
+  PUSH  EDX
+  xor   EDX, EDX
+  CALL  CvtInt
+  MOV   EDX, ESI
+  POP   EAX
+  CALL  System.@LStrFromPCharLen
+  ADD   ESP, 16
+  POP   ESI
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>interface</legend><pre class=Delphi>
+//Interface标识了单元中的接口部分, 单元的基本结构为:
+//Unit...Interface...implementation...end.
+//函数, 过程等的声明必须写在Interface关键字后.
+//如果在Interface后引用对象, 则对象是没有实例的, 使用时必须被实例化.
+Interface
+　uses frmAbout;
+var
+　FAbout: TFormAbout;
+begin
+　FAbout :＝ TFormAbout.Create(Self);
+　FAbout.Show;
+end;
+
+//一个完整的单元必须拥有Interface部分.
+
+//Interface也可以用作接口的声明.
+type
+　IMalloc = interface(IInterface)
+　['{00000002-0000-0000-C000-000000000046}']
+　　function Alloc(Size: Integer): Pointer; stdcall;
+　　function Realloc(P: Pointer; Size: Integer): Pointer; stdcall;
+　　procedure Free(P: Pointer); stdcall;
+　　function GetSize(P: Pointer): Integer; stdcall;
+　　function DidAlloc(P: Pointer): Integer; stdcall;
+　　procedure HeapMinimize; stdcall;
+　end;
+</pre></fieldset><br>
+
+<fieldset><legend>is</legend><pre class=Delphi>
+//Is关键字用于对象的判断, 有某些情况下, 也可以作&quot;As&quot;使用.
+var
+　Comp: TComponent;
+begin
+  ...
+　if Comp Is TEdit then
+　　(Comp as TEdit).Text := 'Edit';
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>label</legend><pre class=Delphi>
+//label关键字用于声明行号标签, 以便用Goto进行转向, 不推荐使用.
+var
+　a,b: Integer;
+label
+　X,Y;
+begin
+　if a &gt; b then
+　　goto X
+　else
+　　goto Y;
+X:
+　WriteLn('a&gt;b');
+Y:
+　WriteLn('b&gt;a');
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>library</legend><pre class=Delphi>
+//Library关键字用于指出一个工程为类库.类库编译后生成DLL文件, 可被其他程序调用.
+library Editors;
+uses EdInit, EdInOut, EdFormat, EdPrint;
+exports
+  InitEditors,
+  doneEditors name done,
+  InsertText name Insert,
+  DeleteSelection name Delete,
+  FormatSelection,
+  PrintSelection name Print,
+  SetErrorHandler;
+begin
+  InitLibrary;
+end.
+</pre></fieldset><br>
+
+<fieldset><legend>message</legend><pre class=Delphi>
+//Message关键字用于声明消息方法, 
+//带有Message的方法必须指出接收的消息类型, 并通过引用将消息传入方法中, 以便进行处理.
+procedure Refresh(var Msg: TMessageRecordtype); message ID_REFRESH;
+
+procedure Refresh(var Msg: TMessageRecordtype);
+begin
+  if Chr(Msg.Code) = #13 then
+    ...
+  else
+    inherited;
+end;
+
+//用户可以自定义消息, 自定义消息也能够被Message接收, 并引发事件.
+</pre></fieldset><br>
+
+<fieldset><legend>mod</legend><pre class=Delphi>
+//Mod用于求两数之整数模, 即余数.用于Mod运算的两个数值必须均为整型, 其运算结果也为整型.
+var
+　a,b,c: Integer;
+begin
+　a := 20; b := 3;
+　c := a mod b; {2}
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>name</legend><pre class=Delphi>
+//Name关键字用于指出方法的别名, 
+//对于一个要被外部引用的方法, 建议用Name申请方法别名, 以避免外部程序改动方法的实体内容.
+//从外部引用一个方法时, 如果该方法有别名, 则必须用Name进行标识.
+function MessageBox(HWnd: Integer; Text, Caption: PChar; Flags: Integer): Integer; 
+  stdcall; external 'user32.dll' name 'MessageBoxA';
+</pre></fieldset><br>
+
+<fieldset><legend>near</legend><pre class=Delphi>
+//Near标明了函数调用协定, 指出函数可以被本地调用.
+//其他程序可以用dll的形式调用程序内的函数.它是向下兼容的.
+function Add(a,b: Integer): Integer; near;
+
+//如果这个程序被编译为Demo.exe, 并且另一个处于本地的程序需要调用这个函数, 可以使用以下语句:
+function Add(a,b: Integer): Integer; stdcall; external 'Demo.exe';
+</pre></fieldset><br>
+
+<fieldset><legend>nil</legend><pre class=Delphi>
+//Nil用于表示一个空指针, 或是没有实例的对象.
+while Node &lt;&gt; nil do
+begin
+　ListBox1.Items.Add(Node.Text);
+　Node := Node.GetNext;
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>nodefault</legend><pre class=Delphi>
+//NoDefault关键字指出了一个属性不允许有默认值, 这通常用在继承中.
+type
+　TClassA = class
+　private
+　　fValue: Integer;
+　published
+　　property Value: Integer read fValue write fValue default 0;
+　end;
+
+　TClassB = class(TClassA)
+　published
+　　property Value:Integer read fValue write fValue nodefault;
+　end;
+
+//由上例可知, TClassA中的Value有默认值0, 
+//TClassB继承了TClassA, 所以也继承了其默认值, 在此用NoDefault去掉默认值
+</pre></fieldset><br>
+
+<fieldset><legend>not</legend><pre class=Delphi>
+//Not用于取反, 它否定了原先的结果.例如:
+if a &gt; b then
+//可以写成:
+if not(a &lt; b) then
+
+//Not关键字通常用于切换Boolean型的属性
+procedure Button1Click(Sender: TObject);
+begin
+　StatusBar1.Visible := not StatusBar1.Visible;
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>object</legend><pre class=Delphi>
+//Object用于声明一个对象, 这个对象可以是任意的, 并且向下兼容.Object只能被Object所继承.
+//声明对象的方法与声明类的方法是相同的.
+type
+　ODemoA = object
+　end;
+
+　ODemoB = object(ODemoA)
+　end;
+
+//Object关键字还用于声明动态函数或过程, 例如:
+type
+　TMyFun = function(i: Integer): Integer of Object;
+　TMyProc = procedure(s: string) of object;
+
+//经过object声明的函数或过程可以被动态的绑定到指定的函数体, 或是绑定到控件是事件中.
+</pre></fieldset><br>
+
+<fieldset><legend>of</legend><pre class=Delphi>
+//Of关键用于和其他关键字构成指定的结构.Of可以与Case, Class, Array, File, Set, Object连用.
+
+//Case语句:
+case Tag Of
+　0: Result := 'a';
+　1: Result := 'b';
+end;
+
+//Class语句:
+type
+　TDemo = class of TComponent;
+
+//Array结构:
+var
+　MyInt: array of Integer;
+
+//File结构:
+var
+　MyFile: file of Byte;
+
+//Set语句:
+type
+　TCol = (cA,cB,cC);
+　TCols = set of TCol;
+
+//Object结构:
+type
+　MyFun = function(I: Integer): Integer of Object;
+</pre></fieldset><br>
+
+<fieldset><legend>on</legend><pre class=Delphi>
+//On关键字用于异常处理, 指出发生的异常, 并获取异常信息.
+try
+　i := StrToInt(s);
+except
+　on E: exception do
+　　ShowMessage(E.Message);
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>or</legend><pre class=Delphi>
+//一、表示逻辑或
+if (a&gt;0) or (b&gt;0) then
+
+//二、表示位运算
+var
+  a,b,c: Integer;
+begin
+  c := (a or b);
+end;
+
+//使用Or表示逻辑时, Or左右的表达式必须用小括号括起, 以避免以生条件的冲突
+//如果在条件语句中使用 Or, 则编辑器不知道用户使用Or做什么
+例如:
+if a&gt;0 or b&gt;0 then
+//编译器可能会理解为:
+if a&gt;(0 or b)&gt;0 then
+//或者
+if (a&gt;0) or (b&gt;0) then
+//但是实际编译时, 编译器会产生一个冲突, 报告错误
+//并且第一种可能包含了a&gt;b&gt;c的形式, 这在Delphi中不被支持
+//所以使用Or运算符时必须使用括号, 以区分左右的条件.
+//表示位运算时也必须加上括号, 将Or以及左右参数括起.
+</pre></fieldset><br>
+
+<fieldset><legend>out</legend><pre class=Delphi>
+//Out关键字说明了方法参数的输出方式, 一般的函数只能有一个返回值, 
+//使用Out可以在一个函数中返回多个结果.
+//Out和var不同, Out是以返回值的形式进行参数返回, 而var是直接输入一个参数的地址.
+procedure X(out i: Integer; out s: string);
+begin
+　i := i * 2;
+　s := s + 'abc';
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+　i: Integer;
+　s: string;
+begin
+　i := 20;
+　s := 'xxx';
+　X(i,s);
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>overload</legend><pre class=Delphi>
+//Overload关键字指出了用于重载的方法, 重载即方法名相同, 
+//但是参数数量, 类型或顺序不同, 满足此条件的构成重载.
+function X(i: Integer): string; overload;
+function X(s: string): string; overload;
+
+//从父类继承时, 如果子类拥有和父类相同的方法, 则也必须用overload构成重载, 
+//但是此类重载也必须满足重载的要求.
+type
+　TDemo = class(TComponent)
+　public
+　　procedure CreateWnd(AOwner: TWinControl); overload;
+　end;
+
+//如上例, 子类拥有的方法为:
+procedure CreateWnd; {继承自父类}
+procedure CreateWnd(AOwner: TWinControl); {子类声明}
+//共两个CreateWnd方法.
+
+//如果不使用重载, 则在子类中可以覆盖父类的方法.
+</pre></fieldset><br>
+
+<fieldset><legend>override</legend><pre class=Delphi>
+//Override用于覆盖一个Virtual或是Dynamic形式的方法.
+//覆盖时必须沿用被覆盖方法的声明, 并且不允许修改原方法的参数和返回类型.
+procedure Create(AOwner: TComponent); override;
+
+//Override多用于继承, 用子类覆盖掉父类的方法.
+type
+　TClassA = class
+　　procedure X; virtual;
+　end;
+
+　TClassB = class(TClassA)
+　　procedure X; override;
+　end;
+
+//如上例, 子类拥有的方法为:
+procedure X; {从父类覆盖}
+//父类拥有的方法为:
+procedure X; {父类自身方法, 未被覆盖}
+
+//如果父类的方法未用Virtual或Dynamic声明, 
+//或是有修改参数的需要, 则必须用Reintroduce关键字进行覆盖.
+</pre></fieldset><br>
+
+<fieldset><legend>package</legend><pre class=Delphi>
+//Package关键字用于指出一个工程为控件库.
+//控件库编译后生成BPL文件, 可被安装到Delphi的控件库中, 从而在以后的开发中使用控件.
+package DATAX;
+  requires
+    rtl,
+    clx;
+  contains
+    MyUnit in 'C:\MyProject\MyUnit.pas';
+end.
+</pre></fieldset><br>
+
+<fieldset><legend>packed</legend><pre class=Delphi>
+//Packed关键字用于对结构体记录或数组进行打包, 打包后被打包对象的体积能显著减小.
+type
+　TPerson = packed Record
+　　PName: string[32];
+　　PAge: Integer;
+　end;
+　MyArray: packed array of PChar;
+</pre></fieldset><br>
+
+<fieldset><legend>pascal</legend><pre class=Delphi>
+//Pascal标明了函数调用协定, 
+//指出函数在调用时遵循Pascal原因, 即先对所有的变量进行初始化, 
+//避免因异步线程调用而产生的错误.它是向下兼容的.
+function X(i: Integer): Integer; Pascal;
+begin
+　Result := i * 2;
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>private</legend><pre class=Delphi>
+//Private标明了类内元素的访问区分权限, 被Private区分的元素只能被本类内部访问.
+</pre></fieldset><br>
+
+<fieldset><legend>procedure</legend><pre class=Delphi>
+//Procedure用于声明过程
+procedure X(i: Integer);
+
+//它也可以用于动态函数的声明
+type
+　TProc = procedure(i: Integer) of object;
+
+//动态声明时, 不需要指出过程名, 只需要指出参数就可以, 具体的过程名可以在后期绑定.
+</pre></fieldset><br>
+
+<fieldset><legend>program</legend><pre class=Delphi>
+//Program关键字用于指出一个工程为应用程序.控件库编译后生成exe文件, 可以直接执行
+program Project1;
+uses
+  Forms,
+  Unit1 in 'Unit1.pas' ;
+{$R *.res}
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.
+
+</pre></fieldset><br>
+
+<fieldset><legend>property</legend><pre class=Delphi>
+//Property关键字用于声明属性, 属性分为显式属性和隐式属性两种, 
+//只有声明在published访问区分符下的属性才是显式属性, 可以直接在对象查看器中查看.
+type
+　TDemo = class
+　Private
+　　fValue: Integr;
+　Published
+　　property Value: Integer read fValue write fValue;
+　end;
+
+//事件也是属性的一种, 可以在published区分符下用Property进行声明
+type
+　TOnTextChange=procedure (Sender: TObject) of object;
+　TDemo = class
+　private
+　　fEvent: TOnTexChange;
+　published
+　　property OntextChange: TOnTextChange read fEvent write fEvent;
+　end;
+</pre></fieldset><br>
+
+<fieldset><legend>protected</legend><pre class=Delphi>
+//Protected标明了类内元素的访问区分权限, 被Protected区分的元素只能被本类内部和其子类访问.
+</pre></fieldset><br>
+
+<fieldset><legend>public</legend><pre class=Delphi>
+//Public标明了类内元素的访问区分权限, 被Public区分的元素能够被类内和类外任何对象访问.
+</pre></fieldset><br>
+
+<fieldset><legend>published</legend><pre class=Delphi>
+//Published标明了类内元素的访问区分权限.
+//被Published区分的元素能够被类内和类外任何RTTI对象访问
+//只在声明在Published区分符下的属性才能够成为显式属性并在对象查看器中显示.
+</pre></fieldset><br>
+
+<fieldset><legend>raise</legend><pre class=Delphi>
+//Raise语句用于抛出异常, 
+//如果希望通过外部程序处理异常, 或是在异常发生时重新将异常抛出, 可以使用Raise语句.
+function GetString(i: Integer): string;
+begin
+　if i &lt; 0 then
+　　raise exception.Create('Integer Cannot smaller than 0');
+　Result := IntToStr(i);
+end;
+
+//在异常处理中, 可以重新抛出异常
+try
+　i := StrToInt(s);
+except
+　on E: exception do
+　　raise exception.Create(E.Message);
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>read</legend><pre class=Delphi>
+//Read用于标识属性中读取所使用的成员或方法.
+private
+　fValue: Integer;
+published
+　property Value: Integer read fValue;
+
+//上例中即表明Value属性的值从fValue成员上读取.
+</pre></fieldset><br>
+
+<fieldset><legend>readonly</legend><pre class=Delphi>
+//ReadOnly关键字用于标识一个对象是否只读.
+property ReadOnly;
+
+//当ReadOnly设为True时, 不允许用户手动修改属性, 只能通过其他对象来操作.
+</pre></fieldset><br>
+
+<fieldset><legend>record</legend><pre class=Delphi>
+//Record关键字用于声明一个结构体记录, 
+//一个结构体可以视为一个不需要实例化的对象, 拥有自己的成员.
+type
+　TPerson = record
+　　PName: string[32];
+　　PAge: Integer;
+　end;
+</pre></fieldset><br>
+
+<fieldset><legend>register</legend><pre class=Delphi>
+//Register标明了函数调用协定, 指出函数在被调用时可以在注册表内留下记录.它是向下兼容的.
+function Add(a,b: Integer): Integer; Register; Register
+
+//关键字还用于向控件库或是IDE注册控件或是专家工具.
+procedure Register;
+begin
+　RegisterComponents('Sample', [TDemo]);
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>reintroduce</legend><pre class=Delphi>
+//Reintroduce用于重新发布方法, 通常用于继承时, 
+//如果要覆盖的方法是静态方法, 或是需要修改方法的参数等, 必须用Reintroduce进行重发布.
+//对于Virtual或Dynamic方法, 可以直接用Override进行覆盖.
+type
+　TClassA = class
+　　procedure X;
+　end;
+　TClassB = class(TClassA)
+　　procedure X; reintroduce;
+　end;
+　TClassC = class(TClassB)
+　　procedure X(i: Integer); reintroduce;
+　end;
+</pre></fieldset><br>
+
+<fieldset><legend>repeat</legend><pre class=Delphi>
+//repeat关键字用于引出repeat循环结构, 
+//该循环必须先执行一次循环体, 然后再对循环条件进行判断.repeat必须与Until关键字联合使用.
+i := 0;
+repeat
+　sum := sum + i;
+　Inc(i);
+until(i &gt;= 100);
+</pre></fieldset><br>
+
+<fieldset><legend>requires</legend><pre class=Delphi>
+//Requires关键字指出了编译Package时的必备条件.若Requires的条件未满足, 则不允许编译包.
+package DATAX;
+  requires
+    rtl,
+    clx;
+end.
+</pre></fieldset><br>
+
+<fieldset><legend>resourcestring</legend><pre class=Delphi>
+//ResourceString用于声明资源字符串, 资源字符串可以在被声明的结构内使用.
+ResourceString
+　CreateError = 'Cannot create file %s';
+　OpenError = 'Cannot open file %s';
+　LineTooLong = 'Line too long';
+　ProductName = 'Borland Rocks';
+　SomeResourceString = SomeTrueConstant;
+</pre></fieldset><br>
+
+<fieldset><legend>safecall</legend><pre class=Delphi>
+//Safecall是函数调用协定的一种, 它规定了被COM调用的函数所必须遵守和规则.
+//在编译时, Safecall声明的函数被编译成COM接口兼容的.
+procedure X(s: WideString); safecall;
+
+//在编译后成为:
+procedure X(s: PAnsiString);
+</pre></fieldset><br>
+
+<fieldset><legend>set</legend><pre class=Delphi>
+//Set关键字用于声明集合类, 集合类允许用集合运算符, 如in等进行操作.
+type
+　TCol = (cA,cB,cC);
+　TCols = set of TCol;
+
+//操作时允许使用加减符号来添加或删除某个集合元素
+var
+　Cols: Tcols;
+begin
+　Cols := Cols + [cA,cB];
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>shl</legend><pre class=Delphi>
+//SHL表示向左移位, 左移的位数即乘以2的幂数
+var
+　x: Integer;
+begin
+　X := 2 shl 3; {16}
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>shr</legend><pre class=Delphi>
+//SHL表示向右移位, 右移的位数即除以2的幂数
+var
+　x: Integer;
+begin
+　X := 16 shr 2; {4}
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>stdcall</legend><pre class=Delphi>
+//Stdcall是函数调用协定的一种, 它规定了能让程序调用的函数所应遵守的规则.
+//Stdcall关键字必须在主调方和被调方之间形成配对.
+
+例如, 被调方函数:
+Library Demo;
+function X(i: Integer): Integer; stdcall;
+begin
+　Result := i * 2;
+end;
+exports
+　X;
+begin
+end.
+
+//主调方函数:
+function X(i: Integer): Integer; stdcall; external 'Demo.dll';
+
+//同时需要注意, 使用Stdcall关键字时, 被调函数是大小写敏感的, 此处极容易出错.
+</pre></fieldset><br>
+
+<fieldset><legend>stored</legend><pre class=Delphi>
+//Stored用于指出一个属性的值是否能被保留, 若指定了True, 则允许对属性值进行赋值撤销的操作.
+property Value: string read fValue write fValue stored True;
+</pre></fieldset><br>
+
+<fieldset><legend>string</legend><pre class=Delphi>
+//String是一个数据类型, 它代表了字符串.
+var
+　Str: string;
+</pre></fieldset><br>
+
+<fieldset><legend>then</legend><pre class=Delphi>
+//Then关键字用于If语句中, 当If条件成立时, 执行Then后的语句.
+var
+　a,b: Integer;
+begin
+　if a &gt; b then
+　　WriteLn('a')
+　else
+　　WriteLn('b');
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>threadvar</legend><pre class=Delphi>
+//Threadvar标识了一个随线程启动而创建的变量, 
+//如果用Threadvar声明变量, 则在程序结束前必须手动释放其占用的空间.
+threadvar S: AnsiString;
+S := 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+S := '';
+
+//S := ''; 即释放变量S所占用的内存.
+</pre></fieldset><br>
+
+<fieldset><legend>to</legend><pre class=Delphi>
+//To关键字用于For语句, 指明循环变量是递增的.
+for i := 10 to 100 do
+　ListBox1.Items.Add(IntToStr(i));
+
+//在For语句中, 循环变量递增用To关键字, 递减用DownTo关键字.
+</pre></fieldset><br>
+
+<fieldset><legend>try</legend><pre class=Delphi>
+//try语句用于异常处理, 对于有可能发生异常的语句, 可以放在try结构下, 以便对其进行异常保护.
+try
+　i := StrToInt(s);
+except
+　ShowMessage('Error');
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>type</legend><pre class=Delphi>
+//Type关键字用于声明各种对象, 用Type关键字声明的对象, 在传递时按引用传递.
+type
+　TDemo = class
+　end;
+
+//type也用来声明枚举类型或是按引用传递的变量.
+type
+　TCol = (cA,cB,cC);
+　TInt = Integer;
+</pre></fieldset><br>
+
+<fieldset><legend>unit</legend><pre class=Delphi>
+//Unit标识了单元的开头, 单元的基本结构为 Unit...Interface...implementation...end.
+Unit Unit1;
+Interface
+　uses Classes;
+implementation
+end.
+
+//一个完整的单元必须拥有Unit作为开头.
+</pre></fieldset><br>
+
+<fieldset><legend>until</legend><pre class=Delphi>
+//Until关键字用于判断repeat循环结构的循环条件, 
+//如果循环条件为真, 则退出循环.Until必须与repeat关键字联合使用.
+i := 0;
+repeat
+　sum := sum + i;
+　Inc(i);
+until(i &gt;= 100);
+</pre></fieldset><br>
+
+<fieldset><legend>uses</legend><pre class=Delphi>
+//Uses用于引用一个外部的单元, 并且能够使用该单元中的公共部分.
+//Uses语句通常放在一个单元的接口或是实现部分.
+Interface
+　uses Classes;
+Implemention
+　uses frmAbout;
+</pre></fieldset><br>
+
+<fieldset><legend>var</legend><pre class=Delphi>
+//var关键字用于声明一个变量或是对象, 用var声明的变量接值传递.
+var
+　i: Integer;
+　s: string;
+
+//var也可以用于标识按引用传递的方法参数
+function X(var i: Integer): Integer;
+
+//上述函数中的参数i即按引用传递, 它的值可以在函数执行时被改变, 并返回主调函数.
+</pre></fieldset><br>
+
+<fieldset><legend>varargs</legend><pre class=Delphi>
+//varArgs标识了引用参数, 它必须和Cdecl关键字联用, 表明允许调用的函数使用引用传递.
+function printf(Format: PChar): Integer; cdecl; varargs;
+
+//上述代码从C++的类库中引用了Printf函数, 并允许按引用的方式传入参数.
+</pre></fieldset><br>
+
+<fieldset><legend>virtual</legend><pre class=Delphi>
+//Virtual用于声明一个虚方法, 
+//虚方法可以被覆盖, 并且可以使程序运行速度尽可能的快(区别于Dynamic).
+procedure X(i: Integer); virtual;
+</pre></fieldset><br>
+
+<fieldset><legend>while</legend><pre class=Delphi>
+//While关键字用于引出While循环语句, 循环前先进行循环条件的判断, 如果条件为真则执行循环.
+i := 0;
+while i &lt; 100 do
+begin
+　sum := sum + i;
+　Inc(i);
+end;
+</pre></fieldset><br>
+
+<fieldset><legend>with</legend><pre class=Delphi>
+//With关键字用于将相同的对象集合起来处理, 它可以省去输入大量重复的代码, 使代码看上去比较精简.
+with Form1.Memo1.Lines do
+begin
+　Clear;
+　Append('abc');
+　Append('def');
+　SaveToFile('C:\demo.txt');
+end;
+
+//上面这段代码如果不使用With语句, 则显得非常冗余复制内容到剪贴板代码:
+Form1.Memo1.Lines.Clear;
+Form1.Memo1.Lines.Append('abc');
+Form1.Memo1.Lines.Append('def');
+Form1.Memo1.Lines.SaveToFile('C:\demo.txt');
+</pre></fieldset><br>
+
+<fieldset><legend>write</legend><pre class=Delphi>
+//Write用于标识属性中写入所使用的成员或方法.
+private
+　fValue: Integer;
+published
+　property Value: Integer write fValue;
+
+//上例中即表明Value属性的值写入到fValue成员上.
+</pre></fieldset><br>
+
+<fieldset><legend>writeonly</legend><pre class=Delphi>
+//writeonly关键字用于标识一个对象是否只写.
+property writeonly;
+
+//当writeonly设为True时, 不允许用户读取属性, 只能通过其他对象来操作.
+</pre></fieldset><br>
+
+<fieldset><legend>xor</legend><pre class=Delphi>
+//Xor用于取异或, 当两个操作数相等时, 返回False, 不等时返回True.
+var
+　a,b: Integer;
+begin
+　a := 2; b := 3;
+　if a xor b then
+　　WriteLn('a xor b')
+　else
+　　WriteLn('a not xor b');
+end;
+
+//Xor也用于计算异或值
+WriteLn(IntToStr(3 xor 5)); {6}
+</pre></fieldset><br>
+
+<hr color="#FF0000" noshade size="1"><br>
+
+原稿来源: <a href="http://mydelphi.5d6d.com/viewthread.php?tid=252&amp;extra=&amp;page=1">http://mydelphi.5d6d.com/viewthread.php?tid=252&extra=&page=1</a>                             
+&nbsp;<br>                       
+<br>
+将修正更新与: <a href="http://www.cnblogs.com/del/archive/2008/06/23/1228562.html">http://www.cnblogs.com/del/archive/2008/06/23/1228562.html</a>                        
+<p>下载地址: <a href="http://www.cnblogs.com/Files/del/DelphiKey.rar">http://www.cnblogs.com/Files/del/DelphiKey.rar</a></p>                        
+<hr color="#FF0000" noshade size="1"><br>
+</body>
+
+</html>

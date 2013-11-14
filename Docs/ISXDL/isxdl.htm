@@ -1,0 +1,468 @@
+<html>
+<head>
+<title>ISX Download DLL Documentation</title>
+<style>
+body, td {
+	font-family: verdana;
+	font-size: 8pt;
+}
+h1 {
+	font-size: 13pt;
+}
+h2 {
+	font-size: 10pt;
+}
+h3 {
+	font-size: 9pt;
+}
+pre {
+	background-color: #F0F0F0;
+	padding: 4px;
+}
+hr {
+	color: #000000;
+	height: 1px;
+}
+</style>
+</head>
+<body>
+
+<h1>Download DLL</h1>
+
+<h2>About</h2>
+<p>
+ISX Download DLL is a "plugin" for ISX that allows you to download 
+files from the Internet during the installation process.
+</p>
+
+<p>
+Primarily written to be used from 
+<a href="http://www.innosetup.com/" title="by JOrdan Russell and Martijn Laan">Inno Setup</a>,
+but can be used by any software that can call DLL's. If you have the declarations needed for
+VB or other languages, please send them to me to include them on this page.
+</p>
+
+<h2>Exported Functions</h2>
+<ul>
+	<li><a href="#isxdl_download">isxdl_Download</a></li>
+	<li><a href="#isxdl_addfile">isxdl_AddFile</a></li>
+	<li><a href="#isxdl_addfilesize">isxdl_AddFileSize</a></li>
+	<li><a href="#isxdl_downloadfiles">isxdl_DownloadFiles</a></li>
+	<li><a href="#isxdl_clearfiles">isxdl_ClearFiles</a></li>
+	<li><a href="#isxdl_isconnected">isxdl_IsConnected</a></li>
+	<li><a href="#isxdl_setoption">isxdl_SetOption</a></li>
+	<li><a href="#isxdl_getfilename">isxdl_GetFileName</a></li>
+</ul>
+
+<h2>Definitions for ISX Pascal Scripting</h2>
+<ul><pre>
+function isxdl_Download(hWnd: Integer; URL, Filename: PChar): Integer;
+external 'isxdl_Download@files:isxdl.dll stdcall';
+
+procedure isxdl_AddFile(URL, Filename: PChar);
+external 'isxdl_AddFile@files:isxdl.dll stdcall';
+
+procedure isxdl_AddFileSize(URL, Filename: PChar; Size: Cardinal);
+external 'isxdl_AddFileSize@files:isxdl.dll stdcall';
+
+function isxdl_DownloadFiles(hWnd: Integer): Integer;
+external 'isxdl_DownloadFiles@files:isxdl.dll stdcall';
+
+procedure isxdl_ClearFiles;
+external 'isxdl_ClearFiles@files:isxdl.dll stdcall';
+
+function isxdl_IsConnected: Integer;
+external 'isxdl_IsConnected@files:isxdl.dll stdcall';
+
+function isxdl_SetOption(Option, Value: PChar): Integer;
+external 'isxdl_SetOption@files:isxdl.dll stdcall';
+
+function isxdl_GetFileName(URL: PChar): PChar;
+external 'isxdl_GetFileName@files:isxdl.dll stdcall';
+</pre></ul>
+
+<h2>Definitions for Visual Basic</h2>
+<ul><pre>
+Public Declare Function isxdl_Download Lib "isxdl.dll" _
+(ByVal ihWnd As Integer, ByVal strURL As String, ByVal strFilename As String) As Integer
+ 
+Public Declare Function isxdl_AddFile Lib "isxdl.dll" _
+(ByVal strURL As String, ByVal strFilename As String) As Integer
+ 
+Public Declare Function isxdl_AddFileSize Lib "isxdl.dll" _
+(ByVal strURL As String, ByVal strFilename As String, ByVal lngSize As Long) As Integer
+ 
+Public Declare Function isxdl_DownloadFiles Lib "isxdl.dll" _
+(ByVal ihWnd As Integer) As Integer
+ 
+Public Declare Sub isxdl_ClearFiles Lib "isxdl.dll" ()
+ 
+Public Declare Function isxdl_IsConnected Lib "isxdl.dll" () As Integer
+ 
+Public Declare Function isxdl_SetOption Lib "isxdl.dll" _
+(ByVal strOption As String, ByVal strValue As String) As Integer
+ 
+Public Declare Function isxdl_GetFileName Lib "isxdl.dll" _
+(ByVal strRL As String) As String
+</pre></ul>
+
+<h2>Definitions for C++</h2>
+<ul><pre>
+extern "C" {
+	int isxdl_Download(HWND hWndParent,LPCTSTR pszURL,LPCTSTR pszFileName);
+	void isxdl_AddFile(LPCTSTR pszURL,LPCTSTR pszFileName);
+	void isxdl_AddFileSize(LPCTSTR pszURL,LPCTSTR pszFileName,DWORD dwSize);
+	int isxdl_DownloadFiles(HWND hWndParent);
+	void isxdl_ClearFiles(void);
+	int isxdl_IsConnected(void);
+	int isxdl_SetOption(LPCTSTR pszOption,LPCTSTR pszValue);
+	LPCTSTR isxdl_GetFileName(LPCTSTR pszURL);
+};
+</pre></ul>
+
+<h2>History</h2>
+<ul>
+	<h3>Version 5.1.0</h3>
+	<ul>
+ 		<li>Can use a custom wizard image.</li>
+ 		<li>Uses SIZE command to get size of files on ftp servers.</li>
+ 		<li>Disabled optimization - is it me or is msvc bugging?</li>
+ 		<li>Won't add identical files more than once.</li>
+		<li>Disabled resume.</li>
+ 	</ul>
+
+	<h3>Version 4.0.8</h3>
+	<ul>
+ 		<li>Fixed a bug in resume if the server didn't support resume.</li>
+ 		<li>A bug caused by aborting a download was fixed.</li>
+ 		<li>Numbers are formatted in the default user locale.</li>
+ 		<li>Fixed bug that prevented cancelling downloads for illegal addresses.</li>
+ 		<li>Asks for user name and password if necessary when download from ftp.</li>
+ 		<li>Changed some error messages.</li>
+ 		<li>Shows icon for system menu.</li>
+ 		<li>Uses MS Shell Dlg font.</li>
+ 		<li>If resume is disabled, incomplete files will be deleted.</li>
+ 	</ul>
+
+	<h3>Version 3.0.4.3</h3>
+	<ul>
+ 		<li>Can use language files.</li>
+ 		<li>Doesn't hide parent window in simple mode.</li>
+ 		<li>Bug fixes.</li>
+ 		<li>Supports resume for http.</li>
+ 		<li>Spanish translation by Lobo Lunar.</li>
+ 		<li>Norwegian translation.</li>
+ 	</ul>
+
+	<h3>Version 3.0.4 (11/30/2002)</h3>
+	<ul>
+ 		<li>Doesn't get size of files in simple mode.</li>
+ 		<li>Bugfix in isxdl_SetOption and resetting simple mode.</li>
+ 		<li>Standard wizard look.</li>
+ 		<li>Automatically hides parent window.</li>
+ 		<li>Two new options: label and description.</li>
+	</ul>
+
+	<h3>Version 1.3.1 (7/24/2002)</h3>
+	<ul>
+		<li>Minor tweaks and modifications.</li>
+		<li>Added function isxdl_GetFileName to give you the real name of the downloaded file.</li>
+		<li>Fixed overflow when calculating remaining time.</li>
+		<li>Added a little about box.</li>
+		<li>Improved handling of progress bars.</li>
+		<li>Added new option 'simple' that gives you a simple window with a custom message.</li>
+
+	</ul>
+
+	<h3>Version 1.3.0 (7/15/2002)</h3>
+	<ul>
+		<li>Abort should really abort (possible memory leaks though).</li>
+		<li>Supports ftp.</li>
+		<li>Handles HTTP_STATUS_MOVED if not handled by wininet (untested).</li>
+		<li>Added function IsConnected to tell whether the computer is connected
+		to the Internet or not (experimental?). Requires IE4.</li>
+		<li>Added function SetOption to set options. 
+		Supported options are: 'title', 'noftpsize', 'debug', 'resume', 'language', 'label', 'description'.</li>
+		<li>Added prefix 'isxdl_' to all functions.</li>
+		<li>Added function AddFileSize with a parameter for file size. Means
+		the DLL will not need to check the size itself.</li>
+	</ul>
+	
+	<h3>Version 1.2.1</h3>
+	<ul>
+		 <li>Minor tweaks.</li>
+		 <li>Added method ClearFiles to clear the internal file list.</li>
+	</ul>
+
+	<h3>Version 1.2.0</h3>
+	<ul>
+ 		<li>No more divide by zero errors for files less than 1024 bytes.</li>
+ 		<li>Supports user name and password in the url.</li>
+ 		<li>Demo scripts for both ISX2 and ISX3.</li>
+ 	</ul>
+
+	<h3>Version 1.0.0</h3>
+ 	<ul>
+ 		<li>Initial release.</li>
+ 	</ul>
+</ul>
+
+<hr/>
+<a name="isxdl_download"/>
+<h2>isxdl_Download</h2>
+
+<p>
+Immediately downloads a file from the Internet.
+</p>
+
+<h3>Syntax</h3>
+<ul><pre>
+int isxdl_Download(
+	HWND	hWndParent,
+	LPCTSTR	pszURL,
+	LPCTSTR	pszFileName
+);
+</pre></ul>
+
+<h3>Parameters</h3>
+<ul>
+	<em>hWndParent</em>
+		<ul>Handle to parent window.</ul>
+	<em>pszURL</em>
+		<ul>The URL to be downloaded.</ul>
+	<em>pszFileName</em>
+		<ul>The name of the file on the local machine.</ul>
+</ul>
+
+<h3>Return Value</h3>
+<ul>
+Returns 1 if all files where downloaded successfully, otherwise 0.
+</ul>
+
+<hr/>
+<a name="isxdl_addfile"/>
+<h2>isxdl_AddFile</h2>
+
+<p>
+Adds a file to the internal file list.
+</p>
+
+<h3>Syntax</h3>
+<ul><pre>
+void isxdl_AddFile(
+	LPCTSTR	pszURL,
+	LPCTSTR	pszFileName
+);
+</pre></ul>
+
+<h3>Parameters</h3>
+<ul>
+	<em>pszURL</em>
+		<ul>The URL to be downloaded.</ul>
+	<em>pszFileName</em>
+		<ul>The name of the file on the local machine.</ul>
+</ul>
+
+<h3>Return Value</h3>
+<ul>
+Returns nothing.
+</ul>
+
+<h3>Remarks</h3>
+<dd>
+To access a url with basic password protection, enter something like 
+<em>http://username:password@www.domain.com/path/page.html</em> as url.
+
+</dd>
+
+<hr/>
+<a name="isxdl_addfilesize"/>
+<h2>isxdl_AddFileSize</h2>
+
+<p>
+Adds a file to the internal file list, and tells how big the file is. Use this if you know
+the size of the file, and know that it will not change. Means that the DLL won't have to
+find the size, which can take some time if you have many files to download.
+</p>
+
+<h3>Syntax</h3>
+<ul><pre>
+void isxdl_AddFileSize(
+	LPCTSTR	pszURL,
+	LPCTSTR	pszFileName,
+	DWORD	dwSize
+);
+</pre></ul>
+
+<h3>Parameters</h3>
+<ul>
+	<em>pszURL</em>
+		<ul>The URL to be downloaded.</ul>
+	<em>pszFileName</em>
+		<ul>The name of the file on the local machine.</ul>
+	<em>dwSize</em>
+		<ul>The size of the file.</ul>
+</ul>
+
+<h3>Return Value</h3>
+<ul>
+Returns nothing.
+</ul>
+
+<hr/>
+<a name="isxdl_downloadfiles"/>
+<h2>isxdl_DownloadFiles</h2>
+
+<p>
+Downloads all files added with <a href="#isxdl_addfile">isxdl_AddFile</a> or 
+<a href="#isxdl_addfilesize">isxdl_AddFileSize</a>.
+</p>
+
+<h3>Syntax</h3>
+<ul><pre>
+int isxdl_DownloadFiles(
+	HWND	hWndParent
+);
+</pre></ul>
+
+<h3>Parameters</h3>
+<ul>
+	<em>hWndParent</em>
+		<ul>Handle to the parent window.</ul>
+</ul>
+
+<h3>Return Value</h3>
+<ul>
+Returns 1 if all files where downloaded successfully, otherwise 0.
+</ul>
+
+
+<hr/>
+<a name="isxdl_clearfiles"/>
+<h2>isxdl_ClearFiles</h2>
+
+<p>
+Clears the internal file list. Shouldn't be necessary since files will be removed
+as they are successfully downloaded.
+</p>
+
+<h3>Syntax</h3>
+<ul><pre>
+void isxdl_ClearFiles(
+);
+</pre></ul>
+
+<h3>Parameters</h3>
+
+<h3>Return Value</h3>
+<ul>
+Returns nothing.
+</ul>
+
+
+<hr/>
+<a name="isxdl_isconnected"/>
+<h2>isxdl_IsConnected</h2>
+
+<p>
+Tells wether the computer is connected to the Internet or not. This is kind
+of experimental, and very little tested.
+</p>
+
+<h3>Syntax</h3>
+<ul><pre>
+int isxdl_IsConnected(
+);
+</pre></ul>
+
+<h3>Parameters</h3>
+
+<h3>Return Value</h3>
+<ul>
+Returns 1 if connected to the Internet, otherwise it returns 0.
+</ul>
+
+
+<hr/>
+<a name="isxdl_setoption"/>
+<h2>isxdl_SetOption</h2>
+
+<p>
+Set various options.
+</p>
+
+<h3>Syntax</h3>
+<ul><pre>
+int isxdl_SetOption(
+	LPCTSTR	pszOption,
+	LPCTSTR	pszValue
+);
+</pre></ul>
+
+<h3>Parameters</h3>
+<ul>
+	<em>pszOption</em>
+		<ul>The option to be modified.</ul>
+	<em>pszValue</em>
+		<ul>The value of the option. Note that this must always be given as a string.</ul>
+</ul>
+
+<h3>Return Value</h3>
+<ul>
+Returns 1 if the option was set successfully. Returns 0 if the option was unknown, or
+the option could not be set.
+</ul>
+
+<h3>Remarks</h3>
+<ul>
+Currently these options can be set:
+<table border=1>
+	<tr><td><b>Option</b></td><td><b>Value</b></td></tr>
+	<tr><td>title</td><td>The title to use for the download window.</td></tr>
+	<tr><td>debug</td><td>Not used. Valid values are "true" and "false".</td></tr>
+	<tr><td>simple</td><td>Turns on simple mode if the value is a string, turns off simple mode if the value is an empty string.</td></tr>
+	<tr><td>label</td><td>Text for header label.</td></tr>
+	<tr><td>description</td><td>Text for header description.</td></tr>
+	<tr><td>language</td><td>Language file to get texts from.</td></tr>
+	<tr><td>resume</td><td>Tell it to use resume. Default is true. (Disabled.)</td></tr>
+	<tr><td>smallwizardimage</td><td>The image to display if you want something other than the default.</td></tr>
+</table>
+
+</ul>
+
+
+
+<hr/>
+<a name="isxdl_getfilename"/>
+<h2>isxdl_GetFileName</h2>
+
+<p>
+Get the real file name of a downloaded file. The URL to download ISTool is 
+'http://www.istool.org/getistool.aspx', and before downloading isxdl_GetFileName
+returns 'getistool.aspx'. After downloading, the result will be 'istool-5.0.6.1.exe'.
+</p>
+
+<h3>Syntax</h3>
+<ul><pre>
+LPCTSTR GetFileName(
+	LPCTSTR pszURL
+);
+</pre></ul>
+
+<h3>Parameters</h3>
+<ul>
+	<em>pszURL</em>
+		<ul>The URL to get the file name for.</ul>
+</ul>
+
+<h3>Return Value</h3>
+<ul>
+Returns the file name if the URL was found, otherwise returns NULL.
+</ul>
+
+
+<hr/>
+Copyright &copy; 2002-2005 <a href="http://www.bhenden.org/">Bjørnar Henden</a>
+
+</body>
+</html>

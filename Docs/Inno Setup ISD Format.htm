@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Mirality Systems: Inno Setup ISD Format</title>
+    <link rel="stylesheet" type="text/css" href="/msi.css" />
+    <script language="JavaScript" type="text/javascript">
+    <!--
+      function doTocMouseOver(imageId) {
+        document[imageId].src = TocImages[imageId].on.src;
+      }
+      
+      function doTocMouseOut(imageId) {
+        document[imageId].src = TocImages[imageId].off.src;
+      }
+      
+      function TocImage(offImage, onImage) {
+        this.off = new Image();
+        this.off.src = offImage;
+        
+        this.on = new Image();
+        this.on.src = onImage;
+      }
+
+      function escapeFrames() {
+        top.location = this.location;
+      }
+
+      function writeEscapeFramesCode() {
+        if (top.location != this.location) {
+          // Someone else's frame is in the way; grrrrr!
+          //   - todo: think about making this optional rather than automatic...
+          // (hello, all you people reading my code; sign the guestbook, hehehhe) :-P
+          escapeFrames();
+        }
+      }
+    // -->
+    </script>
+    
+  </head>
+
+  <body bgcolor="#FFFFFF" text="#000000">
+    <basefont face="Verdana,Arial,Helvetica" size="2" />
+    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+    	<col width="128" />
+    	<col width="16" />
+    	<col width="5" />
+    	<col width="100%" />
+      <tr>
+        <td valign="top" bgcolor="#000000">
+          <script language="JavaScript" type="text/javascript">
+          <!--
+            writeEscapeFramesCode();
+          // -->
+          </script>
+
+          <font color="#FFFFFF">
+            <img src="/images/toc/msi_logo.jpg" width="128" height="200"
+                 alt="[Mirality Systems Logo]" /><br />
+            <img src="/images/toc/root.jpg" width="128" height="16"
+                 alt="---" /><br />
+<a href="/news.php" target="_top" onmouseover="doTocMouseOver('news');" onmouseout="doTocMouseOut('news');"><img id="news" name="news" src="/images/toc/news_off.jpg" width="128" height="32" alt="News" border="0" /></a><br />
+<a href="/poll.php" target="_top" onmouseover="doTocMouseOver('poll');" onmouseout="doTocMouseOut('poll');"><img id="poll" name="poll" src="/images/toc/poll_off.jpg" width="128" height="32" alt="Polls" border="0" /></a><br />
+<a href="/software.php" target="_top" onmouseover="doTocMouseOver('software');" onmouseout="doTocMouseOut('software');"><img id="software" name="software" src="/images/toc/software_off.jpg" width="128" height="32" alt="Software" border="0" /></a><br />
+<a href="/dynasig.php" target="_top" onmouseover="doTocMouseOver('dynasig');" onmouseout="doTocMouseOut('dynasig');"><img id="dynasig" name="dynasig" src="/images/toc/dynasig_off.jpg" width="128" height="32" alt="DynaSig" border="0" /></a><br />
+<a href="/maxcode.php" target="_top" onmouseover="doTocMouseOver('max');" onmouseout="doTocMouseOut('max');"><img id="max" name="max" src="/images/toc/max_off.jpg" width="128" height="32" alt="MAX Code Manager" border="0" /></a><br />
+<a href="/inno.php" target="_top"><img id="inno" name="inno" src="/images/toc/inno_on.jpg" width="128" height="32" alt="Inno Setup" border="0" /></a><br />
+<a href="/creatures/" target="_top" onmouseover="doTocMouseOver('creatures');" onmouseout="doTocMouseOut('creatures');"><img id="creatures" name="creatures" src="/images/toc/creatures_off.jpg" width="128" height="32" alt="Creatures" border="0" /></a><br />
+<a href="/pueblo.php" target="_top" onmouseover="doTocMouseOver('pueblo');" onmouseout="doTocMouseOut('pueblo');"><img id="pueblo" name="pueblo" src="/images/toc/pueblo_off.jpg" width="128" height="32" alt="Pueblo/UE" border="0" /></a><br />
+<a href="/fun.php" target="_top" onmouseover="doTocMouseOver('fun');" onmouseout="doTocMouseOut('fun');"><img id="fun" name="fun" src="/images/toc/fun_off.jpg" width="128" height="32" alt="Fun and Amusement" border="0" /></a><br />
+<a href="/bofh.php" target="_top" onmouseover="doTocMouseOver('bofh');" onmouseout="doTocMouseOut('bofh');"><img id="bofh" name="bofh" src="/images/toc/bofh_off.jpg" width="128" height="32" alt="The BOFH" border="0" /></a><br />
+<a href="/feedback.php" target="_top" onmouseover="doTocMouseOver('feedback');" onmouseout="doTocMouseOut('feedback');"><img id="feedback" name="feedback" src="/images/toc/feedback_off.jpg" width="128" height="32" alt="Feedback" border="0" /></a><br />
+<a href="/guest/" target="_top" onmouseover="doTocMouseOver('guest');" onmouseout="doTocMouseOut('guest');"><img id="guest" name="guest" src="/images/toc/guest_off.jpg" width="128" height="32" alt="Guestbook" border="0" /></a><br />
+
+<script language="JavaScript" type="text/javascript">
+<!--
+  var TocImages = new Object();
+  TocImages["news"] = new TocImage("/images/toc/news_off.jpg", "/images/toc/news_over.jpg");
+  TocImages["poll"] = new TocImage("/images/toc/poll_off.jpg", "/images/toc/poll_over.jpg");
+  TocImages["software"] = new TocImage("/images/toc/software_off.jpg", "/images/toc/software_over.jpg");
+  TocImages["dynasig"] = new TocImage("/images/toc/dynasig_off.jpg", "/images/toc/dynasig_over.jpg");
+  TocImages["max"] = new TocImage("/images/toc/max_off.jpg", "/images/toc/max_over.jpg");
+  TocImages["creatures"] = new TocImage("/images/toc/creatures_off.jpg", "/images/toc/creatures_over.jpg");
+  TocImages["pueblo"] = new TocImage("/images/toc/pueblo_off.jpg", "/images/toc/pueblo_over.jpg");
+  TocImages["fun"] = new TocImage("/images/toc/fun_off.jpg", "/images/toc/fun_over.jpg");
+  TocImages["bofh"] = new TocImage("/images/toc/bofh_off.jpg", "/images/toc/bofh_over.jpg");
+  TocImages["feedback"] = new TocImage("/images/toc/feedback_off.jpg", "/images/toc/feedback_over.jpg");
+  TocImages["guest"] = new TocImage("/images/toc/guest_off.jpg", "/images/toc/guest_over.jpg");
+// -->
+</script>
+<br />
+          </font>
+        </td>
+
+        <td rowspan="2" style="background-image: url(/images/toc/split-r.jpg); background-repeat: repeat-y;">
+          &nbsp;
+        </td>
+
+        <td rowspan="2">&nbsp;</td>
+
+        <td valign="top" rowspan="2">
+          <p>&nbsp;</p>
+    
+<p><a id="top" name="top">&nbsp;</a></p>
+<table width="100%" border="0">
+  <tr><td bgcolor="#0040FF" class="headline">
+    <h3><font color="white">&nbsp;Inno Setup: ISD Format</font></h3>
+  </td></tr>
+</table>
+<br />
+
+<p>
+  <a href="/inno/isd.php?printable=1">Printable version of this article</a>
+</p>
+
+<p>
+  First of all, please note that this is not any sort of official
+  specification or anything.  I'm not one of the developers of Inno Setup;
+  I'm just another user.  But this is I think a cool way to create your own
+  custom wizard pages in Inno Setup 5 or later, and I recommend it
+  to anyone creating Inno Setup installations.  What'd be <b>really</b> cool
+  would be for the makers of ISFD or similar to adopt this design, since I
+  think it lends itself quite well to that.  But that's up to them.  Anywho,
+  on with the show:
+</p>
+
+<h3>Inno Setup Dialog files (ISD)</h3>
+<p>
+  Introduced with Inno Setup 5 is a new design for custom wizard pages, where
+  each page (including both builtin and custom pages) have a page object, and
+  Inno Setup itself tracks the page's position in the installation.  From
+  version 5.0.2 it also supports event handlers defined directly on the page
+  objects.
+</p>
+
+<p>
+  The upshot of all of this means that the code required to create
+  and work with a custom page can be almost entirely contained within a single
+  file, which is then simply included in the main script.
+</p>
+
+<p>
+  The advantages of this are twofold.  Firstly, it provides better
+  encapsulation and separation.  All the code relating to a particular page
+  is kept in a single file, meaning that it's much easier to locate any code
+  you want to change.  Secondly, it permits easier sharing of code between
+  installations.  You could even create a library of pages that you commonly
+  add to setups, and within each setup script include just those pages that
+  you actually need.  This means that you can simply "plugin" a particular
+  page with only a couple of lines of code, instead of having to copy large
+  chunks from script to script.  And it has the added advantage that if you
+  improve the page's code (perhaps adding an extra feature, or fixing a bug),
+  then you can immediately use that from any installation script.
+</p>
+
+<p>
+  What follows is a description and explanation of the design I'm using for
+  my own Inno Setup 5 scripts.  I've documented it here so that other people
+  can use a similar design -- as such it's free to use for any purpose
+  whatsoever.  A credit would be nice (even if it's only in your scriptfile),
+  but is not required.
+</p>
+
+<h3>The Files</h3>
+<p>
+  Firstly, there's your normal installation script.  We'll call this
+  <code>setup.iss</code> for the purposes of examples.  You may well have
+  more than one of these, but usually only one per installer <tt>:-)</tt>
+</p>
+
+<p>
+  Next, we come to the core of the ISD design.  For each new custom page you
+  want to add to your setup, you create a file with the <code>.isd</code>
+  extension.  (The extension is of course purely arbitrary.  That's the one
+  that I use because it sounds good to me, but if you don't like it you can
+  choose an alternative.)  By convention, there are two different ways that
+  I name these files, depending on how they are going to get used.  The files
+  that are intended to be used in any installation I give a regular name,
+  such as <code>AskAboutSomething.isd</code>.  Those that are intended only
+  for one specific installation I tend to prefix with the name of the
+  installation script, such as <code>setup-DoSomethingSpecific.isd</code>.
+</p>
+
+<p>
+  And finally, there's the normal cloud of <code>.isl</code> files and of
+  course the actual files that you're trying to install <tt>:-)</tt>
+</p>
+
+<h3>Installation Script</h3>
+<p>
+  We'll start by looking at how to include the <code>.isd</code> files in
+  your installation script, and how to put the pages into your actual
+  installation.
+</p>
+
+<p>
+  For the purposes of this example, we'll assume that you've already created
+  the <code>.isd</code> files, and that they're called <code>page1.isd</code>
+  through to <code>page5.isd</code>, just for convenience.
+</p>
+
+<p>
+  Let's start by just including <code>page1.isd</code>, putting it immediately
+  after the Welcome page:
+</p>
+<table align="center">
+  <tr><th bgcolor="#FFFF80" align="center">setup.iss</th></tr>
+  <tr><td bgcolor="#E0FFFF">
+<pre>[Code]
+#include "page1.isd"
+
+procedure InitializeWizard();
+begin
+  CreatePage_Page1(wpWelcome);
+end;</pre></td></tr>
+</table>
+
+<p>
+  Simple, isn't it?  As we'll see later, each <code>.isd</code> file defines
+  a <code>CreatePage_</code> function that takes care of the actual work of
+  creating a page.  All you need to do is to tell it when you want it to
+  appear.  Now, for a more complicated example.  Let's display page1 and page2
+  one after the other, after the Welcome page, and then page3 after the
+  directory selection page:
+</p>
+
+<table align="center">
+  <tr><th bgcolor="#FFFF80" align="center">setup.iss</th></tr>
+  <tr><td bgcolor="#E0FFFF">
+<pre>[Code]
+#include "page1.isd"
+#include "page2.isd"
+#include "page3.isd"
+
+procedure InitializeWizard();
+var
+  LastId: Integer;
+begin
+  LastId := CreatePage_Page1(wpWelcome);
+  LastId := CreatePage_Page2(LastId);
+  LastId := CreatePage_Page3(wpSelectDir);
+end;</pre></td></tr>
+</table>
+
+<p>
+  It should be fairly obvious how this works.  If you want one page to follow
+  another, you simply pass the return value back in as the previous page (as
+  shown in the page2 line).  When you want to break the chain and insert your
+  next page further along, then you ignore the return value and pass one of
+  the standard page ID constants in instead (as in the page3 line).
+</p>
+
+<p>
+  If you want to use conditional compilation (with ISPP), then the process is
+  very similar.  For this example, we want page1, page2, and page3 to follow
+  after wpWelcome, and page4 and page5 after wpSelectDir.  However, page2 and
+  page4 should only be included if <code>UPGRADE</code> has been
+  <code>#define</code>d:
+</p>
+
+<table align="center">
+  <tr><th bgcolor="#FFFF80" align="center">setup.iss</th></tr>
+  <tr><td bgcolor="#E0FFFF">
+<pre>[Code]
+#include "page1.isd"
+#include "page3.isd"
+#include "page5.isd"
+#ifdef UPGRADE
+#include "page2.isd"
+#include "page4.isd"
+#endif
+
+procedure InitializeWizard();
+var
+  LastId: Integer;
+begin
+  LastId := CreatePage_Page1(wpWelcome);
+#ifdef UPGRADE
+  LastId := CreatePage_Page2(LastId);
+#endif
+  LastId := CreatePage_Page3(LastId);
+  LastId := wpSelectDir;
+#ifdef UPGRADE
+  LastId := CreatePage_Page4(LastId);
+#endif
+  LastId := CreatePage_Page5(LastId);
+end;</pre></td></tr>
+</table>
+
+<p>
+  Page2 is fairly simple -- we can just surround it with an <code>#ifdef</code>
+  and things will work fine.  Imagine what the code would look like without
+  that line, and you'll see that it creates page1 and page3 as expected.
+  Page4, on the other hand, is a bit trickier.  If we simply <code>#ifdef</code>fed
+  the line out as before, then page5 would appear in the wrong place.  So we're
+  manually changing the value of LastId outside the <code>#ifdef</code> so that
+  everything works properly.  If you find this confusing, or if you want to keep
+  consistency, then it's possible to rewrite all the examples this way.  So here's
+  that three-page example again, rewritten so that all the function calls are similar:
+</p>
+
+<table align="center">
+  <tr><th bgcolor="#FFFF80" align="center">setup.iss</th></tr>
+  <tr><td bgcolor="#E0FFFF">
+<pre>[Code]
+#include "page1.isd"
+#include "page2.isd"
+#include "page3.isd"
+
+procedure InitializeWizard();
+var
+  LastId: Integer;
+begin
+  LastId := wpWelcome;
+  LastId := CreatePage_Page1(LastId);
+  LastId := CreatePage_Page2(LastId);
+  LastId := wpSelectDir;
+  LastId := CreatePage_Page3(LastId);
+end;</pre></td></tr>
+</table>
+
+<p>
+  In many respects, you may find this even clearer to understand.  If that's
+  the case, then by all means go for it <tt>:-)</tt>
+</p>
+
+<h3>The ISD files</h3>
+<p>
+  This one we'll present a little differently.  Since these do the main
+  gruntwork, we'll first show you a skeleton file that contains everything,
+  but doesn't really do anything:
+</p>
+
+<table align="center">
+  <tr><th bgcolor="#FFFF80" align="center">skeleton.isd</th></tr>
+  <tr><td bgcolor="#E0FFFF">
+<pre>[CustomMessages]
+SkeletonCaption=Skeleton Caption
+SkeletonDescription=Skeleton description
+
+[Code]
+procedure Skeleton_Activate(Page: TWizardPage);
+begin
+end;
+
+function Skeleton_ShouldSkipPage(Page: TWizardPage): Boolean;
+begin
+    Result := False;
+end;
+
+function Skeleton_BackButtonClick(Page: TWizardPage): Boolean;
+begin
+    Result := True;
+end;
+
+function Skeleton_NextButtonClick(Page: TWizardPage): Boolean;
+begin
+    Result := True;
+end;
+
+procedure Skeleton_CancelButtonClick(Page: TWizardPage; var Cancel,
+                                     Confirm: Boolean);
+begin
+end;
+
+function CreatePage_Skeleton(PreviousPageId: Integer): Integer;
+var
+    Page: TWizardPage;
+begin
+    Page := CreateCustomPage(PreviousPageId,
+                  ExpandConstant('{cm:SkeletonCaption}'),
+                  ExpandConstant('{cm:SkeletonDescription}'));
+    // add controls to the page here
+
+    Page.OnActivate := @Skeleton_Activate;
+    Page.OnShouldSkipPage := @Skeleton_ShouldSkipPage;
+    Page.OnBackButtonClick := @Skeleton_BackButtonClick;
+    Page.OnNextButtonClick := @Skeleton_NextButtonClick;
+    Page.OnCancelButtonClick := @Skeleton_CancelButtonClick;
+    Result := Page.ID;
+end;</pre></td></tr>
+</table>
+
+<p>
+  Make sure you examine the above skeleton carefully.  In practise, you won't
+  need all of those event handlers -- I've never found a need for
+  <code>BackButtonClick</code>, and only rarely for <code>CancelButtonClick</code>.
+  If you don't have any code for a handler then you can leave out both the
+  handler routine and the assignment of the handler to the page object (in the
+  <code>CreatePage</code> routine).
+</p>
+
+<p>
+  As it stands, if you included this skeleton file in your installation (as
+  already discussed), it would appear as a blank page, apart from the captions
+  (which would normally go in an <code>.isl</code> file, if you're creating
+  a multilingual installation -- but for the purposes of this example they
+  appear at the top of the file).
+</p>
+
+<p>
+  It's important to remember that the names of all these routines must be
+  unique across all pages you're going to be including, since they will all
+  be visible to the compiler.  This is why the "name" of the page (in this
+  case, "Skeleton") has been included as part of each routine's name.
+</p>
+
+<h3>Controls</h3>
+<p>
+  For most controls, you can declare them as local variables inside the
+  <code>CreatePage_</code> routine, since they don't need to be referenced
+  anywhere else.  Sometimes, however, you need to update a control in the
+  <code>Activate</code> handler, or retrieve the user-selected value in the
+  <code>NextButtonClick</code> handler.  For these examples, we'll assume
+  that you've already defined a string variable called
+  <code>GlobalVarFromMainInstall</code> in your <code>setup.iss</code> file,
+  and that you've set it to your desired initial value before calling the
+  <code>CreatePage_</code> routine.  Remember that you have to declare such
+  variables <em>before</em> you <code>#include</code> the <code>.isd</code>
+  file.  There are two approaches you can take to this:
+</p>
+<ol>
+  <li><b>Declare them as global variables instead</b><br />
+    This is probably the easiest, but it's a little untidy, since it exposes
+    the controls to the entire installation, meaning that once again you have
+    to be very careful to keep the names unique.  If you choose this path,
+    then using a prefix is probably the best idea:
+    <table align="center">
+      <tr><th bgcolor="#FFFF80" align="center">TextboxGlobal.isd</th></tr>
+      <tr><td bgcolor="#E0FFFF">
+    <pre>[Code]
+var
+  TextboxGlobal_TextBox: TEdit;
+
+function TextboxGlobal_NextButtonClick(Page: TWizardPage): Boolean;
+begin
+  GlobalVarFromMainInstall := TextboxGlobal_TextBox.Text;
+  Result := True;
+end;
+
+function CreatePage_TextboxGlobal(PreviousPageId: Integer): Integer;
+var
+    Page: TWizardPage;
+begin
+    Page := CreateCustomPage(PreviousPageId, 'Example textbox',
+                  'Global variable'));
+
+    TextboxGlobal_TextBox := TEdit.Create(Page);
+    TextboxGlobal_TextBox.Text := GlobalVarFromMainInstall;
+    TextboxGlobal_TextBox.Width := Page.SurfaceWidth;
+    TextboxGlobal_TextBox.Parent := Page.Surface;
+
+    Page.OnNextButtonClick := @TextboxGlobal_NextButtonClick;
+    Result := Page.ID;
+end;</pre></td></tr>
+    </table>
+  </li>
+  <li><b>Use named controls, and retrieve them as needed from the page</b><br />
+    This is the method I usually use, since it's still fairly simple and it
+    avoids the global variable, meaning that I can give the controls much
+    shorter names without fear of conflicts <tt>:-)</tt>
+    <table align="center">
+      <tr><th bgcolor="#FFFF80" align="center">TextboxNamed.isd</th></tr>
+      <tr><td bgcolor="#E0FFFF">
+    <pre>[Code]
+function TextboxNamed_NextButtonClick(Page: TWizardPage): Boolean;
+var
+  MyTextbox: TEdit;
+begin
+  MyTextbox := TEdit(Page.FindComponent('MyTextbox'));
+  GlobalVarFromMainInstall := MyTextbox.Text;
+  Result := True;
+end;
+
+function CreatePage_TextboxNamed(PreviousPageId: Integer): Integer;
+var
+    Page: TWizardPage;
+    MyTextbox: TEdit;
+begin
+    Page := CreateCustomPage(PreviousPageId, 'Example textbox',
+                             'Named controls'));
+
+    MyTextbox := TEdit.Create(Page);
+    MyTextbox.Name := 'MyTextbox';
+    MyTextbox.Text := GlobalVarFromMainInstall;
+    MyTextbox.Width := Page.SurfaceWidth;
+    MyTextbox.Parent := Page.Surface;
+
+    Page.OnNextButtonClick := @TextboxNamed_NextButtonClick;
+    Result := Page.ID;
+end;</pre></td></tr>
+    </table>
+  </li>
+</ol>
+
+<h3>Hiding a page</h3>
+<p>
+  What if you don't want a page to appear?  There are two different approaches
+  to this, depending on when you know that the page shouldn't be shown.
+</p>
+
+<ul>
+  <li><b>You know inside the <code>CreatePage_</code> routine that the page
+    will never be needed in this particular setup</b><br />
+    Here, you can simply return the <code>PreviousPageId</code>, like so:
+    <table align="center">
+      <tr><th bgcolor="#FFFF80" align="center">UnnecessaryPage1.isd</th></tr>
+      <tr><td bgcolor="#E0FFFF">
+    <pre>[Code]
+function CreatePage_UnnecessaryPage1(PreviousPageId: Integer): Integer;
+var
+    Page: TWizardPage;
+begin
+    if ThisPageIsNecessary() then begin
+      Page := CreateCustomPage(PreviousPageId, 'Unnecessary page?',
+                    'It was necessary!'));
+      // ... continue with controls &amp; event handlers
+
+      Result := Page.ID;
+    end else
+      Result := PreviousPageId;
+end;</pre></td></tr>
+    </table>
+  </li>
+  <li><b>You don't know until later, once the user has selected something on
+    an earlier page</b><br />
+    Here, you need to use the <code>ShouldSkipPage</code> event.  This is
+    called whenever the user is about to go to that page (clicked Next on the
+    previous page or Back on the following page), which means that you can
+    "change your mind" several times during the course of the setup, to
+    reflect whatever the user happens to have chosen at the time <tt>:-)</tt>
+    <table align="center">
+      <tr><th bgcolor="#FFFF80" align="center">UnnecessaryPage2.isd</th></tr>
+      <tr><td bgcolor="#E0FFFF">
+    <pre>[Code]
+function UnnecessaryPage2_ShouldSkipPage(Page: TWizardPage): Boolean;
+begin
+  Result := not ThisPageIsNecessary();
+end;
+
+function CreatePage_UnnecessaryPage2(PreviousPageId: Integer): Integer;
+var
+    Page: TWizardPage;
+begin
+    Page := CreateCustomPage(PreviousPageId, 'Unnecessary page?',
+                             'It was necessary!'));
+    // ... continue with controls &amp; event handlers
+    Page.OnShouldSkipPage := @UnnecessaryPage2_ShouldSkipPage;
+
+    Result := Page.ID;
+end;</pre></td></tr>
+    </table>
+  </li>
+</ul>
+
+<h3>"Standard" pages</h3>
+<p>
+  You'll notice that all of the above discussion focuses on completely custom
+  pages (those created with <code>CreateCustomPage</code>).  But what if you
+  want to use one of the other, partially prebuilt pages, such as
+  <code>TInputQueryWizardPage</code>?  Well, you can still do it, but to make
+  it easier we'll use a slightly different skeleton:
+</p>
+
+<table align="center">
+  <tr><th bgcolor="#FFFF80" align="center">skeletonInputQuery.isd</th></tr>
+  <tr><td bgcolor="#E0FFFF">
+<pre>[CustomMessages]
+SkeletonInputQueryCaption=SkeletonInputQuery Caption
+SkeletonInputQueryDescription=SkeletonInputQuery description
+SkeletonInputQuerySubcaption=SkeletonInputQuery sub-caption
+
+[Code]
+procedure SkeletonInputQuery_Activate(Sender: TWizardPage);
+var
+    Page: TInputQueryWizardPage;
+begin
+    Page := TInputQueryWizardPage(Sender);
+end;
+
+function SkeletonInputQuery_ShouldSkipPage(Sender: TWizardPage): Boolean;
+var
+    Page: TInputQueryWizardPage;
+begin
+    Page := TInputQueryWizardPage(Sender);
+    Result := False;
+end;
+
+function SkeletonInputQuery_BackButtonClick(Sender: TWizardPage): Boolean;
+var
+    Page: TInputQueryWizardPage;
+begin
+    Page := TInputQueryWizardPage(Sender);
+    Result := True;
+end;
+
+function SkeletonInputQuery_NextButtonClick(Sender: TWizardPage): Boolean;
+var
+    Page: TInputQueryWizardPage;
+begin
+    Page := TInputQueryWizardPage(Sender);
+    Result := True;
+end;
+
+procedure SkeletonInputQuery_CancelButtonClick(Sender: TWizardPage; var Cancel,
+                                               Confirm: Boolean);
+var
+    Page: TInputQueryWizardPage;
+begin
+    Page := TInputQueryWizardPage(Sender);
+end;
+
+function CreatePage_SkeletonInputQuery(PreviousPageId: Integer): Integer;
+var
+    Page: TInputQueryWizardPage;
+begin
+    Page := CreateInputQueryPage(PreviousPageId,
+                  ExpandConstant('{cm:SkeletonInputQueryCaption}'),
+                  ExpandConstant('{cm:SkeletonInputQueryDescription}'),
+                  ExpandConstant('{cm:SkeletonInputQuerySubcaption}'));
+    // add fields (through Page.Add) here
+
+    Page.OnActivate := @SkeletonInputQuery_Activate;
+    Page.OnShouldSkipPage := @SkeletonInputQuery_ShouldSkipPage;
+    Page.OnBackButtonClick := @SkeletonInputQuery_BackButtonClick;
+    Page.OnNextButtonClick := @SkeletonInputQuery_NextButtonClick;
+    Page.OnCancelButtonClick := @SkeletonInputQuery_CancelButtonClick;
+    Result := Page.ID;
+end;</pre></td></tr>
+</table>
+
+<p>
+  As you can see, this is much the same as before, but we've added a
+  typecast inside each event function.  This allows you to access the
+  <code>Values</code> that the user has entered.  The other standard pages
+  can be used similarly, by substituting the corresponding page object type.
+</p>
+
+<h3>Common use</h3>
+<p>
+  Now that you've seen all that code, what's the most common usage?  Most
+  people would I think only need to use the <code>NextButtonClick</code>
+  handler, in order to save some user-selected data into a global variable.
+  Possibly also the <code>Activate</code> handler, to hide or disable some
+  controls, or to modify the default value based on previous user input.
+  Occasionally the <code>ShouldSkipPage</code> handler, when a page is only
+  needed some of the time.  It's unlikely you'll need one of the other two.
+</p>
+
+<p>
+  Have a look at the <i>Controls</i> examples above for a simplistic example
+  of using the <code>NextButtonClick</code> handler to save data in a global
+  variable.
+</p>
+
+<h3>Wrapup</h3>
+<p>
+  Well, that's it from me.  I think I've covered everything now.  Hopefully
+  you'll find this sort of page design as useful and as easy to use as I have!
+  <code>;-)</code>  If you have any comments, questions, or suggestions,
+  please feel free to contact me either on the Inno Setup newsgroups or by
+  using the Feedback option on the left-hand-side.  (You'll probably need to
+  scroll up a bit to see it!)
+</p>
+
+    
+      </td></tr>
+      <tr>
+        <td align="center" valign="bottom" height="100" bgcolor="#000000">
+          <font color="#FFFFFF">
+            <a href="http://www.jdrn.com/notepad/"><img
+               border="0" width="88" height="31"
+               src="/images/madewtxt.gif"
+               alt="Made with a Text Editor!" /></a>
+            <a href="http://validator.w3.org/check/referer"><img
+               border="0" width="88" height="31"
+               src="http://www.w3.org/Icons/valid-xhtml10"
+               alt="Valid XHTML 1.0!" /></a>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer"><img
+               border="0" width="88" height="31"
+               src="http://jigsaw.w3.org/css-validator/images/vcss"
+               alt="Valid CSS!" /></a>
+          </font>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <img src="/images/toc/split-b.jpg" width="144" height="16" 
+          			alt="----" />
+        </td>
+      </tr>
+    </table>
+    <hr align="right" width="99%" />
+    <table width="100%">
+      <tr>
+        <td width="144" align="center" valign="top">
+          <img src="/cgi-sys/Count.cgi?df=uecasm.dat&amp;display=Counter&amp;ft=6&amp;md=5&amp;dd=K" 
+               height="33" alt="[Counter]" />
+        </td>
+        <td align="left">
+          <table border="3" bgcolor="#000000" cellpadding="0" cellspacing="0"><tr><td>
+            <font color="#FFFFFF">Last Modified: <img src="/cgi-sys/Count.cgi?dd=D&amp;md=8&amp;ft=0&amp;tr=Y&amp;lit=2006-07-09" style="vertical-align: middle" height="13" alt="2006-07-09" /> &nbsp;<img src="/cgi-sys/Count.cgi?dd=D&amp;md=8&amp;ft=0&amp;tr=Y&amp;lit=03:30:37" style="vertical-align: middle" height="13" alt="03:30:37" /> UTC</font>
+          </td></tr></table>
+
+        </td>
+        <td class="footer1">
+          <a href="mailto:webmaster@mirality.co.nz"><i>webmaster@mirality.co.nz</i></a><br />
+          Website copyright &copy; 2002-07 by Mirality Systems.<br />
+          Mirality Systems, MSI, Ultra Enterprises, UE, and their respective
+          logos are trademarks of Gavin Lambert.<br />
+    
+        </td>
+      </tr>
+    </table>
+
+    <p align="center">
+      <a href="http://www.wunderground.com/global/stations/93119.html">
+        <img src="http://banners.wunderground.com/banner/bigwx_both_cond/language/www/global/stations/93119.gif"
+             alt="Click for Auckland, New Zealand Forecast" height="60" width="468" border="0" /></a>
+    </p>
+  </body>
+</html>

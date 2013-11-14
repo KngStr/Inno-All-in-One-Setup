@@ -1,0 +1,32 @@
+:Base VCL.HLP
+:Title Delphi Library Reference Help
+1 Delphi Library Reference
+2 Overview of the Delphi Reference Library
+3 About the Run-Time Library=AboutTheRunTimeLibrary
+3 About the Visual Component Library=AboutTheVisualComponentLibrary
+2 Run-Time Library
+3 Overview
+4 Introduction to the Run-Time Library=IntroductionToTheRunTimeLibrary
+4 RTL units=RTLUnits
+4 RTL routines=SixKindsOfRTLRoutines
+4 RTL exceptions=SevenKindsOfRTLExceptions
+4 What's new in the RTL=WhatIsNewInTheRTL
+4 How to read the entries in the Run-Time Library=HowToReadTheEntriesInTheRunTimeLibrary
+3 RTL Routines by category
+3 RTL Units
+4 System unit=SystemUnit
+4 SysUtils unit=SysUtilsUnit
+4 Math unit=Mathunit
+2 Visual Component Library
+3 Overview
+4 Introduction To VCL=IntroductionToVCL
+4 The VCL Object Hierarchy=TheVCLObjectHierarchy
+4 What’s new in the VCL=WhatsNewInTheVCL
+4 How to read the entries in the VCL=HowToReadTheEntriesInTheVCL
+3 VCL Objects and Components
+4 VCL Units=BP8StandardUnits
+4 Visual Component Library objects=vclObjects
+4 Visual Component Library components=vclAllComponents
+4 Visual Component Library Controls=vclAllControls
+4 Visual Component Library windowed controls=vclAllWindowedControls
+4 Visual Component Library nonwindowed controls=vclAllNonwindowedControls
