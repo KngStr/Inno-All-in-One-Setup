@@ -1,0 +1,16 @@
+License for InnoTools Tray
+--------------------------------
+
+The provided examples (The example *.iss files in the installation root) are released into the public domain, you can do whatever you like with them. The rest of the files in the distribution (The help files, it_tray.iss, ittray.dll, the sourcecode for ittray.dll, etc) will be referred to simply as "ITT" in this document.
+
+You may build a program or installer that uses ITT to perform some task without restrictions - Commercial use is okay, you don't have to include any notices if you don't want to, and you don't have to include any sourcecode. In this case you would be redistributing portions of ITT with your program (such as ittray.dll), which is fine. This covers most interesting uses of ITT.
+
+If you are distributing a product which contains ITT in its distribution, but adds no substantial extra functionality (e.g. distributing only the original files in ITT, or making a thin wrapper for ITT that includes ITT), you may not charge for it. You must make available the sourcecode for the product which uses ITT and the sourcecode for ITT. If ITT is unmodified, you can make the sourcecode available for it by simply linking to the InnoTools webpage. The usage of ITT must be noted somewhere prominently in the documentation or installer distributed with your product, along with the offer of the sourcecode for your application and ITT.
+
+This license does not restrict the ability for me to make ITT available under different licenses to different people, contact me if you want to negotiate a different license.
+
+
+Nicholas Sherlock
+
+Sherlock Software
+http://www.sherlocksoftware.org/
