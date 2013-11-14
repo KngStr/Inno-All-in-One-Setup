@@ -1,0 +1,28 @@
+#ifndef _SYSVERS_ISH_
+  #Define _SYSVERS_ISH_ __PATHFILENAME__
+
+[Code]
+//Author: Vincenzo
+//Article created: 04/06/02 18:56:09
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=14
+//--------------------------------------------------------------------------------
+//This script verify that the program is currently installed, and return name of the folder in which the program is currently installed.
+//Function GetPathInstalled return path where the progam was installed, it checks first in HKLM and then under HKCU registry key. This sample shows if and where ISX is installed.
+function GetPathInstalled( AppID: String ): String;
+var
+   sPrevPath: String;
+begin
+  sPrevPath := '';
+  if not RegQueryStringValue( HKLM,
+    'Software\Microsoft\Windows\CurrentVersion\Uninstall'+AppID+'_is1',
+    'Inno Setup: App Path', sPrevpath) then
+    RegQueryStringValue( HKCU, 'Software\Microsoft\Windows\CurrentVersion\Uninstall'+AppID+'_is1' ,
+      'Inno Setup: App Path', sPrevpath);
+
+  Result := sPrevPath;
+end;
+
+
+
+[/Code]
+#endif

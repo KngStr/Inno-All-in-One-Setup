@@ -1,0 +1,299 @@
+#ifndef _MUI_NSIS_ADV_ISH_
+  #Define _MUI_NSIS_ADV_ISH_ __PATHFILENAME__
+
+//Author      : WLDNA
+//Link        : http://www.wldna.com/
+//Description : Some funtion like NSIS.
+//Modified    : 2013-11-05 22:17:39
+//Tested Inno :
+//Usage       : See Examples folder
+
+[Code]
+//Header Image
+procedure Nsis_Header(LeftHeader: Boolean);
+begin
+  with WizardForm do
+  begin
+    WizardSmallBitmapImage.Stretch := True;
+
+    if LeftHeader then
+    begin
+      WizardSmallBitmapImage.Left := 0;
+      WizardSmallBitmapImage.Top := 0;
+      WizardSmallBitmapImage.ClientWidth := ScaleX(150);
+      WizardSmallBitmapImage.ClientHeight := MainPanel.ClientHeight;
+
+      PageNameLabel.Width := MainPanel.ClientWidth - ScaleX(170);
+      PageNameLabel.Left := WizardSmallBitmapImage.ClientWidth + ScaleX(15);
+      PageDescriptionLabel.Width := MainPanel.ClientWidth - ScaleX(180);
+      PageDescriptionLabel.Left := WizardSmallBitmapImage.ClientWidth + ScaleX(25);
+    end
+    else
+    begin
+      WizardSmallBitmapImage.Left := WizardSmallBitmapImage.Left - 90;
+      WizardSmallBitmapImage.Width := MainPanel.Width - WizardSmallBitmapImage.Left;
+
+      PageDescriptionLabel.Width := PageDescriptionLabel.Width - 90;
+      PageNameLabel.Width := PageNameLabel.Width - 90;
+    end;
+  end;
+end;
+//=====================================================================================================
+
+//Detail ListBox
+procedure ShowDetaBtnOnClick(Sender: TObject); forward;
+procedure DetailInfo; forward;
+
+var
+  DetaList: TNewListBox;
+  ShowDetaBtn: TNewButton;
+  DetaLabel: TNewStaticText;
+  LastDetaDir: string;
+
+procedure DetailInfo;
+begin
+  with WizardForm.StatusLabel do
+  begin
+    Visible := False;
+  end;
+
+  with WizardForm.FilenameLabel do
+  begin
+    Visible := False;
+  end;
+
+  with WizardForm.ProgressGauge do
+  begin
+    Top := ScaleY(18);
+  end;
+
+  { DetaList }
+  DetaList := TNewListBox.Create(WizardForm);
+  with DetaList do
+  begin
+    Parent := WizardForm.InstallingPage;
+    Left := ScaleX(0);
+    Top := WizardForm.ProgressGauge.Top + WizardForm.ProgressGauge.Height + ScaleY(5);
+    Width := WizardForm.ProgressGauge.Width;
+    Height := WizardForm.InstallingPage.Height - Top - 5;
+    TabOrder := 4;
+    Visible := False;
+  end;
+
+  { ShowDetaBtn }
+  ShowDetaBtn := TNewButton.Create(WizardForm);
+  with ShowDetaBtn do
+  begin
+    Parent := WizardForm.InstallingPage;
+    Left := ScaleX(0);
+    Top := DetaList.Top;
+    Width := ScaleX(75);
+    Height := ScaleY(22);
+    Caption := '显示细节(&D)';
+    TabOrder := 3;
+  end;
+
+  { DetaLabel }
+  DetaLabel := TNewStaticText.Create(WizardForm);
+  with DetaLabel do
+  begin
+    Parent := WizardForm.InstallingPage;
+    Left := ScaleX(0);
+    Top := ScaleY(0);
+    Width := DetaList.Width;
+    Height := ScaleY(16);
+    WordWrap := False;
+    AutoSize := False;
+    ShowAccelChar := False;
+    TabOrder := 5;
+  end;
+
+  ShowDetaBtn.OnClick := @ShowDetaBtnOnClick;
+end;
+
+procedure ShowDetaBtnOnClick(Sender: TObject);
+begin
+  ShowDetaBtn.Visible := False;
+  DetaList.Visible := True;
+end;
+
+procedure AddToDetaList;
+begin
+  if ExpandConstant(CurrentFileName) = '' then Exit;
+
+  if Lowercase(ExtractFileExt(ExpandConstant(CurrentFileName))) = '.lnk' then
+  begin
+    if Pos('{group}', Lowercase(CurrentFileName)) > 0 then
+    begin
+      if LastDetaDir <> ExtractFileDir(ExpandConstant('{group}')) then
+      begin
+        LastDetaDir := ExtractFileDir(ExpandConstant('{group}'))
+        DetaLabel.Caption := '创建文件夹:  ' + LastDetaDir;
+        DetaList.Items.Add(DetaLabel.Caption);
+      end;
+    end;
+
+    DetaLabel.Caption := '创建快捷方式：' + ExpandConstant(CurrentFileName);
+  end
+  else
+  begin
+    if LastDetaDir <> ExtractFileDir(ExpandConstant(CurrentFileName)) then
+    begin
+      LastDetaDir := ExtractFileDir(ExpandConstant(CurrentFileName))
+      DetaLabel.Caption := '输出目录:  ' + LastDetaDir;
+      DetaList.Items.Add(DetaLabel.Caption);
+    end;
+
+    DetaLabel.Caption := '抽取:  ' + ExtractFileName(ExpandConstant(CurrentFileName));
+  end;
+
+  DetaList.Items.Add(DetaLabel.Caption);
+
+  DetaList.ItemIndex := DetaList.Items.Count - 1;
+end;
+
+procedure CurPageChanged_DetaInfo(CurPageID: Integer);
+begin
+  if CurPageID = wpFinished then
+  begin
+    // 跳回前一页，忽略完成页。
+    DetaList.Items.Append('创建卸载程序：' + ExpandConstant('{uninstallexe}'));
+    DetaLabel.Caption := '已完成';
+    DetaList.Items.Add(DetaLabel.Caption);
+
+    with WizardForm do
+    begin
+      PageNameLabel.Caption := '安装完成';
+      PageDescriptionLabel.Caption := '安装程序已经成功完成安装。';
+      InnerNotebook.ActivePage := InstallingPage;
+      OuterNotebook.ActivePage := InnerPage;
+      NextButton.Caption := '关闭(&L)';
+      BackButton.Visible := True;
+      BackButton.Enabled := False;
+      CancelButton.Visible := True;
+      CancelButton.Enabled := False;
+    end;
+    DetaList.ItemIndex := DetaList.Items.Count - 1;
+  end;
+end;
+
+function NextButtonClick_DetaInfo(CurPageID: Integer): Boolean;
+begin
+  Result := True;
+
+  if (DetaLabel.Caption = '已完成') and (WizardForm.OuterNotebook.ActivePage = WizardForm.InnerPage) then
+  begin
+    Result := False;
+
+    WizardForm.OuterNotebook.ActivePage := WizardForm.FinishedPage;
+    WizardForm.NextButton.Caption := SetupMessage(msgButtonFinish);
+  end;
+end;
+
+procedure CancelButtonClick_DetaInfo(CurPageID: Integer; var Cancel, Confirm: Boolean);
+begin
+  Confirm := False;
+
+  if MsgBox(SetupMessage(msgExitSetupMessage), mbConfirmation, MB_YESNO or MB_DEFBUTTON2) = IDYES then
+  begin
+    WizardForm.StatusLabel.Show;
+    WizardForm.FilenameLabel.Show;
+
+    DetaLabel.Hide;
+    ShowDetaBtn.Hide;
+    DetaList.Hide;
+  end
+  else Cancel := False;
+end;
+//=====================================================================================================
+
+var
+  lbl_PreEx: TLabel;
+
+function GetModuleHandle(lpModuleName: LongInt): LongInt;
+external 'GetModuleHandle{#A}@kernel32.dll stdcall';
+function ExtractIcon(hInst: LongInt; lpszExeFileName: String; nIconIndex: LongInt): LongInt;
+external 'ExtractIcon{#A}@shell32.dll stdcall';
+function DrawIconEx(hdc: LongInt; xLeft, yTop: Integer; hIcon: LongInt; cxWidth, cyWidth: Integer; istepIfAniCur: LongInt; hbrFlickerFreeDraw, diFlags: LongInt): LongInt;
+external 'DrawIconEx@user32.dll stdcall';
+function DestroyIcon(hIcon: LongInt): LongInt;
+external 'DestroyIcon@user32.dll stdcall';
+
+const
+  DI_NORMAL = 3;
+
+function PreExtractInfo(ExFiles: string): TForm;
+var
+  Rect: TRect;
+  hIcon: LongInt;
+begin
+  Result := TForm.Create(nil);
+  with Result do
+  begin
+    Position := poScreenCenter;
+    BorderStyle := bsNone;
+    FormStyle := fsStayOnTop;
+    Width := ScaleX(260);
+    Height := ScaleY(70);
+    Font.Name := 'tahoma';
+    Font.Size := 8;
+  end;
+
+  try
+    Rect.Left := 0;
+    Rect.Top := 0;
+    Rect.Right := 32;
+    Rect.Bottom := 32;
+
+    hIcon := ExtractIcon(GetModuleHandle(0), ExpandConstant('{srcexe}'), 0);
+    try
+      with TBitmapImage.Create(Result) do begin
+        with Bitmap do begin
+          Width := 32;
+          Height := 32;
+          Canvas.Brush.Color := Result.Color;
+          Canvas.FillRect(Rect);
+          DrawIconEx(Canvas.Handle, 0, 0, hIcon, 32, 32, 0, 0, DI_NORMAL);
+        end;
+        Parent := Result;
+        Top := ScaleY(20);
+        Left := ScaleX(20);
+      end;
+    finally
+      DestroyIcon(hIcon);
+    end;
+  except
+  end;
+
+  with TLabel.Create(Result) do
+  begin
+    Parent := Result;
+    WordWrap := True;
+    AutoSize := False;
+    ParentFont := True;
+    Left := ScaleX(70);
+    Top := ScaleY(15);
+    Width := Result.Width - Left - ScaleX(25);
+    Height := Result.Height - Top - ScaleY(25);
+    Caption := '安装程序正在加载，请稍候... ' + #13#10;
+  end;
+
+  lbl_PreEx := TLabel.Create(Result);
+  with lbl_PreEx do
+  begin
+    Parent := Result;
+    ParentFont := True;
+//    WordWrap := True;
+//    AutoSize := False;
+    Left := ScaleX(70);
+    Top := Result.Height - ScaleY(35);
+    Caption := '已加载：0%';
+  end;
+end;
+[/Code]
+
+
+#endif
+
+
+

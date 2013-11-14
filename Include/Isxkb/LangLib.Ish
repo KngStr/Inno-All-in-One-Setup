@@ -1,0 +1,291 @@
+
+[Code]
+//
+// Language Libray
+//
+
+type LCID = LongInt;
+type LANGID = WORD;
+
+//
+//  Language IDs.
+//
+//  The following two combinations of primary language ID and
+//  sublanguage ID have special semantics:
+//
+//    Primary Language ID   Sublanguage ID      Result
+//    -------------------   ---------------     ------------------------
+//    LANG_NEUTRAL          SUBLANG_NEUTRAL     Language neutral
+//    LANG_NEUTRAL          SUBLANG_DEFAULT     User default language
+//    LANG_NEUTRAL          SUBLANG_SYS_DEFAULT System default language
+//
+
+//
+//  Primary language IDs.
+//
+
+Const LANG_NEUTRAL                     = $00;
+
+Const LANG_AFRIKAANS                   = $36;
+Const LANG_ALBANIAN                    = $1c;
+Const LANG_ARABIC                      = $01;
+Const LANG_ARMENIAN                    = $2b;
+Const LANG_ASSAMESE                    = $4d;
+Const LANG_AZERI                       = $2c;
+Const LANG_BASQUE                      = $2d;
+Const LANG_BELARUSIAN                  = $23;
+Const LANG_BENGALI                     = $45;
+Const LANG_BULGARIAN                   = $02;
+Const LANG_CATALAN                     = $03;
+Const LANG_CHINESE                     = $04;
+Const LANG_CROATIAN                    = $1a;
+Const LANG_CZECH                       = $05;
+Const LANG_DANISH                      = $06;
+Const LANG_DUTCH                       = $13;
+Const LANG_ENGLISH                     = $09;
+Const LANG_ESTONIAN                    = $25;
+Const LANG_FAEROESE                    = $38;
+Const LANG_FARSI                       = $29;
+Const LANG_FINNISH                     = $0b;
+Const LANG_FRENCH                      = $0c;
+Const LANG_GEORGIAN                    = $37;
+Const LANG_GERMAN                      = $07;
+Const LANG_GREEK                       = $08;
+Const LANG_GUJARATI                    = $47;
+Const LANG_HEBREW                      = $0d;
+Const LANG_HINDI                       = $39;
+Const LANG_HUNGARIAN                   = $0e;
+Const LANG_ICELANDIC                   = $0f;
+Const LANG_INDONESIAN                  = $21;
+Const LANG_ITALIAN                     = $10;
+Const LANG_JAPANESE                    = $11;
+Const LANG_KANNADA                     = $4b;
+Const LANG_KASHMIRI                    = $60;
+Const LANG_KAZAK                       = $3f;
+Const LANG_KONKANI                     = $57;
+Const LANG_KOREAN                      = $12;
+Const LANG_LATVIAN                     = $26;
+Const LANG_LITHUANIAN                  = $27;
+Const LANG_MACEDONIAN                  = $2f;
+Const LANG_MALAY                       = $3e;
+Const LANG_MALAYALAM                   = $4c;
+Const LANG_MANIPURI                    = $58;
+Const LANG_MARATHI                     = $4e;
+Const LANG_NEPALI                      = $61;
+Const LANG_NORWEGIAN                   = $14;
+Const LANG_ORIYA                       = $48;
+Const LANG_POLISH                      = $15;
+Const LANG_PORTUGUESE                  = $16;
+Const LANG_PUNJABI                     = $46;
+Const LANG_ROMANIAN                    = $18;
+Const LANG_RUSSIAN                     = $19;
+Const LANG_SANSKRIT                    = $4f;
+Const LANG_SERBIAN                     = $1a;
+Const LANG_SINDHI                      = $59;
+Const LANG_SLOVAK                      = $1b;
+Const LANG_SLOVENIAN                   = $24;
+Const LANG_SPANISH                     = $0a;
+Const LANG_SWAHILI                     = $41;
+Const LANG_SWEDISH                     = $1d;
+Const LANG_TAMIL                       = $49;
+Const LANG_TATAR                       = $44;
+Const LANG_TELUGU                      = $4a;
+Const LANG_THAI                        = $1e;
+Const LANG_TURKISH                     = $1f;
+Const LANG_UKRAINIAN                   = $22;
+Const LANG_URDU                        = $20;
+Const LANG_UZBEK                       = $43;
+Const LANG_VIETNAMESE                  = $2a;
+
+//
+//  Sublanguage IDs.
+//
+//  The name immediately following SUBLANG_ dictates which primary
+//  language ID that sublanguage ID can be combined with to form a
+//  valid language ID.
+//
+
+Const SUBLANG_NEUTRAL                  = $00;    // language neutral
+Const SUBLANG_DEFAULT                  = $01;    // user default
+Const SUBLANG_SYS_DEFAULT              = $02;    // system default
+
+Const SUBLANG_ARABIC_SAUDI_ARABIA      = $01;    // Arabic (Saudi Arabia)
+Const SUBLANG_ARABIC_IRAQ              = $02;    // Arabic (Iraq)
+Const SUBLANG_ARABIC_EGYPT             = $03;    // Arabic (Egypt)
+Const SUBLANG_ARABIC_LIBYA             = $04;    // Arabic (Libya)
+Const SUBLANG_ARABIC_ALGERIA           = $05;    // Arabic (Algeria)
+Const SUBLANG_ARABIC_MOROCCO           = $06;    // Arabic (Morocco)
+Const SUBLANG_ARABIC_TUNISIA           = $07;    // Arabic (Tunisia)
+Const SUBLANG_ARABIC_OMAN              = $08;    // Arabic (Oman)
+Const SUBLANG_ARABIC_YEMEN             = $09;    // Arabic (Yemen)
+Const SUBLANG_ARABIC_SYRIA             = $0a;    // Arabic (Syria)
+Const SUBLANG_ARABIC_JORDAN            = $0b;    // Arabic (Jordan)
+Const SUBLANG_ARABIC_LEBANON           = $0c;    // Arabic (Lebanon)
+Const SUBLANG_ARABIC_KUWAIT            = $0d;    // Arabic (Kuwait)
+Const SUBLANG_ARABIC_UAE               = $0e;    // Arabic (U.A.E)
+Const SUBLANG_ARABIC_BAHRAIN           = $0f;    // Arabic (Bahrain)
+Const SUBLANG_ARABIC_QATAR             = $10;    // Arabic (Qatar)
+Const SUBLANG_AZERI_LATIN              = $01;    // Azeri (Latin)
+Const SUBLANG_AZERI_CYRILLIC           = $02;    // Azeri (Cyrillic)
+Const SUBLANG_CHINESE_TRADITIONAL      = $01;    // Chinese (Taiwan Region)
+Const SUBLANG_CHINESE_SIMPLIFIED       = $02;    // Chinese (PR China)
+Const SUBLANG_CHINESE_HONGKONG         = $03;    // Chinese (Hong Kong)
+Const SUBLANG_CHINESE_SINGAPORE        = $04;    // Chinese (Singapore)
+Const SUBLANG_CHINESE_MACAU            = $05;    // Chinese (Macau)
+Const SUBLANG_DUTCH                    = $01;    // Dutch
+Const SUBLANG_DUTCH_BELGIAN            = $02;    // Dutch (Belgian)
+Const SUBLANG_ENGLISH_US               = $01;    // English (USA)
+Const SUBLANG_ENGLISH_UK               = $02;    // English (UK)
+Const SUBLANG_ENGLISH_AUS              = $03;    // English (Australian)
+Const SUBLANG_ENGLISH_CAN              = $04;    // English (Canadian)
+Const SUBLANG_ENGLISH_NZ               = $05;    // English (New Zealand)
+Const SUBLANG_ENGLISH_EIRE             = $06;    // English (Irish)
+Const SUBLANG_ENGLISH_SOUTH_AFRICA     = $07;    // English (South Africa)
+Const SUBLANG_ENGLISH_JAMAICA          = $08;    // English (Jamaica)
+Const SUBLANG_ENGLISH_CARIBBEAN        = $09;    // English (Caribbean)
+Const SUBLANG_ENGLISH_BELIZE           = $0a;    // English (Belize)
+Const SUBLANG_ENGLISH_TRINIDAD         = $0b;    // English (Trinidad)
+Const SUBLANG_ENGLISH_ZIMBABWE         = $0c;    // English (Zimbabwe)
+Const SUBLANG_ENGLISH_PHILIPPINES      = $0d;    // English (Philippines)
+Const SUBLANG_FRENCH                   = $01;    // French
+Const SUBLANG_FRENCH_BELGIAN           = $02;    // French (Belgian)
+Const SUBLANG_FRENCH_CANADIAN          = $03;    // French (Canadian)
+Const SUBLANG_FRENCH_SWISS             = $04;    // French (Swiss)
+Const SUBLANG_FRENCH_LUXEMBOURG        = $05;    // French (Luxembourg)
+Const SUBLANG_FRENCH_MONACO            = $06;    // French (Monaco)
+Const SUBLANG_GERMAN                   = $01;    // German
+Const SUBLANG_GERMAN_SWISS             = $02;    // German (Swiss)
+Const SUBLANG_GERMAN_AUSTRIAN          = $03;    // German (Austrian)
+Const SUBLANG_GERMAN_LUXEMBOURG        = $04;    // German (Luxembourg)
+Const SUBLANG_GERMAN_LIECHTENSTEIN     = $05;    // German (Liechtenstein)
+Const SUBLANG_ITALIAN                  = $01;    // Italian
+Const SUBLANG_ITALIAN_SWISS            = $02;    // Italian (Swiss)
+Const SUBLANG_KASHMIRI_INDIA           = $02;    // Kashmiri (India)
+Const SUBLANG_KOREAN                   = $01;    // Korean (Extended Wansung)
+Const SUBLANG_LITHUANIAN               = $01;    // Lithuanian
+Const SUBLANG_LITHUANIAN_CLASSIC       = $02;    // Lithuanian (Classic)
+Const SUBLANG_MALAY_MALAYSIA           = $01;    // Malay (Malaysia)
+Const SUBLANG_MALAY_BRUNEI_DARUSSALAM  = $02;    // Malay (Brunei Darussalam)
+Const SUBLANG_NEPALI_INDIA             = $02;    // Nepali (India)
+Const SUBLANG_NORWEGIAN_BOKMAL         = $01;    // Norwegian (Bokmal)
+Const SUBLANG_NORWEGIAN_NYNORSK        = $02;    // Norwegian (Nynorsk)
+Const SUBLANG_PORTUGUESE               = $02;    // Portuguese
+Const SUBLANG_PORTUGUESE_BRAZILIAN     = $01;    // Portuguese (Brazilian)
+Const SUBLANG_SERBIAN_LATIN            = $02;    // Serbian (Latin)
+Const SUBLANG_SERBIAN_CYRILLIC         = $03;    // Serbian (Cyrillic)
+Const SUBLANG_SPANISH                  = $01;    // Spanish (Castilian)
+Const SUBLANG_SPANISH_MEXICAN          = $02;    // Spanish (Mexican)
+Const SUBLANG_SPANISH_MODERN           = $03;    // Spanish (Modern)
+Const SUBLANG_SPANISH_GUATEMALA        = $04;    // Spanish (Guatemala)
+Const SUBLANG_SPANISH_COSTA_RICA       = $05;    // Spanish (Costa Rica)
+Const SUBLANG_SPANISH_PANAMA           = $06;    // Spanish (Panama)
+Const SUBLANG_SPANISH_DOMINICAN_REPUBLIC = $07;  // Spanish (Dominican Republic)
+Const SUBLANG_SPANISH_VENEZUELA        = $08;    // Spanish (Venezuela)
+Const SUBLANG_SPANISH_COLOMBIA         = $09;    // Spanish (Colombia)
+Const SUBLANG_SPANISH_PERU             = $0a;    // Spanish (Peru)
+
+Const SUBLANG_SPANISH_ARGENTINA        = $0b;    // Spanish (Argentina)
+Const SUBLANG_SPANISH_ECUADOR          = $0c;    // Spanish (Ecuador)
+Const SUBLANG_SPANISH_CHILE            = $0d;    // Spanish (Chile)
+Const SUBLANG_SPANISH_URUGUAY          = $0e;    // Spanish (Uruguay)
+Const SUBLANG_SPANISH_PARAGUAY         = $0f;    // Spanish (Paraguay)
+Const SUBLANG_SPANISH_BOLIVIA          = $10;    // Spanish (Bolivia)
+Const SUBLANG_SPANISH_EL_SALVADOR      = $11;    // Spanish (El Salvador)
+Const SUBLANG_SPANISH_HONDURAS         = $12;    // Spanish (Honduras)
+Const SUBLANG_SPANISH_NICARAGUA        = $13;    // Spanish (Nicaragua)
+Const SUBLANG_SPANISH_PUERTO_RICO      = $14;    // Spanish (Puerto Rico)
+Const SUBLANG_SWEDISH                  = $01;    // Swedish
+Const SUBLANG_SWEDISH_FINLAND          = $02;    // Swedish (Finland)
+Const SUBLANG_URDU_PAKISTAN            = $01;    // Urdu (Pakistan)
+Const SUBLANG_URDU_INDIA               = $02;    // Urdu (India)
+Const SUBLANG_UZBEK_LATIN              = $01;    // Uzbek (Latin)
+Const SUBLANG_UZBEK_CYRILLIC           = $02;    // Uzbek (Cyrillic)
+
+//
+//  Sorting IDs.
+//
+
+Const SORT_DEFAULT                     = $0;     // sorting default
+
+Const SORT_JAPANESE_XJIS               = $0;     // Japanese XJIS order
+Const SORT_JAPANESE_UNICODE            = $1;     // Japanese Unicode order
+
+Const SORT_CHINESE_BIG5                = $0;     // Chinese BIG5 order
+Const SORT_CHINESE_PRCP                = $0;     // PRC Chinese Phonetic order
+Const SORT_CHINESE_UNICODE             = $1;     // Chinese Unicode order
+Const SORT_CHINESE_PRC                 = $2;     // PRC Chinese Stroke Count order
+Const SORT_CHINESE_BOPOMOFO            = $3;     // Traditional Chinese Bopomofo order
+
+Const SORT_KOREAN_KSC                  = $0;     // Korean KSC order
+Const SORT_KOREAN_UNICODE              = $1;     // Korean Unicode order
+
+Const SORT_GERMAN_PHONE_BOOK           = $1;     // German Phone Book order
+
+Const SORT_HUNGARIAN_DEFAULT           = $0;     // Hungarian Default order
+Const SORT_HUNGARIAN_TECHNICAL         = $1;     // Hungarian Technical order
+
+Const SORT_GEORGIAN_TRADITIONAL        = $0;     // Georgian Traditional order
+Const SORT_GEORGIAN_MODERN             = $1;     // Georgian Modern order
+
+
+
+//
+//  Time Flags for GetTimeFormat.
+//
+Const TIME_NOMINUTESORSECONDS   = $1;  // do not use minutes or seconds
+Const TIME_NOSECONDS            = $2;  // do not use seconds
+Const TIME_NOTIMEMARKER         = $4;  // do not use time marker
+Const TIME_FORCE24HOURFORMAT    = $8;  // always use 24 hour format
+
+
+//
+//  Date Flags for GetDateFormat.
+//
+Const LOCALE_NOUSEROVERRIDE     = $80000000;
+Const DATE_SHORTDATE            = $1;  // use short date picture
+Const DATE_LONGDATE             = $2;  // use long date picture
+Const DATE_USE_ALT_CALENDAR     = $4;  // use alternate calendar (if any)
+Const DATE_YEARMONTH            = $8;  // use year month picture
+Const DATE_LTRREADING           = $10;  // add marks for left to right reading order layout
+Const DATE_RTLREADING           = $20;  // add marks for right to left reading order layout
+
+
+function MakeLangId(usPrimaryLanguage,usSubLanguage : byte) : LANGID;
+begin
+ Result := (usSubLanguage shl 10) or usPrimaryLanguage;
+end;
+
+function MakeLCID(wLanguageID,wSortID : word) : LCID;
+begin
+ Result := (wSortId shl 16) or wLanguageID;
+end;
+
+
+// LCID GetUserDefaultLCID(VOID)
+function GetUserDefaultLCID() : LCID; external
+ 'GetUserDefaultLCID@kernel32.dll stdcall';
+
+// LCID GetSystemDefaultLCID(VOID)
+function GetSystemDefaultLCID() : LCID; external
+ 'GetSystemDefaultLCID@kernel32.dll stdcall';
+
+
+//
+//  Default System and User IDs for language and locale.
+//
+
+var
+ LANG_SYSTEM_DEFAULT, LANG_USER_DEFAULT : LANGID;
+ LOCALE_USER_DEFAULT, LOCALE_NEUTRAL : LCID;
+
+Procedure InitLang();
+begin
+
+ LANG_SYSTEM_DEFAULT := MakeLangId(LANG_NEUTRAL, SUBLANG_SYS_DEFAULT);
+ LANG_USER_DEFAULT := MakeLangId(LANG_NEUTRAL, SUBLANG_DEFAULT);
+ LOCALE_USER_DEFAULT   := MakeLCID(LANG_USER_DEFAULT, SORT_DEFAULT);
+ LOCALE_NEUTRAL        := MakeLCID(MakeLangId(LANG_NEUTRAL, SUBLANG_NEUTRAL), SORT_DEFAULT);
+
+end;
+
+[/Code]

@@ -1,0 +1,48 @@
+; -- execctrl.iss --
+; 脚本: restools ( http://restools.hanzify.org )
+; execctrl.dll 为一个用于 Inno Setup 的 10.5 KB 的 线程同步执行程序插件.
+; 它主要解决需要同步运行其他安装程序，包括 DOS 程序的时候，有可能造成主安装程序进入假死状态的问题。
+; 同时它也能控制复杂的安装程序顺序安装步骤，例如 Setup1 和 Setup2 可同步安装，然后 Setup3 在 Setup1 安装完成后再接着安装。
+; 还有一个特点，当它运行控制台程序(包括 DOS 程序)的时候，可以实时获取输出内容。这样可以更加方便的对用户提供安装信息。
+
+; V1.1 修正在某些 Windows 平台上(例如 Windows XP SP3)不能正常运行的问题。
+
+#ifndef _EXECCTRL_ISH_
+  #Define _EXECCTRL_ISH_ __PATHFILENAME__
+  #expr Plugin_Init
+
+  #define ExecCtrl_DLL "execctrl.dll"
+
+[Files]
+Source: {#PluginDir}\{#ExecCtrl_DLL}; DestDir: {#Plugin_DestDir}; Flags: {#Plugin_FileFlags}
+
+[Code]
+type
+  TStartExecCallbackProc = procedure(ExecID: Integer; CmdLine: PChar);
+  TEndExecCallbackProc = procedure(ExecID: Integer; ResultCode: Longword);
+  TExecOutputCallbackProc = procedure(ExecID: Integer; Output: PChar);
+// ExecID: 每一个执行都会被分配一个 ID 序数，由 1 开始，每一个执行都会自动加 1。在回调函数被执行的时候会同时返回该值，用来识别回调函数是由哪一个 ExecEx 回调回来的。
+// CmdLine: 开始执行时返回整理后要执行的命令行。
+// ResultCode: 进程结束后的返回值，跟 Inno Setup 里面 Exec 的返回值的效果是一致的。
+// Output: 运行期间返回的控制台程序输出内容，一般只适用于 DOS 类程序。
+
+function InitExecCtrl(hThreadWnd: Longword; StartExecCallback: TStartExecCallbackProc;
+     EndExecCallback: TEndExecCallbackProc; ExecOutputCallback: TExecOutputCallbackProc): Boolean;
+external 'InitExecCtrl{#A}@{#Plugin_CodeDir(ExecCtrl_DLL)} {#Plugin_CodeFlags}';
+// hThreadWnd: 线程窗口句柄，一般用 WizardForm 或者 MainForm 都可以，如果和其他 InnoSetup 插件有冲突，可以使用一个单独创建的 Wnd 也可以，例如一个隐藏的 TPanel。
+// StartExecCallback: 执行程序之前会回调一次。
+// EndExecCallback: 执行程序结束之后会回调一次。
+// ExecOutputCallback: 执行程序时会不停地回调此函数以提供输出内容给安装程序处理。
+
+function UninitExecCtrl(): Boolean; external 'UninitExecCtrl@{#Plugin_CodeDir(ExecCtrl_DLL)} {#Plugin_CodeFlags}';
+
+function ExecEx(Exec_ID: Integer; FileName, Params, WorkingDir: String; ShowCmd: Integer): Boolean;
+external 'ExecEx{#A}@{#Plugin_CodeDir(ExecCtrl_DLL)} {#Plugin_CodeFlags}';
+// FileName: 要执行的程序，如果它为“>”符号时，那么 Params 将作为完整的命令行被执行。
+// Params: 参数，如果 FileName 为“>”符号时，它将作为完整的命令行被执行。
+// WorkingDir: 工作目录。如果它为空，且 FileName 不为“>”时，将会取 FileName 的目录作为工作目录。
+// ShowCmd: 显示的初始状态，例如可视(SW_SHOW)，隐藏(SW_HIDE)......状态。
+// 基本上它对于参数的处理是跟 Inno Setup 支持的函数 Exec 是一致的。
+
+#endif
+

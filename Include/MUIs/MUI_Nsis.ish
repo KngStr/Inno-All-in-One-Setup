@@ -1,0 +1,52 @@
+#ifndef _MUI_NSIS_ISH_
+  #Define _MUI_NSIS_ISH_ __PATHFILENAME__
+
+//Author      : WLDNA
+//Link        : http://www.wldna.com/
+//Description : Some funtion like NSIS.
+//Modified    : 2013-11-05 22:17:39
+//Tested Inno :
+//Usage       :
+//    procedure Nsis_Header(LeftHeader: Boolean);
+
+[Code]
+//Header Image
+procedure Nsis_Header(LeftHeader: Boolean);
+begin
+  with WizardForm do
+  begin
+    WizardSmallBitmapImage.Stretch := True;
+
+    if LeftHeader then
+    begin
+      WizardSmallBitmapImage.Left := 0;
+      WizardSmallBitmapImage.Top := 0;
+      WizardSmallBitmapImage.ClientWidth := ScaleX(150);
+      WizardSmallBitmapImage.ClientHeight := MainPanel.ClientHeight;
+
+      PageNameLabel.Width := MainPanel.ClientWidth - ScaleX(170);
+      PageNameLabel.Left := WizardSmallBitmapImage.ClientWidth + ScaleX(15);
+      PageDescriptionLabel.Width := MainPanel.ClientWidth - ScaleX(180);
+      PageDescriptionLabel.Left := WizardSmallBitmapImage.ClientWidth + ScaleX(25);
+    end
+    else
+    begin
+      WizardSmallBitmapImage.Left := WizardSmallBitmapImage.Left - 90;
+      WizardSmallBitmapImage.Width := MainPanel.Width - WizardSmallBitmapImage.Left;
+      WizardSmallBitmapImage.Top := 0;
+      WizardSmallBitmapImage.Height := MainPanel.ClientHeight;
+
+      PageDescriptionLabel.Width := PageDescriptionLabel.Width - 90;
+      PageNameLabel.Width := PageNameLabel.Width - 90;
+    end;
+  end;
+end;
+//=====================================================================================================
+
+[/Code]
+
+
+#endif
+
+
+

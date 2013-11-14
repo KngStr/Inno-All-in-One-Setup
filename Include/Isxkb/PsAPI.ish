@@ -1,0 +1,156 @@
+[Code]
+//Author: Vincenzo
+//Article created: 02/02/06 23:15:19
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=107
+//There are many ways to How to detect if an application is running however if you need to detect if an exe is running both in Win9X systems, and Win2K/WinXP you need psvince because depending on OS type it''s necessary to link some function on kernel32 for Win9X systems, or psapi.dll on Win2K or later operating systems.
+//If don''t need to install on Win9X or WinNT it is possible to use just code to detect if an exe is running.
+//
+//Michael Winestock published this code on the Inno Setup newsgroup http://news.jrsoftware.org/news/innosetup/msg53256.html I changed small part of the code so there is no need to install the psapi.dll and it is possible to use same function at install and uninstall time.
+//
+//The sample check if notepad.exe is running so to install or uninstall it is necessary that notepad is not running, look at similar sample using psvince.dll How to call psvince.dll on install and uninstall
+const
+
+   PROCESS_QUERY_INFORMATION = $400;
+   PROCESS_VM_READ           = $10;
+   MAX_LENGTH                = 255;
+
+
+function OpenProcess(dwDesiredAccess : DWORD; bInheritHandle : Boolean; dwProcessId : DWORD) : HANDLE;
+external 'OpenProcess@kernel32.dll stdcall';
+
+function CloseHandle(hObject : HANDLE) : BOOL;
+external 'CloseHandle@kernel32.dll stdcall';
+
+
+function EnumProcesses(var pProcessIds : PDWORD; cb : DWORD; var pBytesReturned : DWORD) : BOOL;
+external 'EnumProcesses@psapi.dll stdcall';
+
+
+function EnumProcessModules(hProcess : HANDLE; var lphModule : pHMODULE; cb : DWORD; var lpcbNeeded : LPDWORD) : BOOL;
+external 'EnumProcessModules@psapi.dll stdcall';
+
+function GetModuleFileNameEx(hProcess : HANDLE; hModule : HMODULE; lpFilename : LPTSTR; nSize : DWORD) : DWORD;
+external 'GetModuleFileNameEx{#A}@psapi.dll stdcall';
+
+function IsRunning(procName : String; fullPath : Boolean) : Boolean;
+var
+   found       : Boolean;
+   filenameEnd : Integer;
+   filename    : String;
+   NA          : DWORD;
+   entry       : DWORD;
+   maxEntries  : DWORD;
+   processes   : PDWORD;
+   lpFilename  : LPTSTR;
+   hProcess    : HANDLE;
+   hMod        : pHMODULE;
+
+begin
+
+  SetLength(lpFilename, MAX_LENGTH);
+  found := False;
+
+  if (EnumProcesses(processes, SizeOf(processes), maxEntries)) then
+  begin
+    entry      := 0;
+    maxEntries := maxEntries / SizeOf(maxEntries);
+
+    while ((not found) and (entry < maxEntries)) do
+    begin
+
+      hProcess := OpenProcess(PROCESS_QUERY_INFORMATION or PROCESS_VM_READ, False, processes[entry]);
+      if (hProcess <> 0) then
+      begin
+
+      if (EnumProcessModules(hProcess, hMod, SizeOf(hMod), NA)) then
+        if (GetModuleFileNameEx(hProcess, hMod[0], lpFilename, Length(lpFilename)) > 0) then
+          begin
+            filenameEnd := Pos(#0, lpFilename);
+            filename := Copy(lpFilename, 1, filenameEnd - 1);
+
+            if (not fullpath) then
+              filename := ExtractFileName(filename);
+
+            if (LowerCase(filename) = LowerCase(procName)) then
+              found := True;
+          end;
+
+      CloseHandle(hProcess);
+      end;
+
+      entry := entry + 1;
+
+    end;
+  end;
+
+  Result := found;
+end;
+
+
+function GetRunList(): TStringList;
+var
+   filenameEnd : Integer;
+   filename    : String;
+   NA          : DWORD;
+   entry       : DWORD;
+   maxEntries  : DWORD;
+   processes   : PDWORD;
+   lpFilename  : LPTSTR;
+   hProcess    : HANDLE;
+   hMod        : pHMODULE;
+
+begin
+  Result := TStringList.Create;
+  with Result do
+  begin
+    SetLength(lpFilename, MAX_LENGTH);
+
+    if (EnumProcesses(processes, SizeOf(processes), maxEntries)) then
+    begin
+      entry      := 0;
+      maxEntries := maxEntries / SizeOf(maxEntries);
+
+      while entry < maxEntries do
+      begin
+
+        hProcess := OpenProcess(PROCESS_QUERY_INFORMATION or PROCESS_VM_READ, False, processes[entry]);
+        if (hProcess <> 0) then
+        begin
+
+        if (EnumProcessModules(hProcess, hMod, SizeOf(hMod), NA)) then
+          if (GetModuleFileNameEx(hProcess, hMod[0], lpFilename, Length(lpFilename)) > 0) then
+            begin
+              filenameEnd := Pos(#0, lpFilename);
+              filename := Copy(lpFilename, 1, filenameEnd - 1);
+
+              Add(filename);
+            end;
+
+        CloseHandle(hProcess);
+        end;
+
+        entry := entry + 1;
+
+      end;
+    end;
+  end;
+end;
+
+
+function CheckForRunningModules(const messageId : TSetupMessageID; moduleName: string; FullPath: Boolean) : Boolean;
+var
+   moduleRunning : Boolean;
+   messageStr    : String;
+begin
+  Result     := True;
+  messageStr := FmtMessage(SetupMessage(messageId), [moduleName]);
+  Repeat
+    moduleRunning := IsRunning(moduleName, FullPath);
+
+    if (moduleRunning) then
+      if (MsgBox(messageStr, mbError, MB_OKCANCEL) = IDCANCEL) then
+        Result := False;
+  Until ((not moduleRunning) or (not Result));
+end;
+
+[/Code]

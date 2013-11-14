@@ -1,0 +1,24 @@
+;
+; Author: Vincenzo Giordano
+; email: isxkb@vincenzo.net
+;
+; This script shows how to call psvince.dll and detect if a module
+; is loaded in memory or not so you can detect if a program is running
+
+#ifndef _PSVINCE_ISH_
+  #Define _PSVINCE_ISH_ __PATHFILENAME__
+  #expr Plugin_Init
+
+  #define PSVince_DLL "PSVince.dll"
+
+[Files]
+Source: {#PluginDir}\{#PSVince_DLL}; DestDir: {#Plugin_DestDir}; Flags: {#Plugin_FileFlags}
+
+
+[Code]
+function IsModuleLoaded(modulename: AnsiString ):  Boolean;
+external 'IsModuleLoaded@{#Plugin_CodeDir(PSVince_DLL)} {#Plugin_CodeFlags}';
+[/Code]
+
+#endif
+

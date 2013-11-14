@@ -1,0 +1,56 @@
+//Author      : WLDNA
+//Link        : http://www.wldna.com/
+//Description :
+//Modified    : 2013-11-14 11:40:59
+//Tested Inno :
+//Usage       : See Examples folder
+
+[Code]
+var
+  ResultCode: Integer;
+[/Code]
+
+#ifndef SecPara
+  #define SecPara
+#endif
+
+#if Defined(WLDNA)
+  #define UrlName "WLDNA"
+  #define Url "http://www.wldna.com/"
+  #define UrlText "访问 WLDNA"
+  #define BrandingTexts UrlName
+  #define FileExt "_WLDNA"
+  #define AboutText "WLDNA-专注于Inno/Delphi和Nsis为主的软件封装技术，以及快速批量的软件打包方案。"
+
+[Messages]
+AboutSetupNote=Inno Setup Preprocessor home page:%nhttp://ispp.sourceforge.net/ %n%n本程序由 WLDNA 倾情制作，欢迎使用%n我的博客：{#Url}
+
+#if SecPara == ""
+[Run]
+Filename: {#Url}; Description: {#UrlText}; {#SecPara} Flags: postinstall shellexec skipifsilent
+#endif
+
+[Icons]
+Name: "{group}\{#UrlText}"; Filename: {#Url}; {#SecPara}
+;Name: "{userdesktop}\{#UrlName}"; Filename: {#Url}; {#SecPara} Flags: uninsneveruninstall;
+#endif
+
+[LangOptions]
+DialogFontName=tahoma
+DialogFontSize=8
+
+[Messages]
+ChineseSimp.BeveledLabel={#BrandingTexts}
+
+ChineseSimp.SetupWindowTitle={#UrlName} - %1
+ChineseSimp.SetupAppTitle={#UrlName} - {#AppName}
+ChineseSimp.UninstallAppTitle={#UrlName} - 卸载
+ChineseSimp.UninstallAppFullTitle={#UrlName} - %1 卸载
+
+
+[CustomMessages]
+ChineseSimp.Btn_About_Caption=关于(&A)
+ChineseSimp.Btn_About_Text={#AboutText}
+ChineseSimp.Lbl_FinishTip_Caption=访问 {#UrlName}
+ChineseSimp.Lbl_FinishTip_Url={#Url}
+ChineseSimp.BevelLabel_Url={#Url}

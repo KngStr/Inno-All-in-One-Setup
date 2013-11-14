@@ -1,0 +1,59 @@
+[Code]
+//Author: Vincenzo
+//Article created: 02/10/02 0:44:53
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=30
+//--------------------------------------------------------------------------------
+//This script shows how to return first CD-ROM in the system. To get all drives it is necessary to call GetLogicalDriveStrings API.
+//For every drive letter script check drive type and stops at first CD-ROM, setup in this case doesn't continue if there isn't any CD-ROM.
+function GetDriveType( lpDisk: String ): Integer;
+external 'GetDriveType{#A}@kernel32.dll stdcall';
+
+function GetLogicalDriveStrings( nLenDrives: LongInt; lpDrives: String ): Integer;
+external 'GetLogicalDriveStrings{#A}@kernel32.dll stdcall';
+
+const
+  DRIVE_UNKNOWN = 0; // The drive type cannot be determined.
+  DRIVE_NO_ROOT_DIR = 1; // The root path is invalid. For example, no volume is mounted at the path.
+  DRIVE_REMOVABLE = 2; // The disk can be removed from the drive.
+  DRIVE_FIXED = 3; // The disk cannot be removed from the drive.
+  DRIVE_REMOTE = 4; // The drive is a remote (network) drive.
+  DRIVE_CDROM = 5; // The drive is a CD-ROM drive.
+  DRIVE_RAMDISK = 6; // The drive is a RAM disk.
+
+function GetFirstCD(): String;
+var disktype, posnull: Integer;
+    drivesletters: String; lenletters: Integer;
+    drive: String; found : Boolean;
+begin
+  //get all drives letters of system
+  drivesletters := StringOfChar( ' ', 64 );
+  lenletters := GetLogicalDriveStrings( 63, drivesletters );
+  SetLength( drivesletters , lenletters );
+
+  found := false; drive := '';
+
+  while ( (Length(drivesletters) > 0) and not found ) do
+  begin
+    posnull := Pos( #0, drivesletters );
+  	if posnull > 0 then
+  	begin
+      drive:= Copy( drivesletters, 1, posnull - 1 );
+
+      // get number type of disk
+      disktype := GetDriveType( drive );
+
+      found := ( disktype = DRIVE_CDROM );
+
+  	  drivesletters := Copy( drivesletters, posnull+1, Length(drivesletters));
+  	end
+  end;
+
+  if found then
+    Result := drive
+  else
+    Result := '';
+
+end;
+
+
+[/Code]

@@ -1,0 +1,99 @@
+#ifndef _LINKANDINFO_ISH_
+  #Define _LINKANDINFO_ISH_ __PATHFILENAME__
+
+//Author      : WLDNA
+//Link        : http://www.wldna.com/
+//Description : AboutButton, FinishedButton, BevelLabelUrl.
+//Modified    : 2013-11-05 22:17:39
+//Tested Inno :
+//Usage       :
+//    [Messages]
+//    BeveledLabel=
+
+//    [CustomMessages]
+//    Btn_About_Caption=
+//    Btn_About_Text=
+//    Lbl_FinishTip_Caption=
+//    Lbl_FinishTip_Url=
+//    BevelLabel_Url=
+//
+//    #define AboutButton
+//    AddLinkandInfo;
+
+[Code]
+
+// 以下是点击“关于”按钮后的响应函数
+procedure AboutButtonOnClick(Sender: TObject);
+begin
+  MsgBox(CustomMessage('Btn_About_Text'), mbInformation, MB_OK);
+end;
+//---------------------------------------------------------------------------------------------------------------
+
+//点击BeveledLabel事件
+procedure BevelLabelOnClick(Sender: TObject);
+begin
+  OpenSite(CustomMessage('BevelLabel_Url'));
+end;
+//---------------------------------------------------------------------------------------------------------------
+
+//点击 完成页面文字 事件
+procedure FinishOnClick(Sender: TObject);
+begin
+  OpenSite(CustomMessage('Lbl_FinishTip_Url'));
+end;
+//---------------------------------------------------------------------------------------------------------------
+
+//添加安装界面信息
+procedure AddLinkandInfo;
+var
+#ifdef AboutButton
+  AboutButton: TButton;
+#endif
+  FinishTip: TNewStaticText;
+begin
+
+#ifdef AboutButton
+  // 创建“关于”按钮
+  AboutButton := TButton.Create(WizardForm);
+  with AboutButton do
+  begin
+    Left := WizardForm.ClientWidth - WizardForm.CancelButton.Left - WizardForm.CancelButton.Width;
+    Top := WizardForm.CancelButton.Top;
+    Width := WizardForm.CancelButton.Width;
+    Height := WizardForm.CancelButton.Height;
+    Caption := CustomMessage('Btn_About_Caption');
+    OnClick := @AboutButtonOnClick;
+    Parent := WizardForm;
+  end;
+#endif
+
+  //启用 横线上面的文字
+  with WizardForm.BeveledLabel do
+  begin
+//    Left := Left + ScaleX(5);
+    Cursor := crHand;
+    OnClick := @BevelLabelOnClick;
+    Font.Color:= CLGREEN;
+    Enabled := True;
+  end;
+
+  //完成页面的提示
+	FinishTip := TNewStaticText.Create(WizardForm.FinishedPage);
+	with FinishTip do
+	begin
+	  Parent := WizardForm.FinishedPage;
+	  Caption := CustomMessage('Lbl_FinishTip_Caption');
+	  Left := WizardForm.FinishedLabel.Left;
+	  Top := WizardForm.OuterNotebook.Height - ScaleY(20);
+	  Width := ScaleX(80);
+	  Height := ScaleY(14);
+	  Font.Color := clblue;
+	  Cursor := crHand;
+	  OnClick := @FinishOnClick;
+	end;
+
+end;
+//---------------------------------------------------------------------------------------------------------------
+
+[/Code]
+#endif

@@ -1,0 +1,391 @@
+#ifndef _SYSVERS_ISH_
+  #Define _SYSVERS_ISH_ __PATHFILENAME__
+
+[Code]
+//Author: Vincenzo
+//Article created: 21/05/02 21:04:28
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=1
+//--------------------------------------------------------------------------------
+//This script is useful to detect if, and which version of MDAC is present on the machine.
+//This sample check if there is at least MDAC version 2.60, if not setup cannot continue.
+//
+//See also:
+//
+//HOWTO: Install DCOM & MDAC on Inno Setup Knowledge Base.
+//
+//How to check for MDAC version and
+//Microsoft Data Access Components (MDAC) release history on Microsoft Knowlede Base
+function GetMDACVersion(): String;
+var
+  sVersion:  String;
+begin
+  sVersion := '';
+  GetVersionNumbersString( ExpandConstant('{cf}\System\Ado\msado15.dll') , sVersion );
+  Result := sVersion;
+end;
+
+
+//Author: Vincenzo
+//Article created: 28/05/02 23:00:58
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=10
+//--------------------------------------------------------------------------------
+//To be able to execute vbscript scripts, it is mandatory that wscript.exe is present in windows dir.
+//This component it is very common on recent windows platform, version 5.0 of this runtime is present on Windows 98 and 98 SE operating system, also it is installed by Office 2000 and Internet Explorer 5.0.
+//Version 5.1 is present on Windows 2000 and Windows ME operating system, and it is installed by Office Xp and Internet Explorer 5.5.
+//Version 5.6 is present on Windows XP operating systems and it is installed by Internet Explorer 6.0.
+//If it is needed it can be installed by an installer downlodable from http://msdn.microsoft.com/library/default.asp?url=/downloads/list/webdev.asp
+//
+//See also HOWTO: Deploy Windows Scr ipt Runtime (scrrun.dll) on Inno Setup Knowledge Base.
+function GetWScriptVersion(): String;
+var  sVersion, fname:  String;
+begin
+  sVersion := '';
+  if UsingWinNT
+    then fname := ExpandConstant('{sys}\wscript.exe')
+    else fname := ExpandConstant('{win}\wscript.exe');
+  GetVersionNumbersString( fname , sVersion );
+  Result := sVersion;
+end;
+
+
+//Author: Vincenzo
+//Article created: 21/05/02 21:04:30
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=2
+//--------------------------------------------------------------------------------
+//This script is useful to detect if, and which version of IE Internet Explorer is present on the machine.
+//See also MSKB 164539: How to determine which version of Internet Explorer is installed
+function GetIExplorerVersion(): String;
+var
+  sVersion:  String;
+begin
+  RegQueryStringValue( HKLM, 'SOFTWARE\Microsoft\Internet Explorer', 'Version', sVersion );
+  Result := sVersion;
+end;
+
+//Author: Vincenzo
+//Article created: 07/06/02 19:20:31
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=17
+//--------------------------------------------------------------------------------
+//Script Author: Matthias Mohr
+//
+//This script is useful to detect if, and which version of IE Internet Explorer is present on the machine.
+//This script detect also version of IE minor than 4, in this sample also program detect if version of Internet Explorer is ok, if not show a message and do not procede with setup.
+//
+function GetIExplorerVersionEx(): String;
+var
+  sVersion:  String;
+begin
+  RegQueryStringValue( HKLM, 'SOFTWARE\Microsoft\Internet Explorer', 'Version', Result );
+  if ( Result = '' ) then
+  begin
+    // the registry-key does not exist;
+    //   versions before v4 used another one --> check this also
+    RegQueryStringValue( HKLM, 'SOFTWARE\Microsoft\Internet Explorer', 'IVer', sVersion );
+    if ( sVersion <> '' ) then
+    begin
+      Result := '';
+      case sVersion of
+        '103':
+          Result := '3.0';
+        '102':
+          Result := '2.5';
+        '101':
+          Result := '2.0';
+        '100':
+          Result := '1.0';
+      end; // END case sVersion of
+    end; // END if ( sVersion <> '' ) then
+  end; // END if ( Result = '' ) then
+end; // END_FUNC GetIEXplorerVersion
+
+
+//Author: Vincenzo
+//Article created: 21/05/02 21:14:54
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=5
+//--------------------------------------------------------------------------------
+//This script is useful to detect if, and which version of MSKB 242479 Windows Installer engine is present on the machine.
+//This check is performed looking for msiexec.exe, if it doesn't exists user can go directly to a Microsoft website to download and install it.
+function GetMSIVersion(): String;
+var
+  sVersion:  String;
+begin
+  sVersion := '';
+  GetVersionNumbersString( ExpandConstant('{sys}\msiexec.exe') , sVersion );
+  Result := sVersion;
+end;
+
+//Author: Vincenzo
+//Article created: 25/05/02 22:00:30
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=6
+//--------------------------------------------------------------------------------
+//This script at startup of setup check DirectX version, if version is not 4.08 warn user, and if user doesn't want to procede suggest to upgrade DirectX from Microsoft website http://www.microsoft.com/directx.
+//
+//DirectX version is stored in registry as 4.majorversion.minorversion
+//DirectX 8.0 is 4.8.0
+//DirectX 8.1 is 4.8.1
+//DirectX 9.0 is 4.9.0
+//
+//Based on code provided by Mike C., NVRefreshTool
+function GetDirectXVersion(): String;
+var
+  sVersion:  String;
+begin
+  sVersion := '';
+  RegQueryStringValue( HKLM, 'SOFTWARE\Microsoft\DirectX', 'Version', sVersion );
+  Result := sVersion;
+end;
+
+//Author: Vincenzo
+//Article created: 29/05/02 21:41:42
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=13
+//--------------------------------------------------------------------------------
+//This script get, if it's installed, version of IIS Internet Information Server.
+function GetIISVersion(): String;
+var
+  sVersion:  String;
+begin
+  sVersion := '';
+  GetVersionNumbersString( ExpandConstant('{sys}\inetsrv\inetinfo.exe') , sVersion );
+  Result := sVersion;
+end;
+
+
+//Author: Vincenzo
+//Article created: 10/06/02 20:50:09
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=18
+//--------------------------------------------------------------------------------
+//This script shows which version of ADSI is installed on the computer, this is useful to prevent to run a script that needs ADSI services.
+//Thi check is mandatory only for old OS, because ADSI is already installed on Windows 2000 and Windows Xp, on Win9X and WinNT are available from MS packages that install it.
+//This script is based on MS article INFO: Determining Which Version of ADSI Is Installed (Q216290)
+function GetADSIVersion(): String;
+var
+  sVersion:  String;
+begin
+  sVersion := '';
+  GetVersionNumbersString( ExpandConstant('{sys}\adsnt.dll') , sVersion );
+  Result := sVersion;
+end;
+
+//Author: Vincenzo
+//Article created: 19/07/02 21:45:17
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=21
+//--------------------------------------------------------------------------------
+//This script shows wow to detect if and which version of MS Access is installed, to detect it program read this registry key that in default value has path of msaccess.exe HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\MSACCESS.EXE. Another way to detect MS Access and it's version installed is this.
+// Legenda
+// 8.00.00.3512   Access 97
+// 8.00.00.4122   Access 97 SR1
+// 8.00.00.5903   Access 97 SR2
+// 9.00.00.2719   Access 2000
+// 9.00.00.3822   Access 2000 SR1
+// 9.00.00.4506   Access 2000 SR2
+// 10.00.2627.1   Access XP
+function AccessVersion(): String;
+var accversion, accpath: String;
+begin
+  accversion := '';
+
+  if RegQueryStringValue(HKEY_LOCAL_MACHINE,
+	   'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\MSACCESS.EXE',
+	   '', accpath) then
+  begin
+	// in varResult there is path of msaccess.exe
+	GetVersionNumbersString( accpath, accversion );
+  end;
+
+  Result := accversion;
+end;
+
+//Author: Vincenzo
+//Article created: 31/05/04 20:00:18
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=76
+//--------------------------------------------------------------------------------
+//Script detect if MS Access 97, 2000 or XP are installed, and read also path to each MSAccess.exe.
+//
+//A page with checkboxesletuser select MS Access version, if a MS Access is not detected the checkbox is disabled.
+// Legenda
+// 8.00.00.3512   Access 97
+// 8.00.00.4122   Access 97 SR1
+// 8.00.00.5903   Access 97 SR2
+// 9.00.00.2719   Access 2000
+// 9.00.00.3822   Access 2000 SR1
+// 9.00.00.4506   Access 2000 SR2
+// 10.00.2627.1   Access XP
+Procedure ReadAccessVersions;
+var
+	Acc97ver, Acc2Kver, AccXPver : String;
+	Acc97Path, Acc2KPath, AccXPPath : String;
+begin
+
+  // Access 97
+  if RegQueryStringValue(HKEY_LOCAL_MACHINE,
+	   'SOFTWARE\Microsoft\Office\8.0\Common\InstallRoot',
+	   '', Acc97Path) then
+  begin
+		Acc97Path := RemoveBackslash( Acc97Path ) + '\Office\MSAccess.exe';
+		GetVersionNumbersString( Acc97Path, Acc97Ver );
+  end;
+
+  // Access 2000
+  if RegQueryStringValue(HKEY_LOCAL_MACHINE,
+	   'SOFTWARE\Microsoft\Office\9.0\Access\InstallRoot',
+	   'Path', Acc2KPath) then
+  begin
+		Acc2KPath := RemoveBackslash( Acc2KPath ) + '\MSAccess.exe';
+		GetVersionNumbersString( Acc2KPath, Acc2KVer );
+  end;
+
+  // Access XP
+  if RegQueryStringValue(HKEY_LOCAL_MACHINE,
+	   'SOFTWARE\Microsoft\Office\10.0\Access\InstallRoot',
+	   'Path', AccXPPath) then
+  begin
+		AccXPPath := RemoveBackslash( AccXPPath ) + '\MSAccess.exe';
+		GetVersionNumbersString( AccXPPath, AccXPVer );
+  end;
+
+end;
+
+
+
+//Author: Vincenzo
+//Article created: 19/07/02 21:50:38
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=22
+//--------------------------------------------------------------------------------
+//This script shows how to detect if and which version of SQL Server or MSDE is installed, to detect it script read this registry key
+//
+//HKLM\SOFTWARE\Microsoft\MSSQLServer\MSSQLServer\CurrentVersion\CurrentVersion
+//
+//This registry key can be accessed only by Admin users, so I check IsAdminLoggedOn before read it and also I added AdminPrivilegesRequired=true in [Setup] section.
+function GetSQLMSDEVersion(): String;
+var
+  sVersion:  String;
+begin
+  sVersion := '';
+  // it is necessary to be an Admin to read this registry key
+  if IsAdminLoggedOn then
+  	RegQueryStringValue( HKLM, 'SOFTWARE\Microsoft\MSSQLServer\MSSQLServer\CurrentVersion', 'CurrentVersion', sVersion );
+
+  Result := sVersion;
+end;
+
+//Author: Vincenzo
+//Article created: 25/01/03 11:06:25
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=41
+//--------------------------------------------------------------------------------
+//Author: hostmonsta
+//
+//For everyone who's interested in checking for JDK (Java Development Kit), here's the code:
+//* Getting Java version from registry *//
+function getJavaVersion(): String;
+var
+     javaVersion: String;
+begin
+     javaVersion := '';
+     RegQueryStringValue(HKLM, 'SOFTWARE\JavaSoft\Java Runtime Environment', 'CurrentVersion', javaVersion);
+     GetVersionNumbersString(javaVersion, javaVersion);
+     Result := javaVersion;
+end;
+
+//Author: Vincenzo
+//Article created: 20/12/02 22:30:01
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=34
+//--------------------------------------------------------------------------------
+//This script is useful to detect if, and which version of Adobe Acrobat reader is installed on the PC.
+//
+function GetAcrobatReaderVersionString(): String;
+var
+  sVersion:  String;
+begin
+  sVersion := '';
+  RegQueryStringValue( HKLM, 'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\AcroRd32.exe', '', sVersion );
+  GetVersionNumbersString( sVersion , sVersion );
+  Result := sVersion;
+end;
+
+//Author: Vincenzo
+//Article created: 23/05/03 22:56:27
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=49
+//--------------------------------------------------------------------------------
+//Author: Rob Pitt
+//
+//Code to detect Acrobat reader search plug-in version.
+Function GetAcrobatSearchVersion(): String;
+var
+  sVersion:  String;
+begin
+  sVersion := '';
+  if (RegQueryStringValue( HKLM, 'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\AcroRd32.exe', '', sVersion )) then
+  begin
+    sVersion := ExtractFileDir(sVersion) + '\plug_ins\search.api';
+  end;
+  GetVersionNumbersString( sVersion , sVersion );
+  Result := sVersion;
+end;
+
+
+//Author: Vincenzo
+//Article created: 18/05/04 22:10:12
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=73
+//--------------------------------------------------------------------------------
+//Author: jon halle
+//
+//How to detect Acrobat Reader version installed.
+function GetAcrobatReaderVersion(): Integer;
+var
+   sPath:  String;
+   sVersion:  String;
+   iPos: Integer;
+   cChar: Char;
+   sStart: String;
+begin
+  sVersion := '';
+  sPath := '';
+  RegQueryStringValue( HKLM, 'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\AcroRd32.exe', '', sPath ) ;
+  GetVersionNumbersString( sPath , sVersion );
+  if  sVersion='' then
+  begin
+    RegQueryStringValue( HKLM, 'SOFTWARE\Classes\AcroExch.Document\AcrobatVersion', '', sVersion );
+  end;
+
+  // now get whatever is before  dot
+  iPos:=1;
+  sStart:='';
+
+  while iPos<Length(sVersion) do
+  begin
+    cChar:=StrGet(sVersion,iPos);
+    if cChar='.' then
+    begin
+      iPos:=Length(sVersion);
+    end
+    else
+    begin
+      sStart := sStart+cChar;
+      iPos := iPos +1;
+    end;
+  end;
+
+  Result := StrToIntDef(sStart,0);
+end;
+
+//Author: Vincenzo
+//Article created: 04/08/04 14:20:47
+//Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=80
+//--------------------------------------------------------------------------------
+//Author: Truckle, Andrew J
+//
+//Returns True if either JET 3.5 or JET 4.0 is installed.
+//
+//The article How to obtain the latest service pack for the Microsoft Jet 4.0 Database Engine tells how one could locate the msjet40.dll in the system folder and decode it's version string. That would be another way of testing if JET is installed.
+// Returns True if either JET 3.5 or JET 4.0 is installed
+function IsJETInstalled(): Boolean;
+begin
+   Result := RegKeyExists(HKLM, 'Software\Microsoft\Jet\3.5\Engines') or RegKeyExists(HKLM, 'Software\Microsoft\Jet\4.0\Engines');
+end;
+
+[/Code]
+
+#endif
+
+
+

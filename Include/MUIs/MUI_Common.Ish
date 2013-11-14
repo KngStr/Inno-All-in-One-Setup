@@ -1,0 +1,95 @@
+#ifndef _MUI_COMMON_ISH_
+  #Define _MUI_COMMON_ISH_ __PATHFILENAME__
+
+//Author      : WLDNA
+//Link        : http://www.wldna.com/
+//Description : .
+//Modified    : 2013-11-05 22:17:39
+//Tested Inno :
+//Usage       :
+//    procedure ModifyUISize(Ctrl: TComponent);
+//    procedure ModifyUI();
+
+[Code]
+procedure ModifyUISize(Ctrl: TComponent);
+var
+  i: Integer;
+begin
+  with TWinControl(Ctrl) do
+  begin
+    for i := 0 to ControlCount - 1 do
+    begin
+      if not (Controls[i] is TBitmapImage) then
+        if TWinControl(Controls[i]).ControlCount > 0 then  ModifyUISize(Controls[i])
+        else
+        begin
+          if TWinControl(Controls[i]).Width = WizardForm.InnerNotebook.Width - ScaleX(30) then
+            TWinControl(Controls[i]).Width := WizardForm.InnerNotebook.Width
+          else
+          if (TWinControl(Controls[i]).Left  = ScaleX(0)) and (TWinControl(Controls[i]).Width > WizardForm.InnerNotebook.Width / 2) then
+            TWinControl(Controls[i]).Width := TWinControl(Controls[i]).Width + ScaleX(30)
+          else
+          if TWinControl(Controls[i]).Left + TWinControl(Controls[i]).Width  = WizardForm.InnerNotebook.Width - ScaleX(30) then
+          begin
+            if TWinControl(Controls[i]).Left > WizardForm.InnerNotebook.Width / 2 then
+              TWinControl(Controls[i]).Left := WizardForm.InnerNotebook.Width - TWinControl(Controls[i]).Width
+            else
+              TWinControl(Controls[i]).Width := TWinControl(Controls[i]).Width + ScaleX(30);
+          end;
+        end;
+    end;
+  end;
+end;
+
+var
+  chk_Accpected: TCheckBox;
+
+procedure chk_AccpectedClick(Sender: TObject);
+begin
+  WizardForm.LicenseAcceptedRadio.Checked := chk_Accpected.Checked;
+  WizardForm.LicenseNotAcceptedRadio.Checked := not chk_Accpected.Checked;
+end;
+
+procedure ModifyUI();
+begin
+  with WizardForm.LicenseMemo do
+  begin
+    ParentFont := False;
+//    Font.Size := 9;
+  end;
+
+  with WizardForm.InnerNotebook do
+  begin
+    Left := Left - ScaleX(15);
+    Width := Width + ScaleX(30);
+
+    ModifyUISize(WizardForm.InnerNotebook);
+  end;
+
+  with WizardForm do
+  begin
+    LicenseAcceptedRadio.Hide;
+    LicenseNotAcceptedRadio.Hide;
+    LicenseMemo.Top := LicenseMemo.Top - ScaleY(10);
+    LicenseMemo.Height := LicenseMemo.Height + LicenseAcceptedRadio.Height + ScaleY(10);;
+
+    ReadyMemo.ScrollBars := ssVertical;
+  end;
+
+  Nsis_Header(False);
+
+  chk_Accpected := TCheckBox.Create(WizardForm);
+  with chk_Accpected do
+  begin
+    chk_Accpected.Parent := WizardForm.LicensePage;
+    Top := WizardForm.LicenseNotAcceptedRadio.Top - ScaleY(5);
+    Left := WizardForm.LicenseAcceptedRadio.Left;
+    Width := WizardForm.LicenseAcceptedRadio.Width;
+    Caption := WizardForm.LicenseAcceptedRadio.Caption;
+    OnClick := @chk_AccpectedClick;
+  end;
+end;
+
+[/Code]
+
+#endif

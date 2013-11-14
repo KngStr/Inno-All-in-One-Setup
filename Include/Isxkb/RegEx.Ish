@@ -1,0 +1,190 @@
+;Author: Vincenzo
+;Article created: 10/09/02 23:18:46
+;Article URL : http://www.vincenzo.net/isxkb/modules.php?name=News&file=article&sid=25
+;--------------------------------------------------------------------------------
+;Ton Huisman, Aug 2002 ath(at)ath.myweb.nl wrote some useful registry function freeware, no claims, no f(l)ames, use at your own risk, test before releasing to public!!
+;RegKeyExists: Query for the existence of some Keyvalue in the registry
+;RegOpenKey: Open a Keyvalue in the registry
+;RegKeyNames: Query for a string of all SubKeys of a SubKey in the registry
+;
+
+
+
+[Code]
+// External functions:
+// InnoSetup 2 versions:
+//function RegOpenKeyEx(RootKey : Integer;subkey : string;options: integer;sec:integer;valu:integer): integer; external 'advapi32' name 'RegOpenKeyExA'; stdcall;
+//function RegCloseKey(valu:integer): integer; external 'advapi32' name 'RegCloseKey'; stdcall;
+//function RegEnumKeyEx(hKey: Integer;dwIndex: Integer; lpName : Pchar; lpcbName: PChar;lpReserved: Integer;lpClass: Pchar;lpcbClass: Integer;lpFTLWT: Integer): Integer; external 'advapi32' name 'RegEnumKeyExA'; stdcall;
+// InnoSetup 3 versions:
+function RegOpenKeyEx(RootKey : Integer;SubKey: String;Options: Integer;Sec: Integer; Valu: Integer): Integer; external 'RegOpenKeyExA@advapi32.dll stdcall';
+function RegCloseKey(Valu: Integer): Integer; External 'RegCloseKey@advapi32.dll stdcall';
+function RegEnumKeyEx(hKey: Integer;dwIndex: Integer; lpName : Pchar; lpcbName: PChar;lpReserved: Integer;lpClass: Pchar;lpcbClass: Integer;lpFTLWT: Integer): Integer; external 'RegEnumKeyExA@advapi32.dll stdcall';
+// End external functions
+
+// From winerror.h/windows.pas:
+Const KEY_QUERY_VALUE = $1;
+Const KEY_ENUMERATE_SUB_KEYS = $8;
+Const ERROR_SUCCESS = 0;
+Const ERROR_MORE_DATA = 234;
+Const ERROR_NO_MORE_ITEMS = 259;
+
+//**********************************************************
+// What this is all about:
+// Created by Ton Huisman, Aug 2002 ath@ath.myweb.nl
+// Freeware, no claims, no f(l)ames, use at your own risk, test before releasing to public!!
+//////////////////////////////////////////////////////////////////////////////////////////////
+// RegKeyExists: Query for the existence of some Keyvalue in the registry
+// -> Function RegKeyExists(RootKey : Integer; SubKey : String) : Boolean;
+// Input : RootKey : A predefined value for the registryhive we want to query, like HKLM etc.
+//		   SubKey  : The full path to the queried key
+// Output: Boolean: True if found, False if not found.
+// Queried by trying to open the key for read access, True if successful
+// Uses: RegOpenKeyEx, CastPtrToInt, RegCloseKey
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+// RegOpenKey: Open a Keyvalue in the registry
+// -> Function RegOpenKey(RootKey : Integer; SubKey : String;Sam: Integer) : Integer;
+// Input : RootKey : A predefined value for the registryhive we want to query, like HKLM etc.
+//		   SubKey  : The full path to the queried key
+//		   Sam	   : The Security Acces Mask, If 0 then KEY_QUERY_VALUE
+// Output: Integer (HKey): Handle for registry key, 0 if not Ok
+// Uses: RegOpenKeyEx
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+// RegKeyNames: Query for a string of all SubKeys of a SubKey in the registry
+// -> Function RegKeyNames(RootKey: Integer; SubKey : String) : String;
+// Input : RootKey : A predefined value for the registryhive we want to query, like HKLM etc.
+//		   SubKey  : The full path to the queried key
+// Output: String: Comma-separated list of all subkeys found
+// Uses: RegOpenKey, CastIntToPtrStr, RegEnumKeyEx, RegCloseKey
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+//**********************************************************
+// Supporting function
+Function CastPtrToInt(PtrStr: String) : Integer;
+Begin
+	Result := Ord(StrGet(PtrStr,1)) + (Ord(StrGet(PtrStr,2)) * 256) + (Ord(StrGet(PtrStr,3))*256*256) + (Ord(StrGet(PtrStr,4))*256*256*256);
+End; { CastPtrToInt }
+
+// Supporting function
+// Cast Integer to PointerString
+Function CastIntToPtrStr(Inte: Cardinal) : String;
+Var n : Integer;
+	r : Cardinal;
+	t : Cardinal;
+Begin
+	Result := StringOfChar(#0,4);
+	r := Inte;
+	n := 4;
+	If r >= (256*256*256) then
+	Begin
+		t := r / (256*256*256);
+		StrSet(Chr(t),n,Result);
+		r := r - (t * (256*256*256));
+	End;
+	n := n - 1;
+	If r >= (256*256) then
+	Begin
+		t := r / (256*256);
+		StrSet(Chr(t),n,Result);
+		r := r - (t * (256*256));
+	End;
+	n := n - 1;
+	If r >= (256) then
+	Begin
+		t := r / (256);
+		StrSet(Chr(t),n,Result);
+		r := r - (t * (256));
+	End;
+	n := n - 1;
+	If r > 0 then
+	Begin
+		t := r;
+		StrSet(Chr(t),n,Result);
+		r := r - t;
+	End;
+End; { CastIntToPtrStr }
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// RegKeyExists: Query for the existence of some Keyvalue in the registry
+// Input : RootKey : A predefined value for the registryhive we want to query, like HKLM etc.
+//		   SubKey  : The full path to the queried key
+// Output: Boolean: True if found, False if not found.
+// Queried by trying to open the key for read access, True if successful
+// Uses: RegOpenKeyEx, CastPtrToInt, RegCloseKey
+//////////////////////////////////////////////////////////////////////////////////////////////
+Function RegKeyExists(RootKey : Integer; SubKey : String) : Boolean;
+Var l : Integer;
+	ls : String;
+	hKey : Integer;
+Begin
+	ls := StringOfChar(#0,4);
+	l := CastStringToInteger(ls);
+	Result := (RegOpenKeyEx(RootKey,SubKey,0,KEY_QUERY_VALUE,l) = 0);
+	hKey := CastPtrToInt(ls);
+	RegCloseKey(hKey);
+End; { RegKeyExists }
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// RegOpenKey: Open a Keyvalue in the registry
+// Input : RootKey : A predefined value for the registryhive we want to query, like HKLM etc.
+//		   SubKey  : The full path to the queried key
+//		   Sam	   : The Security Acces Mask, If 0 then KEY_QUERY_VALUE
+// Output: Integer (HKey): Handle for registry key, 0 if not Ok
+// Uses: RegOpenKeyEx
+//////////////////////////////////////////////////////////////////////////////////////////////
+Function RegOpenKey(RootKey : Integer; SubKey : String;Sam: Integer) : Integer;
+Var l : Integer;
+	ls : String;
+Begin
+	ls := StringOfChar(#0,4);
+	l := CastStringToInteger(ls);
+	If Sam = 0 then Sam := KEY_QUERY_VALUE;
+	Result := 0;
+	If (RegOpenKeyEx(RootKey,SubKey,0,Sam,l) = 0) then
+		Result := CastPtrToInt(ls);
+End; { RegOpenKey }
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// RegKeyNames: Query for a string of all SubKeys of a SubKey in the registry
+// Input : RootKey : A predefined value for the registryhive we want to query, like HKLM etc.
+//		   SubKey  : The full path to the queried key
+// Output: String: Comma-separated list of all subkeys found
+// Uses: RegOpenKey, CastIntToPtrStr, RegEnumKeyEx, RegCloseKey
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+Const Key_Separator = ',';	// Default to comma, change as needed, could be #9 or ';'?
+Const Key_MaxLength = 255;	// Usually this (255) is way to large, 64 could do niceley, but just be safe. Longer keys than this length will be ignored!
+
+Function RegKeyNames(RootKey: Integer; SubKey : String) : String;
+Var hKey : Integer;	// HKey is not directly supported...
+	wdIndex : Integer;
+	s : String;
+	ss : Integer;
+	st : String;
+	r : Integer;
+Begin
+	wdIndex := 0;
+	Result := '';
+	s := StringOfChar(#0,Key_MaxLength);
+	ss := Key_MaxLength;
+	st := CastIntToPtrStr(ss);
+	hKey := RegOpenKey(RootKey,SubKey,KEY_QUERY_VALUE + KEY_ENUMERATE_SUB_KEYS);
+	If hKey <> 0 then
+	Begin
+		r := RegEnumKeyEx(hKey,wdIndex,s,st,0,'',0,0);
+		While ((r = ERROR_SUCCESS) or (r = ERROR_MORE_DATA)) do
+		Begin
+			ss := CastPtrToInt(st);
+			If ss > 0 then
+				Result := Result + Copy(s,1,ss) + Key_Separator;
+			wdIndex := wdIndex + 1;
+			st := CastIntToPtrStr(ss);
+			r := RegEnumKeyEx(hKey,wdIndex,s,st,0,'',0,0);
+		End;
+		If Result <> '' then
+			Result := Copy(Result,1,Length(Result) - 1);// remove extra separator ;-)
+		RegCloseKey(hKey);
+	End;
+End; { RegKeyNames }
