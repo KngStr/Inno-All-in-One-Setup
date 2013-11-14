@@ -25,4 +25,6 @@ SkyGz:    http://www.hanzify.org/software/11564.html
 
 Sherlock: http://www.sherlocksoftware.or/
 
-A Russion forum:  http://forum.ru-board.com/topic.cgi?forum=5&topic=46338
+Russion forum:  
+         http://forum.ru-board.com/topic.cgi?forum=5&topic=46338
+         http://krinkels.org/showthread.php?t=9
