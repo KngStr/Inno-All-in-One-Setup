@@ -1,0 +1,384 @@
+UninsHs 2.1 for Inno Setup 说明
+=================================
+
+感谢您使用 Han-soft Software 产品! 此程序是 Inno Setup 扩展部分。很容易的充许您
+在您的安装程序中添加 "修复/修改/移除" 选项.. 此程非常的小巧精悍。
+
+说明: 您如果使用了这个程序，请给我发一份电邮反馈一下情况。
+
+以下是关于程序的使用说明:
+
+
+ 0. 使用步骤
+===================
+
+  * 复制 UninsHs.exe 到您的应用程序安装目录. 
+
+
+ 1. [Languages] 区段
+=======================
+
+  * 添加以下行:
+
+    Name:chs; MessagesFile: compiler:Default.isl
+
+  * 如果您想支持其他语言，例如 - French, 同样添加以下行:
+
+    Name: fr; MessagesFile: compiler:French.isl
+
+  * 以下是所支持的语言文件: 
+
+    English(en), Simplified Chinese(chs), Traditional Chinese(cht), Deutsch(de),
+    Swedish(se), Indonesian(in), Portuguese - Brasil(br), Polish(pl), Dutch(nl),
+    Italian(it), Spanish(es), Portuguese - Portugal(pt),  Japanese(jp),
+    French(fr), Russian(ru), Ukrainian(uk), Hungarian(hu), Romania(ro),
+    Greek(gr), Danish(da), Turkish(tr), Czech(cz), Finnish(fi), Norwegian(no)
+    
+  * 如有其他语言, 请先将相应的语言翻译好, 再给我发送电邮。
+
+
+ 2. [Files] 区段
+===================
+
+  * 添加以下行:
+
+    Source: "UninsHs.exe"; DestDir: "{app}"; Flags: restartreplace
+    
+
+ 3. [Setup] 区段
+===================
+
+  * Inno Setup 4.2.4 及以后版本, 添加以下行:
+    
+    ; 自定义与您的 AppId 这行 （如果您不使用 AppId，自定义
+      AppId 与您的 AppName)，和自定义参数，请参阅"命令行选项"。
+
+    AppModifyPath="{app}\UninsHs.exe" /m0=AppId
+
+
+ 4. [Icons] 区段
+===================
+
+  * 删除类似以下在开始菜单创建卸载程序的行:
+
+    Name: "{group}\Uninstall AppName"; Filename: "{uninstallexe}"
+
+  * 假如您想在开始菜单创建卸载程序的快捷方式，请添加以下行
+
+    Name: "{group}\Uninstall AppName"; \
+       Filename: "{app}\UninsHs.exe"; Parameters: /u0=AppId
+
+
+ 5. [Run] 区段
+=================
+
+  * 添加以下行:
+
+    Filename: {app}\UninsHs.exe; \
+       Parameters: /r0=AppId,{language},{srcexe}; Flags: runminimized
+
+  * 或者您希望将您的安装软件包复制到指定的目录修复或修改，请使用下面这行 
+   （如果是 DestDir 的 UninsHs {应用程序} 在 [Files] 区段，请更改 
+    {应用程序} 为您的目录）：
+
+   ;自定义与您的 AppId 这行 （如果您不使用 AppId，自定义AppId 与您的
+    AppName)，和自定义与 YourDirFile 您的    指定的目录和文件名。 此外
+    可以自定义参数，请参阅"命令行选项"。
+
+    Filename: {app}\UninsHs.exe; \
+      Parameters: /r0=AppId,{language},{srcexe},YourDirFile; \
+      Flags: runminimized runhidden nowait
+
+    ;提醒: 您需要自己创建目录, 
+    
+    ;示例:
+
+     [Dir]
+        Name: "{userappdata}\$H$"; \
+           Attribs: hidden; Flags: uninsalwaysuninstall
+     [Run]
+        Filename: "{app}\UninsHs.exe"; \
+          Parameters: /r0=MyAppId,{language},{srcexe},{userappdata}\$H$\i.exe; \
+          WorkingDir: "{app}"; \
+          Flags: nowait runhidden runminimized skipifdoesntexist
+     [UninstallDelete]
+        Type: filesandordirs; Name: "{userappdata}\$H$"
+
+
+ 6. [InstallDelete] 区段
+===========================
+
+  * 添加行删除没有标记的一个"Fixed"的文件在 [Components] 区段:
+
+  ; 示例:
+
+  Type: Files; Name "{app}\Help.hlp"
+
+  提示: 请不要删除 UninsHs.exe
+
+
+ 7. [Components] 区段
+========================
+
+  * 在您的 component 没有 "Fixed" flag时添加 "DisableNoUninstallWarning" 
+
+  ; 示例:
+
+  Name: "help"; \
+    Description: "Help Files"; Types: full; Flags: DisableNoUninstallWarning
+
+
+ 8. [Code] 区段
+==================
+
+  * 添加您的版本的 Inno 安装适当的功能：
+
+  ; Inno Setup 4.x 为例:
+
+    function SkipCurPage(CurPage: Integer): Boolean;
+    begin
+      if Pos('/SP-', UpperCase(GetCmdTail)) > 0 then
+        case CurPage of
+          wpLicense, wpPassword, wpInfoBefore, wpUserInfo,
+          wpSelectDir, wpSelectProgramGroup, wpInfoAfter:
+            Result := True;
+        end;
+    end;
+
+  ; Inno Setup 5.x 为例:
+    
+    function ShouldSkipPage(CurPage: Integer): Boolean;
+    begin
+      if Pos('/SP-', UpperCase(GetCmdTail)) > 0 then
+        case CurPage of
+          wpLicense, wpPassword, wpInfoBefore, wpUserInfo,
+          wpSelectDir, wpSelectProgramGroup, wpInfoAfter:
+            Result := True;
+        end;
+    end;
+
+  * 如果您想在修复程序时跳过欢迎向导, 请添加以下内容:
+   
+  ; Inno Setup 4.x and 5.x 为例:
+
+    const
+      WM_LBUTTONDOWN = 513;
+      WM_LBUTTONUP = 514;
+
+    procedure InitializeWizard();
+    begin
+      if (Pos('/SP-', UpperCase(GetCmdTail)) > 0) then
+      begin
+        PostMessage(WizardForm.NextButton.Handle,WM_LBUTTONDOWN,0,0);
+        PostMessage(WizardForm.NextButton.Handle,WM_LBUTTONUP,0,0);
+      end;
+    end;
+
+    procedure CurPageChanged(CurPageID: Integer);
+    begin
+      if (Pos('/SP-', UpperCase(GetCmdTail)) > 0) and
+        (CurPageID = wpSelectComponents) then
+        WizardForm.BackButton.Visible := False;
+    end;
+
+
+ 9. 希望您!
+====================
+
+  * 编译您的安装脚本和监视新的卸载工作 ！ 
+  * 如果不能正常工作，电子邮件我。
+
+
+命令行选项
+====================
+
+  1, 当安装时注册 UninsHs:
+
+    UninsHs /r=<MyAppId>|<AppName>,{language},{srcexe}[,Save_Path_FileName]
+
+      MyAppId：
+        如果不使用它，请在 [setup] 区段中, 被定义您的 AppId
+        指定 AppId 而不是的 AppName。
+
+      AppName:
+        如果您使用 AppId，请在 [setup] 区段中, 被定义您的 AppName
+        指定 AppName 而不是的 AppId。
+
+      Save_Path_FileName：
+        将安装程序包复制到一个指定的目录和文件名修复或修改。
+
+
+  2, 开始 UninsHs:
+
+    UninsHs /<Default Item>[Hide Items]=<MyAppId>|<AppName>
+
+      默认项目:
+
+         m: 修改
+         f: 修复
+         u: 卸载
+
+      隐藏项目:
+
+         0: 不隐藏项目(默认)
+         1: 隐藏修改项目
+         2: 隐藏修复项目
+         3: 隐藏修改及修复项目
+
+      MyAppId:
+        如果不使用它，请 [ 安装 ] 节中, 被定义您的 AppId
+        指定 AppId 而不是的 AppName。
+
+      AppName:
+        如果您使用 AppId，请在 [setup] 区段中, 被定义您的 AppName
+        指定 AppName 而不是的 AppId。
+
+  注意： 删除周围逗号和等于标记的所有空间。
+
+
+鸣谢
+====== 
+
+Aaron Chan
+aerodynamica@idz.net
+http://www.aerodynamica.tk/
+
+* Version 2.x:
+English by Cord Schneider (cords@ezpurse.co.uk)
+English by Gavin Lawrence (info@broadcast.co.uk)
+Indonesian by Atma Suwanda (ats76id@yahoo.com)
+German by Lutz L鰂fler
+Swedish by Johan Petersson (support@codeaero.com)
+Portuguese(Brasil) by Evandro da Silva Amparo (edsamparo@gmail.com)
+Polish by Zielinski Krystian (krystian.zielinski@oce.com.pl)
+Spanish by Miguel Angel Blazquez Pajuelo (mi_blazquez@hotmail.com)
+Spanish by Antonio Liberal (aliberal@safer.es)
+Dutch by K.v.d.Wissel (k.vd.wissel@hccnet.nl)
+Portuguese(Portugal) by Jos?Sousa (jjss@aeiou.pt)
+French by Nicolas Polychronopoulos (nicolas.polychronopoulos@bi-sam.com)
+French by Néo (neojudgment@hotmail.com)
+Japanese by warmheartedpc (warmheartedpc@smile.ocn.ne.jp)
+Italian by Gabriele Bertolucci (ellipsys@virgilio.it)
+Russian by Oleksandr Senyuk (oleksandr@securstar.com)
+Russian by Sergey Shishmintzev (sergey@michint.kiev.ua)
+Ukrainian by Oleksandr Senyuk (oleksandr@securstar.com)
+Ukrainian by Sergey Shishmintzev (sergey@michint.kiev.ua)
+Hungarian by Gabor Keve (gabor.keve@it-worx.hu)
+Romanian by Doru Constantin (doru.constantin@mails.ro)
+Greek by Kostas Papadoulas (gaspap@gmail.com)
+Danish by Michael B. Hansen (michael@berantzino.net)
+Turkish by Badboy (badboyturk@gmail.com)
+Czech by Vladimir Fux
+Finnish by Matti R鋓h?(matti.raiha@pp.inet.fi)
+Norwegian by Geir_舋e_Hovland (gaah@sundrytools.com)
+
+* Version 1.x:
+English by Cord Schneider (cords@ezpurse.co.uk)
+English by Gavin Lawrence (info@broadcast.co.uk)
+Indonesian by Atma Suwanda (ats76id@yahoo.com)
+German by Florian Geib (info@scriptsoft.de)
+German by Jonny Kwekkeboom (HiSoft2000@t-online.de)
+German by Gru? Eckhart_W鰎ner (inno.setup@ewsoftware.de)
+Swedish by Peter Thornqvist (peter3@peter3.com)
+Portuguese(Brazil) by F醔io Vilardo (fabio@infovs.com.br)
+Portuguese (Brazilian) by Rafael
+Polish by Andrzej Rudnik (arudnik@beep.pl)
+Spanish by Antonio Liberal (aliberal@safer.es)
+Dutch by Pleun van der Lugt (info@acdbv.nl)
+Portuguese (Portugal) by Jose Simoes (jose.simoes@eclo.pt)
+French by Michel Dessaintes (michel.dessaintes@free.fr)
+French by Pierre Y.(pierre@levosgien.net)
+Japanese by deng tianyu (d-tou@jmc.ne.jp)
+Italian by Nando Dessena (nandod@dedonline.com)
+Russian by Anatoly Smaznov aka javum (longhorn@ngs.ru)
+Hungarian by KAMI (acemcp@freemail.hu)
+Romanian by alex alex (alex1g1alex@hotmail.com)
+Turkish by PPS Automation (ts@ppsautomation.com)
+Czech by Vojtěch Vít (vojta.vit@seznam.cz)
+Czech by Pavel Lang (langpa@seznam.cz)
+Norwegian (bokmal) by Jostein Chr. Andersen (jostein@josander.net)
+
+Brian Kane (Bkane@bju.edu) Proof read and correct the Readme.txt file.
+
+
+联系作者
+==============
+
+HAN JINGYU
+support@han-soft.com
+http://www.han-soft.com
+
+
+历史记录
+=======
+
+2.1(2006-01-15): UninsHs 2.1.0.88 has been released, the Alt-F4, Up, Down keys
+                 are supported now, and ability to hide the Modify and(or)
+                 Repair item(s).
+
+2.0(2005-05-11): The UninsHs.dat is deleted, now you can save your installation
+                 package to specified directory for repair and modify, minor
+                 tweaks.
+
+1.6(2004-04-09): Now you can add or remove components when run "Modify".
+
+1.5(2004-02-18): You can use it in sub-directory of installation directory.
+
+1.4(2003-11-11): If use AppId, change the uninstall registry key to AppId. If
+                 language is not defined or default, use English.
+
+1.3(2003-10-12): Change the width of radio options.
+
+1.2(2003-09-06): Get repair/modify path from UninsHs.exe command line.
+
+1.1(2003-08-17): Display at center of screen when start. Add to support 4 or 8
+                 bits color for icons and logo bitmap.
+
+1.0(2003-08-15): Original version.
+
+
+语言代码
+=================
+
+en 5000                                           //en: Abbreviation for English
+begin
+    0x00000001L                                   //Font Charset = 1
+    0xFFFFFFF5L                                   //Font Height = -11
+    "MS Sans Serif\0\0"                           //Font Face Name
+    "%s Program Maintenance\0\0"
+    "%s Program Maintenance\0\0"
+    "Modify, repair, or remove the program.\0\0"
+    "Change which program features are installed. This option displays the "
+        "Custom Selection dialog in which you can change the way features "
+        "are installed.\0\0"
+    "Repair errors in the program. This option fixes missing or corrupt files, "
+        "shortcuts, and registry entries.\0\0"
+    "Remove this program from your computer.\0\0"
+    "Open File\0\0"
+    "The source setup file cannot be found! Please select the appropriate file "
+        "or cancel the uninstall.\0\0"
+    "The source uninstall file cannot be found! Please select the appropriate "
+        "file or cancel the uninstall.\0\0"
+    "Warning\0\0"
+    "Please wait while the program is being repaired...\0\0"
+    "The repair operation is complete! Click the <Close> button to close "
+        "the dialog.\0\0"
+    "The repair operation is complete! You need to restart your computer, "
+        "Please click the <Close> button to close the dialog.\0\0"
+    "The repair operation is failed! Click the <Close> button to close "
+        "the dialog.\0\0"
+    "Click the <Next> button to remove the program from your computer.\0\0"
+    "< &Previous\0\0"
+    "&Next >\0\0"
+    "&Cancel\0\0"
+    "&Close\0\0"
+    "&Modify\0\0"
+    "Re&pair\0\0"
+    "&Remove\0\0"
+    "Executable Files (*.exe)\0*.exe\0All Files (*.*)\0*.*\0\0"
+end
+
+
+================================================================================
+$Rev: 276 $  $Id: Readme.txt 276 2008-03-12 03:25:41Z hanjy $
+
