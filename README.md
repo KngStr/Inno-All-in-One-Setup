@@ -28,3 +28,8 @@ Sherlock: http://www.sherlocksoftware.or/
 Russion forum:  
          http://forum.ru-board.com/topic.cgi?forum=5&topic=46338
          http://krinkels.org/showthread.php?t=9
+
+Attention
+=====================
+This project is not stable yet. 
+So maybe someday some code will be change a lot. Be careful of this, read readme.txt clearly, and then update.
