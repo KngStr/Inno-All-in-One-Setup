@@ -1,0 +1,51 @@
+//Author      : WLDNA
+//Link        : http://www.wldna.com/
+//Description :
+//Modified    : 2013-11-14 11:40:59
+//Tested Inno :
+//Usage       : See Examples folder
+
+//
+#pragma spansymbol "\"
+//
+// EncodeVer
+//
+// Encodes given four version elements to a 32 bit integer number (8 bits for
+// each element, i.e. elements must be within 0...255 range).
+//
+#define EncodeVer(int Major, int Minor, int Revision = 0, int Build = -1) \
+  Major << 24 | (Minor & 0xFF) << 16 | (Revision & 0xFF) << 8 | (Build >= 0 ? Build & 0xFF : 0)
+//
+// DecodeVer
+//
+// Decodes given 32 bit integer encoded version to its string representation,
+// Digits parameter indicates how many elements to show (if the fourth element
+// is 0, it won't be shown anyway).
+//
+#define DecodeVer(int Ver, int Digits = 3) \
+  Str(Ver >> 0x18 & 0xFF) + (Digits > 1 ? "." : "") + \
+  (Digits > 1 ? \
+    Str(Ver >> 0x10 & 0xFF) + (Digits > 2 ? "." : "") : "") + \
+  (Digits > 2 ? \
+    Str(Ver >> 0x08 & 0xFF) + (Digits > 3 && (Local = Ver & 0xFF) ? "." : "") : "") + \
+  (Digits > 3 && Local ? \
+    Str(Ver & 0xFF) : "")
+
+
+;#expr DeleteFile(GetEnv("Temp") + '\IS_ENHANCED.ini')
+
+#ifdef IS_ENHANCED
+  #emit WriteIni(GetEnv("Temp") + '\IS_ENHANCED.ini', 'Main', 'IS_Ver_Str', IS_Ver_Str)
+;·ÏÆú
+;  #emit WriteIni(GetEnv("Temp") + '\IS_ENHANCED.ini', 'Main', 'ISPP_Ver_Str', ISPP_Ver_Str)
+#endif
+
+#emit WriteIni(GetEnv("Temp") + '\IS_ENHANCED.ini', 'Main', '__FILE__', __FILE__)
+#emit WriteIni(GetEnv("Temp") + '\IS_ENHANCED.ini', 'Main', '__INCLUDE__', __INCLUDE__ )
+#emit WriteIni(GetEnv("Temp") + '\IS_ENHANCED.ini', 'Main', '__PATHFILENAME__', __PATHFILENAME__ )
+#emit WriteIni(GetEnv("Temp") + '\IS_ENHANCED.ini', 'Main', 'Ver', DecodeVer(Ver) )
+#emit WriteIni(GetEnv("Temp") + '\IS_ENHANCED.ini', 'Main', 'PREPROCVER', DecodeVer(PREPROCVER) )
+#emit WriteIni(GetEnv("Temp") + '\IS_ENHANCED.ini', 'Main', 'SourcePath', SourcePath )
+#emit WriteIni(GetEnv("Temp") + '\IS_ENHANCED.ini', 'Main', 'CompilerPath', CompilerPath )
+
+;#expr ReadIni(GetEnv("Temp") + '\IS_ENHANCED.ini', 'Main', 'IS_Ver_Str', '')
