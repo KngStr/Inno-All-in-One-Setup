@@ -1,0 +1,137 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 12 (filtered)">
+<title>Утилита объединения скриптов InnoSetup</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphbullet1gif, li.msolistparagraphbullet1gif, div.msolistparagraphbullet1gif
+	{mso-style-name:"msolistparagraphbullet1\.gif";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphbullet2gif, li.msolistparagraphbullet2gif, div.msolistparagraphbullet2gif
+	{mso-style-name:"msolistparagraphbullet2\.gif";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphbullet3gif, li.msolistparagraphbullet3gif, div.msolistparagraphbullet3gif
+	{mso-style-name:"msolistparagraphbullet3\.gif";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=RU link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Утилита
+для быстрого объединения скриптов InnoSetup, позволяющая вам совместить
+функциональность нескольких скриптов, не прибегая к программированию.<br>
+<br>
+Утилита сливает вместе обработчики стандартных событий (на данный момент умеет
+сливать 16 типов процедур – <i>InitializeSetup, CurPageChanged</i> и т.д.).
+Корректно обрабатывает многосекционные скрипты и скрипты без секций (с чистым
+кодом). Вы можете посмотреть пример её работы <a href="Example">здесь</a>. При
+инсталляции автоматически встраивается в 32-битные и 64-битные версии Explorer
+и других файл-менеджеров.<br>
+<br>
+Запускается одним из двух способов:</span></p>
+
+<p class=msolistparagraphbullet1gif style='text-indent:-18.0pt;line-height:
+normal'><span style='font-size:12.0pt;font-family:Symbol'>·</span><span
+style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>в
+Explorer: выделите сливаемые скрипты, нажмите на них правую кнопку мыши и
+выберите команду &quot;Join scripts&quot; из контекстного меню</span></p>
+
+<p class=msolistparagraphbullet3gif style='margin-bottom:0cm;margin-bottom:
+.0001pt;text-indent:-18.0pt;line-height:normal'><span style='font-size:12.0pt;
+font-family:Symbol'>·</span><span style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>в
+командной строке: используйте команду типа &quot;joiner.exe 1.iss 2.iss
+3.iss&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:115%;font-family:
+"Times New Roman","serif"'>В обоих случаях, объединённый скрипт будет записан в
+файл joined.iss в текущем каталоге.</span></p>
+
+</div>
+
+</body>
+
+</html>

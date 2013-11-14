@@ -1,0 +1,146 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 12 (filtered)">
+<title>InnoSetup Script Joiner</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphbullet1gif, li.msolistparagraphbullet1gif, div.msolistparagraphbullet1gif
+	{mso-style-name:"msolistparagraphbullet1\.gif";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphbullet2gif, li.msolistparagraphbullet2gif, div.msolistparagraphbullet2gif
+	{mso-style-name:"msolistparagraphbullet2\.gif";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msolistparagraphbullet3gif, li.msolistparagraphbullet3gif, div.msolistparagraphbullet3gif
+	{mso-style-name:"msolistparagraphbullet3\.gif";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	margin-right:0cm;
+	margin-left:0cm;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+.MsoChpDefault
+	{font-size:10.0pt;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=RU link=blue vlink=purple>
+
+<div class=Section1>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal'><span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif"'>Utility
+for quickly joining InnoSetup scripts, that allows you to join their features
+without doing programming.<br>
+<br>
+The utility merges bodies of standard event procedures in scripts being joined.
+Current version supports joining for 16 types of event procedures: <i>InitializeSetup,
+CurPageChanged</i> and so on. ISS Joiner correctly deals with multiple sections
+in scripts and section-less (pure code) scripts. You may look at example of its
+work <a href="Example">here</a>. Installer automatically registers ISS Joiner
+in 32-bit and 64-bit versions of Explorer and other filemanagers.<br>
+<br>
+There are two ways to use ISS Joiner: </span></p>
+
+<p class=MsoListParagraph style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-indent:-18.0pt;line-height:normal'><span lang=EN-US style='font-family:
+Symbol'>·</span><span lang=EN-US style='font-size:7.0pt;font-family:"Times New Roman","serif"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span lang=EN-US style='font-size:12.0pt;font-family:"Times New Roman","serif"'>in
+Explorer: select scripts to join, right-click on them and select &quot;Join
+scripts&quot; from context menu</span></p>
+
+<ul style='margin-top:0cm' type=disc>
+ <li class=MsoNormal style='line-height:normal'><span lang=EN-US
+     style='font-size:12.0pt;font-family:"Times New Roman","serif"'>in command
+     line: use command like &quot;joiner.exe 1.iss 2.iss 3.iss&quot;</span></li>
+</ul>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:115%;
+font-family:"Times New Roman","serif"'>In both cases, joined script will be
+saved to joined.iss in the current directory.<br>
+<br>
+PS: if you have translations of this text to other languages - please send it
+to me using </span><span style='font-size:12.0pt;line-height:115%;font-family:
+"Times New Roman","serif"'><a
+href="http://issjoiner.codeplex.com/SourceControl/UploadPatch.aspx"><span
+lang=EN-US>Upload Patch</span></a></span><span lang=EN-US style='font-size:
+12.0pt;line-height:115%;font-family:"Times New Roman","serif"'>. It will be
+published at the site and added to the next version of installer.</span></p>
+
+</div>
+
+</body>
+
+</html>
