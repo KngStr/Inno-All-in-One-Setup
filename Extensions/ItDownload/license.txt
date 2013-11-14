@@ -1,0 +1,16 @@
+License for InnoTools Downloader
+--------------------------------
+
+The provided examples (the example *.iss files in the installation root) are released into the public domain, you can do whatever you like with them. The rest of the files in the ITD distribution (The help files, it_download.iss, itdownload.dll, the sourcecode for itdownload.dll, etc) will be referred to simply as "ITD" in this document.
+
+You may build a program or installer that uses ITD to perform some task without restrictions - Commercial use is okay, you don't have to include any notices if you don't want to, and you don't have to include any sourcecode. In this case you would be redistributing portions of ITD with your program (such as itdownload.dll), which is fine. This covers most interesting uses of ITD.
+
+If you are distributing a product which contains ITD in its distribution, but adds no substantial extra functionality (e.g. distributing only the original files in ITD, or making a thin wrapper for ITD that includes ITD), you may not charge for it. You must make available the sourcecode for the product which uses ITD and the sourcecode for ITD. If ITD is unmodified, you can make the sourcecode available for it by simply linking to the InnoTools Downloader webpage. The usage of ITD must be noted somewhere prominently in the documentation or installer distributed with your product, along with the offer of the sourcecode for your application and ITD.
+
+This license does not restrict the ability for me to make ITD available under different licenses to different people, contact me if you want to negotiate a different license.
+
+
+Nicholas Sherlock
+
+Sherlock Software
+http://www.sherlocksoftware.org/
