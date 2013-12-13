@@ -58,12 +58,13 @@ Source: {#Extensions}\ISSkin\SkinBuilder.exe; DestDir: {app}\Extensions\ISSkin; 
 Source: {#Extensions}\ISSkin\ISSkinViewer.exe; DestDir: {app}\Extensions\ISSkin; Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList; Components: Extensions\IsSkin_SkinBuilder
 Source: {#Extensions}\ISSkin\ISSkinViewer.iss; DestDir: {app}\Extensions\ISSkin; Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList; Components: Extensions\IsSkin_SkinBuilder
 
+  #ifdef Include_ISCmplr_Restools
 ;ISSkinEx Resouces
 Source: {#Plugins}\ISSkinExU.dll; DestDir: {app}\Plugins; DestName: ISSkin.dll; Components: Plugins\IsSkin and Inno\Unicode and (ISCmplr_Setup\Restools_MiniVcl or ISCmplr_Setup\Restools_FullVcl); Flags: ignoreversion; BeforeInstall: AddToDetaList
 Source: {#Plugins}\ISSkinEx.dll; DestDir: {app}\Plugins; DestName: ISSkinU.dll; Components: Plugins\IsSkin and Inno\Ansi and (ISCmplr_Setup\Restools_MiniVcl or ISCmplr_Setup\Restools_FullVcl); Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList
 Source: {#Extensions}\ISSkinEx\ISSkinViewer.*; DestDir: {app}\Extensions\ISSkin; Components: Extensions\IsSkin_Styles and (ISCmplr_Setup\Restools_MiniVcl or ISCmplr_Setup\Restools_FullVcl); Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList
 Source: {#Extensions}\ISSkinEx\License.txt; DestDir: {app}\Extensions\ISSkin; DestName: ISSkinEx_License.txt; Components: Extensions\IsSkin_Styles and (ISCmplr_Setup\Restools_MiniVcl or ISCmplr_Setup\Restools_FullVcl); Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList
-
+  #endif
 ;ISSkin Styles
 ;Source: {#Extensions}\ISSkin\Styles\*; DestDir: {app}\Extensions\ISSkins; Components: Extensions\IsSkin_Styles; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Tasks:
 Source: {#Extensions}\ISSkinEx\Styles\Vista.cjstyles; DestDir: {app}\Extensions\ISSkin\Styles; Components: Extensions\IsSkin_Styles; Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList

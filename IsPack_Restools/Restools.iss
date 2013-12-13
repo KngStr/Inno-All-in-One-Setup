@@ -16,7 +16,12 @@
 #define ISCmplr_Restools_FullVCL ISCmplr_Restools_FullVCL + ' Build ' + GetFileDateTimeString(CurDir + '\Inno_ISCmplr_Setup\InnoSetup_ANSI\FullVCL\Setup.e32', 'yymmdd', '', '');
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+#if InnoVer == Copy(ISCmplr_Restools_MiniVCL, 1, Len(InnoVer))
+  #define Include_ISCmplr_Restools
+#endif
+
 [Files]
+#ifdef Include_ISCmplr_Restools
 ;Restools ReadMe
 Source: {#CurDir}\Inno_ISCmplr_Setup\*; DestDir: {app}\Docs\Restools ISCmplr; Flags: ignoreversion; BeforeInstall: AddToDetaList; Tasks: ; Components: ISCmplr_Setup
 Source: {#CurDir}\Inno_ISCmplr_Setup\Example\*; DestDir: {app}\Examples\Restools; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Tasks: ; Components: ISCmplr_Setup
@@ -26,15 +31,18 @@ Source: {#CurDir}\Inno_ISCmplr_Setup\InnoSetup_ANSI\FullVCL\*; DestDir: {app}; F
 Source: {#CurDir}\Inno_ISCmplr_Setup\Example_FullVCL\*; DestDir: {app}\Examples\Restools FullVCL; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Ansi and ISCmplr_Setup\Restools_FullVcl; Tasks:
 ;Restools Ansi MiniVcl
 Source: {#CurDir}\Inno_ISCmplr_Setup\InnoSetup_ANSI\MiniVcl\*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Ansi and ISCmplr_Setup\Restools_MiniVcl; Tasks:
+#endif
 ;Restools Enhance Ansi Compiler
 Source: {#CurDir}\InnoCompiler\ANSI\*; DestDir: {app}; Excludes: Templates.dat; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Ansi and IDE\Restools; Tasks:
 Source: {#CurDir}\InnoCompiler\ANSI\Templates.dat; DestDir: {app}; Components: Inno\Ansi and IDE\Restools; Tasks:; Flags: confirmoverwrite ignoreversion promptifolder; BeforeInstall: AddToDetaList
 
+#ifdef Include_ISCmplr_Restools
 ;Restools Unicode FullVcl
 Source: {#CurDir}\Inno_ISCmplr_Setup\InnoSetup_Unicode\FullVCL\*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and ISCmplr_Setup\Restools_FullVcl; Tasks:
 Source: {#CurDir}\Inno_ISCmplr_Setup\Example_FullVCL\*; DestDir: {app}\Examples\Restools FullVCL; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and ISCmplr_Setup\Restools_FullVcl; Tasks:
 ;Restools Unicode MiniVcl
 Source: {#CurDir}\Inno_ISCmplr_Setup\InnoSetup_Unicode\MiniVcl\*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and ISCmplr_Setup\Restools_MiniVcl; Tasks:
+#endif
 ;Restools Enhance Unicode Compiler
 Source: {#CurDir}\InnoCompiler\Unicode\*; DestDir: {app}; Excludes: Templates.dat; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and IDE\Restools; Tasks:
 Source: {#CurDir}\InnoCompiler\Unicode\Templates.dat; DestDir: {app}; Components: Inno\Unicode and IDE\Restools; Tasks:; Flags: confirmoverwrite ignoreversion promptifolder; BeforeInstall: AddToDetaList
@@ -42,7 +50,9 @@ Source: {#CurDir}\InnoCompiler\Unicode\Templates.dat; DestDir: {app}; Components
 ;Restools Enhance Compiler Info
 Source: {#CurDir}\InnoCompiler\Example\*; DestDir: {app}\Examples; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Tasks: ; Components: IDE\Restools
 Source: {#CurDir}\InnoCompiler\*; Excludes: ANSI\*,Unicode\*,Example\*; DestDir: {app}\Docs\Restools Compiler; Flags: ignoreversion recursesubdirs; BeforeInstall: AddToDetaList; Tasks: ; Components: IDE\Restools
+#ifdef Include_ISCmplr_Restools
 Source: {#CurDir}\Inno_ISCmplr_Setup\license.txt; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
+#endif
 
 
 [Registry]

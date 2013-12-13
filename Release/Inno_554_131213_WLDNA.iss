@@ -204,25 +204,13 @@ ChineseSimp.BevelLabel_Url=http://www.wldna.com/
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[Files]
-;Restools ReadMe
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\Inno_ISCmplr_Setup\*; DestDir: {app}\Docs\Restools ISCmplr; Flags: ignoreversion; BeforeInstall: AddToDetaList; Tasks: ; Components: ISCmplr_Setup
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\Inno_ISCmplr_Setup\Example\*; DestDir: {app}\Examples\Restools; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Tasks: ; Components: ISCmplr_Setup
 
-;Restools Ansi FullVcl
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\Inno_ISCmplr_Setup\InnoSetup_ANSI\FullVCL\*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Ansi and ISCmplr_Setup\Restools_FullVcl; Tasks:
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\Inno_ISCmplr_Setup\Example_FullVCL\*; DestDir: {app}\Examples\Restools FullVCL; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Ansi and ISCmplr_Setup\Restools_FullVcl; Tasks:
-;Restools Ansi MiniVcl
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\Inno_ISCmplr_Setup\InnoSetup_ANSI\MiniVcl\*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Ansi and ISCmplr_Setup\Restools_MiniVcl; Tasks:
+[Files]
+
 ;Restools Enhance Ansi Compiler
 Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\InnoCompiler\ANSI\*; DestDir: {app}; Excludes: Templates.dat; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Ansi and IDE\Restools; Tasks:
 Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\InnoCompiler\ANSI\Templates.dat; DestDir: {app}; Components: Inno\Ansi and IDE\Restools; Tasks:; Flags: confirmoverwrite ignoreversion promptifolder; BeforeInstall: AddToDetaList
 
-;Restools Unicode FullVcl
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\Inno_ISCmplr_Setup\InnoSetup_Unicode\FullVCL\*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and ISCmplr_Setup\Restools_FullVcl; Tasks:
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\Inno_ISCmplr_Setup\Example_FullVCL\*; DestDir: {app}\Examples\Restools FullVCL; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and ISCmplr_Setup\Restools_FullVcl; Tasks:
-;Restools Unicode MiniVcl
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\Inno_ISCmplr_Setup\InnoSetup_Unicode\MiniVcl\*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and ISCmplr_Setup\Restools_MiniVcl; Tasks:
 ;Restools Enhance Unicode Compiler
 Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\InnoCompiler\Unicode\*; DestDir: {app}; Excludes: Templates.dat; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and IDE\Restools; Tasks:
 Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\InnoCompiler\Unicode\Templates.dat; DestDir: {app}; Components: Inno\Unicode and IDE\Restools; Tasks:; Flags: confirmoverwrite ignoreversion promptifolder; BeforeInstall: AddToDetaList
@@ -230,7 +218,6 @@ Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\InnoCompiler\Uni
 ;Restools Enhance Compiler Info
 Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\InnoCompiler\Example\*; DestDir: {app}\Examples; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Tasks: ; Components: IDE\Restools
 Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\InnoCompiler\*; Excludes: ANSI\*,Unicode\*,Example\*; DestDir: {app}\Docs\Restools Compiler; Flags: ignoreversion recursesubdirs; BeforeInstall: AddToDetaList; Tasks: ; Components: IDE\Restools
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\IsPack_Restools\Inno_ISCmplr_Setup\license.txt; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
 
 
 [Registry]
@@ -448,6 +435,7 @@ Root: HKCU; SubKey: Software\Jordan Russell\Inno Setup\Options; ValueType: strin
 
 ;SkyGz Info
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 [Files]
 
@@ -1986,7 +1974,7 @@ AppSupportURL=http://www.wldna.com/
 AppUpdatesURL=http://www.wldna.com/
 AppVersion=5.5.4
 ;AppCopyright=Copyright ? 1997-2010 Jordan Russell. Portions Copyright ? 2000-2010 Martijn Laan. All rights reserved.
-VersionInfoVersion=2013.12.13.10
+VersionInfoVersion=2013.12.13.12
 ;#ifndef Test
 ;AppMutex=InnoSetupCompilerAppMutex,Global\InnoSetupCompilerAppMutex
 ;#endif
@@ -2156,8 +2144,6 @@ Name: Inno\Ansi; Description: Ansi {cm:Inno}; Flags: exclusive disablenouninstal
 Name: Inno\Unicode; Description: Unicode {cm:Inno}; Flags: exclusive disablenouninstallwarning
 
 Name: ISCmplr_Setup; Description: {cm:Inno} 编译器增强版; Flags: disablenouninstallwarning; Types: full
-Name: ISCmplr_Setup\Restools_MiniVCL; Description: Restools Mini VCL    (5.5.1.e2 Build 121002); Flags: exclusive disablenouninstallwarning; Types: full
-Name: ISCmplr_Setup\Restools_FullVCL; Description: Restools Full VCL    (5.5.1.ee2 Build 121002); Flags: exclusive disablenouninstallwarning;
 Name: ISCmplr_Setup\SkyGz; Description: SkyGz 编译器增强版   (5.5.4 Build 131028); Flags: exclusive disablenouninstallwarning;
 
 
@@ -2322,12 +2308,6 @@ Source: E:\Version\GitHub\Inno-All-in-One-Setup\Examples\ISSkin\*; DestDir: {app
 Source: E:\Version\GitHub\Inno-All-in-One-Setup\Extensions\ISSkin\SkinBuilder.exe; DestDir: {app}\Extensions\ISSkin; Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList; Components: Extensions\IsSkin_SkinBuilder
 Source: E:\Version\GitHub\Inno-All-in-One-Setup\Extensions\ISSkin\ISSkinViewer.exe; DestDir: {app}\Extensions\ISSkin; Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList; Components: Extensions\IsSkin_SkinBuilder
 Source: E:\Version\GitHub\Inno-All-in-One-Setup\Extensions\ISSkin\ISSkinViewer.iss; DestDir: {app}\Extensions\ISSkin; Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList; Components: Extensions\IsSkin_SkinBuilder
-
-;ISSkinEx Resouces
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\Plugins\ISSkinExU.dll; DestDir: {app}\Plugins; DestName: ISSkin.dll; Components: Plugins\IsSkin and Inno\Unicode and (ISCmplr_Setup\Restools_MiniVcl or ISCmplr_Setup\Restools_FullVcl); Flags: ignoreversion; BeforeInstall: AddToDetaList
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\Plugins\ISSkinEx.dll; DestDir: {app}\Plugins; DestName: ISSkinU.dll; Components: Plugins\IsSkin and Inno\Ansi and (ISCmplr_Setup\Restools_MiniVcl or ISCmplr_Setup\Restools_FullVcl); Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\Extensions\ISSkinEx\ISSkinViewer.*; DestDir: {app}\Extensions\ISSkin; Components: Extensions\IsSkin_Styles and (ISCmplr_Setup\Restools_MiniVcl or ISCmplr_Setup\Restools_FullVcl); Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList
-Source: E:\Version\GitHub\Inno-All-in-One-Setup\Extensions\ISSkinEx\License.txt; DestDir: {app}\Extensions\ISSkin; DestName: ISSkinEx_License.txt; Components: Extensions\IsSkin_Styles and (ISCmplr_Setup\Restools_MiniVcl or ISCmplr_Setup\Restools_FullVcl); Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList
 
 ;ISSkin Styles
 ;Source: {#Extensions}\ISSkin\Styles\*; DestDir: {app}\Extensions\ISSkins; Components: Extensions\IsSkin_Styles; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Tasks:
@@ -3264,7 +3244,7 @@ begin
     Message := GetIniString('Main', 'Message', '', ExpandConstant('{tmp}\d8Inno.tmp'));
     Tips := GetIniString('Main', 'Tips', '', ExpandConstant('{tmp}\d8Inno.tmp'));
 
-    if CompareVersion(Ver, '2013.12.13.10') > 0 then  //有更新
+    if CompareVersion(Ver, '2013.12.13.12') > 0 then  //有更新
     begin
       if itd_downloadfile(Message,ExpandConstant('{tmp}\d8Inno.tmp'))=ITDERR_SUCCESS then
       begin

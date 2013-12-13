@@ -20,18 +20,25 @@
 #endif
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+#if InnoVer == Copy(ISCmplr_SkyGz, 1, Len(InnoVer))
+  #define Include_ISCmplr_SkyGz
+#endif
+
 [Files]
 #if SkyGz_Unpack
 
 ;SkyGz Ansi Ispp
 Source: "{#CurDir}\{app}\Compil32,2.exe"; DestDir: "{app}"; DestName: "Compil32.exe"; Components: Inno\Ansi and IDE\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList
+  #ifdef Include_ISCmplr_SkyGz
 Source: "{#CurDir}\{app}\ISCC,4.exe"; DestDir: "{app}"; DestName: "ISCC.exe"; Components: Inno\Ansi and ISCmplr_Setup\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList;
 Source: "{#CurDir}\{app}\ISCmplr,2.dll"; DestDir: "{app}"; DestName: "ISCmplr.dll"; Components: Inno\Ansi and ISCmplr_Setup\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList;
 Source: "{#CurDir}\{app}\{code_GetDir_Lib}\ISPP,2.dll"; DestDir: "{app}"; DestName: "ISPP.dll"; Components: Inno\Ansi and ISCmplr_Setup\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList;
 Source: "{#CurDir}\{app}\{code_GetDir_Lib}\Setup,2.e32"; DestDir: "{app}"; DestName: "Setup.e32"; Components: Inno\Ansi and ISCmplr_Setup\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList
 Source: "{#CurDir}\{app}\{code_GetDir_Lib}\SetupLdr,2.e32"; DestDir: "{app}"; DestName: "SetupLdr.e32"; Components: Inno\Ansi and ISCmplr_Setup\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList
+  #endif
 ;SkyGz Unicode Ispp
 Source: "{#CurDir}\{app}\Compil32,4.exe"; DestDir: "{app}"; DestName: "Compil32.exe"; Components: Inno\Unicode and IDE\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList;
+  #ifdef Include_ISCmplr_SkyGz
 Source: "{#CurDir}\{app}\ISCC,8.exe"; DestDir: "{app}"; DestName: "ISCC.exe"; Components: Inno\Unicode and ISCmplr_Setup\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList;
 Source: "{#CurDir}\{app}\ISCmplr,4.dll"; DestDir: "{app}"; DestName: "ISCmplr.dll"; Components: Inno\Unicode and ISCmplr_Setup\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList;
 Source: "{#CurDir}\{app}\{code_GetDir_Lib}\ISPP,4.dll"; DestDir: "{app}"; DestName: "ISPP.dll"; Components: Inno\Unicode and ISCmplr_Setup\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList;
@@ -39,11 +46,14 @@ Source: "{#CurDir}\{app}\{code_GetDir_Lib}\Setup,4.e32"; DestDir: "{app}"; DestN
 Source: "{#CurDir}\{app}\{code_GetDir_Lib}\SetupLdr,4.e32"; DestDir: "{app}"; DestName: "SetupLdr.e32"; Components: Inno\Unicode and ISCmplr_Setup\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList;
 ;SkyGz Extend Help
 Source: "{#CurDir}\{app}\{code_GetDir_help}\IsExtend.chm"; DestDir: "{app}"; Components: ISCmplr_Setup\SkyGz; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList;
+  #endif
 ;CodeTemplates.dat
 Source: "{#CurDir}\{app}\{code_GetDir_Config}\CodeTemplates.dat"; DestDir: "{app}"; Components: ISCmplr_Setup\SkyGz; Flags: confirmoverwrite ignoreversion promptifolder skipifsourcedoesntexist; BeforeInstall: AddToDetaList;
 ;SkyGz Examples
 Source: {#CurDir}\{app}\Examples\UninstallCodeDll.iss; DestDir: {app}\Examples; Flags: ignoreversion; BeforeInstall: AddToDetaList;
+  #ifdef Include_ISCmplr_SkyGz
 Source: {#CurDir}\{app}\Examples\ExtendExample.iss; DestDir: {app}\Examples\SkyGz; Components: ISCmplr_Setup\SkyGz; Flags: ignoreversion; BeforeInstall: AddToDetaList;
+  #endif
 ;Help
 Source: {#CurDir}\{app}\{code_GetDir_help}\ISetup.chm; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
 Source: {#CurDir}\{app}\{code_GetDir_help}\ISPP.chm; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
@@ -53,15 +63,21 @@ Source: {#CurDir}\{app}\{code_GetDir_help}\whatsnew.htm; DestDir: {app}; Compone
 #else
 
 ;SkyGz Ansi Ispp
+  #ifdef Include_ISCmplr_SkyGz
 Source: {#CurDir}\Ansi\*; Excludes: Compil32.*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Ansi and ISCmplr_Setup\SkyGz; Tasks:
+  #endif
 Source: {#CurDir}\Ansi\Compil32.exe; DestDir: {app}; Flags: ignoreversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi and IDE\SkyGz; Tasks:
 ;SkyGz Unicode Ispp
+  #ifdef Include_ISCmplr_SkyGz
 Source: {#CurDir}\Unicode\*; Excludes: Compil32.*; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and ISCmplr_Setup\SkyGz; Tasks:
+  #endif
 Source: {#CurDir}\Unicode\Compil32.exe; DestDir: {app}; Flags: ignoreversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode and IDE\SkyGz; Tasks:
 
 ;SkyGz Examples
 Source: {#CurDir}\Examples\UninstallCodeDll.iss; DestDir: {app}\Examples; Flags: ignoreversion; BeforeInstall: AddToDetaList;
+  #ifdef Include_ISCmplr_SkyGz
 Source: {#CurDir}\Examples\ExtendExample.iss; DestDir: {app}\Examples\SkyGz; Components: ISCmplr_Setup\SkyGz; Flags: ignoreversion; BeforeInstall: AddToDetaList;
+  #endif
 ;Help
 Source: {#CurDir}\Help\*; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
 

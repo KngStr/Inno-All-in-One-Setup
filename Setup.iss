@@ -176,10 +176,16 @@ Name: Inno; Description: 主程序(必须) - (Inno {#InnoVer}); Flags: fixed; Types: 
 Name: Inno\Ansi; Description: Ansi {cm:Inno}; Flags: exclusive disablenouninstallwarning; Types: custom compact full
 Name: Inno\Unicode; Description: Unicode {cm:Inno}; Flags: exclusive disablenouninstallwarning
 
+#if Defined(Include_ISCmplr_Restools) || Defined(Include_ISCmplr_SkyGz) 
 Name: ISCmplr_Setup; Description: {cm:Inno} 编译器增强版; Flags: disablenouninstallwarning; Types: full
+  #ifdef Include_ISCmplr_Restools
 Name: ISCmplr_Setup\Restools_MiniVCL; Description: Restools Mini VCL    ({#ISCmplr_Restools_MiniVCL}); Flags: exclusive disablenouninstallwarning; Types: full
 Name: ISCmplr_Setup\Restools_FullVCL; Description: Restools Full VCL    ({#ISCmplr_Restools_FullVCL}); Flags: exclusive disablenouninstallwarning;
+  #endif
+  #ifdef Include_ISCmplr_SkyGz
 Name: ISCmplr_Setup\SkyGz; Description: SkyGz 编译器增强版   ({#ISCmplr_SkyGz}); Flags: exclusive disablenouninstallwarning;
+  #endif
+#endif
 
 #include "IDE.iss"
 
