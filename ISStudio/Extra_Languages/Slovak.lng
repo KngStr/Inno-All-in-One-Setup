@@ -1,0 +1,1471 @@
+SourceLANGID=1033
+LANGID=1051
+TargetApplication=Inno Script Studio 2
+Author=J.P alias Brahma real@zoznam.sk
+Generator=Kymoto Solutions Language Editor 1.0
+LastModified=15.6.2013 15:28:40
+
+[Application.Editor]
+00000001=&Krok spä
+00000002=Krok spä vráti spä poslednı krok
+00000003=&Vrátim krok spä
+00000004=Krok spä vráti predchádzajúci krok spä
+00000005=&Vystrihnem
+00000006=Vystrihnutı vıber vloím do schránky
+00000007=&Skopírujem
+00000008=Skopírovanı vıber vloím do schránky
+00000009=&Prilepím
+00000010=Prilepím aktuálny obsah schránky
+00000011=&Vymaem
+00000012=Vymaem aktuálny vıber
+00000013=&Oznaèím všetko
+00000014=Oznaèím všetko
+00000015=Vyh¾adám...
+00000016=Vyh¾adám urèitı text
+00000017=Vyh¾adám ïalšie
+00000018=Vyh¾adám ïalší vıskyt textu
+00000019=Nahradím...
+00000020=Nahradím vybranı text inım textom
+00000021=Prejdem na èíslo riadku...
+00000022=Prejdem na riadok
+00000023=&Iba celé slová
+00000024=Zobrazím zoznam automatickım dokonèením aktuálnych slov
+00000025=&Otvorím #zahròujúci súbor
+00000026=Otvorim #zahròujúci súbor
+
+[Application.MainForm]
+00000001=Hlavná ponuka
+00000002=&Súbor
+00000003=&Novı
+00000004=Uloím &Kódovanie
+00000005=&Auto (ANSI alebo UTF-8)
+00000006=&UTF-8
+00000007=&Recentné skripty
+00000008=&Editova
+00000009=&H¾ada
+00000010=&Zobrazi
+00000011=&Sekcie
+00000012=Zobrazím alebo skryjem sekcie projektu
+00000013=Štr&uktúra
+00000014=Zobrazím alebo skryjem štruktúru projektu
+00000015=&Panel projektu
+00000016=Zobrazím alebo skryjem panel projektu
+00000017=&Panel správ
+00000018=Zobrazím alebo skryjem panel správ
+00000019=Sta&vová lišta
+00000020=Zobrazím alebo skryjem stavovú lištu
+00000021=Panel nástroj&ov
+00000022=Zobrazím alebo skryjem panel nástrojov
+00000023=&Štandardnı
+00000024=Zobrazím alebo skryjem Štandardnı panel nástrojov
+00000025=&Editova
+00000026=Zobrazím alebo skryjem v panely nástrojov Editova
+00000027=&Projekt
+00000028=Zobrazím alebo skryjem v panely nástrojov Projekt
+00000029=&Ladi
+00000030=Zobrazím alebo skryjem v panely nástrojov Ladenie programu
+00000031=&Sekcie
+00000032=&Jazyky
+00000033=Vyberte si jazyk, v ktorom sa zobrazí program
+00000034=&Projekt
+00000035=Vo¾by &nastavenia
+00000036=Importujem zo skriptu
+00000037=Importujem zo súborov
+00000038=Exportujem do súboru
+00000039=&Ladi
+00000040=&Nástroje
+00000041=Z&áloky
+00000042=&Pomoc
+00000043=Štandard
+00000044=Editova
+00000045=Projekt
+00000046=Vo¾by nastavenie inštalácie
+00000047=Vo¾by nastavenie inštalácie
+00000048=Sekcie
+00000049=Vıber sekcií
+00000050=Ladenie
+00000051=Správy
+00000052=Vıstup kompilátora
+00000053=Vıstup ladenia
+00000054=Štruktúra
+00000055=Sekcie
+00000056=Správa projektu
+00000057=Novı projekt &inštalácie
+00000058=Vytvorím nové nastavenie projektu
+00000059=&Novı skript
+00000060=Vytvorím novı prázdny skript
+00000061=Vytvorím Novı Skript cez (&Sprievodcu)
+00000062=Vytvorím novı Inštalaènı Skript pomocou Sprievodcu inštaláciou
+00000063=&Otvorím...
+00000064=Otvorím existujúci Inštalaènı Skript
+00000065=&Uloím
+00000066=Uloím aktuálny Inštalaènı Skript
+00000067=Uloím &ako...
+00000068=Uloím aktuálny Inštalaènı Skript s novım názvom
+00000069=Uloím v&šetko
+00000070=Uloím všetky otvorené Inštalaèné Skripty
+00000071=&Zatvorím skript
+00000072=Zatvorím aktuálny Inštalaènı Skript
+00000073=Zatvorím všetky skri&pty
+00000074=Zatvorím všetky otvorené Inštalaèné Skripty
+00000075=Náh¾ad tla&èe
+00000076=Náh¾ad aktuálneho Inštalaèného Skriptu pred tlaèou
+00000077=&Vytlaèi...
+00000078=Vytlaèím èas alebo všetky súèasné Inštalaèné Skripty
+00000079=S&konèi
+00000080=Ukonèím program
+00000081=&Krok spä
+00000082=Krok spä vráti spä poslednı krok
+00000083=&Vrátim krok spä
+00000084=Krok spä vráti predchádzajúci krok spä
+00000085=Vystrih&nem
+00000086=Oznaèené vystrihnem a vloím do schránky
+00000087=&Skopírujem
+00000088=Skopírujem vıber a vloím ho do schránky
+00000089=&Prilepím
+00000090=Vloím aktuálny obsah schránky
+00000091=Vy&maem
+00000092=Vymaem aktuálny vıber
+00000093=Oznaèím &všetko
+00000094=Oznaèím všetko
+00000095=Prepnem bodkoèiarku oznaèenia informácie
+00000096=Prepnem na zaèiatku riadku oznaèenia informácie
+00000097=&H¾ada...
+00000098=Vyh¾adám zadanı text
+00000099=Vyhladám &ïalší
+00000100=Vyh¾adá ïalší vıskyt urèeného texte
+00000101=Vyhladám &predchádzajúci
+00000102=Vyh¾adá predchádzajúci vıskyt urèeného textu
+00000103=&Nahradím...
+00000104=Nahradím zadanı text s inım textom
+00000105=&Prejdem na èíslo riadku...
+00000106=Prejdem na riadok
+00000107=Prepnem &záloku
+00000108=Prepnem záloku
+00000109=Prepnem &záloku
+00000110=Prejdem do záloiek
+00000111=&Upravi panel nástrojov...
+00000112=Prispôsobím panel nástrojov
+00000113=Zamknem panel nástrojov
+00000114=Uzamknem panel nástrojov
+00000115=Pouiem &relatívne cesty
+00000116=Pouiem relatívne cesty
+00000117=Vo¾by jazyka...
+00000118=Úprava vo¾by jazykov
+00000119=Vloím súbory...
+00000120=Vloím súbory
+00000121=Nainštalujem fonty...
+00000122=Nainštalujem fonty
+00000123=Vytvorím zloku...
+00000124=Vytvorím zloku
+00000125=Vytvorím asociáciu...
+00000126=Vytvorím asociáciu súborov
+00000127=Vytvorím zástupcu pre Internet...
+00000128=Vytvorím zástupcu k Internetu
+00000129=Vytvorím Ikonu Odinštalovania
+00000130=Vytvorím poloku Ikony pre Odinštalátora
+00000131=Vytvorím profil ODBC...
+00000132=Pridám poloky pre profil ODBC
+00000133=Vytvorím prezıvku BDE...
+00000134=Vytvorím prezıvku BDE
+00000135=&Spustím kompilovanie
+00000136=Skompilujem aktuálny Inštalaènı Skript Inno
+00000137=&Zastavím kompiláciu
+00000138=Zastavím kompilovanie aktuálneho Inštalaèného Skriptu Inno
+00000139=Nízka &priorita poèas kompilácie
+00000140=Inno kompilátor inštalácie pouije nízku prioritu pri kompilácii
+00000141=Otvorim v &Inno Setup
+00000142=Otvorím aktuálny Inštalaènı Skript v Compiler32 (Editor Inštalácie Inno)
+00000143=Otvorím &vıstupnú zloku projektu
+00000144=Otvorím vıstupnú zloku projektu
+00000145=Importujem do sekcie [Files]...
+00000146=Importujem sekciu [Files] z existujúceho súboru skriptu 
+00000147=Importujem do sekcie [Dirs]...
+00000148=Importujem sekciu [Dirs] z existujúceho súboru skriptu
+00000149=Importujem do sekcie [INI]...
+00000150=Importujem sekciu [INI] z existujúceho súboru skriptu
+00000151=Importujem do sekcie [Messages]...
+00000152=Importujem sekciu [Messages] z existujúceho súboru skriptu
+00000153=Importujem do sekcie [Registry]...
+00000154=Importujem sekciu [[Registry] z existujúceho súboru skriptu
+00000155=Importujem súbor INI...
+00000156=Importujem súbor INI
+00000157=Importujem súbor Správy...
+00000158=Importujem súbor Správy
+00000159=Importujem súbor Registrov...
+00000160=Importujem súbor Registrov
+00000161=Exportujem sekciu [INI]...
+00000162=Exportujem do súboru sekciu [INI]
+00000163=Exportujem sekciu [Messages]...
+00000164=Exportujem do súboru sekciu [Messages]
+00000165=Exportujem sekciu [Registry]...
+00000166=Exportujem do súboru sekciu [Registry]
+00000167=Odpojím &ladenie
+00000168=Odpojím ladenie
+00000169=&Spustím vytvorenú inštaláciu
+00000170=Spustím vytvorenú inštaláciu
+00000171=Spustim od &kurzoru
+00000172=Spustim od &kurzoru
+00000173=Krok &do
+00000174=Krok do
+00000175=Ïalší &krok
+00000176=Ïalší krok
+00000177=P&ozastavím ladenie
+00000178=Pozastavím ladenie
+00000179=&Skonèím ladenie
+00000180=Skonèím ladenie
+00000181=Inštalácia
+00000182=Cie¾ inštalácie
+00000183=Odinštalovanie
+00000184=Cie¾ odinštalovania
+00000185=&Parametre...
+00000186=Parametre
+00000187=&Vyhodnotím konštantu...
+00000188=Vyhodnotím konštantu
+00000189=Prepnem &bod prerušenia
+00000190=Prepnem bod prerušenia
+00000191=Vygenerujem &GUID
+00000192=Vygenerovanı GUID; Nahradí aktuálne vybranı text
+00000193=Konfigurácia &podpisu
+00000194=Nástroj podpisu kódom
+00000195=&Všeobecné nastavenia
+00000196=Nastavenia programu
+00000197=Prejdem na ïalšiu kartu
+00000198=Prejdem na ïalšiu kartu Skriptu
+00000199=Prejdem na predošlú kartu
+00000200=Prejdem na predošlú kartu Skriptu
+00000201=Nápoveda Inno Script Studio
+00000202=Dokumentácia Inno Script Studio
+00000203=&Web Stránka Inno Script Studio
+00000204=Domáca Stránka Inno Script Studio
+00000205=&Dokumentácia Inno Setup
+00000206=Dokumentácia Inno Setup
+00000207=Príklady Skriptov Inno Setup
+00000208=Príklady Skriptov
+00000209=Inno Setup &FAQ
+00000210=Inno Setup FAQ
+00000211=História verzií &Inno Setup
+00000212=História verzií Inno Setup
+00000213=Web stránka Inno Setup
+00000214=Domáca Stránka Inno Setup
+00000215=Dokumentácia I&nno Setup PreProcessor
+00000216=Dokumentácia Inno Setup PreProcessor
+00000217=Web Stránka Inn&o Setup PreProcessor
+00000218=Domáca Stránka Inno Setup PreProcessor
+00000219=Báza poznatkov Inno &Setup Extensions
+00000220=Domáca Stránka báza poznatkov Inno &Setup Extensions
+00000221=Web Stránka Pascal Script R&emObjects
+00000222=Domáca Stránka Pascal Script RemObjects
+00000223=&Podpora pre Inno Setup
+00000224=Web stránka vıvojárov Inno Setup pre poskytnutie daru
+00000225=Info o Inno Setup
+00000226=Info o Inno Setup
+00000227=Podpora Inno Script Studio
+00000228=Web stránka vıvojárov Inno Setup pre poskytnutie daru
+00000229=Preveri &Aktualizáciu
+00000230=Preveri aktualizáciu
+00000231=&Info o
+00000232=O nás|Zobrazím informácie o aplikácii, èíslo verzie && Autorské práva
+00000233=Cie¾ - [%s]
+00000234=Vıber cie¾a pre ladenie
+00000235=Inno Script Studio na Facebooku
+
+[Dialog.AddFolder]
+00000001=Root:
+00000002=Náhradné znaky:
+00000003=Prida adresár
+00000004=Prida súbory
+00000005=Prida podadresáre
+00000006=Externé
+00000007=Prida ako rekurzívnu zloku
+
+[Dialog.BDEAlias]
+00000001=Názov prezıvky:
+00000002=Cesta pre adresár k dátam:
+00000003=Názov ovládaèa BDE:
+00000004=Odstráni pred vytvorením
+
+[Dialog.CodeSigning]
+00000001=Názov
+00000002=Príkaz
+00000003=Prida
+00000004=Pridám novı podpis kódu poloky
+00000005=Editova
+00000006=Editácia aktuálne zvoleného vstupu podpisu kódom
+00000007=Vymaza
+00000008=Vymaem aktuálne zvolenı vstup podpisu kódom
+
+[Dialog.EvaluateConstant]
+00000001=Vıber konštantného skriptu pre vyhodnotenie:
+
+[Dialog.FileAssociation]
+00000001=Prípona súboru:
+00000002=Typ:
+00000003=Popis dokumentu
+00000004=Asociova s:
+00000005=Názov Ikony:
+00000006=Index Ikony
+
+[Dialog.GoToLine]
+00000001=Zadajte èíslo riadku:
+
+[Dialog.InstallFonts]
+00000001=Názov fontu
+00000002=Názov súboru
+
+[Dialog.InternetShortcut]
+00000001=Názov súboru:
+00000002=URL:
+
+[Dialog.Language]
+00000001=Vo¾ba jazyka:
+00000002=ID jazyka:
+00000003=Kódová stránka:
+00000004=Font Dialógu:
+00000005=Font Vitajte:
+00000006=Font Záhlavia:
+00000007=Font pre Autorské právo:
+00000008=Ve¾kos:
+00000009=Ve¾kos:
+00000010=Ve¾kos:
+00000011=Ve¾kos:
+00000012=Jazyk sa zobrazí sprava do¾ava
+
+[Dialog.Languages]
+00000001=Prosím vyberte štandardné jazyky ktoré budú pripojené do Inštalácii Inno
+00000002=&Oznaèím všetko
+00000003=&Odznaèím všetko
+
+[Dialog.NewProject]
+00000001=&Nezobrazuj mi tento dialóg pri spustení:
+00000002=Vytvorím novı skript
+00000003=Inštalátor Inno
+00000004=Šablóny
+00000005=Všeobecné Šablóny
+00000006=Tematické Šablóny
+00000007=Inštalaèné NSIS
+00000008=Všeobecné Šablóny
+00000009=Špeciálne Šablóny
+00000010=Súvisiace šablóny
+00000011=Pouijem skript na vytvorenie projektu cez Sprievodcu
+00000012=Štıl Tém:
+00000013=Otvorím Recentnı Skript
+
+[Dialog.ODBCProfile]
+00000001=Názov
+00000002=Ovládaè
+
+[Dialog.Parameters]
+00000001=Príkazovı riadok pre inštalovanie a odinštalovanie:
+
+[Dialog.WindowsVersion]
+00000001=Vo¾ba Verzie Windowsu:
+00000002=Informácie o zostave Windowsu
+00000003=Hlavná Verzia:
+00000004=Minimálna Verzia:
+00000005=Vytvorená Verzia:
+00000006=Service Pack:
+00000007=Sem môete zada èíslo
+00000008=Sem môete zada èíslo
+00000009=Sem môete zada èíslo
+00000010=Sem môete zada èíslo
+00000011=Zahrniem verziu zostavy
+
+[Options]
+00000001=Nástroje
+00000002=Resetujem Vo¾by
+00000003=Inportujem Vo¾by
+00000004=Exportujem Vo¾by
+
+[Options.Associations]
+00000001=Asociácia Súborov
+00000002=&Prièlením Skripty súborov Inno Setup (*.iss) s tımto kompilátorom
+
+[Options.CodeSigning]
+00000001=Názov
+00000002=Príkaz
+00000003=Prida
+00000004=Pridám novı vstup podpisu kódom
+00000005=Editova
+00000006=Upravím aktuálne zvolenı vstup podpisu kódom
+00000007=Vymaza
+00000008=Vymaem aktuálne zvolenı vstup podpisu kódom
+
+[Options.Compiler]
+00000001=Umiestnenie kompilátora Inno Setup
+00000002=Adresár Kompilátora:
+
+[Options.Display]
+00000001=Zobrazenie (Všeobecné)
+00000002=Zobrazím uzavretı tabulátor:
+00000003=Zobrazím v záloke asociovanú ikonu editovaného súboru
+00000004=Zobrazenie Sekcií
+00000005=Zobrazím v sekciach mrieku riadkov
+00000006=Zobrazím komentáre a riadky ISPP
+00000007=Zobrazím komentáre a riadky hodnôt ISPP
+
+[Options.Editor]
+00000001=Nastavenie Editora
+00000002=Šírka Tabulátora:
+00000003=Automaticky vyvolám autom. dokonèenie
+00000004=Pouijem zvıraznenie syntaxu
+00000005=Podèiarknem chyby syntaxu
+00000006=Automaticky oddelím riadky
+00000007=Povolím kurzoru premiestnenie na koniec riadkov
+00000008=Zbalím slová v dlhıch riadkoch
+00000009=Konvertujem tabulátory oddelene
+00000010=Zobrazenie Editovania
+00000011=Pravı okraj:
+00000012=Zobrazím aktívny riadok
+00000013=Zobrazím odseky
+00000014=Zobrazím pásik odráky editora 
+00000015=Zobrazím èísla riadkov
+00000016=Pozícia zvislej èiary
+
+[Options.FontsAndColors]
+00000001=Font Editovania
+00000002=Font editora:
+00000003=Ve¾kos fontu:
+00000004=Kvalita zarovnania hrán:
+00000005=Farba fontu
+00000006=Farba pozadia:
+00000007=Farba aktívneho riadku:
+00000008=Farba fontu:
+00000009=Farba znakov:
+
+[Options.General]
+00000001=Vo¾by spustenia
+00000002=Spustím od sekcie:
+00000003=Zobrazím dialóg projektu
+00000004=Otvorím poslednı súbor skriptu
+00000005=Otvorím prázdny súbor skriptu
+00000006=Všeobecné Nastavenia
+00000007=Zápis Boolean ako:
+00000008=Zobrazím plnú cestu v záhlaví
+00000009=Automaticky uloím skript pred kompiláciou
+00000010=Vytvorím zálohu pri ukladaní
+00000011=Povolím krok spä po uloení
+00000012=Zastavím na vınimkách
+00000013=Vdy otestujem skompilovanı skript súboru
+
+[Options.Plugins]
+00000001=Názov
+00000002=Autor
+00000003=Názov súboru
+00000004=Povolím Plugin
+00000005=Povolím/Zakáem vybranı plugin
+00000006=Konfigurácia Pluginov
+00000007=Nastavím aktuálne vybranı plugin
+00000008=O Zásuvnom module
+00000009=Zobrazím informácie o aktuálnom vybranom plugine
+
+[Options.Styler.Inno]
+00000001=Vzh¾ad Inno Setup
+00000002=Štıl fontu
+00000003=Vykreslenie elementov:
+00000004=Farba popredia:
+00000005=Farba pozadia:
+00000006=Príklad zobrazenia
+
+[Options.Styler.Pascal]
+00000001=Príklad zobrazenia
+00000002=Vzh¾ad Pascal
+00000003=Štıl Fontu
+00000004=Vzh¾ad elementov:
+00000005=Farba popredia:
+00000006=Farba pozadia:
+
+[Options.Updates]
+00000001=Nastavenie aktualizácie
+00000002=Proxy server:
+00000003=Uívate¾skı názov:
+00000004=Heslo:
+00000005=Automaticky skontrolujem aktualizáciu pri spustení
+00000006=Prepnem presmerovanie na aktualizácie BETA
+00000007=Pridám aktualizácie do protokolu
+00000008=Cez Proxy server
+
+[Project.Additional]
+00000001=Ïalšie nastavenia
+00000002=Extra priestor disku:
+00000003=Èas. peèa zaokrúhlene:
+00000004=Dátum zmeny:
+00000005=Èas zmeny:
+00000006=Zmením asociácie
+00000007=Vdy Reštartujem
+00000008=Po spustení v prípade potreby Reštartujem
+00000009=Povolím, zruši inštaláciu
+00000010=Èasová peèa v UTC
+00000011=Zmením prostredie
+00000012=Vo¾by nastavenie Ikon
+00000013=Súbor s ikonami:
+00000014=Vyberte si súbor zadanıch ikon
+
+[Project.Appearance]
+00000001=Vo¾by zobrazenia
+00000002=Norm. obráz. sprievodcu:
+00000003=Malı obráz. sprievodcu:
+00000004=Farba pozadia:
+00000005=Roztiahnem obrázok inštalaèného sprievodcu
+00000006=Vıber malého obrázku pre Sprievodcu
+00000007=Vıber normálneho obrázku pre Sprievodcu
+00000008=Pozadie zobrazeného okna
+00000009=Farba 1:
+00000010=Farba 2:
+00000011=Smer:
+00000012=Pozadie vidite¾ného okna
+00000013=Celá farba pozadia
+00000014=Zobrazi titulnı pás okna
+00000015=Cez okraje meni ve¾kos okna
+00000016=Spusti maximalizovanı
+
+[Project.ApplicationDetails]
+00000001=Detaily aplikácie
+00000002=Názov aplikácie:
+00000003=Verzia aplikácie:
+00000004=Aut. právo aplikácie:
+00000005=Mutex aplikácie:
+00000006=Heslo:
+00000007=Vyadova oprávnenie:
+00000008=ID aplikácie:
+00000009=Verzia aplikácie:
+00000010=ID aplikácie
+00000011=Vo verzii Inno Setup 5.3.10 bol AppVerName nahradenı s appVersion.\n\nSem kliknite a zmením na novı príkaz appVersion.
+00000012=Informácie &o licencii
+00000013=Súbor licencie:
+00000014=Info súbor pred Inš.:
+00000015=Info súbor po Inš.:
+00000016=Vyh¾ada súbor licencie
+00000017=Vyh¾ada súbor informácií ktorı sa spustí pred nainštalovaním programu.
+00000018=Vyh¾ada súbor informácií ktorı sa spustí po nainštalovaním programu.
+
+[Project.CodeSigning]
+00000001=Monosti podpisu kódom
+00000002=Odinštalova zloku:
+00000003=Nástroj podpisu kódom:
+00000004=Poui podpis odinštalátora
+00000005=Vyberte adresár pre ukladanie podpísanıch odinštalovanıch súborov
+00000006=Konfigurácia nástroja podpisovanie kódom
+
+[Project.Compiler]
+00000001=Nastavenie kompilátora
+00000002=Vıstupnı prieèinok:
+00000003=Vıstupnı názov súboru:
+00000004=Zdrojovı prieèinok:
+00000005=Vıstup súb. manifestu:
+00000006=Uloím konfiguráciu kompilácie
+00000007=Zlúèím duplicitné súbory
+00000008=Pouijem šifrovanie
+00000009=Informácie do sluieb terminálu
+00000010=Záznam Inštalácie 
+00000011=Vyberte vıstupnı adresár
+00000012=Vyberte zdrojovú zloku
+00000013=Vyberte vıstupnı súbor manifestu
+00000014=Nastavenie architektúry
+00000015=Inštal. v 64-bit. reime:
+00000016=Povolené architektúry:
+
+[Project.Compression]
+00000001=Vo¾by kompresie
+00000002=Kompresia:
+00000003=Vnútorná kompresia:
+00000004=Úroveò kompresie:
+00000005=Osnova kompresie:
+00000006=Solid kompresia
+00000007=Nastavenie LZMA/LZMA2
+00000008=Algoritmus:
+00000009=Ve¾kos bloku:
+00000010=Ve¾kos slovníka:
+00000011=Porovna nálezcu:
+00000012=Num. blok osnovy:
+00000013=Num. pevné byty:
+00000014=Poui separátny proces:
+
+[Project.Directory]
+00000001=Nastavenie zloky pre inštaláciu aplikácie
+00000002=Predvolenı názov zloky:
+00000003=Zablokujem stránku zloky:
+00000004=Upozorním e zloka existuje:
+00000005=Vytvorím zloku aplikácie
+00000006=Pouiem predchádzajúcu zloku aplikácie
+00000007=Povolím root zloky
+00000008=Povolím UNC cestu
+00000009=Povolím upozornenie, zloka neexistuje
+00000010=Pripojím predvolenı názov zloky
+
+[Project.DiskSpanning]
+00000001=Rozpätie disku
+00000002=Ve¾kos klastra:
+00000003=Rezervné byty:
+00000004=Ve¾kos segmentu:
+00000005=Segmenty na disku:
+00000006=Predvo¾ba rozsahu:
+00000007=Aktivova rozpätie disku
+
+[Project.InstallPages]
+00000001=Vo¾by èasti blokov inštalácie
+00000002=Pouijem predchádzajúci typ inštalácie
+00000003=Pouijem predchádzajúce úlohy
+00000004=Zablokujem, blok stránky Dokonèi
+00000005=Zablokujem, pripravenı poznámky
+00000006=Ploché súèasti zoznamu
+00000007=Zobrazím ve¾kos súèasti
+00000008=Zablokujem, blok Dokonèi
+00000009=Zobrazím, blok úloh v strome
+00000010=Zobrazím, zoznam komponentov
+00000011=Zobrazím, blok stránky dokonèenia
+00000012=Zobrazím, blok stránky skupiny dokonèenia
+00000013=Zablokujem, èas stránky spusti
+00000014=Zablokujem, blok stránky Vítajte v
+00000015=Pouiem pôvodnı jazyk
+
+[Project.Language]
+00000001=Nastavenie jazyka
+00000002=Spôsob detekcie jazyka:
+00000003=Zobrazím dialóg jazyka:
+00000004=Zobrazím nezobrazite¾né jazyky
+
+[Project.LogFile]
+00000001=Súbor protokolu
+00000002=Názov súboru protokolu:
+00000003=Spôsob uloenia zápisu:
+00000004=Vyberte súbor protokolu
+
+[Project.ProgramGroup]
+00000001=Vo¾by skupiny programov
+00000002=Predvo¾ba názvu skupiny:
+00000003=Zablok. blok skupina programov:
+00000004=Pouijem predchádzajúcu skupinu
+00000005=Povolím bez ikon
+00000006=Vdy pouijem vlastnú skupinu
+00000007=Pripojím predvolenı názov skupiny
+
+[Project.PublisherInfo]
+00000001=Informácie o Vydavate¾ovi
+00000002=Vydavate¾:
+00000003=URL vydavate¾a:
+00000004=URL podpory:
+00000005=URL aktualizácie:
+00000006=Verzia:
+00000007=Komentár
+00000008=Kontakt:
+00000009=Súbor readme:
+00000010=Telefón:
+
+[Project.RestartManager]
+00000001=Nastavenie Reštartovania
+00000002=Filter aplikácie:
+00000003=Automaticky aplikáciu zavriem 
+00000004=Reštartujem aplikáciu
+
+[Project.SysRequirements]
+00000001=Systémové poiadavky
+00000002=Iba pre nišie uvedené verzie Windowsu
+00000003=Windows:
+00000004=Windows NT:
+00000005=Iba pre nišie uvedenú verziu Windowsu NT
+00000006=Iba pre nišie uvedenú verziu Windowsu
+00000007=Minimálna verzia Windowsu
+00000008=Windows:
+00000009=Windows NT:
+00000010=Zadajte minimálnu verziu Windowsu
+00000011=Zadajte minimálnu verziu Windowsu NT
+
+[Project.Uninstall]
+00000001=Vo¾by odinštalovania
+00000002=Mód protokolu:
+00000003=Odinštalujem súb. zloky:
+00000004=Uninstallable:
+00000005=Vytvorím k¾úè v regist.:
+00000006=Reštartujem poèítaè
+00000007=Aktualizujem protokol odinštalova AppName
+00000008=Program && Funkcie Nastavenie
+00000009=Zobrazím názov:
+00000010=Zobrazím ikonu:
+00000011=Index ikony:
+00000012=Upravi cestu:
+00000013=Zobrazím ve¾kos:
+
+[Project.UserInfo]
+00000001=Informácie o uívate¾ovi
+00000002=Prevo¾ba uívate¾ské meno:
+00000003=Prevo¾ba organizácie:
+00000004=Predvolba sériového èísla:
+00000005=Zobrazím v bloku sprievodcu zadanie informácie o uívate¾ovi
+00000006=Pouíem predchádzajúce info o uívate¾ovi
+
+[Project.VersionInfo]
+00000001=Informácie o verzii
+00000002=Verzia:
+00000003=Spoloènos:
+00000004=Popis:
+00000005=Textová verzia:
+00000006=Autorské právo:
+00000007=Názov produktu:
+00000008=Verzia produktu:
+00000009=Textová verzia produktu:
+
+[Properties.BaseForm]
+
+[Properties.Components]
+00000001=Názov:
+00000002=Popis:
+00000003=Extra priest. disku:
+
+[Properties.CustomMessages]
+00000001=ID správy:
+00000002=Základnı jazyk:
+00000003=Volite¾ná správa:
+
+[Properties.Files]
+00000001=Zdroj:
+00000002=Názov cie¾a:
+00000003=Cie¾ovı adresár:
+00000004=Vonkajší rozmer:
+00000005=Font inštalácie:
+00000006=Názov inštalaèného vıkonu:
+00000007=Podmienky
+00000008=Systém
+00000009=(Bez)Inštalácie
+00000010=Ïalšie
+
+[Properties.Folders]
+00000001=Názov:
+00000002=Cie¾ovı adresár:
+
+[Properties.Icons]
+00000001=Názov ikony:
+00000002=Názov súboru:
+00000003=Pracovnı adresár:
+00000004=Názov súboru ikon:
+00000005=Index ikony:
+00000006=Cie¾ovı adresár:
+00000007=(Bez)Inštalácie
+00000008=Ïalšie
+00000009=Parametre:
+00000010=Identifikátor ID:
+00000011=Komentár:
+00000012=Prikaz skratky:
+00000013=Windows 7
+
+[Properties.INIFiles]
+00000001=Názov súboru:
+00000002=Sekcia:
+00000003=K¾úè:
+00000004=Hodnota:
+
+[Properties.InstallDelete]
+00000001=Názov súboru:
+00000002=Typ:
+
+[Properties.InstallRun]
+00000001=Názov súboru:
+00000002=Parametre:
+00000003=Pracovnı adresár:
+00000004=Popis:
+00000005=Stav správy:
+00000006=ID "Run Once":
+00000007=Príkaz spusti:
+00000008=Podmienky
+00000009=Systém
+00000010=Spôsob zobrazenia
+
+[Properties.Languages]
+00000001=Jazyk:
+00000002=Súbor správy:
+00000003=Súbor licencie:
+00000004=Súb. informácie pred Inšt.:
+00000005=Súb. informácie po Inšt.:
+
+[Properties.Messages]
+00000001=ID správy:
+00000002=Základnı jazyk:
+00000003=Ptedvolená správa:
+00000004=Volite¾ná správa:
+
+[Properties.PostCompile]
+00000001=Parametre:
+00000002=Názov súboru:
+
+[Properties.PreCompile]
+00000001=Parametre:
+00000002=Názov súboru:
+
+[Properties.Registry]
+00000001=Root:
+00000002=Podklúè:
+00000003=Typ hodnoty:
+00000004=Názov hodnoty:
+00000005=Obsah dát:
+00000006=(Bez)Inštalácie
+
+[Properties.SignTool]
+00000001=Príkaz:
+00000002=Názov:
+
+[Properties.Special]
+00000001=Text:
+
+[Properties.Tasks]
+00000001=Názov:
+00000002=Popis:
+00000003=Popis skupiny:
+
+[Properties.Types]
+00000001=Názov:
+00000002=Popis:
+
+[Properties.UnInstallDelete]
+00000001=Názov súboru:
+00000002=Typ:
+
+[Properties.UnInstallRun]
+00000001=Názov súboru:
+00000002=Parametre:
+00000003=Pracovnı adresár:
+00000006=ID "Spusti Raz":
+00000007=Vykona príkaz:
+00000008=Podmienky
+00000009=Systém
+00000010=Spôsob zobrazenia
+
+[Section.BaseForm]
+
+[Section.Components]
+00000009=Overenie
+00000010=Pred inštaláciou
+00000011=Po inštalácii
+00000001=Názov
+00000002=Popis
+00000003=Poiadavky na priestor
+00000004=Typy
+00000005=Príznaky Flags
+00000006=Minimálna verzia
+00000007=Iba pre verzie nišie ako
+00000008=Jazyky
+
+[Section.CustomMessages]
+00000001=ID správy
+00000002=Jazyk
+00000003=Správa
+
+[Section.Files]
+00000009=Vonkajší rozmer
+00000010=Vıkon názvu inštalácie
+00000011=Minimálna verzia
+00000012=Maximálna povolená verzia
+00000013=Komponenty
+00000014=Úlohy
+00000015=Jazyky
+00000016=Oprávnenia
+00000017=Vylúèenia
+00000018=Overenie
+00000019=Pred inštaláciou
+00000020=Po inštalácii
+00000001=Názov zdrojového súboru
+00000002=Názov cie¾ového súboru
+00000003=Typ súboru
+00000004=Zdrojová zloka
+00000005=Cie¾ová zloka
+00000006=Príznaky Flags
+00000007=Atribúty
+00000008=Nastavenie fontu
+00000021=Prida súbory...
+00000022=Preveri existenciu súborov
+00000023=Relatívna cesta
+00000024=Absolútna cesta
+00000025=Prida zloku...
+00000026=Otvori Zdrojovú zloku
+00000027=Previes do cesty súboru
+
+[Section.Folders]
+00000009=Jazyky
+00000010=Povolenie
+00000011=Vyluèenia
+00000012=Overenie
+00000013=Pred inštaláciou
+00000014=Po inštalácii
+00000001=Názov
+00000002=Cie¾ovı adresár
+00000003=Príznaky Flags
+00000004=Atribúty
+00000005=Minimálna verzia
+00000006=Iba táto verzia
+00000007=Komponenty
+00000008=Úlohy
+
+[Section.Icons]
+00000009=Komentár
+00000010=Príkaz skratky
+00000011=Minimálna verzia
+00000012=Len táto verzia
+00000013=Komponenty
+00000014=Úlohy
+00000015=Jazyky
+00000016=Overenie
+00000017=Pred inštaláciou
+00000018=Po inštalácii
+00000001=Názov
+00000002=Názov súboru
+00000003=Pracovnı adresár
+00000004=ID aplikácie
+00000005=Príznaky Flags
+00000006=Súbor ikon
+00000007=Index ikony
+00000008=Parametre
+
+[Section.INIFiles]
+00000009=Úlohy
+00000010=Jazyky
+00000011=Overenie
+00000012=Pred inštaláciou
+00000013=Po inštalácii
+00000001=Názov súboru
+00000002=Sekcia
+00000003=K¾úè
+00000004=Hodnota
+00000005=Príznaky Flags
+00000006=Minimálna verzia
+00000007=Len táto verzia
+00000008=Komponenty
+
+[Section.InstallDelete]
+00000009=Pred inštaláciou
+00000010=Po inštalácii
+00000001=Typ
+00000002=Názov súboru
+00000003=Minimálna verzia
+00000004=Len táto verzia
+00000005=Komponenty
+00000006=Úlohy
+00000007=Jazyky
+00000008=Overenie
+
+[Section.InstallRun]
+00000009=Minimálna verzia
+00000010=Len táto verzia
+00000011=Komponenty
+00000012=Úlohy
+00000013=Jazyky
+00000014=Overenie
+00000015=Pred inštaláciou
+00000016=Po inštalácii
+00000001=Názov súboru
+00000002=Parametre
+00000003=Pracovnı adresár
+00000004=Príznaky Flags
+00000005=Popis
+00000006=Správa o stave
+00000007=Vykona príkaz
+00000008=ID Raz spusti
+
+[Section.Languages]
+00000001=Názov
+00000002=Súbor správy
+00000003=Súbor licencie
+00000004=Súbor Inf. pred inšt.
+00000005=Súbor Inf. po inšt.
+00000006=Prida štandardné jazyky Inno Setup
+
+[Section.Messages]
+00000001=ID správy
+00000002=Jazyk
+00000003=Správa
+
+[Section.PreCompile]
+00000001=Názov súboru
+00000002=Parametre
+00000003=Príznaky Flags
+
+[Section.Registry]
+00000009=Len táto verzia
+00000010=Komponenty
+00000011=Úlohy
+00000012=Jazyky
+00000013=Overenie
+00000014=Pred inštaláciou
+00000015=Po inštalácii
+00000001=Root
+00000002=Podk¾úè
+00000003=Typ hodnoty
+00000004=Názov hodnoty
+00000005=Obsah dát
+00000006=Príznaky Flags
+00000007=Povolenie
+00000008=Minimálna verzia
+
+[Section.Tasks]
+00000009=Overenie
+00000010=Pred inštaláciou
+00000011=Po inštalácii
+00000001=Názov
+00000002=Popis
+00000003=Popis skupiny
+00000004=Príznaky Flags
+00000005=Minimálna verzia
+00000006=Len táto verzia
+00000007=Komponenty
+00000008=Jazyky
+
+[Section.Types]
+00000009=Po inštalácii
+00000001=Názov
+00000002=Popis
+00000003=Príznaky Flags
+00000004=Minimálna verzia
+00000005=Len táto verzia
+00000006=Jazyky
+00000007=Overenie
+00000008=Pred inštaláciou
+
+[Section.UnInstallDelete]
+00000009=Pred inštaláciou
+00000010=Po inštalácii
+00000001=Typ
+00000002=Názov súboru
+00000003=Minimálna verzia
+00000004=Len táto verzia
+00000005=Komponenty
+00000006=Úlohy
+00000007=Jazyky
+00000008=Overenie
+
+[Section.UnInstallRun]
+00000009=Minimálna verzia
+00000010=Len táto verzia
+00000011=Komponenty
+00000012=Úlohy
+00000013=Jazyky
+00000014=Overenie
+00000015=Pred inštaláciou
+00000016=Po inštalácii
+00000001=Názov súboru
+00000002=Parametre
+00000003=Pracovnı zloka
+00000004=Príznaky Flags
+00000005=Popis
+00000006=Správa o stave
+00000007=Vıkon príkazu
+00000008=Jedineèné ID
+
+[Section_PostCompile]
+
+[Wizard.BaseForm]
+
+[Wizard.InnoSetup]
+00000001=Nie všetky funkcie sú pokryté v tomto sprievodcovi. V dokumentácii nájdete viac informácií o vytváraní súborov skriptu inštalácie.\n\nKliknite Ïalej a budem pokraèova alebo Zruši a ukonèím sprievodcu.
+00000002=Tento sprievodca vás prevedie procesom vytvorenia nového skriptu. Vısledky budú pouité na vytvorenie skriptu, ktorı je moné zostavi priamo, alebo uloi na disk pre neskoršie pouitie.
+00000003=Vita vás [name]
+00000004=Úspešne ste dokonèili [name].\n\nAk chcete zatvori tohto sprievodcu a vytvori novı súbor skriptu, kliknite na tlaèítko Dokonèi.
+00000005=musí by zadané
+00000006=Zvıraznené
+00000007=Vytvorím novı &prázdny skript
+00000008=Náz&ov aplikácie::
+00000009=&Vydavate¾ aplikácie:
+00000010=Web &stránka aplikácie
+00000011=&Verzia programu:
+00000012=Ná&zov zloky aplikácie:
+00000013=Zloka aplikácie cie¾ového umiestnenia:
+00000014=Aplikácia zloku nepotrebuje
+00000015=Povolím uívate¾ovi zmeni &názov zloky v ponuke Štart
+00000016=Iné:
+00000017=H¾ada&...
+00000018=Hlavnı spu&stite¾nı súbor aplikácie:
+00000019=Hlavnı &spustite¾nı súbor aplikácie ktorı umoní uívate¾ovi spusti aplikáciu
+00000020=&Prida súbor(y)
+00000021=Prida &zloku
+00000022=&Editova
+00000023=Ïalšie &súbory aplikácie:
+00000024=Odstrán&i
+00000025=Aplikácie &nemá primárny súbor
+00000026=Aplikácia neobsahuje hlavnı spustite¾nı súbor
+00000027=Ïalšie ikony z hlavného spustite¾ného súboru:
+00000028=Názov zloky aplikácie v &ponuke Štart:
+00000029=Vytvorím ikonu Odinštalova v ponuke Štart
+00000030=Vytvorím zástupcu internetovej adresy v ponuke Štart
+00000031=Povolím uívate¾ovi vytvori ikonu na &ploche
+00000032=Povolím uívate¾ovi zmeni názov &zloky v ponuke Štart
+00000033=Povolím uívate¾ovi vytvori ikonu Rıchle spustenie
+00000034=H¾&ada
+00000035=Zobrazím Info o súbore &po inštalácii:
+00000036=H¾&ada
+00000037=Zobrazím Info o súbore &pred inštaláciou:
+00000038=H¾&ada
+00000039=Súbor &Licencie:
+00000040=&Oznaèím všetko
+00000041=&Jazyky:
+00000042=&Odznaèi všetko
+00000043=Poui heslo na &zašifrovanie súborov programu
+00000044=Základnı názov vıstupného súboru po &skompilovaní
+00000045=H¾&ada
+00000046=Adresár vlastného vıstupného &kompilátora:
+00000047=&Nastavenie hesla:
+00000048=H¾&ada
+00000049=Ikona vlastnej inštalácie:
+
+[$CONSTANTS]
+Default=Predvolené
+SCaption3rdparty=Sekcia 3 strany
+SCaption3rdpartyDownload=Stiahnu
+SCaption3rdpartyPost=Kroky po Kompilácii
+SCaption3rdpartyPre=Kroky pred Kompiláciou
+SCaptionAppearance=Vzh¾ad
+SCaptionApplicationAdditional=Ïalšie nastavenia
+SCaptionApplicationDetails=Detaily Aplikácie
+SCaptionApplicationFolder=Zloka aplikácie
+SCaptionAssociations=Asociácia súborov
+SCaptionAutoCAcceptWith=Predpokladajme, e: <TAB> alebo <ENTER>
+SCaptionAutoCNoSelection=Prosím, vyberte poloku zo zoznamu pre Automatické Dokonèenie
+SCaptionBlankScript=Prázdny skript
+SCaptionBothOptions=Na aktívnej karte a na lište
+SCaptionCode=Pascal-Kód Pascal
+SCaptionCodeSigning=Podpis kódom
+SCaptionCodeSigningTools=Nástroj pre podpísanie kódom
+SCaptionCompilerSettings=Nastavenie kompilátora
+SCaptionComponents=Komponenty
+SCaptionCompression=Kompresia
+SCaptionCopy=&Skopírujem
+SCaptionCustomizeView=Vlastné nastavenie ståpcov
+SCaptionCustomMessages=Volite¾né správy
+SCaptionCut=Vy&strihnem
+SCaptionDelete=Odstránim &poloku
+SCaptionDeleteAll=Odstránim všetky poloky
+SCaptionDiskSpanning=Rozpätie disku
+SCaptionDisplaySettings=Nastavenie zobrazenia
+SCaptionDuplicateEntry=Duplicitné vstupy
+SCaptionEditorSettings=Nastavenie editora
+SCaptionFiles=Súbory
+SCaptionFolders=Adresáre
+SCaptionFontsAndColors=Font/Farba
+SCaptionGeneralSettings=Všeobecné nastavenia
+SCaptionGenericTemplates=Všeobecné šablóny
+SCaptionIcons=Ikony
+SCaptionIni=Súbory INI
+SCaptionInnoSetupProject=Projekt InnoSetup
+SCaptionInnoStyler=Vzh¾ad InnoSetup
+SCaptionInsertCommentLine=Vytvorím riadok pre komentár
+SCaptionInsertEmptyLine=Vytvorím prázdny riadok
+SCaptionInsertISPPLine=Vytvorím riadok ISPP
+SCaptionInstallationPages=Bloky stránok inštalácie
+SCaptionInstallDelete=Vymaem pred inštaláciou
+SCaptionInstallRun=Spustím po inštalácii
+SCaptionItemProperties=Vlastnosti poloky
+SCaptionLanguages=Jazyky
+SCaptionLanguageSettings=Nastavenie jazyka
+SCaptionLocateInScript=Vyh¾adám poloku v skripte
+SCaptionLogFile=Súbor protokolu
+SCaptionMessages=Správy
+SCaptionMoveDown=Presuniem sa nišie
+SCaptionMoveToBottom=Presuniem sa na koniec
+SCaptionMoveToTop=Presuniem sa vyššie
+SCaptionMoveUp=Presuniem sa na zaèiatok
+SCaptionNewItem=Pridám poloku
+SCaptionNoProject=<iadny Projekt>
+SCaptionPascalStyler=Vzh¾ad Pascal
+SCaptionPaste=&Prilepím
+SCaptionPluginDisable=Zablokujem Plugin
+SCaptionPluginEnable=Povolím Plugin
+SCaptionPluginSettings=Nastavenie pluginov
+SCaptionPost=Vıkon Po kompilácii
+SCaptionPostCompileImported=Sekcia PostCompile %s
+SCaptionPre=Vıkon Prekompilovanıch
+SCaptionPreCompileImported=Sekcia PreCompile %s
+SCaptionProgramGroup=Skupina programov
+SCaptionProgramGroupVista=Program a špeciálne nastavenia
+SCaptionProgramGroupXP=Pre pridanie a odstránenie nastavenia aplikácie
+SCaptionProject=Projekt - [%s]
+SCaptionPublisherInformation=Informácie o vydavate¾ovi
+SCaptionRegistry=Registre
+SCaptionRestartManager=Nastavenie reštartovania
+SCaptionRunAs2KXP=Môe spusti Inštalovanie/Odinštalovanie rôzny uívate¾
+SCaptionRunAsVista=Môe spusti Inštalovanie/Odinštalovanie len Administrátor
+SCaptionScript=Skript Inštalácie
+SCaptionSelectAll=Oznaèím všetko
+SCaptionSelectIconFile=Vyberte si zo súboru Ikon, vlastnú Ikonu
+SCaptionSelectInfoFile=Vyberte si zo súboru informácií, Informáciu ktorú zverejním
+SCaptionSelectINIFile=Vyberte si súbor INI
+SCaptionSelectLicenseFile=Vyberte si súbor informácie o Licencii
+SCaptionSelectLogFile=Vyberte si súbor Protokolu Kompilácie
+SCaptionSelectManifestFile=Vyberte si vıstupnı súbor Manifestu
+SCaptionSelectMessagesFile=Vyberte si súbor Správ
+SCaptionSelectOutputFolder=Vyberte si vıstupnú Zloku
+SCaptionSelectRegistryFile=Vyberte si súbor Registrov
+SCaptionSelectSignedUninstallFolder=Zadajte prieèinok s podpisom odinštalovania
+SCaptionSelectSourceFolder=Vyberte si zdrojovú zloku
+SCaptionSelectWizardImage=Vyberte si normálny obrázok pre Sprievodcu
+SCaptionSelectWizardImage2=Vyberte si malı obrázok pre Sprievodcu
+SCaptionSimpleScript=Jednoduchı skript
+SCaptionSpecialItems=Špeciálne poloky
+SCaptionSpecializedTemplates=Špecialne šablóny
+SCaptionSpecialValueComment=Komentár
+SCaptionSpecialValueCommentText=Text Komentára:
+SCaptionSpecialValueEmptyLine=Prázdny riadok
+SCaptionSpecialValueISPPCode=Kód ISPP:
+SCaptionSpecialValueISPPLine=Riadok ISPP
+SCaptionSupercededDirective=Nahradi smernicou
+SCaptionSystemRequirements=Systémové poiadavky
+SCaptionTabBarOption=Na lište (vpravo)
+SCaptionTabOption=Iba aktívne karty
+SCaptionTargetMenu=Cie¾ [%s]
+SCaptionTasks=Úlohy
+SCaptionThemedTemplates=Šablóny tém
+SCaptionThirdPartyImported=Import nastavenia %s
+SCaptionTypes=Typy
+SCaptionUninstall=Nastavenie odinštalovania
+SCaptionUninstallDelete=Vymaem po odinštalovaní
+SCaptionUninstallRun=Spustím pred odinštalovaním
+SCaptionUpdateSettings=Nastavenie aktualizácie
+SCaptionUserInformation=Informácie o uívate¾ovi
+SCaptionVersionInformation=Informácie o verzii
+SCompilerExampleScripts=Ukákové skripty
+SCompilerExecuteSetupError=Nastala chyba pri vykonávaní "%s": \n\n %d: %s
+SCompilerIllegalNullChar=Tu je neplatnı znak v reazci %d
+SCompilerMoreFiles=Inı súbor skriptu
+SCompilerStatusAborted=Kompilácia bola prerušená.
+SCompilerStatusElapsed=Celkovı èas kompilácie trval: %s
+SCompilerStatusErrorAborted=Nastala chyba v zostavovaní kompilácie!
+SCompilerStatusFileError=Nastala chyba: nenašiel som %s. Prosím potvrïte vıkon %s.
+SCompilerStatusFinished=Kompilácia bola dokonèená v:  [%s o %s]
+SCompilerStatusPrePostFinished=%s Spracovanie je dokonèené.
+SCompilerStatusPrePostStarted=Spracoval %s.
+SCompilerStatusPrePostStep=Spúšam: %s
+SCompilerStatusPrePostWarning=Spracovanie %s je stále vo fáze testovania.
+SCompilerStatusStarting=Kompilácia bola spustená v:  [%s o %s]
+SCompilerStatusUnsupported=Definícia ISPP ja aktuálne bez podpory úloh sekcie %s.
+SCompilerStatusVersion=Skript kompiluje %s [%s]
+SDebuggerExitCode=Návratovı kód %s
+SDebuggerExitCodeError1=Neviem získa %s návratovı kód (%s zadanie zlyhalo)
+SDebuggerExitCodeError2=%s je stále spustenı; neviem dosta návratovı kód
+SDebuggerStatusAppStarted=%s spustil aplikáciu
+SDebuggerStatusCleanUp=Odstráòujem zvyšky doèasnıch adresárov
+SDebuggerStatusCleanUpFailed=Nepodarilo sa mi odstráni doèasnı adresár
+SDebuggerStatusTerminating=# Ukonèujem proces #
+SDialogButtonApply=Poui
+SDialogButtonBack=< &Naspä
+SDialogButtonCancel=Zruši
+SDialogButtonFindAll=Vyh¾adám všetko
+SDialogButtonFinish=&Hotovo
+SDialogButtonHelp=Pomoc
+SDialogButtonNext=&Ïalej >
+SDialogButtonOK=OK
+SDialogButtonReplaceAll=Nahradím všetko
+SEditorAbortCompile=Naozaj mám zastavi kompiláciu ?
+SEditorCaptionColumn=Ståpec
+SEditorCaptionInsert=Vloi
+SEditorCaptionLine=Riadok
+SEditorCaptionModified=Zmenenı
+SEditorCaptionOverwrite=Prepíšem
+SEditorCaptionReadOnly=Len na èítanie
+SFormCaptionAbout=Info o mne
+SFormCaptionAddFolder=Pridám zloku
+SFormCaptionBDEAlias=Vytvorím prezıvku BDE
+SFormCaptionComponent=Vlastnosti komponentu
+SFormCaptionCustomize=Nastavenie ståpcov
+SFormCaptionCustomMessage=Volitelné vlastnosti správy
+SFormCaptionEvaluateConstant=Vyhodnotím konštantu
+SFormCaptionFile=Vlastnosti súboru
+SFormCaptionFileAssociation=Vytvorím asociácie súboru
+SFormCaptionFolder=Vlastnosti Adresára
+SFormCaptionGoToLine=Prejdem na èíslo riadku
+SFormCaptionIcon=Vlastnosti Ikony
+SFormCaptionImportINIFiles=Importujem súbory INI
+SFormCaptionImportMessages=Importujem správu
+SFormCaptionImportRegistryFiles=Importujem súbor Registrov
+SFormCaptionIniFile=Vlastnosti súboru INI
+SFormCaptionInnoWizard=Skript Sprievodcu InnoSetup 
+SFormCaptionInnoWizardFiles=Súbor Skriptu Sprievodcu
+SFormCaptionInstallDelete=Vıkon vymazania ištalácie
+SFormCaptionInstallFonts=Vo¾ba fontov
+SFormCaptionInstallRun=Spustím vıkon Inštalácie
+SFormCaptionInternetShortcut=Vytvorím zástupcu Internetu
+SFormCaptionLanguage=Vlastnosti jazyka
+SFormCaptionLanguageOptions=Vo¾by jazyka
+SFormCaptionLanguages=Vo¾by štandardnıch jazykov
+SFormCaptionMessage=Vlastnosti správy
+SFormCaptionNewProject=Novı projekt
+SFormCaptionODBCProfile=Vytvorím profil ODBC
+SFormCaptionOptions=Vo¾by
+SFormCaptionParameters=Parameter
+SFormCaptionPostCompile=Vıkon Post-kompilácie 
+SFormCaptionPreCompile=Vıkon Pre-kompilácie
+SFormCaptionRegistry=Poloka registra
+SFormCaptionReplace=Nahradím text
+SFormCaptionSearch=Vyh¾adám text
+SFormCaptionSetupOptions=Vo¾by nastavenia
+SFormCaptionSignTool=Vlastnosti nástroja podppisu
+SFormCaptionSignTools=Nástroje podpisu
+SFormCaptionSpecialValue=Špeciálne vlastnosti hodnoty
+SFormCaptionTask=Vlastnosti úlohy
+SFormCaptionType=Vlastnosti typu
+SFormCaptionUninstallDelete=Vymaem po odinštalovaní
+SFormCaptionUninstallRun=Spustím pred odinštalovaní
+SGroupCaptionAdditional=Ïalšie
+SGroupCaptionAttributes=Atribúty
+SGroupCaptionComponents=Komponenty
+SGroupCaptionDetails=Detaily
+SGroupCaptionExcludes=Vylúèi
+SGroupCaptionFlags=Flags
+SGroupCaptionLanguages=Jazyky
+SGroupCaptionMinWindowsGroup=Minimálna verzia Windowsu
+SGroupCaptionOnlyBelowWindows=Len táto verzia Windowsu
+SGroupCaptionPermissions=Oprávnenie
+SGroupCaptionScripting=Pascal-skriptovanie
+SGroupCaptionSignTool22=Detaily nástroja podpisu
+SGroupCaptionSysRequirments=Systémové poiadavky
+SGroupCaptionTasks=Úlohy
+SGroupCaptionTypes=Typy
+SHintCopy=Skopírujem oznaèené a vloím do schránky
+SHintCustomizeView=Prispôsobenie aktuálneho zobrazenia
+SHintCut=Vystrihnem oznaèené a vloím do schránky
+SHintDelete=Vymaem poloku
+SHintDeleteAll=Vymaem všetky poloky
+SHintExpression=Ide o logickı vıraz, ktorı môe obsahova volanie kontroly \nfunkcie pre nastavenie Uninstallable.\n\nNapríklad: not IsTaskSelected('portablemode')
+SHintInsertCommentLine=Riadok pre komentár
+SHintInsertEmptyLine=Prázdny riadok
+SHintInsertISPPLine=Riadok pre ISPP
+SHintItemProperties=Zobrazím vlastnosti vybranej poloky
+SHintLanguage=Pouijem súbory jazyka %s
+SHintLocateInScript=Vyh¾adám poloku v aktívnom skripte
+SHintMinimumWindows=Vyberte si minimálnu verziu Windowsu
+SHintMinimumWindowsNT=Vyberte si minimálnu verziu systému Windows NT
+SHintMoveDown=Presuniem sa nišie
+SHintMoveToBottom=Presuniem sa na koniec
+SHintMoveToTop=Presuniem sa vyššie
+SHintMoveUp=Presuniem sa na zaèiatok
+SHintNewItem=Nová poloka
+SHintOnlyBelowWindows=Vyberte si nasledujúcich verzií systému Windows
+SHintOnlyBelowWindowsNT=Vyberte si nasledujúcich verzií systému Windows NT
+SHintPaste=Vloím do schránky
+SHintSelectAll=Oznaèím všetky poloky
+SHintSpecialItems=Špeciálne poloky
+SLabelCaptionAfterInstall=Po inštalácii:
+SLabelCaptionBeforeInstall=Pred inštaláciou:
+SLabelCaptionCheck=Preveri:
+SLabelCaptionManualListEntry=Manuálne vloená poloka do zoznamu (Kadá poloka sa musí oddeli medzerou)
+SMessageClearAllItems=Ste si istí, mám vymaza všetky záznamy z tejto èasti skriptu ?
+SMessageCompileNow=Mám teraz skompilova novı skript ?
+SMessageCompilerErrorTitle=Nastala chyba kompilátora
+SMessageCompilerNeedUninstExe=Aktuálne cie¾ neviem odinštalova. Najprv spustite a dokonèite inštalaènı program a potom vıkon zopakujte.
+SMessageCompilerRunning=Kompilácia u prebieha.
+SMessageCompilerSaveFile=Chcete uloi skript pred kompiláciou?\n\nAk odpoviete Nie, bude zostavená inštalácia umiestnená do zloky Dokumenty v predvolenom nastavení.
+SMessageConvertAppVerName=Konvertujem verziu aplikácie zo smernice AppVerName na novšiu appVersion\n\nTáto zmena vypne starú smernicu AppVerName po skopírovaní hodnoty na novšiu appVersion.\n\nPotvrïte prosím príkaz appVersion aby bol po prevode korektnı.
+SMessageConvertToAbsolutePath=Konvertujem oznaèené súbory, e budú obsahova absolútne cesty k súboru?
+SMessageConvertToRelativePath=Konvertujem oznaèené súbory, e budú obsahova relatívne cesty k súboru?
+SMessageCreateUninstallIconError=Prosím zadajte hodnotu "AppName" v sekcii skriptu [Setup].
+SMessageDebuggerDetachProcess=Tento príkaz odpoji ladiaci program spustenı %s procesom. Mám pokraèova?
+SMessageDebuggerException=Riadok %d:\n%s.
+SMessageDebuggerExceptionTitle=Poèas spustenia nastala chyba
+SMessageDebuggerNoCode=V aktuálnom riadku nebol vytvorenı iadny kód.
+SMessageDebuggerPausePending=Pozastavenie èaká na vybavenie.
+SMessageDebuggerStopProcess=Prosím, zastavte spustenı proces %s pred vykonaním tohto príkazu.
+SMessageDebuggerTerminateProcess1=Toto ihneï ukonèí spustenı proces %s. Mám pokraèova?
+SMessageDebuggerTerminateProcess2=Pozor %s je aktuálne v inštalaènej fáze, všetky doteraz vykonané zmeny v systéme sa nebudú da vráti spä, ani zapísané dáta pre odinštalovanie.
+SMessageDebuggerTerminateProcessTitle=Proces bol ukonèenı
+SMessageDeleteMultipleItems=Ste si istí, mám zmaza %d poloky z tejto sekcie skriptu?
+SMessageEvaluateErrorTitle=Vyhodnotím chybu
+SMessageEvaluateResultTitle=Vyhodnotím vısledky
+SMessageEvaluateUnknown=Nastala neznáma chyba.
+SMessageFileAssocError1=Chıba prípona súboru.
+SMessageFileAssocError2=Chıba názov typu.
+SMessageFileAssocError3=Chıba popis dokumentu.
+SMessageFileAssocError4=Chıba asociácia súboru.
+SMessageFileAssocFailed=Nepodarilo sa mi asociova %s s ISS príponou.\nKód chyby: %d (%s)
+SMessageFileAssocNotElevated=Ak chcete povoli %s musí by asociovanı s príponou súboru ISS, a musí sa spusti ako administrátor.
+SMessageFileAssocSuccess=Súbory s príponou .iss boli úspešne zdruené s: %s
+SMessageFileAssocTitle=Zmena asociácie
+SMessageFileCheckError=Nasledujúce súbory neexistujú.
+SMessageFileCheckErrorTitle=Chıbajú súbory
+SMessageFileCheckSuccess=Všetky súbory sú skontrolované.
+SMessageGenerateGUID=Vygenerovanı GUID bude vloenı do editora za aktuálnu pozíciu kurzora. Mám pokraèova ?
+SMessageGenerateGUID2=ID aplikácie u bolo priradené.\n\nMám vytvori nové ID?
+SMessageGenerateGUIDTitle=Vygenerujem GUID
+SMessageGoToLineError=Èíslo riadku musí by medzi 1 a %d
+SMessageImportMessages=Chcete importova a nahradi aktuálne správy v sekcii skriptu [Messages] ?
+SMessageISCmplrError=Inno Script Studio nevie naèíta kompilátor Inno Setup (%s). Potvrïte prosím, správne umiestnenie kompilátora Inno Setup.\n\nFunkcie kompilátora Inno Setup nebudú k dispozícii, kım nebude korektne uvedené jeho umiestnenie.
+SMessageISCmplrErrorTitle=Nastala chyba pri naèítaní %s
+SMessageLocateInScriptError=Nenašiel som poloku v aktívnom spracovaní skriptu
+SMessageLogFileReadError=Nastala chyba pri zavádzaní súboru protokolu
+SMessageLogFileReadErrorTitle=Nastala chyba pri zavádzaní súboru protokolu
+SMessageLogFileWriteError=Nastala chyba pri vytvorení súboru protokolu
+SMessageLogFileWriteErrorTitle=Nastala chyba pri zápise do súboru protokolu
+SMessageMRUFileNotFound=Súbor ''%s'' neviem nájs.\n\nMám ho odstráni zo zoznamu recentnıch poloiek ?
+SMessageMRUFileNotFoundTitle=Nastala chyba pri naèítaní súboru
+SMessageODBCTypeError=Typ hodnoty v registri nie je platnı: %s
+SMessageOpenInInnoCompiler1=Súbor skriptu musí by uloenı pred tım, ne sa môe otvori v Inno Setup.\n\nMám uloi skript teraz ?
+SMessageOpenInInnoCompiler2=Súbor skriptu bol zmenenı a musí by uloenı pred tım, ne sa môe otvori v Inno Setup.\n\nMám uloi skript teraz ?
+SMessagePostCompileImported=Sekcia %s bola importovaná do sekcie Po kompilovaní,
+SMessagePreCompileImported=Sekcia %s bola importovaná do sekcie Pred kompilovaním.
+SMessageReloadScript1=Súbor bol zmenenı inım programom mimo editovaného skriptu.\n\nMám znovu naèíta súbor ?
+SMessageReloadScript2=Súbor bol zmenenı mimo editovaného skriptu. Zmeny boli vykonané aj v editovanom skripte.\n\nMám znovu naèíta súbor, Ale tım stratíte zmeny v editovanom skripte.
+SMessageReloadScriptModal=Súbor bol zmenenı mimo editovaného skriptu. Nám ho znova naèíta.
+SMessageResetOptions=Obnovím všetky nastavenia na predvolené hodnoty ?
+SMessageSaveChanges=Text %s v súbore sa zmenil.\n\nMám zmeny uloi ?
+SMessageThirdPartyImported=%s nastavenie sekcie bolo importované z tretej strany.
+SMessageUpdateAvailable=K dispozícii je nová verzia Inno Script Studio (%s).\n\nMám ju stiahnu a nainštalova ?
+SMessageUpdateAvailableTitle=K dispozícii je nová aktualizácia
+SMessageUpdateError=Inno Script Studio nebol schopnı stiahnu informácie o aktualizácii.
+SMessageUpdateFailed=Inno Script Studio sa nemôe pripoji k serveru.\nAk pouívate server Proxy, skontrolujte si jeho nastavenia a potom skúste vıkon zopakova.
+SMessageUpdateFailedTitle=Aktualizácia zlyhala
+SMessageUpdateLatestInstalled=Verzia programu (%s) je u aktualizovaná.
+SMessageValidationError=Pred pokraèovaním musia by nasledovné chyby opravené.
+SMessageValidationErrorItem=Prosím, zadajte hodnotu pre "%s".
+SMessageValidationErrorTitle=Preverením sa zistila Chyba
+SMessageVerifyFiles=Ak chcete preveri vybratı súbor, skript musí by uloenı.\n\nMám uloi skript teraz ?
+STabCaptionAdditional=Ïalšie
+STabCaptionAdvanced=Pokroèilé
+STabCaptionAttributes=Všeobecné
+STabCaptionCommon=Zdielanie
+STabCaptionComponents=Komponenty
+STabCaptionDetails=Detaily
+STabCaptionGeneral=Všeobecné
+STabCaptionLanguage=Jazyky
+STabCaptionTasks=Úlohy
+STabCaptionTypes=Typ
+SUntitled=Neoznaèenı
+SWizardAppDir=Zloka Aplikácie
+SWizardAppDir2=Uveïte prosím, umiestnenie zloky pre aplikáciu.
+SWizardAppDirNameError=Zadajte prosím, názov zloky aplikácie.
+SWizardAppDocs=Aplikovanie dokumtácie
+SWizardAppDocs2=Zadajte súbory dokumentov ktoré budú zobrazené inštalaènım programom poèas inštalácie.
+SWizardAppExeError=Zadajte prosím spustite¾nı súbor hlavnej aplikácie.
+SWizardAppFiles=Súbory Aplikácie
+SWizardAppFiles2=Uveïte prosím súbory, ktoré sú súèasou aplikácie.
+SWizardAppFiles3=Musíte urèi zdrojovú zloku.
+SWizardAppFilesSubDirsMessage=Súbory v podprieèinkoch z "%s" zahrniem tie ?
+SWizardAppGroupNameError=Musíte zada názov skupiny aplikácie pre ponuku v prieèinku Štart.
+SWizardAppIcons=Ikony aplikácií
+SWizardAppIcons2=Uvedte prosím, ktoré ikony sa majú vytvori ako súèas vašej aplikáciu.
+SWizardAppInfo=Informácie o Aplikácii
+SWizardAppInfo2=Uveïte, prosím, niektoré základné informácie o aplikácii.
+SWizardAppNameError=Musíte zada názov aplikácie.
+SWizardAppRootDirError=Musíte zada zloku cie¾ovej aplikácie.
+SWizardAppVersionError=Musíte zada verziu aplikácie.
+SWizardCancelMessage=[name] zistil e nie je dokonèenı. Ak teraz skonèíte, tak tento skript sa nebude da vygenerova.\n\nUkonèím [name]?
+SWizardCancelMessage2=Spustenı Sprievodca [name] nie je kompletnı. Ak ho teraz ukonèíte, nastavenia ktoré ste inportovali nebudú uloené.\n\nSkonèím [name] spusteného sprievodcu ?
+SWizardCompiler=Nastavenie vıstupného kompilátora
+SWizardCompiler2=Zadajte niektoré základné nastavenia vıstupného kompilátora.
+SWizardCompiler32Check=Kompilátor Inno Setup od Jordana Russella
+SWizardCompilerOutputDir=Musíte urèi zloku.
+SWizardDefaultName=Sprievodca Nastavením Skriptu
+SWizardFileAppDestRootDirError=Prosím, zadajte základnú cie¾ovú zloku inú ako zloku aplikácie. 
+SWizardFileDestRootDirError=Musíte zada cie¾ovú zloku.
+SWizardFinished=Hotovo
+SWizardImport=Importova nastavenia z
+SWizardImport2=Prosím vyberte perspektívny nástroj z ktorého mám nastavenia importova.
+SWizardImportError=Prosím špecifikujte aspoò jedno nainštalované zariadenie z ktorého mám nastavenia importova
+SWizardImportLabel=[name] detekoval prítomnos tıchto vıvojovıch prostredí pre Inno Setup.
+SWizardImportMRUList=Import zoznamu recentnıch dokumentov z vybraného zariadenia.
+SWizardInnoIDECheck=InnoIDE od Grahama Murta
+SWizardISGCheck=Inno Script Generator od Hisoft 2000
+SWizardISPP=InnoSetup Preprocessor
+SWizardISPP2=Prosím urèite, èi sa má alebo nemá poui Inno Setup Preprocessor.
+SWizardISPPCheck=Áno, poui #definovanie kompilátora
+SWizardISPPLabel=[name] zistil prítomnos Preprocessor Setup Inno (ISPP), a preto môe poui #definície kompilátora pre zjednodušenie skriptu. Aj keï to nie je nutné, bude jednoduchšie upravi skript manuálne neskôr.\n\nMá [name] poui #preddefinované direktívy kompilátora ?
+SWizardISToolCheck=ISTool od Bjornar Henden
+SWizardLanguages=Konfigurácia Jazykov
+SWizardLanguages2=Uveïte, v ktorıch jazykoch sa bude môc spusti inštalácia programu.
+SWizardLanguagesSelError=Musíte oznaèi aspoò jeden jazyk.
+SWizardSettings=Importova nastavenie
+SWizardSettings2=Musíte oznaèením potvrdi, e sú nasledujúce nastavenia správne.
+SWizardWelcome=Vítajte
+

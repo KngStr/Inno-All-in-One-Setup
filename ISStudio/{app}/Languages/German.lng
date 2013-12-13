@@ -1,0 +1,1468 @@
+﻿SourceLANGID=1033
+LANGID=1031
+TargetApplication=Inno Script Studio 2
+Author=Rainer Distel
+Generator=Kymoto Solutions Language Editor 1.0
+LastModified=2013-03-31 20:10:30
+
+[Application.Editor]
+00000001=&Rückgängig
+00000002=Letzte Aktion rückgängig
+00000003=&Wiederherstellen
+00000004=Wiederherstellen der letzten Aktion
+00000005=&Ausschneiden
+00000006=Ausschneiden der Auswahl in Zwischenablage
+00000007=&Copy
+00000008=Kopieren der Auswahl in Zwischenablage
+00000009=&Einfügen
+00000010=Einfügen des Zwischenablage-Inhalts
+00000011=&Löschen
+00000012=Löschen der aktuellen Auswahl
+00000013=&Alles auswählen
+00000014=Alles auswählen
+00000015=Finde...
+00000016=Finde den spezifischen Text
+00000017=Finde nächsten
+00000018=Finde nächstes Auftreten des Textes
+00000019=Ersetzen...
+00000020=Ersetze ausgewählten Text durch anderen Text
+00000021=Gehe zu Zeilennummer...
+00000022=Gehe zu Zeile
+00000023=&Wort vervollständigen
+00000024=Zeigt die "Autovervollständigen-Liste" für aktuelles Wort
+00000025=&Oeffne #Include Datei
+00000026=Öffne #Include Datei
+
+[Application.MainForm]
+00000001=Haupt Menü
+00000002=&Datei
+00000003=&Neu
+00000004=&Codierung für Speichern
+00000005=&Auto (ANSI oder UTF-8)
+00000006=&UTF-8
+00000007=&Neueste Scripte
+00000008=&Editieren
+00000009=&Suchen
+00000010=&Anzeigen
+00000011=&Sektionen
+00000012=Zeigen oder Verbergen der Sektionen
+00000013=Str&uktur
+00000014=Zeigen oder Verbergen der Projekt-Struktur
+00000015=&Projekt-Manager
+00000016=Zeigen oder Verbergen des Projekt-Managers
+00000017=&Meldungen
+00000018=Zeigen oder Verbergen der Ausgabe-Meldungen
+00000019=St&atus Balken
+00000020=Zeigen oder Verbergen des Status Balken
+00000021=&Werkzeuge
+00000022=Zeigen oder Verbergen der Toolbars
+00000023=&Standard
+00000024=Zeigen oder Verbergen der Standard Toolbar
+00000025=&Editiere
+00000026=Zeigen oder Verbergen der Edit Toolbar
+00000027=&Projekt
+00000028=Zeigen oder Verbergen der Projekt Toolbar
+00000029=De&bug
+00000030=Zeigen oder Verbergen der Debug Toolbar
+00000031=&Sektionen
+00000032=&Sprachen
+00000033=Auswahl der zu verwendenden Sprache
+00000034=&Projekt
+00000035=Setup &Optionen
+00000036=Import aus Script
+00000037=Import aus Datei
+00000038=Export in Datei
+00000039=De&bug
+00000040=&Werkzeuge
+00000041=&Tabs
+00000042=&Hilfe
+00000043=Standard
+00000044=Editiere
+00000045=Projekt
+00000046=Setup Optionen
+00000047=Setup Optionen
+00000048=Sektionen
+00000049=Section auswählen
+00000050=Debug
+00000051=Meldungen
+00000052=Compiler Ausgabe
+00000053=Debugger Ausgabe
+00000054=Struktur
+00000055=Sektionen
+00000056=Projekt-Manager
+00000057=Neues Setup &Projekt
+00000058=Erstellen von Neuem Setup Projekt
+00000059=&Neues Script
+00000060=Erstellt neues leeres Setup Script
+00000061=Neues Script (&Wizard)
+00000062=Erstelle neues Inno Setup Script unter Verwendung von Inno Wizard
+00000063=&Öffne...
+00000064=Öffne ein bestehendes Inno Setup Script
+00000065=&Speichern
+00000066=Speichern des aktuellen Inno Setup Scripts
+00000067=Speichern &Als...
+00000068=Speichern des aktuellen Inno Setup Scripts unter neuem Namen
+00000069=Speichere A&lles
+00000070=Speichere alle offenen Inno Setup Scripte
+00000071=&Schliesse Script
+00000072=Schliesse aktuelles Inno Setup Script
+00000073=Schliesse alle Scri&pte
+00000074=Schliesse alle offenen Inno Setup Scripte
+00000075=Drucke &Vorschau
+00000076=Vorschau des aktuellen Inno Setup Scripts vor dem Drucken
+00000077=&Drucke...
+00000078=Drucke Teil oder gesamtes Inno Setup Script
+00000079=E&xit
+00000080=Beendet das Programm
+00000081=&Rückgängig
+00000082=Rückgängig letzte Aktion
+00000083=&Wiederherstellen
+00000084=Wiederherstellen der vorigen Rückgängig-Aktion
+00000085=Ausschneiden
+00000086=Ausschneiden der Auswahl in Zwischenablage
+00000087=&Kopieren
+00000088=Kopieren der Auswahl in Zwischenablage
+00000089=&Einfügen
+00000090=Einfügen des Inhalts der Zwischenablage
+00000091=&Löschen
+00000092=Lösche die aktuelle Auswahl
+00000093=&Alles auswählen
+00000094=Alles auswählen
+00000095=Kommentar umschalten
+00000096=Zeilen-Kommentar umschalten
+00000097=&Finde...
+00000098=Finde den spezifizierten Text
+00000099=Finde &Nächstes
+00000100=Finde nächstes Auftreten des spezifizierten Textes
+00000101=Finde &Voriges
+00000102=Finde voriges Auftreten des spezifizierten Textes
+00000103=&Ersetze...
+00000104=Ersetze ausgewählten Text durch anderen Text
+00000105=&Gehe zu Zeilen-Nummer...
+00000106=Gehe zu Zeile
+00000107=&Umschalten Bookmark
+00000108=Bookmark umschalten
+00000109=G&ehe zu Bookmark
+00000110=Gehe zu Bookmark
+00000111=&Anpassen...
+00000112=Anpassen der Toolbars
+00000113=Toolbars fixieren
+00000114=Die Toolbars fixieren
+00000115=Verwende &Relative Pfade
+00000116=Verwende Relative Pfade
+00000117=&Sprach-Optionen...
+00000118=Editieren der Sprach-Optionen
+00000119=Dateien einfügen...
+00000120=Dateien einfügen
+00000121=Fonts installieren...
+00000122=Fonts installieren
+00000123=Erstelle Ordner...
+00000124=Erstelle Ordner
+00000125=Verknüpfung erstellen...
+00000126=Datei-Verknüpfung erstellen
+00000127=Erstelle Internet-Verknüpfung...
+00000128=Erstelle Internet-Verknüpfung
+00000129=Erstelle Deinstallations-Icon
+00000130=Erstelle Eintrag für Deinstallations-Icon
+00000131=Erstelle ODBC Profile...
+00000132=Einträge für ODBC profile hinzufügen
+00000133=Erstelle BDE Alias...
+00000134=Erstelle ein BDE Alias
+00000135=&Übersetzen
+00000136=Übersetzte aktuelles Inno Setup Script
+00000137=&Stop Übersetzung
+00000138=Stop Übersetzung des aktuellen Inno Setup Scripts
+00000139=Niedere &Priorität während Übersetzung
+00000140=Inno Setup compiler hat niedere Priorität während Übersetzung
+00000141=Öffne in &Inno Setup
+00000142=Öffne aktuelles Inno Setup Script in Compiler32 (Inno Setup Editor)
+00000143=Öffne A&usgabe-Ordner
+00000144=Öffne Ausgabe-Ordner des Projekts
+00000145=Import [Dateien] Sektion...
+00000146=Import [Dateien] Sektion aus vorhandener Script-Datei
+00000147=Import [Dirs] Sektion...
+00000148=Import [Dirs] Sektion aus vorhandener Script-Datei
+00000149=Import [INI] Sektion...
+00000150=Import [INI] Sektion aus vorhandener Script-Datei
+00000151=Import [Meldungen] Sektion...
+00000152=Import [Meldungen] Sektion aus vorhandener Script-Datei
+00000153=Import [Registry] Sektion...
+00000154=Import [Registry] Sektion aus vorhandener Script-Datei
+00000155=Import INI Datei...
+00000156=Import INI Datei
+00000157=Import Meldungen-Datei...
+00000158=Import Meldungen-Datei
+00000159=Import Registry Datei...
+00000160=Import Registry Datei
+00000161=Export [INI] Sektion...
+00000162=Export [INI] Sektion in Datei
+00000163=Export [Meldungen] Sektion...
+00000164=Export [Meldungen] Sektion in Datei
+00000165=Export [Registry] Sektion...
+00000166=Export [Registry] Sektion in Datei
+00000167=Trenne &Debugger
+00000168=Trenne Debugger
+00000169=&Start
+00000170=Start
+00000171=Start bis &Cursor
+00000172=Start bis Cursor
+00000173=Schritt &Hinein
+00000174=Schritt hinein
+00000175=Schritt &Über
+00000176=Schritt über
+00000177=P&ause
+00000178=Pause Debugger
+00000179=&Beenden
+00000180=Debugger beenden
+00000181=Setup
+00000182=Ziel Setup
+00000183=Deinstallieren
+00000184=Ziel deinstallieren
+00000185=&Parameter...
+00000186=Parameter
+00000187=&Evaluiere Konstante...
+00000188=Evaluiere Konstante
+00000189=&Breakpoint umschalten
+00000190=Breakpoint umschalten
+00000191=Generiere &GUID
+00000192=Generiere GUID; Ersetze aktuell selektierten Text
+00000193=Konfiguriere &Sign Tools...
+00000194=Editiere Code Signing tools
+00000195=&Optionen
+00000196=Programm Optionen
+00000197=Nächsten Tab auswählen
+00000198=Nächsten Script-Tab auswählen
+00000199=Vorigen Tab auswählen
+00000200=Vorigen Script-Tab auswählen
+00000201=Inno Script Studio Hilfe
+00000202=Inno Script Studio Dokumentation
+00000203=Inno Script Studio &Web Seite
+00000204=Inno Script Studio Homepage
+00000205=Inno Setup &Dokumentation
+00000206=Inno Setup Dokumentation
+00000207=Inno Setup Beispiel-Scripte
+00000208=Inno Setup Beispiele
+00000209=Inno Setup &FAQ
+00000210=Inno Setup FAQ
+00000211=Inno Setup &Revision History
+00000212=Inno Setup Revision History
+00000213=Inno Setup Web Seite
+00000214=Inno Setup Homepage
+00000215=I&nno Setup Preprocessor Dokumentation
+00000216=Inno Setup Preprocessor Dokumentation
+00000217=Inn&o Setup Preprocessor Web Seite
+00000218=Inno Setup Preprocessor Homepage
+00000219=Inno Setup Erweiterungen &Knowledge Base
+00000220=Inno Setup Erweiterungen Knowledge Base Home Page
+00000221=R&emObjects Pascal Script Web Seite
+00000222=RemObjects Pascal Script Homepage
+00000223=&Unterstütze Inno Setup
+00000224=Inno Setup Unterstützungs-Webseite
+00000225=Über Inno Setup
+00000226=Über Inno Setup
+00000227=Unterstütze Inno Script Studio
+00000228=Inno Script Studio Unterstützungs-Webseite
+00000229=Suche nach &Updates
+00000230=Suche nach Updates
+00000231=&Über
+00000232=Über|Zeige Anwendungs-Informationen, Versionsnummer && Copyrights
+00000233=Ziel - [%s]
+00000234=Wähle Debug-Ziel
+00000235=Inno Script Studio auf Facebook
+
+[Dialog.AddFolder]
+00000001=Root:
+00000002=Wildcard:
+00000003=Verzeichnis hinzufügen
+00000004=Dateien hinzufügen
+00000005=Unterverzeichnisse hinzufügen
+00000006=Extern
+00000007=Hinzufügen als rekursiven Ordner
+
+[Dialog.BDEAlias]
+00000001=Alias Name:
+00000002=Pfad zu Daten-Verzeichnis:
+00000003=BDE Treiber-Name:
+00000004=Lösche vor Erstellung
+
+[Dialog.CodeSigning]
+00000001=Name
+00000002=Kommando
+00000003=Hinzufügen
+00000004=Neuen Code signing Eintrag hinzufügen
+00000005=Editieren
+00000006=Editiere aktuell ausgewählten Code signing Eintrag
+00000007=Löschen
+00000008=Lösche aktuell ausgewählten Code signing Eintrag
+
+[Dialog.EvaluateConstant]
+00000001=Wähle Script Konstante zum Auswerten:
+
+[Dialog.FileAssociation]
+00000001=Datei-Erweiterung:
+00000002=Typ-Name:
+00000003=Dokument-Beschreibung:
+00000004=Verknüpfe mit:
+00000005=Icon-Dateiname:
+00000006=Icon-index:
+
+[Dialog.GoToLine]
+00000001=Neue Zeilennummer eingeben:
+
+[Dialog.InstallFonts]
+00000001=Font-Name
+00000002=Dateiname
+
+[Dialog.InternetShortcut]
+00000001=Dateiname:
+00000002=URL:
+
+[Dialog.Language]
+00000001=Wähle Sprache:
+00000002=Sprach-ID:
+00000003=Codepage:
+00000004=Dialog Font-Name:
+00000005=Willkommen-Font-Name:
+00000006=Titel Font-Name:
+00000007=Copyright Font-Name:
+00000008=Größe:
+00000009=Größe:
+00000010=Größe:
+00000011=Größe:
+00000012=Sprachanzeige von rechts nach links
+
+[Dialog.Languages]
+00000001=Bitte wählen Sie die Standard Inno Setup Sprachen, die hinzugefügt werden sollen
+00000002=&Selektiere Alle
+00000003=&Deselektiere Alle
+
+[Dialog.NewProject]
+00000001=&Diesen Dialog beim Start nicht anzeigen
+00000002=Erstelle Neu
+00000003=Inno-Installer
+00000004=Spezifizierte Templates
+00000005=Generische Templates
+00000006=Thematisierte Templates
+00000007=NSIS-Installer
+00000008=Generische Templates
+00000009=Spezielle Templates
+00000010=Thematisierte Templates
+00000011=Script Wizard zur Projekt-Erstellung verwenden
+00000012=Theme-Style:
+00000013=Öffne neuestes Script
+
+[Dialog.ODBCProfile]
+00000001=Name
+00000002=Treiber
+
+[Dialog.Parameters]
+00000001=Kommandozeilen-Parameter für Setup und Uninstall:
+
+[Dialog.WindowsVersion]
+00000001=Wähle Windows Version:
+00000002=Windows Build-Information
+00000003=Haupt-Version:
+00000004=Unter-Version:
+00000005=Build-Version:
+00000006=Servicepack:
+00000007=Sie können hier nur eine Zahl eingeben
+00000008=Sie können hier nur eine Zahl eingeben
+00000009=Sie können hier nur eine Zahl eingeben
+00000010=Sie können hier nur eine Zahl eingeben
+00000011=Build Version einfügen
+
+[Options]
+00000001=Werkzeug
+00000002=Reset Optionen
+00000003=Import Optionen
+00000004=Export Optionen
+
+[Options.Associations]
+00000001=Datei-Verknüpfungen
+00000002=&Verknüpfe Inno Setup Script (*.iss) Dateien mit diesem Compiler
+
+[Options.CodeSigning]
+00000001=Name
+00000002=Kommando
+00000003=Hinzufügen
+00000004=Einen neuen Code Signing Eintrag hinzufügen
+00000005=Editieren
+00000006=Editiere den aktuell ausgewählten Code Signing Eintrag
+00000007=Löschen
+00000008=Lösche den aktuell ausgewählten Code Signing Eintrag
+
+[Options.Compiler]
+00000001=Inno Setup Compiler Speicherort
+00000002=Compiler Verzeichnis:
+
+[Options.Display]
+00000001=Anzeige (Allgemein)
+00000002=Zeige Tab Schliessen bei:
+00000003=Zeige verknüpfte Icons auf den Editor Tabs
+00000004=Sektions-Anzeigen
+00000005=Zeige Gitternetz-Linien in Sektion
+00000006=Zeige Kommentare und ISPP Zeilen
+00000007=Zeige Kommentare und ISPP Zeilen als Werte
+
+[Options.Editor]
+00000001=Editor-Einstellungen
+00000002=Tab Breite:
+00000003=Autovervollständigen automatisch aufrufen
+00000004=Verwende Syntax Highlighting
+00000005=Unterstreiche Syntax-Fehler
+00000006=Auto Einrücken
+00000007=Erlaube Cursorbewegungen über Zeilenende hinaus
+00000008=Zeilenumbruch bei langen Zeilen
+00000009=Wandle Tabs in Leerzeichen
+00000010=Editor Anzeige
+00000011=Rechter Rand:
+00000012=Zeige aktive Zeile
+00000013=Zeige Erkennungs-Hilfen
+00000014=Zeige Editor Statuszeile
+00000015=Zeige Zeilennummern in Statuszeile
+00000016=Zeige rechten Rand
+
+[Options.FontsAndColors]
+00000001=Editor-Font
+00000002=Editor-Font:
+00000003=Editor-Font Größe:
+00000004=Anti-Aliasing Qualität:
+00000005=Editor Farben
+00000006=Hintergrund-Farbe:
+00000007=Farbe aktive Zeile:
+
+[Options.General]
+00000001=Startup Optionen
+00000002=Startup Sektion:
+00000003=Zeige Projekt-Dialog
+00000004=Letztes Script öffnen
+00000005=Öffne mit leerer Script-Datei
+00000006=Allgemeine Einstellungen
+00000007=Schreibe Boolean als:
+00000008=Zeige kompletten Pfad in der Titelzeile
+00000009=Automatisch Speichern vor Compilieren
+00000010=Erstelle Backups beim Speichern
+00000011=Erlaube rückgängig nach Speichern
+00000012=Pause bei Exceptions
+00000013=Prüfe übersetzte Script-Datei immer
+
+[Options.Plugins]
+00000001=Name
+00000002=Author
+00000003=Dateiname
+00000004=Plugin zulassen
+00000005=Zulassen/Sperren des ausgewählten Plugins
+00000006=Konfiguriere Plugin
+00000007=Konfiguriere aktuell selektiertes Plugin
+00000008=Über Plugin
+00000009=Zeige Informationen über aktuell selektiertes Plugin
+
+[Options.Styler.Inno]
+00000001=Inno Setup Styler
+00000002=Font Style
+00000003=Styler Element:
+00000004=Vordergrund-Farbe:
+00000005=Hintergrund-Farbe:
+00000006=Styler Beispiel
+
+[Options.Styler.Pascal]
+00000001=Styler Beispiel
+00000002=Pascal Styler
+00000003=Font Style
+00000004=Styler Element:
+00000005=Vordergrund-Farbe:
+00000006=Hintergrund-Farbe:
+
+[Options.Updates]
+00000001=Einstellungen aktualisieren
+00000002=Proxy Server:
+00000003=Benutzername:
+00000004=Passwort:
+00000005=Suche automatisch nach Updates beim Start
+00000006=Wechsle zu Updates vom BETA Kanal
+00000007=Updates an Log-datei anhängen
+00000008=ProxyServer verwenden
+
+[Project.Additional]
+00000001=Zusätzliche Einstellungen
+00000002=Zusätzlicher Speicherplatz:
+00000003=Runden Zeitstempel:
+00000004=Änderungsdatum:
+00000005=Änderungszeit:
+00000006=Verknüpfungen nach Änderungen aktualisieren
+00000007=Immer Neustart
+00000008=Neustart, wenn für Ablauf notwendig
+00000009=Erlaube Abbruch während Installation
+00000010=Zeitstempel in UTC
+00000011=Änderungs-Umgebung
+00000012=Setup-Icon
+00000013=Setup-Icon-Datei:
+00000014=Wähle Setup-Icon-Datei
+
+[Project.Appearance]
+00000001=Wizard-Fenster
+00000002=Normales Wizard-Bild:
+00000003=Kleines Wizard-Bild:
+00000004=Hintergrund-Farbe:
+00000005=Strecke Wizzard-Bild
+00000006=Wähle kleines Wizard-Bild
+00000007=Wähle normalesWizard-Bild
+00000008=Hintergrund-Fenster
+00000009=Farbe 1:
+00000010=Farbe 2:
+00000011=Richtung:
+00000012=Hintergrund-Fenster sichtbar
+00000013=Hintergrundfarbe massiv
+00000014=Zeige Fenstertext
+00000015=Fenstergröße änderbar
+00000016=Start maximiert
+
+[Project.ApplicationDetails]
+00000001=Applikations-Details
+00000002=Applikations-Name:
+00000003=Applikations-Version:
+00000004=Applikations-Copyright:
+00000005=Applikations-Mutex:
+00000006=Passwort:
+00000007=Erforderliche Rechte:
+00000008=Applikations-ID:
+00000009=Applikations-Version:
+00000010=Generiere Applikations-ID
+00000011=AppVerName wurde ab Version 5.3.10 von Inno Setup ersetz durch AppVersion.\n\nHier klicken, um zur neuen AppVersion Directive zu konvertieren.
+00000012=Lizenz && Information
+00000013=Lizenz-Datei:
+00000014=Info vor Datei:
+00000015=Info nach Datei:
+00000016=Suche nach Lizenz-Datei
+00000017=Suche nach Info vor Datei
+00000018=Suche nach Info nach Datei
+
+[Project.CodeSigning]
+00000001=Code Signing
+00000002=Uninstaller-Ordner:
+00000003=Code Signing Werkzeug:
+00000004=Verwende signierten Uninstaller
+00000005=wähle Verzeichnis zum Speichern der Signierten Uninstaller Dateien
+00000006=Konfiguriere Code Signing Werkzeuge
+
+[Project.Compiler]
+00000001=Compiler-Einstellungen
+00000002=Ausgabe-Ordner:
+00000003=Ausgabe-Basis-Dateiname:
+00000004=Quell-Ordner:
+00000005=Ausgabe Manifest Datei:
+00000006=Verwende Setup Lader
+00000007=Verbinde doppelte Dateien
+00000008=Verschlüsselung
+00000009=Terminal Services erkennen
+00000010=Setup Mitspeicherung (Logging)
+00000011=Wähle Ausgabe-Verzeichnis
+00000012=Wähle Quell-Verzeichnis
+00000013=Wähle Ausgabe-Manifest-Datei
+00000014=Architektur Einstellung
+00000015=Installiere im 64-bit Mode:
+00000016=Architekturen erlaubt:
+
+[Project.Compression]
+00000001=Kompression
+00000002=Kompression:
+00000003=Interne Kompression:
+00000004=Kompressions-Level:
+00000005=Kompressions-Threads:
+00000006=Feste Kompression
+00000007=LZMA/LZMA2 Einstellungen
+00000008=Algorithmus:
+00000009=Block-Größe:
+00000010=Wörterbuch-Größe:
+00000011=Finder für Übereinstimmung:
+00000012=Anzahl Block Threads:
+00000013=Anzahl schnelle Bytes:
+00000014=Verwende extra Prozess:
+
+[Project.Directory]
+00000001=Applikations-Ordner
+00000002=Vorgabe für Ordnername:
+00000003=Sperre Ordner-Seite:
+00000004=Warnung für Order vorhanden:
+00000005=Erstelle Applikations-Ordner
+00000006=Verwende vorigen Applikations-Ordner
+00000007=Erlaube Root-Ordner
+00000008=Erlaube UNC Pfad
+00000009=Warnung für Ordner existiert nicht
+00000010=Vorgabe-Ordner-Name hinzufügen
+
+[Project.DiskSpanning]
+00000001=Disk Stückelung
+00000002=Disk Cluster Größe:
+00000003=Reserviere Bytes:
+00000004=Disk Stückelungs-Größe:
+00000005=Stücke pro Disk:
+00000006=Vorgabe Stückel.-Größe:
+00000007=Erlaube Disk-Stückelung
+
+[Project.InstallPages]
+00000001=Installations-Seiten
+00000002=Verwende vorigen Setup-Typ
+00000003=Verwende vorige Tasks
+00000004=Sperre Fertig-Seite
+00000005=Sperre Fertig-Memo
+00000006=Flat Komponenten-Liste
+00000007=Zeige Komponenten-Größen
+00000008=Sperre Beendet-Seite
+00000009=Zeige Tasks Baumstruktur
+00000010=Zeige Komponenten-Liste
+00000011=Zeige Ordner auf der Fertig-Seite
+00000012=Zeige Gruppe auf der Fertig-Seite
+00000013=Sperre Start-Prompt
+00000014=Sperre Willkommen-Seite
+00000015=Verwende vorige Sprache
+
+[Project.Language]
+00000001=Sprach-Einstellungen
+00000002=Spracherkennungs-Methode:
+00000003=Zeige Sprach-Dialog:
+00000004=Zeige nicht anzeigbare Sprachen
+
+[Project.LogFile]
+00000001=Log-Datei
+00000002=Log-Dateiname:
+00000003=Logging-Methode:
+00000004=Wähle Log-Datei
+
+[Project.ProgramGroup]
+00000001=Programm-Gruppe
+00000002=Vorgabe Gruppen-Name:
+00000003=Sperre Programm-Gruppen-Seite:
+00000004=Verwende vorige Gruppe
+00000005=Erlaube keine Icons
+00000006=Verwende immer personelle Gruppe
+00000007=Vorgabe Gruppen-Name hinzufügen
+
+[Project.PublisherInfo]
+00000001=Herausgeber-Information
+00000002=Herausgeber:
+00000003=Herausgeber-URL:
+00000004=Support-URL:
+00000005=Updates-URL:
+00000006=Version:
+00000007=Kommentare:
+00000008=Kontakt:
+00000009=Liesmich-Datei:
+00000010=Telefon:
+
+[Project.RestartManager]
+00000001=Neustart-Manager
+00000002=Applikations-Filter:
+00000003=Schliesse Applikation automatisch
+00000004=Neustart Applikationen
+
+[Project.SysRequirements]
+00000001=System Anforderungen
+00000002=Kleiner als Windows Version
+00000003=Windows:
+00000004=Windows NT:
+00000005=Wähle Kleiner als Windows NT Version
+00000006=Wähle Kleiner als Windows Version
+00000007=Minimum Windows Version
+00000008=Windows:
+00000009=Windows NT:
+00000010=Wähle Minimum Windows Version
+00000011=Wähle Minimum Windows NT Version
+
+[Project.Uninstall]
+00000001=Uninstall-Einstellungen
+00000002=Log Mode:
+00000003=Uninstall Dateien-Ordner:
+00000004=Uninstallierbar:
+00000005=Erstelle Registry Key:
+00000006=Neustart Computer
+00000007=Ersetze Uninstall log AppName
+00000008=Programm && Features Einstellungen
+00000009=Anzeige-Name:
+00000010=Anzeige-Icon:
+00000011=Icon-Index:
+00000012=Modify Pfad:
+00000013=Anzeige-Größe:
+
+[Project.UserInfo]
+00000001=Benutzer Information
+00000002=Vorgabe Benutzer-Info-Name:
+00000003=Vorgabe Benutzer-Info-Organisation:
+00000004=Vorgabe Benutzer-Info-Seriennummer:
+00000005=Zeige Benutzer-Informations-Seite
+00000006=Verwende vorige Benutzer-Info
+
+[Project.VersionInfo]
+00000001=Versions-Information
+00000002=Version:
+00000003=Firma:
+00000004=Beschreibung:
+00000005=Text-Version:
+00000006=Copyright:
+00000007=Produkt-Name:
+00000008=Produkt-Version:
+00000009=Produkt-Versions-Text:
+
+[Properties.BaseForm]
+
+[Properties.Components]
+00000001=Name:
+00000002=Beschreibung:
+00000003=Extra Disk Speicherplatz:
+
+[Properties.CustomMessages]
+00000001=Meldungs-ID:
+00000002=Sprache überschreiben:
+00000003=Spezifische Meldung:
+
+[Properties.Files]
+00000001=Quelle:
+00000002=Ziel-Name:
+00000003=Ziel-Verzeichnis:
+00000004=Font-Install:
+00000005=Externe Größe:
+00000006=Starker Übersetzungs-Name:
+00000007=Bedingt
+00000008=System
+00000009=(Un)Install
+00000010=Andere
+
+[Properties.Folders]
+00000001=Name:
+00000002=Ziel-Verzeichnis:
+
+[Properties.Icons]
+00000001=Name:
+00000002=Dateiname:
+00000003=Arbeitsverzeichnis:
+00000004=Icon-Dateiname:
+00000005=Icon-Index:
+00000006=Ziel-Verzeichnis:
+00000007=(Un)Install
+00000008=zusätzlich
+00000009=Parameter:
+00000010=App Benutzer Model ID:
+00000011=Kommentar:
+00000012=Hot-Key:
+00000013=Windows 7
+
+[Properties.INIFiles]
+00000001=Dateiname:
+00000002=Sektion:
+00000003=Key:
+00000004=String:
+
+[Properties.InstallDelete]
+00000001=Dateiname:
+00000002=Typ:
+
+[Properties.InstallRun]
+00000001=Dateiname:
+00000002=Parameter:
+00000003=Arbeitsverzeichnis:
+00000004=Beschreibung:
+00000005=Status Meldung:
+00000006=ID für Erst-Start:
+00000007=Auszuführendes Kommando:
+00000008=Bedingt
+00000009=System
+00000010=Sichtbarkeit
+
+[Properties.Languages]
+00000001=Name:
+00000002=Meldungen-Datei:
+00000003=Lizenz-Datei:
+00000004=Info vor Datei:
+00000005=Info nach Datei:
+
+[Properties.Messages]
+00000001=Meldungs-ID:
+00000002=Sprache überschreiben:
+00000003=Vorgabe-Meldung:
+00000004=Spezielle Meldung:
+
+[Properties.PostCompile]
+00000001=Parameter:
+00000002=Dateiname:
+
+[Properties.PreCompile]
+00000001=Parameter:
+00000002=Dateiname:
+
+[Properties.Registry]
+00000001=Root:
+00000002=Subkey:
+00000003=Wert Typ:
+00000004=Wert Name:
+00000005=Wert Daten:
+00000006=(Un)Install
+
+[Properties.SignTool]
+00000001=Kommando:
+00000002=Name:
+
+[Properties.Special]
+00000001=Text:
+
+[Properties.Tasks]
+00000001=Name:
+00000002=Beschreibung:
+00000003=Gruppen-Beschreibung:
+
+[Properties.Types]
+00000001=Name:
+00000002=Beschreibung:
+
+[Properties.UnInstallDelete]
+00000001=Dateiname:
+00000002=Typ:
+
+[Properties.UnInstallRun]
+00000001=Dateiname:
+00000002=Parameter:
+00000003=Arbeitsverzeichnis:
+00000006=ID für Erst-Start:
+00000007=Auszuführendes Kommando:
+00000008=Bedingt
+00000009=System
+00000010=Sichtbarkeit
+
+[Section.BaseForm]
+
+[Section.Components]
+00000009=Prüfe
+00000010=Vor Installation
+00000011=Nach Installation
+00000001=Name
+00000002=Beschreibung
+00000003=Platzbedarf
+00000004=Typen
+00000005=Flags
+00000006=Mindest-Version
+00000007=Maximal-Version
+00000008=Sprachen
+
+[Section.CustomMessages]
+00000001=Meldungs-ID
+00000002=Sprache
+00000003=Meldung
+
+[Section.Files]
+00000009=Externe Größe
+00000010=Starker Übersetzungs-Name
+00000011=Mindest-Version
+00000012=Maximal-Version
+00000013=Komponenten
+00000014=Tasks
+00000015=Sprachen
+00000016=Rechte
+00000017=Ausgeschlossen
+00000018=Prüfe
+00000019=Vor Installation
+00000020=Nach Installation
+00000001=Quell-Dateiname
+00000002=Ziel-Dateiname
+00000003=Datei-Typ
+00000004=Quell-Ordner
+00000005=Ziel-Ordner
+00000006=Flags
+00000007=Attribute
+00000008=Font-Install
+00000021=Dateien hinzufügen...
+00000022=Vorhandene Dateien prüfen
+00000023=Relative Pfade
+00000024=Absolute Pfade
+00000025=Ordner hinzufügen...
+00000026=Öffne &Quell-Ordner
+00000027=Konvertiere Dateipfade nach
+
+[Section.Folders]
+00000009=Sprachen
+00000010=Rechte
+00000011=Ausgeschlossen
+00000012=Prüfe
+00000013=Vor Installation
+00000014=Nach Installation
+00000001=Name
+00000002=Ziel-Ordner
+00000003=Flags
+00000004=Attribute
+00000005=Mindest-Version
+00000006=Maximal-Version
+00000007=Komponenten
+00000008=Tasks
+
+[Section.Icons]
+00000009=Kommentar
+00000010=Hot-Key
+00000011=Mindest-Version
+00000012=Maximal-Version
+00000013=Komponenten
+00000014=Tasks
+00000015=Sprachen
+00000016=Prüfe
+00000017=Vor Installation
+00000018=Nach Installation
+00000001=Name
+00000002=Dateiname
+00000003=Arbeitsverzeichnis
+00000004=Applikation Benutzer Model ID
+00000005=Flags
+00000006=Icon-Dateiname
+00000007=Icon-Index
+00000008=Parameter
+
+[Section.INIFiles]
+00000009=Tasks
+00000010=Sprachen
+00000011=Prüfe
+00000012=Vor Installation
+00000013=Nach Installation
+00000001=Dateiname
+00000002=Sektion
+00000003=Schlüssel
+00000004=Wert
+00000005=Flags
+00000006=Mindest-Version
+00000007=Maximal-Version
+00000008=Komponenten
+
+[Section.InstallDelete]
+00000009=Vor Installation
+00000010=Nach Installation
+00000001=Typ
+00000002=Dateiname
+00000003=Mindest-Version
+00000004=Maximal-Version
+00000005=Komponenten
+00000006=Tasks
+00000007=Sprachen
+00000008=Prüfe
+
+[Section.InstallRun]
+00000009=Mindest-Version
+00000010=Maximal-Version
+00000011=Komponenten
+00000012=Tasks
+00000013=Sprachen
+00000014=Prüfe
+00000015=Vor Installation
+00000016=Nach Installation
+00000001=Dateiname
+00000002=Parameter
+00000003=Arbeitsverzeichnis
+00000004=Flags
+00000005=Beschreibung
+00000006=Status Meldung
+00000007=Auszuführendes Kommando
+00000008=ID für Erst-Start:
+
+[Section.Languages]
+00000001=Name
+00000002=Meldungen Datei
+00000003=Lizenz-Datei
+00000004=Info vor Datei
+00000005=Info nach Datei
+00000006=Standard Inno Setup Sprachen hinzufügen
+
+[Section.Messages]
+00000001=Meldungs-ID
+00000002=Sprache
+00000003=Meldung
+
+[Section.PreCompile]
+00000001=Dateiname
+00000002=Parameter
+00000003=Flags
+
+[Section.Registry]
+00000009=Maximal-Version
+00000010=Komponenten
+00000011=Tasks
+00000012=Sprachen
+00000013=Prüfe
+00000014=Vor Installation
+00000015=Nach Installation
+00000001=Root
+00000002=Unterschlüssel
+00000003=Wert Typ
+00000004=Wert Name
+00000005=Wert Daten
+00000006=Flags
+00000007=Rechte
+00000008=Mindest-Version
+
+[Section.Tasks]
+00000009=Prüfe
+00000010=Vor Installation
+00000011=Nach Installation
+00000001=Name
+00000002=Beschreibung
+00000003=Gruppe Beschreibung
+00000004=Flags
+00000005=Mindest-Version
+00000006=Maximal-Version
+00000007=Komponenten
+00000008=Sprachen
+
+[Section.Types]
+00000009=Nach Installation
+00000001=Name
+00000002=Beschreibung
+00000003=Flags
+00000004=Mindest-Version
+00000005=Maximal-Version
+00000006=Sprachen
+00000007=Prüfe
+00000008=Vor Installation
+
+[Section.UnInstallDelete]
+00000009=Vor Installation
+00000010=Nach Installation
+00000001=Typ
+00000002=Dateiname
+00000003=Mindest-Version
+00000004=Maximal-Version
+00000005=Komponenten
+00000006=Tasks
+00000007=Sprachen
+00000008=Prüfe
+
+[Section.UnInstallRun]
+00000009=Mindest-Version
+00000010=Maximal-Version
+00000011=Komponenten
+00000012=Tasks
+00000013=Sprachen
+00000014=Prüfe
+00000015=Vor Installation
+00000016=Nach Installation
+00000001=Dateiname
+00000002=Parameter
+00000003=Arbeitsverzeichnis
+00000004=Flags
+00000005=Beschreibung
+00000006=Status Meldung
+00000007=Auszuführendes Kommando:
+00000008=Starte einmalig ID
+
+[Section_PostCompile]
+
+[Wizard.BaseForm]
+
+[Wizard.InnoSetup]
+00000001=Nicht alle Features von Inno Setup sind durch diesen Wizard abgedeckt. Lesen Sie die Dokumentation bzgl. Details zur erstellung von Inno Setup script Dateien.\n\nDrücken Sie Weiter um fortzufahren, oder Abbrechen um den Wizard zu verlassen.
+00000002=Dieser Wizard wird Sie durch den Prozess zur Erstellung einer neuen Inno Setup Script Datei führen. Das Ergebnis wird verwendet, um eine neue Script-Datei zu erstellen, welche direkt übersetzt oder für spätere Verwendung gespeichert werden kann.
+00000003=Willkommen zu [name]
+00000004=Sie haben erfolgreich [name] fertiggestellt.\n\nUm den Wizard zu schliessen und eine neue Script-Datei zu erstellen, drücken Sie Fertigstellen.
+00000005== erforderlich
+00000006=Fett
+00000007=Erstellen eier neuen und l&eeren Script-Datei
+00000008=Applikations-Na&me:
+00000009=Applikations-&Herausgeber:
+00000010=Applikations-&Webseite:
+00000011=Applikations-&Version:
+00000012=Applikations-Ordner-Na&me:
+00000013=Applikations-&Ziel-Basis-Ordner:
+00000014=Die Applikation &benötigt keinen Ordner
+00000015=Dem Benutzer erlauben, &den Applikationsordner zu ändern
+00000016=Andere:
+00000017=&Durchsuchen...
+00000018=ausführbare Applikations-&Datei :
+00000019=Erlaube &Benutzer die Applikation zu starten, nachdem Setup beendet ist
+00000020=&Datei(en) hinzufügen...
+00000021=Ordner &hinzufügen...
+00000022=&Editieren...
+00000023=Andere Applikations-&Dateien:
+00000024=Ent&fernen
+00000025=Die Applikation &hat keine ausführbare Datei
+00000026=Dem Benutzer erlauben, die Erstellung &des Start-Menü-Ordners zu sperren
+00000027=Andere Haupt-ausführbare Icons:
+00000028=Applikation &Startmenü-Ordner-Name:
+00000029=Erstelle ein &Uninstall-Icon im Startmenü-Ordner
+00000030=Erstelle einen &Internet-Verknüpfung im Startmenü-Ordner
+00000031=Dem Benutzer erlauben, ein Deskto&p Icon zu erstellen
+00000032=Dem Benutzer erlauben, &den Startmenü-Ordner-Name zu ändern
+00000033=Dem Benutzer erlauben, ein &Schnellstart-Icon zu erstellen
+00000034=D&urchsuchen...
+00000035=Anzeige der Informations-Datei n&ach der Installation:
+00000036=Dur&chsuchen...
+00000037=Anzeige der &Informations-Datei vor der Installation:
+00000038=Du&rchsuchen...
+00000039=&Lizenz-Datei:
+00000040=&Selektiere Alles
+00000041=&Sprachen:
+00000042=&Deselektiere Alles
+00000043=Verwende Passwort, um die Applikations-Dateien zu v&erschlüsseln
+00000044=Compiler Ausgabe Basis &Dateiname:
+00000045=Durc&hsuchen...
+00000046=Compiler Ausgabe &Verzeichnis angeben:
+00000047=Setup &Passwort:
+00000048=Durch&suchen...
+00000049=Setup &Icon-Datei angeben:
+
+[$CONSTANTS]
+Default=Vorgabe
+SCaption3rdparty=3rd Party Sektionen
+SCaption3rdpartyDownload=Download
+SCaption3rdpartyPost=Post Compilierungs-Schritte
+SCaption3rdpartyPre=Pre Compilierungs-Schritte
+SCaptionAppearance=Erscheinungsbild
+SCaptionApplicationAdditional=Zusätzliche Einstellungen
+SCaptionApplicationDetails=Applikations-Details
+SCaptionApplicationFolder=Applikations-Ordner
+SCaptionAssociations=Datei-Verknüpfungen
+SCaptionAutoCAcceptWith=Annehmen mit: <TAB> oder <ENTER>
+SCaptionAutoCNoSelection=Bitte wählen Sie einen Eintrag aus der AutoComplete Liste
+SCaptionBlankScript=Leeres Script
+SCaptionBothOptions=Beides, der Active Tab und die Tab Bar
+SCaptionCode=Pascal-Code
+SCaptionCodeSigning=Code-Signing
+SCaptionCodeSigningTools=CodeSigning Werkzeuge
+SCaptionCompilerSettings=Compiler Einstellungen
+SCaptionComponents=Komponenten
+SCaptionCompression=Kompression
+SCaptionCopy=&Copy
+SCaptionCustomizeView=Ansicht anpassen...
+SCaptionCustomMessages=Meldungen benutzerdefiniert
+SCaptionCut=Au&sschneiden
+SCaptionDelete=Item &Löschen
+SCaptionDeleteAll=Alle Items löschen
+SCaptionDiskSpanning=Disk Stückelung
+SCaptionDisplaySettings=Anzeige Einstellungen
+SCaptionDuplicateEntry=Dupliziere Eintrag
+SCaptionEditorSettings=Editor Einstellungen
+SCaptionFiles=Dateien
+SCaptionFolders=Verzeichnisse
+SCaptionFontsAndColors=Fonts & Farben
+SCaptionGeneralSettings=Allgemeine Einstellungen
+SCaptionGenericTemplates=Generische Templates
+SCaptionIcons=Icons
+SCaptionIni=INI Dateien
+SCaptionInnoSetupProject=InnoSetup Projekt
+SCaptionInnoStyler=InnoSetup Styler
+SCaptionInsertCommentLine=Kommentar-Zeile
+SCaptionInsertEmptyLine=Leere Zeile
+SCaptionInsertISPPLine=ISPP Zeile
+SCaptionInstallationPages=Installations Seiten
+SCaptionInstallDelete=Install Löschen
+SCaptionInstallRun=Install Starten
+SCaptionItemProperties=Item Eigenschaften
+SCaptionLanguages=Sprachen
+SCaptionLanguageSettings=Sprach-Einstellungen
+SCaptionLocateInScript=Suche Item in Script
+SCaptionLogFile=Log Datei
+SCaptionMessages=Meldungen
+SCaptionMoveDown=Nach unten
+SCaptionMoveToBottom=Zum Ende
+SCaptionMoveToTop=Zum Anfang
+SCaptionMoveUp=Nach oben
+SCaptionNewItem=Neues Item
+SCaptionNoProject=<Kein Projekt>
+SCaptionPascalStyler=Pascal-Styler
+SCaptionPaste=&Einfügen
+SCaptionPluginDisable=Sperre Plugin
+SCaptionPluginEnable=Erlaube Plugin
+SCaptionPluginSettings=Plugin-Einstellungen
+SCaptionPost=Post Compilierungs-Schritte
+SCaptionPostCompileImported=%s PostCompile Sektion
+SCaptionPre=Pre Compilierungs-Schritte
+SCaptionPreCompileImported=%s PreCompile Sektion
+SCaptionProgramGroup=Programm-Gruppe
+SCaptionProgramGroupVista=Programm und besondere Einstellungen
+SCaptionProgramGroupXP=Hinzufügen oder Entfernen von Programm-Einstellungen
+SCaptionProject=Projekt - [%s]
+SCaptionPublisherInformation=Herausgeber Information
+SCaptionRegistry=Registry
+SCaptionRestartManager=Neustart Manager
+SCaptionRunAs2KXP=Starte Setup/Uninstall immer als anderer Benutzer
+SCaptionRunAsVista=Starte Setup/Uninstall immer als Administrator
+SCaptionScript=InnoSetup Script
+SCaptionSelectAll=Selektiere Alles
+SCaptionSelectIconFile=Selektiere Icon-datei
+SCaptionSelectInfoFile=Selektiere Info-Datei
+SCaptionSelectINIFile=Selektiere INI-Datei
+SCaptionSelectLicenseFile=Selektiere Lizenz-Datei
+SCaptionSelectLogFile=Selektiere Compiler Log-Datei
+SCaptionSelectManifestFile=Selektiere Output Manifest-Datei
+SCaptionSelectMessagesFile=Selektiere Meldungen-Datei
+SCaptionSelectOutputFolder=Selektiere Ausgabe-Ordner
+SCaptionSelectRegistryFile=Selektiere Registry-Datei
+SCaptionSelectSignedUninstallFolder=Selektiere den signierten Uninstaller-Ordner
+SCaptionSelectSourceFolder=Selektiere den Quell-Ordner
+SCaptionSelectWizardImage=Selektiere Wizard-Bild
+SCaptionSelectWizardImage2=Selektiere kleines Wizard-Bild
+SCaptionSimpleScript=Einfaches Script
+SCaptionSpecialItems=Spezielle Items
+SCaptionSpecializedTemplates=Spezialisierte Templates
+SCaptionSpecialValueComment=Kommentar
+SCaptionSpecialValueCommentText=Kommentar-Text:
+SCaptionSpecialValueEmptyLine=Leere Zeile
+SCaptionSpecialValueISPPCode=ISPP Code:
+SCaptionSpecialValueISPPLine=ISPP Zeile
+SCaptionSupercededDirective=Überholte Direktive
+SCaptionSystemRequirements=System Anforderungen
+SCaptionTabBarOption=Nur Tab Bar (angezeigt auf der rechten Seite)
+SCaptionTabOption=Nur Aktiver Tab
+SCaptionTargetMenu=Ziel [%s]
+SCaptionTasks=Tasks
+SCaptionThemedTemplates=Thematisierte Templates
+SCaptionThirdPartyImported=%s Einstellungen importiert
+SCaptionTypes=Typen
+SCaptionUninstall=Uninstall Einstellungen
+SCaptionUninstallDelete=Uninstall Löschen
+SCaptionUninstallRun=Uninstall Starten
+SCaptionUpdateSettings=Update-Einstellungen
+SCaptionUserInformation=Benutzer-Information
+SCaptionVersionInformation=Versions-Information
+SCompilerExampleScripts=Beispiel-Scripte...
+SCompilerExecuteSetupError=Fehler bei Ausführen von "%s": \n\n %d: %s
+SCompilerIllegalNullChar=Illegaler Null-Character in Zeile %d
+SCompilerMoreFiles=Weitere Dateien...
+SCompilerStatusAborted=Compilierung abgebrochen.
+SCompilerStatusElapsed=Gesamte Compilierungs-Zeit: %s
+SCompilerStatusErrorAborted=Compiler-Fehler!
+SCompilerStatusFileError=Fehler: %s nicht gefunden. Bitte %s Aktion bestätigen.
+SCompilerStatusFinished=Übersetzung fertig.  [%s at %s]
+SCompilerStatusPrePostFinished=%s Verarbeitung fertig.
+SCompilerStatusPrePostStarted=%s Verarbeitung.
+SCompilerStatusPrePostStep=Läuft: %s
+SCompilerStatusPrePostWarning=%s Verarbeitung wird noch getestet.
+SCompilerStatusStarting=Starte Übersetzung.  [%s at %s]
+SCompilerStatusUnsupported=ISPP Definitionen werden momentan durch %s Sektion nicht unterstützt.
+SCompilerStatusVersion=Übersetze Script mit %s [%s]
+SDebuggerExitCode=%s Exit Code
+SDebuggerExitCodeError1=Kann %s Exit Eode nicht holen (%s failed)
+SDebuggerExitCodeError2=%s läuft noch; kann Exit Code nicht holen
+SDebuggerStatusAppStarted=%s Applikation gestartet
+SDebuggerStatusCleanUp=Entferne übriges temporäres Verzeichnis
+SDebuggerStatusCleanUpFailed=Fehler beim Entfernen des übrigen temporären Verzeichnisses
+SDebuggerStatusTerminating=# Beende Prozess #
+SDialogButtonApply=Anwenden
+SDialogButtonBack=< &Zurück
+SDialogButtonCancel=Abbruch
+SDialogButtonFindAll=Finde Alle
+SDialogButtonFinish=&Fertig
+SDialogButtonHelp=Hilfe
+SDialogButtonNext=&Nächste >
+SDialogButtonOK=OK
+SDialogButtonReplaceAll=Ersetze Alle
+SEditorAbortCompile=Sind Sie sicher, die Übersetzung abzubrechen ?
+SEditorCaptionColumn=Spalte
+SEditorCaptionInsert=Einfügen
+SEditorCaptionLine=Zeile
+SEditorCaptionModified=Geändert
+SEditorCaptionOverwrite=Überschreiben
+SEditorCaptionReadOnly=Nur Lesen
+SFormCaptionAbout=Über
+SFormCaptionAddFolder=Ordner hinzufügen
+SFormCaptionBDEAlias=Erstelle BDE Alias
+SFormCaptionComponent=Komponenten-Eigenschaften
+SFormCaptionCustomize=Spalten vorgeben
+SFormCaptionCustomMessage=Spezielle Meldungen Eigenschaften
+SFormCaptionEvaluateConstant=Konstante auswerten
+SFormCaptionFile=Datei Eigenschaften
+SFormCaptionFileAssociation=Erstelle Datei-Verknüpfung
+SFormCaptionFolder=Verzeichnis-Eigenschaften
+SFormCaptionGoToLine=Gehe zu Zeilennummer
+SFormCaptionIcon=Icon Eigenschaften
+SFormCaptionImportINIFiles=Importiere INI Dateien
+SFormCaptionImportMessages=Importiere meldungen
+SFormCaptionImportRegistryFiles=Importiere Registry Dateien
+SFormCaptionIniFile=INI Dateien Eigenschaften
+SFormCaptionInnoWizard=InnoSetup Script Wizard
+SFormCaptionInnoWizardFiles=Script Wizard Datei
+SFormCaptionInstallDelete=Installiere Lösch-Aktion
+SFormCaptionInstallFonts=Selektiere Fonts
+SFormCaptionInstallRun=Install Start-Aktion
+SFormCaptionInternetShortcut=Erstelle Internet-Verknüpfung
+SFormCaptionLanguage=Sprach-Eigenschaften
+SFormCaptionLanguageOptions=Sprach-Optionen
+SFormCaptionLanguages=Wähle Standard-Sprachen
+SFormCaptionMessage=Meldung Eigenschaften
+SFormCaptionNewProject=Neues Projekt
+SFormCaptionODBCProfile=Erstelle ODBC Profile
+SFormCaptionOptions=Optionen
+SFormCaptionParameters=Parameter
+SFormCaptionPostCompile=Post-Compile Aktion
+SFormCaptionPreCompile=Pre-Compile Aktion
+SFormCaptionRegistry=Registry Eintrag
+SFormCaptionReplace=Ersetze Text
+SFormCaptionSearch=Finde Text
+SFormCaptionSetupOptions=Setup Optionen
+SFormCaptionSignTool=Sign-Tool Eigenschaften
+SFormCaptionSignTools=Sign-Tools
+SFormCaptionSpecialValue=Spezielle Wert Eigenschaften
+SFormCaptionTask=Task Eigenschaften
+SFormCaptionType=Typ Eigenschaften
+SFormCaptionUninstallDelete=Uninstall Lösch Aktion
+SFormCaptionUninstallRun=Uninstall Start Aktion
+SGroupCaptionAdditional=Zusätzlich
+SGroupCaptionAttributes=Attribute
+SGroupCaptionComponents=Komponenten
+SGroupCaptionDetails=Details
+SGroupCaptionExcludes=Ausschlüsse
+SGroupCaptionFlags=Flags
+SGroupCaptionLanguages=Sprachen
+SGroupCaptionMinWindowsGroup=Mindest Windows-Version
+SGroupCaptionOnlyBelowWindows=Kleiner als Windows-Version
+SGroupCaptionPermissions=Rechte
+SGroupCaptionScripting=Pascal-Scripting
+SGroupCaptionSignTool22=Sign-Tool Details
+SGroupCaptionSysRequirments=System Anforderungen
+SGroupCaptionTasks=Tasks
+SGroupCaptionTypes=Typen
+SHintCopy=Kopieren der Auswahl in Zwischenablage
+SHintCustomizeView=Anpassen der aktuellen Ansicht
+SHintCut=Ausschneiden der Auswahl in Zwischenablage
+SHintDelete=Lösche Item
+SHintDeleteAll=Lösche alle Items
+SHintExpression=Boolscher Ausdruck, welcher Aufrufe zu Prüffunktionen enthalten kann,\num Uninstall-Parameter zu setzen.\n\nz.B.: not IsTaskSelected('portablemode')
+SHintInsertCommentLine=Kommentar-Zeile
+SHintInsertEmptyLine=Leere Zeile
+SHintInsertISPPLine=ISPP Zeile
+SHintItemProperties=Zeige die selektierte Icon-Eigenschafts-Seite
+SHintLanguage=Verwende %s Sprach-Dateien
+SHintLocateInScript=Finde Item im active Script
+SHintMinimumWindows=Selektiere Mindest Windows Version
+SHintMinimumWindowsNT=Selektiere Mindest Windows NT Version
+SHintMoveDown=Nach unten
+SHintMoveToBottom=Zum Ende
+SHintMoveToTop=Zum Anfang
+SHintMoveUp=Nach oben
+SHintNewItem=Neues Item
+SHintOnlyBelowWindows=Selektiere Kleiner als Windows Version
+SHintOnlyBelowWindowsNT=Selektiere Kleiner als Windows NT Version
+SHintPaste=Zwischenablage einfügen
+SHintSelectAll=Selektiere alle Items
+SHintSpecialItems=Spezielle Items
+SLabelCaptionAfterInstall=Nach Installation:
+SLabelCaptionBeforeInstall=Vor Installation:
+SLabelCaptionCheck=Prüfe:
+SLabelCaptionManualListEntry=Manueller List Eintrag (jeder Eintrag muss durch Leerzeichen getrennt sein)
+SMessageClearAllItems=Sind Sie sicher, dass Sie alle Einträge dieser Script-Sektion löschen wollen?
+SMessageCompileNow=Wollen Sie das beue Script nun komilieren?
+SMessageCompilerErrorTitle=Compiler Fehler
+SMessageCompilerNeedUninstExe=Kann Ziel zur Zeit nicht deinstallieren. Bitte starten Sie zuerst Setup erfolgreich.
+SMessageCompilerRunning=Eine Übersetzung läuft bereits.
+SMessageCompilerSaveFile=Wollen Sie das Script vor der Übersetzung speichern?\n\nWenn Sie mit Nein antworten, wird die übersetzte Installation im Ordner Meine Dokumente per Vorgabe gespeichert.
+SMessageConvertAppVerName=Konvertiere die Applikations-Version von AppVerName Direktive zur neueren AppVersion?\n\nDiese Änderung wird die alte AppVerName Direktive nach kopieren des Wertes in die neuere AppVersion sperren.\n\nBitte bestätigen Sie, dass die AppVersion Direktive nach der Konvertierung korrekt ist.
+SMessageConvertToAbsolutePath=Konvertiere selektierte Dateien, um absolute Dateipfade zu erhalten?
+SMessageConvertToRelativePath=Konvertiere selektierte Dateien, um relative Dateipfade zu erhalten?
+SMessageCreateUninstallIconError=Bitte geben Sie einen Wert "AppName" in der [Setup] Script Sektion an.
+SMessageDebuggerDetachProcess=Dieses Kommando wird den Debugger vom laufenden %s Prozess trennen. Fortsetzen?
+SMessageDebuggerException=Zeile %d:\n%s.
+SMessageDebuggerExceptionTitle=Laufzeit-Fehler
+SMessageDebuggerNoCode=Für die aktuelle Zeile wurde kein Code generiert.
+SMessageDebuggerPausePending=Eine Pause steht bereits bevor.
+SMessageDebuggerStopProcess=Bitte stoppen Sie den laufenden %s Prozess, bevor Sie dieses Kommando ausführen.
+SMessageDebuggerTerminateProcess1=Dies wird den laufenden %s Prozess bedingungslos beenden. Fortfahren?
+SMessageDebuggerTerminateProcess2=Beachten Sie, dass wenn %s aktuell in der Installationsphase ist, alle Änderungen am System, obwohl weit entfernt, weder rückgängig gemacht werden, noch Uninstall-Daten geschrieben werden.
+SMessageDebuggerTerminateProcessTitle=Beende Prozess
+SMessageDeleteMultipleItems=Sind Sie sicher, dass Sie %d Item Einträge dieser Script-Sektion löschen wollen?
+SMessageEvaluateErrorTitle=Fehler beurteilen
+SMessageEvaluateResultTitle=Ergebnis beurteilen
+SMessageEvaluateUnknown=Unbekannter Fehler aufgetreten.
+SMessageFileAssocError1=Datei-Erweiterung fehlt.
+SMessageFileAssocError2=Typ-Name fehlt.
+SMessageFileAssocError3=Dokument-Beschreibung fehlt.
+SMessageFileAssocError4=Datei für die Verknüpfung fehlt.
+SMessageFileAssocFailed=Fehler beim Verknüpfen von %s mit der iss-Datei-Erweiterung\nFehler-Code: %d (%s)
+SMessageFileAssocNotElevated=Um zu erlauben, %s mit der iss-Datei-Erweiterung zu verknüpfen, muss mit Adminstrator-Rechten gestartet werden.
+SMessageFileAssocSuccess=Die .iss-Erweiterung wurde erfolgreich verknüpft mit: %s
+SMessageFileAssocTitle=Ändern der Verknüpfung
+SMessageFileCheckError=Die folgenden Dateien existieren nicht.
+SMessageFileCheckErrorTitle=Fehlende Dateien
+SMessageFileCheckSuccess=Alle geprüften Dateien scheinen zu existieren.
+SMessageGenerateGUID=Die erzeugte GUID wird im Editor an der aktuellen Cursor-Position eingefügt. Fortsetzen?
+SMessageGenerateGUID2=Eine Applikations-ID ist bereits vergeben.\n\nWollen Sie eine Ersatz Applikations-ID generieren?
+SMessageGenerateGUIDTitle=Generiere GUID
+SMessageGoToLineError=Zeilennummer muss zwischen 1 und %d liegen
+SMessageImportMessages=Wollen Sie, dass die importierten Meldungen die aktuelle [Meldungen]-Sektion im Script ersetzen?
+SMessageISCmplrError=Inno Script Studio konnte Inno Setup Compiler (%s) nicht laden. Bitte prüfen Sie, dass die Inno Setup Compiler Umgebung korrekt gesetzt wurde.\n\nDie Inno Setup Compiler Besonderheiten sind nicht verfügbar, bis eine gültige Compiler-Umgebung gesetzt wurde.
+SMessageISCmplrErrorTitle=Fehler beim Laden von %s
+SMessageLocateInScriptError=Fehler beim Finden des Items im aktiven Script
+SMessageLogFileReadError=Fehler beim Lesen der Log-Datei
+SMessageLogFileReadErrorTitle=Fehler beim Lesen der Log-Datei
+SMessageLogFileWriteError=Fehler beim Erstellen der Log-Datei
+SMessageLogFileWriteErrorTitle=Fehler beim Schreiben der Log-Datei
+SMessageMRUFileNotFound=Die Datei ''%s'' kann nicht gefunden werden.\n\nWollen Sie diese aus der Liste der neuesten Items entfernen?
+SMessageMRUFileNotFoundTitle=Fehler beim Laden der Datei
+SMessageODBCTypeError=Nicht unterstützter Registry-Typ für den Wert: %s
+SMessageOpenInInnoCompiler1=Das Script muss gespeichert werden, bevor es mit Inno Setup geöffnet werden kann.\n\nWollen Sie die Script-Datei jetzt speichern?
+SMessageOpenInInnoCompiler2=Die Script-Datei wurde geändet und muss gespeichert werden, bevor sie in InnoSetup geöffnet werden kann.\n\nWollen Sie das Script jetzt speichern?
+SMessagePostCompileImported=Die %s PostCompile Sektion wurde in die PostCompile Sektion importiert.
+SMessagePreCompileImported=Die %s PreCompile-Sektion wurde in die PreCompile-Sektion importiert.
+SMessageReloadScript1=Die Datei wurde ausserhalb des Editors verändert.\n\nWollen Sie die Datei neu laden ?
+SMessageReloadScript2=Die Datei wurde ausserhalb des Editors verändert. Änderungen im Editor wurden ebenfalls vorgenommen.\n\nWollen Sie die Datei neu laden und Ihre Änderungen im Editor verlieren ?
+SMessageReloadScriptModal=Die Datei wurde ausserhalb des Editors verändert. Sie sollten diese neu laden.
+SMessageResetOptions=Sollen alle Optionen auf Vorgabewerte rückgesetzt werden ?
+SMessageSaveChanges=Der Text in der %s Datei hat sich geändert.\n\nWollen Sie die Änderungen speichern ?
+SMessageThirdPartyImported=Die %s Einstellungen wurden in die ThirdParty-Sektion importiert.
+SMessageUpdateAvailable=Eine neue Version von Inno Script Studio (%s) ist zum Download verfügbar.\n\nWollen Sie diese herunterladen und die neue Version installieren ?
+SMessageUpdateAvailableTitle=Ein neues Update ist verfügbar
+SMessageUpdateError=Inno Script Studio war nicht in der Lage, die Update-Informationen herunterzuladen.
+SMessageUpdateFailed=Inno Script Studio war nicht in der Lage, sich mit dem Update-Server zu verbinden.\nWenn Sie einen Proxy-Server verwenden, prüfen Sie bitte die Einstellungen und versuchen Sie es nochmals.
+SMessageUpdateFailedTitle=Update fehlgeschlagen
+SMessageUpdateLatestInstalled=Ihre Applikations-Version (%s) ist aktuell.
+SMessageValidationError=Die folgenden Gültigkeits-Fehler müssen korrgiert werden, um fortzufahren.
+SMessageValidationErrorItem=Bitte einen "%s" Wert eingeben.
+SMessageValidationErrorTitle=Gültigkeits-Fehler
+SMessageVerifyFiles=Um die ausgewählten Dateien zu prüfen, muss das Script gespeichert werden.\n\nWollen Sie, dass das Script gespeichert wird, um die Dateien zu prüfen ?
+STabCaptionAdditional=Zusätzlich
+STabCaptionAdvanced=Fortgeschritten
+STabCaptionAttributes=Allgemein
+STabCaptionCommon=Allgemein
+STabCaptionComponents=Komponenten
+STabCaptionDetails=Details
+STabCaptionGeneral=Allgemein
+STabCaptionLanguage=Sprachen
+STabCaptionTasks=Tasks
+STabCaptionTypes=Typen
+SUntitled=Unbetitelt
+SWizardAppDir=Applikations-Ordner
+SWizardAppDir2=Bitte Ordner-Informationen über Ihre Applikation angeben.
+SWizardAppDirNameError=Bitte den Namen des Applikations-Ordners angeben.
+SWizardAppDocs=Applikations-Dokumentation
+SWizardAppDocs2=Bitte angeben, welche Dokumentations-Dateien durch das Setup während der Installation angezeigt werden sollen.
+SWizardAppExeError=Bitte die ausführbare Datei der Applikation angeben.
+SWizardAppFiles=Applikations-Dateien
+SWizardAppFiles2=Bitte die Dateien angeben, die Teile Ihrer Applikation sind.
+SWizardAppFiles3=Bitte den Quell-Ordner angeben.
+SWizardAppFilesSubDirsMessage=Sollen Dateien in den Unterverzeichnissen von "%s" auch eingebunden werden ?
+SWizardAppGroupNameError=Bitte den Startmenü-Gruppennamen der Applikation angeben.
+SWizardAppIcons=Applikations-Icons
+SWizardAppIcons2=Bitte angeben, welche Icons für Ihre Applikation erzeugt werden sollen.
+SWizardAppInfo=Applikations-Information
+SWizardAppInfo2=Bitte einige Basisinformationen für Ihre Applikation angeben.
+SWizardAppNameError=Bitte den Namen der Applikation angeben.
+SWizardAppRootDirError=Bitte den Ziel-Basisordner der Applikation angeben.
+SWizardAppVersionError=Bitte die Version der Applikation angeben.
+SWizardCancelMessage=[name] ist nicht vollständig. Wenn Sie jetzt beenden, wird die neue Script-Datei nicht erzeugt.\n\nBeenden von [name] ?
+SWizardCancelMessage2=[name] Startup Wizard ist nicht vollständig. Wenn Sie jetzt beenden, werden die gewählten Einstellungen für den Import nicht gespeichert.\n\n[name] Startup Wizard beenden ?
+SWizardCompiler=Compiler-Einstellungen
+SWizardCompiler2=Bitte einige Basis-Compiler-Einstellungen angeben.
+SWizardCompiler32Check=Inno Setup Compiler von Jordan Russell
+SWizardCompilerOutputDir=Bitte den Ordner angeben.
+SWizardDefaultName=InnoSetup Script Wizard
+SWizardFileAppDestRootDirError=Bitte einen Ziel-Basis-Ordner ungleich dem Anwendungs-Ordner angeben.
+SWizardFileDestRootDirError=Bitte den Ziel-Basis-Ordner angeben.
+SWizardFinished=Fertig
+SWizardImport=Einstellungen importieren von
+SWizardImport2=Bitte das Entwicklungswerkzeug angeben, von dem die Einstellungen importiert werden sollen.
+SWizardImportError=Bitte mindestens eine installierte Umgebung zum Importieren der Einstellungen angeben.
+SWizardImportLabel=[name] hat das Vorhandensein der folgenden Entwicklungsumgebung für Inno Setup erkannt.
+SWizardImportMRUList=Importiere neue Dokumenten-Liste für die ausgewählte Umgebung.
+SWizardInnoIDECheck=InnoIDE von Graham Murt
+SWizardISGCheck=Inno Script Generator von Hisoft 2000
+SWizardISPP=InnoSetup Preprocessor
+SWizardISPP2=Bitte angeben, ob Inno Setup Preprocessor verwendet werden soll.
+SWizardISPPCheck=Ja, verwende #define Compiler-Direktiven
+SWizardISPPLabel=[name] hat das Vorkommen des Inno Setup Preprocessor (ISPP) erkannt und kann deshalb #define Compiler-Direktiven verwenden, um das Script zu vereinfachen. Obwohl dies nicht notwendig ist,macht es ein späteres Ändern des Scripts einfacher.\n\nWollen Sie, dass [name] #define Compiler-Direktiven verwendet werden?
+SWizardISToolCheck=ISTool von Bjørnar Henden
+SWizardLanguages=Setup-Sprachen
+SWizardLanguages2=Bitte angeben, welche Setup-Sprachen eingefügt werden sollen.
+SWizardLanguagesSelError=Bitte mindestens eine Sprache auswählen.
+SWizardSettings=Importiere Einstellungen
+SWizardSettings2=Bitte prüfen, ob die unten angezeigten Einstellungen korrekt sind.
+SWizardWelcome=Willkommen

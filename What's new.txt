@@ -1,17 +1,19 @@
-新增：
-源码存放到GitHub - https://github.com/WLDNA/Inno-All-in-One-Setup
-更新：
-更新Inno至5.5.4
-更新语言文件到最新版
-更新Botva2_Visual.Ish，优化按钮，复选框和单选框的位置。
-更新Botva2_Visual.Ish，单选组增加 GroupBtn1.AllowCancel := True; 使用方式，可设置是否允许全不选中（默认不许）
-更新Botva2_Visual.Ish，修改按钮隐藏方式（因ShowModal方式返回值必须按钮有Width。。。）
-更新Botva2_Visual.Ish，单选多选按钮支持刷新
-更新PreDefines.ish，支持PreDefines.ish所在目录为Include时，优先从Include所在目录设定常用路径
-更新PreDefines.ish，兼容ISPP SaveToFile，导出文件无需修改即可编译。
-bug修正：
-修正安装时，检测文件占用被主窗体挡住的bug，感谢Asion的反馈
 
+Inno_554_131213_WLDNA.exe(2013-12-13)
+新增：
+1、源码存放到GitHub - https://github.com/WLDNA/Inno-All-in-One-Setup
+更新：
+1、更新Inno至5.5.4
+2、更新语言文件到最新版
+3、更新Botva2_Visual.Ish，优化按钮，复选框和单选框的位置。
+4、更新Botva2_Visual.Ish，单选组增加 GroupBtn1.AllowCancel := True; 使用方式，可设置是否允许全不选中（默认不许）
+5、更新Botva2_Visual.Ish，修改按钮隐藏方式（因ShowModal方式返回值必须按钮有Width。。。）
+6、更新Botva2_Visual.Ish，单选多选按钮支持刷新
+7、更新PreDefines.ish，支持PreDefines.ish所在目录为Include时，优先从Include所在目录设定常用路径
+8、更新PreDefines.ish，兼容ISPP SaveToFile，导出文件无需修改即可编译。(仅 5.4.1及以后版本 可用)
+9、更新Inno Script Studio至2.1.0.20，并增加官方语言文件
+bug修正：
+1、修正安装时，检测文件占用被主窗体挡住的bug，感谢Asion的反馈
 
 Inno_552_121113_WLDNA.exe(2012-11-13)
 新增
