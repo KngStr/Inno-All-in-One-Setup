@@ -228,7 +228,10 @@ begin
       end;
     end
     else
+    try
       ExtractTemporaryFile(PName);
+    except //2014-06-18 Do not show error message
+    end;
   end;
 
   If not FileExists(Result) then Result := '';
