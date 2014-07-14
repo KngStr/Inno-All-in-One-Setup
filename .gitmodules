@@ -1,0 +1,3 @@
+[submodule "IsPack"]
+	path = IsPack
+	url = https://github.com/jrsoftware/ispack
