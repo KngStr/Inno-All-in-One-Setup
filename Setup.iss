@@ -177,6 +177,7 @@ Name: Inno\Ansi; Description: Ansi {cm:Inno}; Flags: exclusive disablenouninstal
 Name: Inno\Unicode; Description: Unicode {cm:Inno}; Flags: exclusive disablenouninstallwarning
 
 #if Defined(Include_ISCmplr_Restools) || Defined(Include_ISCmplr_SkyGz) 
+  #define Include_ISCmplr
 Name: ISCmplr_Setup; Description: {cm:Inno} ±‡“Î∆˜‘ˆ«ø∞Ê; Flags: disablenouninstallwarning; Types: full
   #ifdef Include_ISCmplr_Restools
 Name: ISCmplr_Setup\Restools_MiniVCL; Description: Restools Mini VCL    ({#ISCmplr_Restools_MiniVCL}); Flags: exclusive disablenouninstallwarning; Types: full
@@ -275,21 +276,21 @@ Source: {#Extensions}\ISSkinEx\Styles\Sakura.cjstyles; DestDir: {tmp}; Flags: ig
 #ifndef Test
 Source: {#IsPack}\isfiles\*; Excludes: .git*,cvs\*,ISPP.dll,*.e32,Compil32.exe,isscint.dll,ISPPCC.exe,ISCC.exe,ISCmplr.dll; DestDir: {app}; Flags: ignoreversion recursesubdirs; BeforeInstall: AddToDetaList; Components: Inno
 Source: {#IsPack}\Setup.*; DestDir: {app}\Examples; BeforeInstall: AddToDetaList; Components: Inno; Flags: ignoreversion
-Source: {#IsPack}\isfiles\isscint.dll; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: not IDE\Restools
+Source: {#IsPack}\isfiles\isscint.dll; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: IDE\Compile
 
 ;Ansi Ispp
-Source: {#IsPack}\isfiles\Compil32.exe; DestDir: {app}; DestName: Compil32.exe; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi and not IDE\Restools
-Source: {#IsPack}\isfiles\ISPP.dll; DestDir: {app}; DestName: ISPP.dll; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi and not ISCmplr_Setup
-Source: {#IsPack}\isfiles\ISPPCC.exe; DestDir: {app}; DestName: ISCC.exe; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi and not ISCmplr_Setup
-Source: {#IsPack}\isfiles\*.e32; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi and not ISCmplr_Setup
-Source: {#IsPack}\isfiles\ISCmplr.dll; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi and not ISCmplr_Setup
+Source: {#IsPack}\isfiles\Compil32.exe; DestDir: {app}; DestName: Compil32.exe; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi and IDE\Compile
+Source: {#IsPack}\isfiles\ISPP.dll; DestDir: {app}; DestName: ISPP.dll; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi {#ifdef Include_ISCmplr}and not ISCmplr_Setup{#endif}
+Source: {#IsPack}\isfiles\{#ifexist IsPack + "\isfiles\ISPPCC.exe"}ISPPCC.exe{#else}ISCC.exe{#endif}; DestDir: {app}; DestName: ISCC.exe; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi {#ifdef Include_ISCmplr}and not ISCmplr_Setup{#endif}
+Source: {#IsPack}\isfiles\*.e32; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi {#ifdef Include_ISCmplr}and not ISCmplr_Setup{#endif}
+Source: {#IsPack}\isfiles\ISCmplr.dll; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi {#ifdef Include_ISCmplr}and not ISCmplr_Setup{#endif}
 
 ;Unicode Ispp
-Source: {#IsPack}\isfiles-unicode\Compil32.exe; DestDir: {app}; DestName: Compil32.exe; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode  and not IDE\Restools
-Source: {#IsPack}\isfiles-unicode\ISPP.dll; DestDir: {app}; DestName: ISPP.dll; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode and not ISCmplr_Setup
-Source: {#IsPack}\isfiles-unicode\ISPPCC.exe; DestDir: {app}; DestName: ISCC.exe; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode and not ISCmplr_Setup
-Source: {#IsPack}\isfiles-unicode\*.e32; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode and not ISCmplr_Setup
-Source: {#IsPack}\isfiles-unicode\ISCmplr.dll; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode and not ISCmplr_Setup
+Source: {#IsPack}\isfiles-unicode\Compil32.exe; DestDir: {app}; DestName: Compil32.exe; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode  and IDE\Compile
+Source: {#IsPack}\isfiles-unicode\ISPP.dll; DestDir: {app}; DestName: ISPP.dll; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode {#ifdef Include_ISCmplr}and not ISCmplr_Setup{#endif}
+Source: {#IsPack}\isfiles-unicode\{#ifexist IsPack + "\isfiles\ISPPCC.exe"}ISPPCC.exe{#else}ISCC.exe{#endif}; DestDir: {app}; DestName: ISCC.exe; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode {#ifdef Include_ISCmplr}and not ISCmplr_Setup{#endif}
+Source: {#IsPack}\isfiles-unicode\*.e32; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode {#ifdef Include_ISCmplr}and not ISCmplr_Setup{#endif}
+Source: {#IsPack}\isfiles-unicode\ISCmplr.dll; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode {#ifdef Include_ISCmplr}and not ISCmplr_Setup{#endif}
 
 #ifndef Lite
 Source: {#Docs}\Hanzify Forum Inno Article.chm; DestDir: {app}\Docs; Flags: ignoreversion; Components: Help\Hanzify; Tasks:

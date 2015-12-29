@@ -1,3 +1,11 @@
+Inno_557_151229_KngStr(2015-12-29)
+更新：
+1、修正因文件覆盖导致的SkyGz版本编辑器安装失败问题，感谢 茶末余香 的报告
+2、GitHub地址修改 - https://github.com/KngStr/Inno-All-in-One-Setup
+3、修改 WLDNA 为 KngStr
+4、更新部分头文件和例子
+5、更新Inno Setup 至 5.5.7 版本
+
 Inno_555_140714_WLDNA(2014-07-14)
 更新：
 1、更新Inno Setup 至 5.5.5 版本
