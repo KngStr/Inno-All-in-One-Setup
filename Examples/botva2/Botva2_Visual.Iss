@@ -14,7 +14,7 @@
 #include "Botva2_Visual.Ish"
 
 [Setup]
-AppName=Botva2_Visual.Ish - Demo by WLDNA
+AppName=Botva2_Visual.Ish - Demo by KngStr
 AppVersion=1.0
 ;AppVerName=GroupCheckButton by South.Tver
 DefaultDirName={tmp}\xx\

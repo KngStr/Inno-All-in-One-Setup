@@ -1,5 +1,5 @@
-//Author      : WLDNA
-//Link        : http://www.wldna.com/
+//Author      : KngStr
+//Link        : http://www.kngstr.com/
 //Description :
 //Modified    : 2013-11-14 11:40:59
 //Tested Inno :
