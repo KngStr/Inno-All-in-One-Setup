@@ -6,14 +6,14 @@
 //Some of the scripts are collected from the internet. If you are the author, please contact me, thanks!
 //--------------------------------------------------------------------------------------------;
 //                                                                                            ;
-// Concept, Idea & Initial Scripting : WLDNA, Mr.Grapes                                       ;
+// Concept, Idea & Initial Scripting : KngStr, Mr.Grapes                                       ;
 // Description                       : This Ish function is called Inno Head File, which is   ;
 //                                     used to pack some usefull function. We want to share   ;
 //                                     with you, make script-editing to be a easy way.        ;
 //                                                                                            ;
 //                                                                                            ;
-// Contact me at                     : WLDNA@FoxMail.CoM                                      ;
-// Support Site                      : http://www.wldna.com/                                  ;
+// Contact me at                     : KngStr@FoxMail.CoM                                      ;
+// Support Site                      : http://www.kngstr.com/                                  ;
 //--------------------------------------------------------------------------------------------;
 
 //Set default visibility to be public
@@ -70,19 +70,21 @@
 #endif
 
 //Define initial plugin parameter
-#Define Plugin_UnInst True                                         ;
-#Define Plugin_UnInst_Dir ""                                       ;Subfolder to place plugins
-#Define Plugin_CodeDir(str fdll = "") "{tmp}\" + fdll              ;
-#Define Plugin_CodeFlags "stdcall delayload"                       ;
+#Define Plugin_UnInst True                                                     ;
+#Define Plugin_UnInst_Dir ""                                                   ;Subfolder to place plugins
+#Define Plugin_CodeDir(str fdll = "") "{tmp}\" + fdll                          ;
+#Define Plugin_CodeFlags "stdcall delayload"                                   ;
+//Define global plugin constant
+#Define Plugin_Global_FileFlags "ignoreversion noencryption nocompression"     ;
 //Initial Plugin Settings
 #sub Plugin_Init
   #define public  ;Fix visibility
   #if Plugin_UnInst
     #Define Plugin_DestDir "{app}\" + Plugin_UnInst_Dir
-    #Define Plugin_FileFlags "ignoreversion noencryption nocompression" ;solidbreak
+    #Define Plugin_FileFlags Plugin_Global_FileFlags ;solidbreak
   #else
     #Define Plugin_DestDir "{tmp}"
-    #Define Plugin_FileFlags "ignoreversion noencryption nocompression dontcopy" ;solidbreak
+    #Define Plugin_FileFlags Plugin_Global_FileFlags + " dontcopy" ;solidbreak
   #endif
 #endsub
 
@@ -247,7 +249,7 @@ end;
 
 
 [Messages]
-AboutSetupNote="PreDefines.ish" is supported by WLDNA : %nhttp://www.wldna.com/?PreDefines.ish
+AboutSetupNote="PreDefines.ish" is supported by KngStr : %nhttp://www.kngstr.com/?PreDefines.ish
 [/Messages]
 
 #endif

@@ -13,7 +13,7 @@ var
 // Article updated: 6 November 2002
 // http://www13.brinkster.com/vincenzog/isxart.asp?idart=31
 
-// Modified by WLDNA @ 2010-07-01
+// Modified by KngStr @ 2010-07-01
 // Function added ConfigService
 
 type
@@ -27,7 +27,7 @@ type
     	dwWaitHint					: cardinal;
 	end;
 
-  // Modified by WLDNA  Pchar to String;
+  // Modified by KngStr  Pchar to String;
 	ENUM_SERVICE_STATUS = record
 		strServiceName: PAnsichar;
 		strDisplayName: PAnsichar;

@@ -1,8 +1,8 @@
 #ifndef _MUI_NSIS_ISH_
   #Define _MUI_NSIS_ISH_ __PATHFILENAME__
 
-//Author      : WLDNA
-//Link        : http://www.wldna.com/
+//Author      : KngStr
+//Link        : http://www.kngstr.com/
 //Description : Some funtion like NSIS.
 //Modified    : 2013-11-05 22:17:39
 //Tested Inno :

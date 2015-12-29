@@ -1,0 +1,91 @@
+#ifndef _TIMEFUNC_ISH_
+  #Define _TIMEFUNC_ISH_ __PATHFILENAME__
+  ; Portion of code Renato Cazzaro
+  ; http://news.jrsoftware.org/news/innosetup.code/msg03380.html
+  ; Modifid by KngStr
+
+  #include "LangLib.ish"
+
+[Code]
+type
+  TSystemTime = record
+    wYear : Word;
+    wMonth : Word;
+    wDayOfWeek : Word;
+    wDay : Word;
+    wHour : Word;
+    wMinute : Word;
+    wSecond : Word;
+    wMilliseconds : Word;
+  end;
+
+function SetFileTime (hFile :THandle; lpCreationTime, lpLastAccessTime, lpLastWriteTime: TFileTime): Boolean;
+external 'SetFileTime@kernel32.dll stdcall';
+
+function GetFileTime(hfile: longint; var lpcreation,lpaccess,lpwrite:TFileTime): Boolean;
+external 'GetFileTime@kernel32.dll stdcall';
+
+function FileTimeToSystemTime(var tftm: TFileTime; var systm: TSystemTime): Boolean;
+external 'FileTimeToSystemTime@kernel32.dll stdcall';
+
+function SystemTimeToFileTime(const lpSystemTime: TSystemTime; var lpFileTime: TFileTime): Boolean;
+external 'SystemTimeToFileTime@kernel32.dll stdcall';
+
+function FileTimeToLocalFileTime( utct: TFileTime; var loct: TFileTime): Boolean;
+external 'FileTimeToLocalFileTime@kernel32.dll stdcall';
+
+function LocalFileTimeToFileTime(const lpLocalFileTime: TFileTime; var lpFileTime: TFileTime): Boolean;
+external 'LocalFileTimeToFileTime@kernel32.dll stdcall';
+
+procedure GetLocalTime(var lpSystemTime: TSystemTime);
+external 'GetLocalTime@kernel32.dll stdcall';
+
+function GetDateFormat(Locale: Integer;dwFlags: LongInt;
+   var lpDate: TSystemTime; lpFormat: PChar; lpDateStr: PChar;
+   cchDate: Integer): Integer; external
+   'GetDateFormat{#A}@kernel32.dll';
+
+function GetTimeFormat(Locale: Integer;dwFlags: LongInt;
+   var lpTime: TSystemTime;lpFormat: PChar;lpTimeStr: PChar;
+   cchDate: Integer): Integer; external
+   'GetTimeFormat{#A}@kernel32.dll';
+
+function FormatSystemTime( t: TSystemTime ) : String;
+var
+	s, fmt: String;
+begin
+	fmt := StringOfChar(' ',64);
+	GetDateFormat( GetUserDefaultLCID , DATE_LONGDATE, t, '' , fmt ,63);
+	fmt := CastIntegerToString( CastStringToInteger(fmt) );
+
+	s := fmt;
+
+	fmt := StringOfChar(' ',64);
+	GetTimeFormat( GetUserDefaultLCID , 0, t , '' , fmt ,63);
+	fmt := CastIntegerToString( CastStringToInteger(fmt) );
+
+	s := s + ' ' + fmt;
+
+  Result := s;
+end;
+
+procedure SetFileTimes(sFile: String; stTime: TSystemTime);
+var
+  CreationTime, LastAccessTime, LastWriteTime, local : TFileTime;
+  Fs: TFileStream;
+begin
+  SystemTimeToFileTime(stTime, local);
+  LocalFileTimeToFileTime(local, CreationTime);
+
+  Fs := TFileStream.Create(sFile, fmOpenReadWrite);
+  try
+    LastAccessTime := CreationTime;
+    LastWriteTime := CreationTime;
+    SetFileTime (fs.Handle, CreationTime, LastAccessTime, LastWriteTime);
+  finally
+    Fs.Free;
+  end;
+end;
+
+[/Code]
+#endif

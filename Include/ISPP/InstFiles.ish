@@ -1,12 +1,12 @@
 #ifndef _INSTFILES_ISH_
   #define _INSTFILES_ISH_ __PATHFILENAME__
 
-//Author      : WLDNA
-//Link        : http://www.wldna.com/archive/inno/ish/instfiles/
+//Author      : KngStr
+//Link        : http://www.kngstr.com/archive/inno/ish/instfiles/
 //Description : This ish file provide the ability to add files and dirs which has the attribute of faSysFile or faHidden
+//Usage       : #expr InstFiles("D:\Programs")  or {# InstFiles("D:\Programs") }
 //Modified    : 2012-11-13 14:31:48
 //Tested Inno : 5.5.1(a) 5.5.1(u) 5.3.11(a)
-//Usage       : #expr InstFiles("D:\Programs")  or {# InstFiles("D:\Programs") }
 
 //Description : For sections use, avoid { error.
 #define SectionConst(str s) \

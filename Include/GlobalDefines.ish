@@ -1,5 +1,5 @@
-//Author      : WLDNA
-//Link        : http://www.wldna.com/
+//Author      : KngStr
+//Link        : http://www.kngstr.com/
 //Description :
 //Modified    : 2013-11-14 11:40:59
 //Tested Inno :
@@ -14,16 +14,16 @@ var
   #define SecPara
 #endif
 
-#if Defined(WLDNA)
-  #define UrlName "WLDNA"
-  #define Url "http://www.wldna.com/"
-  #define UrlText "访问 WLDNA"
+#if Defined(KngStr)
+  #define UrlName "KngStr"
+  #define Url "http://www.kngstr.com/"
+  #define UrlText "访问 KngStr"
   #define BrandingTexts UrlName
-  #define FileExt "_WLDNA"
-  #define AboutText "WLDNA-专注于Inno/Delphi和Nsis为主的软件封装技术，以及快速批量的软件打包方案。"
+  #define FileExt "_KngStr"
+  #define AboutText "KngStr-专注于Inno/Delphi和Nsis为主的软件封装技术，以及快速批量的软件打包方案。"
 
 [Messages]
-AboutSetupNote=Inno Setup Preprocessor home page:%nhttp://ispp.sourceforge.net/ %n%n本程序由 WLDNA 倾情制作，欢迎使用%n我的博客：{#Url}
+AboutSetupNote=Inno Setup Preprocessor home page:%nhttp://ispp.sourceforge.net/ %n%n本程序由 KngStr 倾情制作，欢迎使用%n我的博客：{#Url}
 
 #if SecPara == ""
 [Run]
