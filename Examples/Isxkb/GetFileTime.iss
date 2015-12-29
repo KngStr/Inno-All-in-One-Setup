@@ -5,6 +5,7 @@
 ; Portion of code Renato Cazzaro
 ; http://news.jrsoftware.org/news/innosetup.code/msg03380.html
 ;
+#include "TimeFunc.ish"
 
 [Setup]
 AppName=FileTimeV5
@@ -15,70 +16,21 @@ DisableDirPage=true
 DisableProgramGroupPage=true
 DefaultDirName={pf}\FileTimeV5
 DisableStartupPrompt=true
+DisableWelcomePage=yes
 OutputBaseFilename=Test Install
 OutputDir=userdocs:Inno Setup Examples Output
 
-#include "LangLib.ish"
-
 [Code]
-
-type
-
-//TFileTime = Record
-//    lowdatatime: longint;
-//    highdatatime: longint;
-//End;
-
-TSystemTime = record
-    wYear : Word;
-    wMonth : Word;
-    wDayOfWeek : Word;
-    wDay : Word;
-    wHour : Word;
-    wMinute : Word;
-    wSecond : Word;
-    wMilliseconds : Word;
-end;
-
-function GetFileTime(hfile: longint; var lpcreation,lpaccess,lpwrite:TFileTime): boolean;
-external 'GetFileTime@kernel32.dll stdcall';
-
-function FileTimeToSystemTime(var tftm: TFileTime; var systm: TSystemTime): boolean;
-external 'FileTimeToSystemTime@kernel32.dll stdcall';
-
-function FileTimeToLocalFileTime( utct: TFileTime; var loct: TFileTime): boolean;
-external 'FileTimeToLocalFileTime@kernel32.dll stdcall';
-
-function GetDateFormat(Locale: Integer;dwFlags: LongInt;
-   var lpDate: TSystemTime; lpFormat: PChar; lpDateStr: String;
-   cchDate: Integer): Integer; external
-   'GetDateFormat{#A}@kernel32.dll';
-
-function GetTimeFormat(Locale: Integer;dwFlags: LongInt;
-   var lpTime: TSystemTime;lpFormat: PChar;lpTimeStr: String;
-   cchDate: Integer): Integer; external
-   'GetTimeFormat{#A}@kernel32.dll';
-
-function FormattedTime( t: TSystemTime ) : String;
 var
-	s, fmt: String;
-begin
-
-		fmt := StringOfChar(' ',64);
-		GetDateFormat( GetUserDefaultLCID , DATE_LONGDATE, t, '' , fmt ,63);
-		fmt := CastIntegerToString( CastStringToInteger(fmt) );
-
-		s := fmt;
-
-		fmt := StringOfChar(' ',64);
-		GetTimeFormat( GetUserDefaultLCID , 0, t , '' , fmt ,63);
-		fmt := CastIntegerToString( CastStringToInteger(fmt) );
-
-		s := s + ' ' + fmt;
-
-    Result := s;
-end;
-
+  lbFile: TLabel;
+  lbDateCreated: TLabel;
+  lbDateModified: TLabel;
+  Label2: TLabel;
+  butChoose: TButton;
+  edFile: TEdit;
+  edCreTime: TEdit;
+  edModTime: TEdit;
+  edAccessTime: TEdit;
 
 Function GetFileSysTime( nomef: String ; var stime: String; idx : Integer  ): TSystemTime;
 Var
@@ -93,21 +45,9 @@ Begin
 	if idx = 2 then FileTimeToLocalFileTime(access,local);
 	if idx = 3 then FileTimeToLocalFileTime(write,local);
 	FileTimeToSystemTime(local,risul);
-	stime := FormattedTime( risul );
+	stime := FormatSystemTime( risul );
 	Result := risul;
 End;
-
-var
-  lbFile: TLabel;
-  lbDateCreated: TLabel;
-  lbDateModified: TLabel;
-  Label2: TLabel;
-  butChoose: TButton;
-  edFile: TEdit;
-  edCreTime: TEdit;
-  edModTime: TEdit;
-  edAccessTime: TEdit;
-
 
 procedure ChooseFile(Sender: TObject);
 var

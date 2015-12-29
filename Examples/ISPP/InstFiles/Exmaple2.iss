@@ -1,7 +1,7 @@
 ; -- Example2.iss --
 ; Demonstrates advance usage and count time.
-; Author  : WLDNA
-; WebSite : http://www.wldna.com/archive/inno/ish/instfiles/
+; Author  : KngStr
+; WebSite : http://www.kngstr.com/archive/inno/ish/instfiles/
 
 #include "InstFiles.ish"
 
