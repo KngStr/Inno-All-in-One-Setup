@@ -1,8 +1,8 @@
 #ifndef _MACROS_ISH_
   #Define _MACROS_ISH_ __PATHFILENAME__
 
-//Author      : WLDNA
-//Link        : http://www.wldna.com/
+//Author      : KngStr
+//Link        : http://www.kngstr.com/
 //Description : .
 //Modified    : 2013-11-05 22:17:39
 //Tested Inno :
@@ -46,7 +46,7 @@
   Local[0] = StringChange(Local[0], ",", "%2c"), \
   Local[0]
 
-//Author: WLDNA
+//Author: KngStr
 //Usage:
 //#if InvalidFileName(FileName)
 //  #error "Error! FileName can not inlude£º\/:*?"<>| "
@@ -54,6 +54,14 @@
 #define InvalidFileName(str FileName) \
   Pos("\", FileName) + Pos("/", FileName) + Pos(":", FileName) + Pos("*", FileName) + \
   Pos("?", FileName) + Pos('"', FileName) + Pos("<", FileName) + Pos(">", FileName) + Pos("|", FileName)
+
+//Author: KngStr
+//Usage:
+//ReadPrdVerDef("FileName", "0.0")
+#define ReadPrdVerDef(str FileName, str DefVer) \
+  Local[0] = GetFileProductVersion(FileName), \
+  Local[0] == "" ? Local[0] = DefVer : Local[0] = StringChange(Local[0], ",", "."), \
+  Int(StringChange(Local[0], ".", ""), -1) > 0 ? Local[0] : DefVer
 
 // Inno Setup Preprocessor macro to simplify the version string.
 //	The following situations are covered:

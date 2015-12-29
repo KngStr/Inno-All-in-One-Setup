@@ -12,9 +12,9 @@
 //- Check, install, remove, stop and start NT based services
 //- Create or update entries in the services file
 
-// Modified by WLDNA @ 2010-07-01
+// Modified by KngStr @ 2010-07-01
 // Function added ConfigService
-// Modified by WLDNA @ 2011-03-12
+// Modified by KngStr @ 2011-03-12
 // Function added UninsService
 
 

@@ -1,8 +1,8 @@
 #ifndef _BOTVA2_VISUAL_ISH_
   #Define _BOTVA2_VISUAL_ISH_ __PATHFILENAME__
 
-//Author      : WLDNA
-//Link        : http://www.wldna.com/
+//Author      : KngStr
+//Link        : http://www.kngstr.com/
 //Description : Turn components to Botva2 style.
 //Modified    : 2013-11-05 22:17:39
 //Tested Inno :
@@ -88,7 +88,8 @@ begin
   begin
     with TCheckBox(Btn) do
     begin
-      Checked := BtnGetChecked(hBtn);
+      BtnSetChecked(hBtn,  Checked);
+      //Checked := BtnGetChecked(hBtn);
 
 //      if (OldLeft <> Left) or (OldTop <> Top) then
 //        BtnSetPosition(hBtn, Left, Top, OldWidth, OldHeight);
@@ -112,7 +113,8 @@ begin
   begin
     with TRadioButton(Btn) do
     begin
-      Checked := BtnGetChecked(hBtn);
+      BtnSetChecked(hBtn,  Checked);
+      //Checked := BtnGetChecked(hBtn);
 
 //      if (OldLeft <> Left) or (OldTop <> Top) then
 //        BtnSetPosition(hBtn, Left, Top, OldWidth, OldHeight);
@@ -167,6 +169,8 @@ begin
   ImgBtn.hBtns[idx] := hBtn;
 
   TComponent(Btn).Tag := idx;
+
+  UpdateBtn(Btn, hBtn);
 end;
 //==========================================================================
 
@@ -174,11 +178,10 @@ procedure ImgClick(Btn: Tobject; hBtn: HWND);
 begin
   if Assigned(Btn) then
   begin
-    if Btn is TButton then
-    begin
-      PostMessage(TButton(Btn).Handle, 513, 1, 0);
-      PostMessage(TButton(Btn).Handle, 514, 1, 0);
-    end;
+//    PostMessage(TWinControl(Btn).Handle, 513, 1, 0);
+//    PostMessage(TWinControl(Btn).Handle, 514, 1, 0);
+    //Copy from Restools InnoUI Example
+    SendMessage(TWinControl(Btn).Handle, $0111, 0, TWinControl(Btn).Handle);
     UpdateBtn(Btn, hBtn);
   end;
 end;
@@ -190,7 +193,6 @@ begin
   begin
     Result := BtnCreate(Parent.Handle, Left, Top, Width, Height, fImg, fShadowWidth, False);
 //    Tag := Width;
-    UpdateBtn(fBtn, Result);
     BtnSetFont(Result,Font.Handle);
     BtnSetFontColor(Result, Font.Color, Font.Color, Font.Color, Font.Color);
     BtnSetEvent(Result, BtnClickEventID, WrapBtnCallback(fCallback, 1));
@@ -212,7 +214,6 @@ begin
   end;
 
   ImgClick(ImgBtn.Btns[i], hBtn);
-  UpdateBtn(ImgBtn.Btns[i], hBtn);
 end;
 //==========================================================================
 
