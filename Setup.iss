@@ -1,5 +1,5 @@
-//Author      : WLDNA
-//Link        : http://www.wldna.com/
+//Author      : KngStr
+//Link        : http://www.kngstr.com/
 //Description :
 //Modified    : 2013-11-14 11:40:59
 //Tested Inno :
@@ -29,9 +29,9 @@
 #define Docs ResCenter + 'Docs'
 #include "IsppExtended.Iss"
 
-#define WLDNA
+#define KngStr
 
-#define MailAddress "wldna@foxmail.com"
+#define MailAddress "kngstr@foxmail.com"
 
 #ifdef D8Team
   #define AppName "Inno Setup D8Õ≈∂”∞Ê"
@@ -788,7 +788,7 @@ begin
   PDir('{# ItDownload_DLL }');
   itd_init;
 
-  if itd_downloadfile('http://app.wldna.com/update/is/info.ini',ExpandConstant('{tmp}\d8Inno.tmp'))=ITDERR_SUCCESS then
+  if itd_downloadfile('http://app.kngstr.com/update/is/info.ini',ExpandConstant('{tmp}\d8Inno.tmp'))=ITDERR_SUCCESS then
   begin
     Ver := GetIniString('Main', 'Ver', '', ExpandConstant('{tmp}\d8Inno.tmp'));
     Url := GetIniString('Main', 'Url', '', ExpandConstant('{tmp}\d8Inno.tmp'));
