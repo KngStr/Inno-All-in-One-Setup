@@ -1,7 +1,7 @@
 Ish 头文件 使用说明
 
 1、Ish 是什么？
-  Ish 是由 “PreDefines.ish” 作为基础加载的一个 头文件系统。最初由WLDNA提出，并分享。
+  Ish 是由 “PreDefines.ish” 作为基础加载的一个 头文件系统。最初由KngStr提出，并分享。
   其中，有很多的预定义 宏 ，函数 和 过程。为减小制作者的负担，类似Nsis的Nsh 和 Delphi的Pas。
   最初定义，请参考：关于 Ish 以及 如何使用 Ish - http://www.dreams8.com/thread-12007-1-1.html
 
