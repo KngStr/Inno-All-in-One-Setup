@@ -661,6 +661,7 @@ begin
   if btn_NewComps.Parent <> WizardForm.SelectComponentsPage then
   begin
     frm_NewComps.Close;
+    WizardForm.Show;
   end
   else
   begin
@@ -752,6 +753,7 @@ begin
       frm_NewComps.ActiveControl := ComponentsList;
     end;
 
+    WizardForm.Hide;
     frm_NewComps.ShowModal;
   end;
 end;
@@ -864,6 +866,18 @@ begin
 end;
 //===========================================================================================================================================
 
+var
+  OldEvent_DirBrowseButtonClick: TNotifyEvent;
+procedure DirBrowseButtonClick(Sender: TObject);
+begin
+  try
+    WizardForm.FormStyle := fsNormal;
+    OldEvent_DirBrowseButtonClick(Sender);
+  finally
+    WizardForm.FormStyle := fsStayOnTop;
+  end;
+end;
+
 procedure InitializeWizard();
 var
   F: AnsiString;
@@ -878,7 +892,13 @@ begin
   DetailInfo;
   
   NewFormComponents;
-  
+
+  with WizardForm.DirBrowseButton do
+  begin
+    OldEvent_DirBrowseButtonClick := OnClick;
+    OnClick := @DirBrowseButtonClick;
+  end;
+
   WaterSupportAuthor(False);
   F:= ExpandConstant('{tmp}\WizardImage.bmp');
   WizardForm.WizardBitmapImage.Bitmap.SaveToFile(F);
@@ -1093,10 +1113,13 @@ end;
 
 procedure CancelButtonClick(CurPageID: Integer; var Cancel, Confirm: Boolean);
 begin
-  WizardForm.FormStyle := fsNormal;
-  CancelButtonClick_DetaInfo(CurPageID, Cancel, Confirm);
-  if not Cancel then
-    WizardForm.FormStyle := fsStayOnTop;
+  try
+    WizardForm.FormStyle := fsNormal;
+    CancelButtonClick_DetaInfo(CurPageID, Cancel, Confirm);
+  finally
+    if not Cancel then
+      WizardForm.FormStyle := fsStayOnTop;
+  end;
 end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
