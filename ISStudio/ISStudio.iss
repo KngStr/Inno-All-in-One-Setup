@@ -25,6 +25,8 @@ Source: {#CurDir}\Extra_Languages\*; DestDir: {app}\ISStudio\Languages; Flags: i
 [Icons]
 ;ISStudio
 Name: {group}\ISStudio; Filename: {app}\ISStudio\ISStudio.exe; WorkingDir: {app}; Comment: Start ISStudio; IconIndex: 0; Components: IDE\ISStudio
+[INI]
+FileName: "{app}\ISStudio\Settings.ini"; Section: "Portable"; Entry: "Portable"; Value: "1"; Flags: createkeyifdoesntexist 
 
 [Registry]
 ;นุมช
