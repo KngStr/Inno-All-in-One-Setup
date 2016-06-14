@@ -6,7 +6,6 @@
 
 [Components]
 Name: IDE; Description: {cm:Inno} ½Å±¾±à¼­Æ÷; Types: full compact custom
-Name: IDE\ISCC; Description: Inno Setup Command-Line Compiler; Flags: disablenouninstallwarning; Types: custom compact full
 Name: IDE\Compile; Description: Inno Setup Compiler; Flags: exclusive disablenouninstallwarning; Types: custom compact full
 Name: IDE\Restools; Description: Restools ±à¼­Æ÷ÔöÇ¿°æ ({#IDE_Restools}); Flags: exclusive disablenouninstallwarning; Types: custom compact full
 Name: IDE\SkyGz; Description: SkyGz ±à¼­Æ÷ÔöÇ¿°æ  ({#IDE_SkyGz}); Flags: exclusive disablenouninstallwarning;
@@ -15,6 +14,11 @@ Name: IDE\SkyGz; Description: SkyGz ±à¼­Æ÷ÔöÇ¿°æ  ({#IDE_SkyGz}); Flags: exclusi
 ;#include "InnoIDE.iss"
 #include "ISStudio\ISStudio.iss"
 ;#include "ISTool.iss"
+
+[Components]
+Name: ISCC; Description: ÃüÁîÐÐ±àÒëÆ÷; Flags: disablenouninstallwarning; Types: custom compact full
+Name: ISCC\ISCC; Description: Inno Setup Command-Line Compiler; Flags: exclusive disablenouninstallwarning; Types: custom compact full
+Name: ISCC\KngStr; Description: KngStr Command-Line Compiler ({#IDE_KngStr_ISCC}); Flags: exclusive disablenouninstallwarning; Types: custom compact full
 
 [Registry]
 Root: HKCU; SubKey: Software\Jordan Russell; Flags: uninsdeletekeyifempty

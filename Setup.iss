@@ -61,6 +61,7 @@
 ;增强版本
 #include "IsPack_Restools\Restools.iss"
 #include "IsPack_SkyGz\SkyGz.iss"
+#include "IsPack_KngStr\KngStr.iss"
 
 #define IsSkin_SkinBuilder VerBuild(Extensions + "\ISSkin\SkinBuilder.exe")
 #define Extensions_UninsHs VerBuild(Extensions + "\UninsHs\UninsHs.exe")
@@ -176,7 +177,7 @@ Name: Inno; Description: 主程序(必须) - (Inno {#InnoVer}); Flags: fixed; Types: 
 Name: Inno\Ansi; Description: Ansi {cm:Inno}; Flags: exclusive disablenouninstallwarning; Types: custom compact full
 Name: Inno\Unicode; Description: Unicode {cm:Inno}; Flags: exclusive disablenouninstallwarning
 
-#if Defined(Include_ISCmplr_Restools) || Defined(Include_ISCmplr_SkyGz) 
+#if Defined(Include_ISCmplr_Restools) || Defined(Include_ISCmplr_SkyGz) || Defined(Include_ISCmplr_KngStr) 
   #define Include_ISCmplr
 Name: ISCmplr_Setup; Description: {cm:Inno} 编译器增强版; Flags: disablenouninstallwarning; Types: full
   #ifdef Include_ISCmplr_Restools
@@ -185,6 +186,9 @@ Name: ISCmplr_Setup\Restools_FullVCL; Description: Restools Full VCL    ({#ISCmp
   #endif
   #ifdef Include_ISCmplr_SkyGz
 Name: ISCmplr_Setup\SkyGz; Description: SkyGz 编译器增强版   ({#ISCmplr_SkyGz}); Flags: exclusive disablenouninstallwarning;
+  #endif
+  #ifdef Include_ISCmplr_KngStr
+Name: ISCmplr_Setup\KngStr; Description: KngStr 编译器增强版   ({#ISCmplr_KngStr}); Flags: exclusive disablenouninstallwarning;
   #endif
 #endif
 
@@ -754,7 +758,11 @@ begin
     end;
 
     WizardForm.Hide;
-    frm_NewComps.ShowModal;
+    try
+      frm_NewComps.ShowModal;
+    finally
+      WizardForm.Show;
+    end;
   end;
 end;
 
