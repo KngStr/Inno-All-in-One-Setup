@@ -49,7 +49,13 @@ begin
 #endif
     end;
     3: OpenSite('{#url}');
-    5: MainForm.ShowAboutBox;
+    5:
+      try
+        WizardForm.FormStyle := fsNormal;
+        MainForm.ShowAboutBox;
+      finally
+        WizardForm.FormStyle := fsStayOnTop;
+      end;
     7: WizardForm.Close;
   end;
 end;
