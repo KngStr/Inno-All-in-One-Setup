@@ -163,6 +163,9 @@ ShowLanguageDialog=no
 UninstallIconFile=Res\Uninst.ico
 #endif
 
+//强制显示欢迎页面
+DisableWelcomePage=no
+
 ;常量引用
 #include "Consts.iss"
 
@@ -179,9 +182,9 @@ Name: Inno\Unicode; Description: Unicode {cm:Inno}; Flags: exclusive disablenoun
 
 #if Defined(Include_ISCmplr_Restools) || Defined(Include_ISCmplr_SkyGz) || Defined(Include_ISCmplr_KngStr) 
   #define Include_ISCmplr
-Name: ISCmplr_Setup; Description: {cm:Inno} 编译器增强版; Flags: disablenouninstallwarning; Types: full
+Name: ISCmplr_Setup; Description: {cm:Inno} 编译器增强版; Flags: disablenouninstallwarning; 
   #ifdef Include_ISCmplr_Restools
-Name: ISCmplr_Setup\Restools_MiniVCL; Description: Restools Mini VCL    ({#ISCmplr_Restools_MiniVCL}); Flags: exclusive disablenouninstallwarning; Types: full
+Name: ISCmplr_Setup\Restools_MiniVCL; Description: Restools Mini VCL    ({#ISCmplr_Restools_MiniVCL}); Flags: exclusive disablenouninstallwarning;
 Name: ISCmplr_Setup\Restools_FullVCL; Description: Restools Full VCL    ({#ISCmplr_Restools_FullVCL}); Flags: exclusive disablenouninstallwarning;
   #endif
   #ifdef Include_ISCmplr_SkyGz
@@ -256,7 +259,9 @@ Name: InnoGUI_ICON; Description: {cm:AssocRightFileExtension,Inno Setup Unpacker
 #endif
 Name: InnoExp_ICON; Description: {cm:AssocRightFileExtension,Inno Setup Unpacker Explorer,.exe}; GroupDescription: {cm:Assoc}; Components: Extensions\Unpack\InnoExp; Flags: unchecked
 
+#ifdef Include_ISCmplr_Restools
 Name: Restools_Lang_En; Description: 兼容Restools设计器，使用英文语言文件作为默认语言; GroupDescription: Restools编辑器附加选项; Components: Extensions\Unpack\InnoExp;
+#endif
 
 [Run]
 ;！！！！！！！！！！！！要修改-默认编译器获取！！！！！！！！！！！！
@@ -278,7 +283,7 @@ Source: {#Extensions}\ISSkinEx\Styles\ISSkinEx.cjstyles; DestDir: {tmp}; Flags: 
 Source: {#Extensions}\ISSkinEx\Styles\Sakura.cjstyles; DestDir: {tmp}; Flags: ignoreversion dontcopy; BeforeInstall: AddToDetaList
 
 #ifndef Test
-Source: {#IsPack}\isfiles\*; Excludes: .git*,cvs\*,ISPP.dll,*.e32,Compil32.exe,isscint.dll,ISPPCC.exe,ISCC.exe,ISCmplr.dll; DestDir: {app}; Flags: ignoreversion recursesubdirs; BeforeInstall: AddToDetaList; Components: Inno
+Source: {#IsPack}\isfiles\*; Excludes: .git*,cvs\*,ISPP.dll,*.e32,Compil32.exe,isscint.dll,ISPPCC.exe,ISCC.exe,ISCmplr.dll; DestDir: {app}; Flags: ignoreversion recursesubdirs; BeforeInstall: AddToDetaList; Components: Inno {#ifdef Include_ISCmplr_Restools} and not (ISCmplr_Setup\Restools_MiniVCL or ISCmplr_Setup\Restools_FullVCL){#endif}
 Source: {#IsPack}\Setup.*; DestDir: {app}\Examples; BeforeInstall: AddToDetaList; Components: Inno; Flags: ignoreversion
 Source: {#IsPack}\isfiles\isscint.dll; DestDir: {app}; Flags: ignoreversion replacesameversion; BeforeInstall: AddToDetaList; Components: IDE\Compile
 
@@ -377,8 +382,9 @@ Source: {#Includes}\ExecAndWait.Ish; DestDir: {app}\Include; Flags: ignoreversio
 ;Plugin
 Source: {#Plugins}\ISCrypt.dll; DestDir: {app}; Flags: ignoreversion; BeforeInstall: AddToDetaList
 #endif
+
 ;Languages
-Source: {#SrcPath}\Res\Languages\*; DestDir: {app}\Languages; Components: ; Tasks: ; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList
+Source: {#SrcPath}\Res\Languages\*; DestDir: {app}\Languages; Components: {#ifdef Include_ISCmplr_Restools} not (ISCmplr_Setup\Restools_MiniVCL or ISCmplr_Setup\Restools_FullVCL){#endif}; Tasks: ; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList
 Source: {app}\Default.isl; DestDir: {app}\Languages; DestName: English.isl; Flags: ignoreversion skipifsourcedoesntexist external; BeforeInstall: AddToDetaList
 Source: {app}\Languages\English.isl; DestDir: {app}; DestName: Default.isl;Components: IDE\Restools; Tasks: Restools_Lang_En; Flags: ignoreversion skipifsourcedoesntexist external; BeforeInstall: AddToDetaList
 Source: {app}\Languages\{language}.isl; DestDir: {app}; DestName: Default.isl; Tasks: not Restools_Lang_En; Flags: ignoreversion skipifsourcedoesntexist external; BeforeInstall: AddToDetaList

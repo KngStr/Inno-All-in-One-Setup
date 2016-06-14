@@ -16,12 +16,17 @@
 #define ISCmplr_Restools_FullVCL ISCmplr_Restools_FullVCL + ' Build ' + GetFileDateTimeString(CurDir + '\Inno_ISCmplr_Setup\InnoSetup_ANSI\FullVCL\Setup.e32', 'yymmdd', '', '');
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-#if InnoVer == Copy(ISCmplr_Restools_MiniVCL, 1, Len(InnoVer))
+;#if InnoVer == Copy(ISCmplr_Restools_MiniVCL, 1, Len(InnoVer))
   #define Include_ISCmplr_Restools
-#endif
+;#endif
 
 [Files]
 #ifdef Include_ISCmplr_Restools
+Source: {#SrcPath}\IsPack_5_5_2\isfiles\*; Excludes: .git*,cvs\*,ISPP.dll,*.e32,Compil32.exe,isscint.dll,ISPPCC.exe,ISCC.exe,ISCmplr.dll; DestDir: {app}; Flags: ignoreversion recursesubdirs; BeforeInstall: AddToDetaList; Components: ISCmplr_Setup\Restools_MiniVCL or ISCmplr_Setup\Restools_FullVCL
+
+;Languages
+Source: {#SrcPath}\IsPack_5_5_2\Languages\*; DestDir: {app}\Languages; Components: ISCmplr_Setup\Restools_MiniVCL or ISCmplr_Setup\Restools_FullVCL; Tasks: ; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList
+
 ;Restools ReadMe
 Source: {#CurDir}\Inno_ISCmplr_Setup\*; DestDir: {app}\Docs\Restools ISCmplr; Flags: ignoreversion; BeforeInstall: AddToDetaList; Tasks: ; Components: ISCmplr_Setup
 Source: {#CurDir}\Inno_ISCmplr_Setup\Example\*; DestDir: {app}\Examples\Restools; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Tasks: ; Components: ISCmplr_Setup

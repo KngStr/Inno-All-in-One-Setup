@@ -79,7 +79,8 @@ Source: {#CurDir}\Examples\UninstallCodeDll.iss; DestDir: {app}\Examples; Flags:
 Source: {#CurDir}\Examples\ExtendExample.iss; DestDir: {app}\Examples\SkyGz; Components: ISCmplr_Setup\SkyGz; Flags: ignoreversion; BeforeInstall: AddToDetaList;
   #endif
 ;Help
-Source: {#CurDir}\Help\*; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
+Source: {#CurDir}\Help\*; DestDir: {app}; Excludes: IsExtend.chm; Components: Inno {#ifdef Include_ISCmplr_Restools} and not (ISCmplr_Setup\Restools_MiniVCL or ISCmplr_Setup\Restools_FullVCL){#endif}; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
+Source: {#CurDir}\Help\IsExtend.chm; DestDir: {app}; Components: ISCmplr_Setup\SkyGz; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
 
 #endif
 
