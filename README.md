@@ -23,12 +23,12 @@ Restools: http://restools.hanzify.org/
 
 SkyGz:    http://www.hanzify.org/software/11564.html
 
-Sherlock: http://www.sherlocksoftware.or/
+Sherlock: http://www.sherlocksoftware.org/page.php?id=11
 
 Russion forum:  
-         http://forum.ru-board.com/topic.cgi?forum=5&topic=46338
-         
-         http://krinkels.org/showthread.php?t=9
+- http://forum.ru-board.com/topic.cgi?forum=5&topic=46338
+- http://krinkels.org/showthread.php?t=9
+- http://krinkels.org/resources/
 
 Attention
 =====================
