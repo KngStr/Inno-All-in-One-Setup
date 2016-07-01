@@ -36,7 +36,7 @@
 #ifdef D8Team
   #define AppName "Inno Setup D8团队版"
 #else
-  #define AppName "Inno Setup 集成版(原D8团队版)"
+  #define AppName "Inno Setup 集成版"
 #endif
 #include "GlobalDefines.ish"
 

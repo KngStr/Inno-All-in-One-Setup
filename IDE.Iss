@@ -18,7 +18,7 @@ Name: IDE\SkyGz; Description: SkyGz ±‡º≠∆˜‘ˆ«ø∞Ê  ({#IDE_SkyGz}); Flags: exclusi
 [Components]
 Name: ISCC; Description: √¸¡Ó––±‡“Î∆˜; Flags: disablenouninstallwarning; Types: custom compact full
 Name: ISCC\ISCC; Description: Inno Setup Command-Line Compiler; Flags: exclusive disablenouninstallwarning; Types: custom compact full
-Name: ISCC\KngStr; Description: KngStr Command-Line Compiler ({#IDE_KngStr_ISCC}); Flags: exclusive disablenouninstallwarning; Types: custom compact full
+Name: ISCC\KngStr; Description: KngStr Command-Line Compiler ({#IDE_KngStr_ISCC}); Flags: exclusive disablenouninstallwarning;
 
 [Registry]
 Root: HKCU; SubKey: Software\Jordan Russell; Flags: uninsdeletekeyifempty
