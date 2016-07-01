@@ -20,11 +20,11 @@
 [Files]
 ;KngStr Ansi Ispp
   #ifdef Include_ISCmplr_KngStr
-Source: {#CurDir}\Ansi\*; Excludes: Compil32.*,ISCC.exe,ISPP.dll; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Ansi and ISCmplr_Setup\KngStr; Tasks:
+Source: {#CurDir}\Ansi\*; Excludes: Compil32.*,ISCC.exe; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Ansi and ISCmplr_Setup\KngStr; Tasks:
   #endif
 Source: {#CurDir}\Ansi\ISCC.exe; DestDir: {app}; Flags: ignoreversion; BeforeInstall: AddToDetaList; Components: Inno\Ansi and ISCC\KngStr; Tasks:
 ;KngStr Unicode Ispp
   #ifdef Include_ISCmplr_KngStr
-Source: {#CurDir}\Unicode\*; Excludes: Compil32.*,ISCC.exe,ISPP.dll; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and ISCmplr_Setup\KngStr; Tasks:
+Source: {#CurDir}\Unicode\*; Excludes: Compil32.*,ISCC.exe; DestDir: {app}; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList; Components: Inno\Unicode and ISCmplr_Setup\KngStr; Tasks:
   #endif
 Source: {#CurDir}\Unicode\ISCC.exe; DestDir: {app}; Flags: ignoreversion; BeforeInstall: AddToDetaList; Components: Inno\Unicode and ISCC\KngStr; Tasks:
