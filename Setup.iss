@@ -222,7 +222,6 @@ Name: Extensions\Unpack\Disasm; Description: {cm:Inno} Disasm Tool   (X-Star); T
 
 #ifndef Lite
 Name: Extensions\InnoLogView; Description: InnoLogView {cm:InnoLogView}   ({#VB_InnoLogView}); Types: custom full
-;Name: Extensions\ISSI; Description: {cm:Inno} Script Includes (ISSI) À©Õ¹¿â   (LOGA); Types: full;
 
 Name: Help; Description: {cm:Help}; Types: custom compact full
 Name: Help\Hanzify; Description: {cm:Chm_Hanzify}; Types: custom compact full
@@ -317,11 +316,6 @@ Source: {#Docs}\DelphiKey.htm; DestDir: {app}\Docs; Flags: ignoreversion; Compon
 #expr AddExtensions("Converter")
 
 #ifndef Lite
-;ISSI
-;Source: {#SrcPath}\ISSI\{app}\*; DestDir: {app}\Extensions\ISSI; Excludes: _issi*.exe,issi_example*.iss; Components: Extensions\ISSI; Tasks: ; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: AddToDetaList
-;Source: {#SrcPath}\ISSI\{app}\issi_example*.iss; DestDir: {app}\Examples\ISSI; Components: Extensions\ISSI; Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList
-;Source: {#SrcPath}\ISSI\{app}\_issi.cfg; DestDir: {app}\Examples\ISSI; Components: Extensions\ISSI; Tasks: ; Flags: ignoreversion; BeforeInstall: AddToDetaList
-
 ;Restools Recommanded Fonts
 Source: {#Extensions}\CodeFont\CourierNewEx.fon; DestDir: {app}\Extensions\CodeFont; Components: EasySets\CodeFont; Flags: onlyifdoesntexist ignoreversion fontisnttruetype; FontInstall: Courier New Ex; BeforeInstall: AddToDetaList
 Source: {#Extensions}\CodeFont\Megatops ProCoder 1.0.fon; DestDir: {app}\Extensions\CodeFont; Components: EasySets\CodeFont; Flags: onlyifdoesntexist ignoreversion fontisnttruetype; FontInstall: Megatops ProCoder 1.0; BeforeInstall: AddToDetaList
@@ -424,14 +418,6 @@ Type: filesandordirs; Name: {app}\Extensions\Graphics\*\Thumbs.db; Components: N
 Type: files; Name: {app}\Extensions\Graphics\Checks\Thumbs.db; Components: Nsis; Tasks:
 Type: files; Name: {app}\Extensions\Graphics\Header\Thumbs.db; Components: Nsis; Tasks:
 Type: files; Name: {app}\Extensions\Graphics\Wizard\Thumbs.db; Components: Nsis; Tasks:
-
-#ifndef Lite
-;Type: filesandordirs; Name: {app}\Examples\ISSI\OutPut; Components: Extensions\ISSI; Tasks:
-;Type: filesandordirs; Name: {app}\Extensions\ISSI\*\Thumbs.db; Components: Extensions\ISSI; Tasks:
-;Type: files; Name: {app}\Extensions\ISSI\Include\*\_issi*.exe; Components: Extensions\ISSI; Tasks:
-;Type: files; Name: {app}\Extensions\ISSI\Include\*_issi*; Components: Extensions\ISSI; Tasks:
-;Type: files; Name: {userdocs}\Inno Setup Examples Output\ISSI_*.exe; Components: Extensions\ISSI; Tasks:
-#endif
 
 [Icons]
 Name: {commondesktop}\{#AppName}; Filename: {app}\{#AppExeName}; Tasks: DesktopIcon
