@@ -903,7 +903,8 @@ begin
   F:= ExpandConstant('{tmp}\WizardImage.bmp');
   WizardForm.WizardBitmapImage.Bitmap.SaveToFile(F);
   WaterHandle := WaterInit(WizardForm.WelcomePage.Handle, 0, 0);
-  WaterSetBounds(WaterHandle, WizardForm.WizardBitmapImage.Left, WizardForm.WizardBitmapImage.Top, WizardForm.WizardBitmapImage.Width, WizardForm.WizardBitmapImage.Height);
+  with WizardForm.WizardBitmapImage do
+    WaterSetBounds(WaterHandle, Left, Top, Width, Height);
   WaterSetFile(WaterHandle, AnsiString(F));
   WaterSetActive(WaterHandle, True);
   DeleteFile(F);
