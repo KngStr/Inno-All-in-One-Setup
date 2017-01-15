@@ -15,7 +15,7 @@
 #define AddBaseTask
 #define AddBaseSubDir
 
-;插件文件添加
+;Plug-in file added
 #sub AddFilesEx
   #define public
   #if FileExists(Plugins + "\" + AddBaseDll + ".dll")
@@ -67,14 +67,14 @@
   AddFiles(fName, fDll, "", "", "", fName, fSubDir)
 
 
-;文件版本及编译时间
+;File version and compile time
 #define VerBuild(str FileName, Str Ver = "", Str Build = "") \
   Local[0] = GetFileVersion(FileName), \
   Local[0] == "0.0.0.0" ? Local[0] = Trim(GetFileProductVersion(FileName)) : Local[0], \
   Local[1] = GetFileDateTimeString(FileName, 'yymmdd', '', ''), \
   Local[0] + ' Build ' + Local[1]
 
-;核心版本号
+;The core version number
 #define ISCmplr_VerStr(str Compiler, str Ver) \
   DeleteFile(GetEnv("Temp") + '\IS_ENHANCED.ini'), \
   Local[0] = FileExists(Compiler + '\..\islzma.dll'), \

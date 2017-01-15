@@ -5,46 +5,49 @@
 //Tested Inno :
 
 [Components]
-Name: Plugins; Description: 插件; Types: full
-Name: Plugins\IsSkin; Description: IsSkin  皮肤插件; Types: full
-Name: Plugins\IsTask; Description: IsTask  进程插件; Types: full compact
+Name: Plugins; Description: Plugin; Types: full
+Name: Plugins\IsSkin; Description: IsSkin - Skins for Setup; Types: full
+Name: Plugins\IsTask; Description: IsTask - Process plugin; Types: full compact
 
-Name: Plugins\ISXDL;  Description: ISXDL  在线下载 插件; Types: full compact
-Name: Plugins\ItDownload;  Description: ItDownload   在线下载 插件   (Sherlock Software); Types: full compact
-Name: Plugins\ItTray;      Description: ItTray   托盘 插件   (Sherlock Software); Types: full compact
+Name: Plugins\ISXDL;  Description: ISXDL - Download plug-ins online; Types: full compact
+Name: Plugins\ItDownload;  Description: ItDownload - Download plug-ins online   (Sherlock Software); Types: full compact
+Name: Plugins\ItTray;      Description: ItTray - Manages Tray Icons  (Sherlock Software); Types: full compact
 
 #ifndef Lite
-Name: Plugins\botva2;  Description: botva2  图片皮肤插件   (htuos); Types: full
-Name: Plugins\ISWin7;  Description: ISWin7  Win7透明效果插件; Types: full
-Name: Plugins\ISFlash; Description: ISFlash  Flash插件; Types: full
-Name: Plugins\is7z;    Description: is7z  7z进度条解压插件; Types: full
+Name: Plugins\botva2;  Description: botva2  Picture skin plugin   (htuos); Types: full
+Name: Plugins\ISWin7;  Description: ISWin7  Win7 Transparent effects plug-in; Types: full
+Name: Plugins\ISFlash; Description: ISFlash  Flash Plugin; Types: full
+Name: Plugins\is7z;    Description: is7z  Extract 7zip archives; Types: full
 
-Name: Plugins\WaterCtrl; Description: WaterCtrl  水纹特效插件   (Restools); Types: full compact
-Name: Plugins\GifCtrl;   Description: GifCtrl  Gif显示插件   (Restools); Types: full
-Name: Plugins\FireCtrl;  Description: FireCtrl  火焰特效插件   (Restools); Types: full
+Name: Plugins\WaterCtrl; Description: WaterCtrl - Water Like effect (Restools); Types: full compact
+Name: Plugins\GifCtrl;   Description: GifCtrl - Use Gifs On Installer (Restools); Types: full
+Name: Plugins\FireCtrl;  Description: FireCtrl - Fire effects plug-ins   (Restools); Types: full
 #endif
-Name: Plugins\DescCtrl; Description: DescCtrl  组件列表描述控制插件   (Restools); Types: full compact
-Name: Plugins\TimeCtrl; Description: TimeCtrl  按钮激活时间控制插件   (Restools); Types: full compact
-Name: Plugins\CallbackCtrl; Description: CallbackCtrl  回调函数插件   (Restools); Types: full
+
+Name: Plugins\DescCtrl; Description: DescCtrl  Plug In   (Restools); Types: full compact
+Name: Plugins\TimeCtrl; Description: TimeCtrl  Plug In   (Restools); Types: full compact
+Name: Plugins\CallbackCtrl; Description: CallbackCtrl - Callback function plugin (Restools); Types: full
+
+;restools
 #ifdef ExecCtrl
-Name: Plugins\ExecCtrl; Description: ExecCtrl  线程执行插件   (Restools); Types: full
+Name: Plugins\ExecCtrl; Description: ExecCtrl - thread synchronization for Exec (Restools); Types: full
 #endif
-Name: Plugins\CallNsis; Description: CallNsis  调用 NSIS 插件的通用插件   (Restools); Types: full
-Name: Plugins\WebCtrl; Description: WebCtrl  网页显示插件   (Restools); Types: full
-Name: Plugins\TrayIconCtrl; Description: TrayIconCtrl  系统托盘图标插件   (Restools); Types: full
-Name: Plugins\CpuDesc; Description: CpuDesc CPU  参数检测插件   (Restools); Types: full
-Name: Plugins\MsgCtrl; Description: MsgCtrl Message  插件   (Restools); Types: full
+Name: Plugins\CallNsis; Description: CallNsis Invokes the generic plug-in for the NSIS plug-in   (Restools); Types: full
+Name: Plugins\WebCtrl; Description: WebCtrl - The page displays the plugin (Restools); Types: full
+Name: Plugins\TrayIconCtrl; Description: TrayIconCtrl - System tray icon plugin   (Restools); Types: full
+Name: Plugins\CpuDesc; Description: CpuDesc CPU - Parameter detection plugin   (Restools); Types: full
+Name: Plugins\MsgCtrl; Description: MsgCtrl Message Plugin (Restools); Types: full
 
 #ifndef Lite
-Name: Plugins\FlashLib; Description: FlashLib Flash效果 插件   (SkyGz); Types: full
-Name: Plugins\GifLib;   Description: GifLib GIF插放 插件       (SkyGz); Types: full
-Name: Plugins\WaterLib; Description: WaterLib 水波效果 插件    (SkyGz); Types: full
+Name: Plugins\FlashLib; Description: FlashLib Flash Effect plugin (SkyGz); Types: full
+Name: Plugins\GifLib;   Description: GifLib GIF Insert the plug-in  (SkyGz); Types: full
+Name: Plugins\WaterLib; Description: WaterLib - Water wave effects plug-ins (SkyGz); Types: full
 #endif
 
-Name: Plugins\UpdateIcon; Description: UpdateIcon  替换 卸载程序图标 插件   (zhfi); Types: full compact
-Name: Plugins\IssProc; Description: IssProc 文件占用查看/结束插件; Types: full compact
+Name: Plugins\UpdateIcon; Description: UpdateIcon - Replace the uninstaller icon plugin   (zhfi); Types: full compact
+Name: Plugins\IssProc; Description: IssProc - The file occupies the view / end plugin; Types: full compact
 
-Name: Plugins\Isgsg; Description: isgsg 闪屏/图片轮播 插件; Types: full compact
+Name: Plugins\Isgsg; Description: isgsg - Splash screen / image carousel plugin; Types: full compact
 
 [Files]
 #ifdef UsePlugin

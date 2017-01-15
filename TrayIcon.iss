@@ -14,12 +14,12 @@ pm_About=&About...
 pm_Exit=E&xit
 pm_Start={#AppVerName}Setup is starting...
 
-ChineseSimp.pm_ShowAndShow=ÏÔÊ¾/Òş²Ø °²×°´°¿Ú(&S)
-ChineseSimp.pm_ActivateVIP=¼¤»îVIP¹¦ÄÜ(&V)
-ChineseSimp.pm_VisitOurSite=·ÃÎÊÎÒÃÇµÄÍøÕ¾(&O)
-ChineseSimp.pm_About=¹ØÓÚ...(&A)
-ChineseSimp.pm_Exit=ÍË³ö(&X)
-ChineseSimp.pm_Start={#AppVerName}°²×°³ÌĞò¿ªÊ¼...
+ChineseSimp.pm_ShowAndShow=æ˜¾ç¤º/éšè— å®‰è£…çª—å£(&S)
+ChineseSimp.pm_ActivateVIP=æ¿€æ´»VIPåŠŸèƒ½(&V)
+ChineseSimp.pm_VisitOurSite=è®¿é—®æˆ‘ä»¬çš„ç½‘ç«™(&O)
+ChineseSimp.pm_About=å…³äº...(&A)
+ChineseSimp.pm_Exit=é€€å‡º(&X)
+ChineseSimp.pm_Start={#AppVerName}å®‰è£…ç¨‹åºå¼€å§‹...
 
 [code]
 function EnableMenuItem(hMenu: HMENU; uIDEnableItem, uEnable: UINT): BOOL; external 'EnableMenuItem@user32.dll stdcall';
@@ -27,20 +27,20 @@ function IsWindowEnabled(hWnd: HWND): BOOL; external 'IsWindowEnabled@user32.dll
 
 const
   WM_USER = $400;
- 	WM_ICON_NOTIFY = WM_USER + 1331; // ×Ô¼º¶¨ÒåÒ»¸ö TrayIcon µÄÏûÏ¢±êÖ¾ÒÔºÍÆäËûµÄÏûÏ¢Çø·Ö
+ 	WM_ICON_NOTIFY = WM_USER + 1331; // Define a TrayIcon message flag to distinguish itself from other messages
 
   MF_BYPOSITION = $400;
   MF_ENABLED = 0;
   MF_GRAYED = 1;
 
-// TrayIcon ²Ëµ¥µã»÷ÊÂ¼ş
+// TrayIcon menu click event
 procedure TrayMenuItemOnClick(MenuItemIndex: Integer);
 begin     
-  // ÏÂÃæ Õâ¾ä´úÂë±íÊ¾ WizardForm ÓĞµ¯³ö¶Ô»°¿òÊ±½ûÖ¹²Ëµ¥µã»÷ÊÂ¼ş
+// The following code indicates that the WizardForm has a pop-up dialog box to prohibit the menu click event
   if not IsWindowEnabled(WizardForm.Handle) then exit;
 
   Case MenuItemIndex of
-    0: ToggleWizardVisible; // ÒòÎª 0 Ïî²Ëµ¥ÎªÄ¬ÈÏ²Ëµ¥, ËùÒÔÕâÀïµÄÊÂ¼ş³ıÁË²Ëµ¥µã»÷Íâ, Ë«»÷Í¼±êÒ²ÄÜ´¥·¢.
+    0: ToggleWizardVisible; // because the 0 menu is the default menu, so here the event in addition to the menu click, double-click the icon can also trigger.
     2: 
     begin
 #ifdef D8Team_VIP
@@ -60,9 +60,9 @@ var
   sl: TStringList;
   s: string;
 begin
-  // ÏÂÃæÕâÒ»¾äµÄĞ§¹ûÊÇÈç¹û WizardForm ÏÔÊ¾ÁË¶Ô»°¿òºó,ÎªÁË·ÀÖ¹¶àÖØÏÔÊ¾¶Ô»°¿ò,ËùÒÔ½ûÖ¹ÁËÓÒ¼ü²Ëµ¥
+// The following sentence is the effect if WizardForm shows a dialog box, in order to prevent multiple display dialog box, so the right-click menu is prohibited
   bShow := IsWindowEnabled(WizardForm.Handle);
-  // ÕâÀïÊÇ²Ëµ¥µ¯³öÇ°µÄ´¦Àí»Øµ÷º¯Êı, ÒÔÏÂµÄ×÷ÓÃÊÇµ± WziardForm Ëõµ½ÍĞÅÌÇøµÄÊ±ºò, ½ûÓÃ "About" ºÍ "Exit" µÄ²Ëµ¥
+ // Here is the menu before the pop-up callback function, the following role is when WziardForm shrink to the tray area, disable the "About" and "Exit" menu
   if WizardFormInTray() then
   begin
     EnableMenuItem(PopMenu, 5, MF_BYPOSITION or MF_GRAYED);
@@ -73,7 +73,7 @@ begin
   end;
 
 #ifndef D8Team_VIP
-  EnableMenuItem(PopMenu, 2, MF_BYPOSITION or MF_GRAYED);    //Èç¹û²»ÆôÓÃVIPµÄ»°£¬»Òµô²Ëµ¥¡£¡£¡£
+  EnableMenuItem(PopMenu, 2, MF_BYPOSITION or MF_GRAYED);    // If you do not enable the VIP, then gray out the menu. . .
 #endif
 end;
 
@@ -95,7 +95,7 @@ begin
   InitTrayIconCtrl(MainForm.Handle, WizardForm.Handle, WM_ICON_NOTIFY, '{#AppVerName}', 0,
        True, False, MenuStrs, 0, @TrayMenuItemOnClick, @TrayMenuOnPopup, nil);
 
-  // ÏÔÊ¾Âş»­ĞÍÆøÅİÌáÊ¾
+// Show comic bubble tips
   ShowBalloon(CustomMessage('pm_Start'), '{#AppVerName}', 0, 10, False);
 end;
 

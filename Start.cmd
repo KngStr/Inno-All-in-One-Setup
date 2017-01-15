@@ -2,11 +2,11 @@
 
 :start
 cls
-title ±‡“Î∞Ê±æ—°‘Ò
-Echo      1°¢ π”√ Ansi±Í◊º∞Ê±æ
-Echo      2°¢ π”√ Unicode±Í◊º∞Ê±æ
+title Compile version selection
+Echo  1. the use of Ansi standard version
+Echo  2. the use of Unicode standard version
 
-set /p InnoVer= ‰»Î“‘…œ±‡∫≈£∫
+set /p InnoVer=Enter Your Choice(1/2)Ôºö
 
 if "%~1" == "" (
   Set "SetupFile=%~dp0\Setup.iss"
