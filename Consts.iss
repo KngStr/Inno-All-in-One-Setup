@@ -48,10 +48,10 @@ ChineseSimp.BeveledLabel={#BrandingTexts}
 
 ChineseSimp.SetupWindowTitle={#UrlName} - %1
 ChineseSimp.SetupAppTitle={#UrlName} - {#AppName}
-ChineseSimp.UninstallAppTitle={#UrlName} - Ğ¶ÔØ
-ChineseSimp.UninstallAppFullTitle={#UrlName} - %1 Ğ¶ÔØ
+ChineseSimp.UninstallAppTitle={#UrlName} - å¸è½½
+ChineseSimp.UninstallAppFullTitle={#UrlName} - %1 å¸è½½
 
-ChineseSimp.LicenseAccepted =ÎÒÍ¬Òâ¡°Ğí¿ÉĞ­Òé¡±ÖĞµÄÌõ¿î(&A)
+ChineseSimp.LicenseAccepted =æˆ‘åŒæ„â€œè®¸å¯åè®®â€ä¸­çš„æ¡æ¬¾(&A)
 
 [CustomMessages]
 Inno=Inno Setup
@@ -108,35 +108,36 @@ English.InnoLogView=InnoLogView
 
 ;cn
 ChineseSimp.Inno=Inno Setup
-ChineseSimp.ISPP=Inno Setup Ô¤´¦ÀíÆ÷
-ChineseSimp.Compiler=±à¼­Æ÷
+ChineseSimp.ISPP=Inno Setup é¢„å¤„ç†å™¨
+ChineseSimp.Compiler=ç¼–è¾‘å™¨
 
-ChineseSimp.Help=°ïÖú
-ChineseSimp.FAQ=³£¼ûÎÊÌâ
-ChineseSimp.Docs=ÎÄµµ
-ChineseSimp.License=Ğí¿ÉĞ­Òé
-ChineseSimp.History=ÀúÊ·
-ChineseSimp.Extensions=À©Õ¹×ÊÔ´
+ChineseSimp.Help=å¸®åŠ©
+ChineseSimp.FAQ=å¸¸è§é—®é¢˜
+ChineseSimp.Docs=æ–‡æ¡£
+ChineseSimp.License=è®¸å¯åè®®
+ChineseSimp.History=å†å²
+ChineseSimp.Extensions=æ‰©å±•èµ„æº
 
-ChineseSimp.Examples=Ê¾Àı½Å±¾
-ChineseSimp.Documentation=ÎÄµµ
-ChineseSimp.Revision_History=¸üĞÂÀúÊ·
+ChineseSimp.Examples=ç¤ºä¾‹è„šæœ¬
+ChineseSimp.Documentation=æ–‡æ¡£
+ChineseSimp.Revision_History=æ›´æ–°å†å²
 
-ChineseSimp.ISD=ISD ÎÄ¼ş¸ñÊ½
-ChineseSimp.Newsgroups=ĞÂÎÅ×é
-ChineseSimp.Chm_Hanzify=ºº»¯ĞÂÊÀ¼ÍÂÛÌ³¾«»ª
-ChineseSimp.Isxkb=ÖªÊ¶¿â
-ChineseSimp.Isxkb_Online=ÔÚÏßÖªÊ¶¿â
+ChineseSimp.ISD=ISD æ–‡ä»¶æ ¼å¼
+ChineseSimp.Newsgroups=æ–°é—»ç»„
+ChineseSimp.Chm_Hanzify=æ±‰åŒ–æ–°ä¸–çºªè®ºå›ç²¾å
+ChineseSimp.Isxkb=çŸ¥è¯†åº“
+ChineseSimp.Isxkb_Online=åœ¨çº¿çŸ¥è¯†åº“
 
-ChineseSimp.Unpack=½â°ü
-ChineseSimp.Unpacker=½â°ü¹¤¾ß
-ChineseSimp.Converter=×¢²á±í×ª»»Æ÷
-ChineseSimp.InnoLogView=Inno Ğ¶ÔØ¼ÇÂ¼²é¿´Æ÷
+ChineseSimp.Unpack=è§£åŒ…
+ChineseSimp.Unpacker=è§£åŒ…å·¥å…·
+ChineseSimp.Converter=æ³¨å†Œè¡¨è½¬æ¢å™¨
+ChineseSimp.InnoLogView=Inno å¸è½½è®°å½•æŸ¥çœ‹å™¨
 
-ChineseSimp.AdditionalIcons=¸½¼ÓÍ¼±ê:
-ChineseSimp.CreateDesktopIcon=´´½¨×ÀÃæÍ¼±ê
-ChineseSimp.CreateQuickLaunchIcon=´´½¨¿ìËÙÆô¶¯Í¼±ê
-ChineseSimp.AssocRightFileExtension=½« %2 ÎÄ¼şÀ©Õ¹ÃûÓë %1 ½¨Á¢ÓÒ¼ü¹ØÁª (&A)
-ChineseSimp.Assoc=ÎÄ¼ş¹ØÁª:
+ChineseSimp.AdditionalIcons=é™„åŠ å›¾æ ‡:
+ChineseSimp.CreateDesktopIcon=åˆ›å»ºæ¡Œé¢å›¾æ ‡
+ChineseSimp.CreateQuickLaunchIcon=åˆ›å»ºå¿«é€Ÿå¯åŠ¨å›¾æ ‡
+ChineseSimp.AssocRightFileExtension=å°† %2 æ–‡ä»¶æ‰©å±•åä¸ %1 å»ºç«‹å³é”®å…³è” (&A)
+ChineseSimp.Assoc=æ–‡ä»¶å…³è”:
 
-Skins=°×ÑòÍÃÃÀÃ¼%nChromex%nSustenance%n¹´¹´ÊÖ%n¿É°®Ğ¡ĞÜ%nÄ¾Í·Æ»¹û%nÑó´ĞÍ·ÇéÂÂ%nCodejock%nISSkinEx%nSakura
+;Skins=ç™½ç¾Šå…”ç¾çœ‰%nChromex%nSustenance%nå‹¾å‹¾æ‰‹%nå¯çˆ±å°ç†Š%næœ¨å¤´è‹¹æœ%næ´‹è‘±å¤´æƒ…ä¾£%nCodejock%nISSkinEx%nSakura
+Skins =White Rabbit Crush %nChromex%nSustenance%nGrabhook%nCuteBear%nWoodApples%nOnionCouples%nCodejock%nISSkinEx%nSakura
