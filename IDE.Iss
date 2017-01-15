@@ -5,13 +5,13 @@
 //Tested Inno :
 
 [Components]
-Name: IDE; Description: {cm:Inno} ½Å±¾±à¼­Æ÷; Types: full compact custom
+Name: IDE; Description: {cm:Inno} The script editor; Types: full compact custom
 Name: IDE\ISCC; Description: Inno Setup Command-Line Compiler; Flags: disablenouninstallwarning; Types: custom compact full
 Name: IDE\Compile; Description: Inno Setup Compiler; Flags: exclusive disablenouninstallwarning; Types: custom compact full
-Name: IDE\Restools; Description: Restools ±à¼­Æ÷ÔöÇ¿°æ ({#IDE_Restools}); Flags: exclusive disablenouninstallwarning; Types: custom compact full
-Name: IDE\SkyGz; Description: SkyGz ±à¼­Æ÷ÔöÇ¿°æ  ({#IDE_SkyGz}); Flags: exclusive disablenouninstallwarning;
+Name: IDE\Restools; Description: Restools Editor enhanced version ({#IDE_Restools}); Flags: exclusive disablenouninstallwarning; Types: custom compact full
+Name: IDE\SkyGz; Description: SkyGz Editor enhanced version  ({#IDE_SkyGz}); Flags: exclusive disablenouninstallwarning;
 
-;¸÷ÖÖ±àÒëÆ÷
+;å„ç§ç¼–è¯‘å™¨
 ;#include "InnoIDE.iss"
 #include "ISStudio\ISStudio.iss"
 ;#include "ISTool.iss"
