@@ -4,8 +4,8 @@
 //Modified    : 2013-11-14 11:40:59
 //Tested Inno :
 
-; ½Å±¾ÓÃ Inno Setup ½Å±¾Ïòµ¼ Éú³É¡£
-; ²éÔÄÎÄµµ»ñÈ¡´´½¨ INNO SETUP ½Å±¾ÎÄ¼şµÄÏêÏ¸×ÊÁÏ£¡
+;The script is generated using the Inno Setup script wizard.
+;See the documentation for details on creating INNO SETUP script files!
 
 ;#expr BuildNum
 #define SrcPath SourcePath  ;GetCurDir ;".\"
@@ -14,12 +14,12 @@
 
 ;#define Test
 
-;²»Ê¹ÓÃ²å¼şĞ¶ÔØ¹¦ÄÜ
+;Do not use plug-in uninstall feature
 #Define Plugin_UnInst False
-;ÊÇ·ñÆôÓÃ²»°²È«ÎÄ¼ş£¨Îó±¨ ²å¼şºÍ¹¤¾ß£©
+;Whether to enable unsafe files (false positives and tools)
 ;#Define UnSafe
 
-;È«¾ÖÎÄ¼ş¶¨Òå
+;Global file definition
 #define IsPack SrcPath + 'IsPack'
 #define ResCenter SourcePath ;AddBackslash(ExtractFileDir(RemoveBackslash(CompilerPath)))
 #define Plugins ResCenter + 'Plugins'
@@ -34,9 +34,9 @@
 #define MailAddress "kngstr@foxmail.com"
 
 #ifdef D8Team
-  #define AppName "Inno Setup D8ÍÅ¶Ó°æ"
+  #define AppName "Inno Setup D8team edition"
 #else
-  #define AppName "Inno Setup ¼¯³É°æ(Ô­D8ÍÅ¶Ó°æ)"
+  #define AppName "Inno Setup Integrated Edition "
 #endif
 #include "GlobalDefines.ish"
 
@@ -58,7 +58,7 @@
 ;#expr   DeleteFile(OutName + "*" + FileExt + ".exe")
 #define OutName OutName + FileExt
 
-;ÔöÇ¿°æ±¾
+;Enhanced version
 #include "IsPack_Restools\Restools.iss"
 #include "IsPack_SkyGz\SkyGz.iss"
 
@@ -68,7 +68,7 @@
 #define VB_InnoLogView VerBuild(Extensions + "\InnoLogView\InnoLogView.exe")
 
 #ifdef UnSafe
-;°²È«ÎÊÌâµÄ²å¼ş
+;Security issues plug-ins
   #define InnoGpw
   #define InnoGUI "Extensions\Unpack\InnoGUI"
   #define ExecCtrl
@@ -106,7 +106,7 @@ end;
 #include "Mui_Nsis_Adv.ish"
 #include "MUI_Common.Ish"
 #include "LinkandInfo.Ish"
-;µ¼Èë²å¼ş¹¦ÄÜ
+; Import plug-in function
 #include "IsWin7.ish"
 #include "ISTask.Ish"
 #include "WaterLib.ish"
@@ -115,8 +115,7 @@ end;
 #include "VerFunc.Ish"
 
 #include "trayicon.iss"
-
-;Ğ¶ÔØÊ±Ê¹ÓÃµÄÎÄ¼ş
+;Files used during uninstallation
 #Define Plugin_UnInst True
 #Define Plugin_UnInst_Dir "UninsFiles"
 #include "IssProc.Ish"
@@ -158,33 +157,33 @@ ShowLanguageDialog=no
 #endif
 
 #ifdef IS_ENHANCED
-// ÖØĞÂ¼¤»î UninstallIconFile ²ÎÊıµÄÊ¹ÓÃ
+// Reactivate the use of the UninstallIconFile parameter
 UninstallIconFile=Res\Uninst.ico
 #endif
 
-;³£Á¿ÒıÓÃ
+; Constant reference
 #include "Consts.iss"
 
 [Types]
-;Name: "recommand"; Description: "ÍÆ¼ö°²×°"
-Name: "full"; Description: "ÍêÈ«°²×°"
-Name: "compact"; Description: "¼ò½à°²×°"
-Name: "custom"; Description: "×Ô¶¨Òå°²×°"; Flags: iscustom
+;Name: "recommand"; Description: "Recommended installation"
+Name: "full"; Description: "Fully installed"
+Name: "compact"; Description: "Simple installation"
+Name: "custom"; Description: "Custom installation"; Flags: iscustom
 
 [Components]
-Name: Inno; Description: Ö÷³ÌĞò(±ØĞë) - (Inno {#InnoVer}); Flags: fixed; Types: custom compact full
+Name: Inno; Description: Main program (required) - (Inno {#InnoVer}); Flags: fixed; Types: custom compact full
 Name: Inno\Ansi; Description: Ansi {cm:Inno}; Flags: exclusive disablenouninstallwarning; Types: custom compact full
 Name: Inno\Unicode; Description: Unicode {cm:Inno}; Flags: exclusive disablenouninstallwarning
 
 #if Defined(Include_ISCmplr_Restools) || Defined(Include_ISCmplr_SkyGz) 
   #define Include_ISCmplr
-Name: ISCmplr_Setup; Description: {cm:Inno} ±àÒëÆ÷ÔöÇ¿°æ; Flags: disablenouninstallwarning; Types: full
-  #ifdef Include_ISCmplr_Restools
+Name: ISCmplr_Setup; Description: {cm:Inno} Compiler enhancements; Flags: disablenouninstallwarning; Types: full
+#ifdef Include_ISCmplr_Restools
 Name: ISCmplr_Setup\Restools_MiniVCL; Description: Restools Mini VCL    ({#ISCmplr_Restools_MiniVCL}); Flags: exclusive disablenouninstallwarning; Types: full
 Name: ISCmplr_Setup\Restools_FullVCL; Description: Restools Full VCL    ({#ISCmplr_Restools_FullVCL}); Flags: exclusive disablenouninstallwarning;
   #endif
   #ifdef Include_ISCmplr_SkyGz
-Name: ISCmplr_Setup\SkyGz; Description: SkyGz ±àÒëÆ÷ÔöÇ¿°æ   ({#ISCmplr_SkyGz}); Flags: exclusive disablenouninstallwarning;
+Name: ISCmplr_Setup\SkyGz; Description: SkyGz Compiler enhancements ({#ISCmplr_SkyGz}); Flags: exclusive disablenouninstallwarning;
   #endif
 #endif
 
@@ -192,16 +191,16 @@ Name: ISCmplr_Setup\SkyGz; Description: SkyGz ±àÒëÆ÷ÔöÇ¿°æ   ({#ISCmplr_SkyGz});
 
 [Components]
 #ifndef Lite
-Name: EasySets; Description: ÍÆ¼öÉèÖÃ; Types: custom compact full
-Name: EasySets\EditorSet; Description: {#UrlName} ÍÆ¼öÉèÖÃ; Types: custom compact full; Flags: disablenouninstallwarning;
-Name: EasySets\CodeFont; Description: Restools ÍÆ¼ö×ÖÌå; Types: custom compact full
+Name: EasySets; Description: Recommended settings; Types: custom compact full
+Name: EasySets\EditorSet; Description: {#UrlName} Recommended settings; Types: custom compact full; Flags: disablenouninstallwarning;
+Name: EasySets\CodeFont; Description: Restools Recommended fonts; Types: custom compact full
 #endif
 
 Name: Extensions; Description: {cm:Extensions}; Types: custom compact full
-Name: Extensions\IsSkin_Styles; Description: IsSkin Æ¤·ô¼¯ºÏ; Types: full
-Name: Extensions\IsSkin_SkinBuilder; Description: IsSkin Æ¤·ô±à¼­Æ÷   ({#IsSkin_SkinBuilder}); Types: full
-Name: Extensions\UninsHs; Description: UninsHs Ğ¶ÔØÔöÇ¿   ({#Extensions_UninsHs}); Types: full compact
-Name: Extensions\Converter; Description: Converter {cm:Converter}  (cntrump ºº»¯)   ({#VB_Converter}); Types: full compact
+Name: Extensions\IsSkin_Styles; Description: IsSkin Skin collection; Types: full
+Name: Extensions\IsSkin_SkinBuilder; Description: IsSkin Skin Editor   ({#IsSkin_SkinBuilder}); Types: full
+Name: Extensions\UninsHs; Description: UninsHs Unload enhancements   ({#Extensions_UninsHs}); Types: full compact
+Name: Extensions\Converter; Description: Converter {cm:Converter}  (cntrump Finished)   ({#VB_Converter}); Types: full compact
 
 Name: Extensions\Unpack; Description: {cm:Unpacker} (SkyGz); Types: full;
 #ifdef InnoGUI
@@ -215,7 +214,7 @@ Name: Extensions\Unpack\Disasm; Description: {cm:Inno} Disasm Tool   (X-Star); T
 
 #ifndef Lite
 Name: Extensions\InnoLogView; Description: InnoLogView {cm:InnoLogView}   ({#VB_InnoLogView}); Types: custom full
-;Name: Extensions\ISSI; Description: {cm:Inno} Script Includes (ISSI) À©Õ¹¿â   (LOGA); Types: full;
+;Name: Extensions\ISSI; Description: {cm:Inno} Script Includes (ISSI) Extension library   (LOGA); Types: full;
 
 Name: Help; Description: {cm:Help}; Types: custom compact full
 Name: Help\Hanzify; Description: {cm:Chm_Hanzify}; Types: custom compact full
@@ -225,8 +224,8 @@ Name: Help\ISD; Description: {cm:Inno} {cm:ISD}; Types: custom compact full
 #endif
 
 ;Nsis Res Components
-Name: Nsis; Description: Nsis×ÊÔ´; Types: full
-Name: Nsis\Graphics; Description: Graphics ×ÊÔ´; Types: full
+Name: Nsis; Description: Nsis Resources; Types: full
+Name: Nsis\Graphics; Description: Graphics Resources; Types: full
 Name: Nsis\Graphics\Header; Description: Header; Types: full
 Name: Nsis\Graphics\Wizard; Description: Wizard; Types: full
 Name: Nsis\Graphics\Icons; Description: Icons; Types: full
@@ -252,10 +251,10 @@ Name: InnoGUI_ICON; Description: {cm:AssocRightFileExtension,Inno Setup Unpacker
 #endif
 Name: InnoExp_ICON; Description: {cm:AssocRightFileExtension,Inno Setup Unpacker Explorer,.exe}; GroupDescription: {cm:Assoc}; Components: Extensions\Unpack\InnoExp; Flags: unchecked
 
-Name: Restools_Lang_En; Description: ¼æÈİRestoolsÉè¼ÆÆ÷£¬Ê¹ÓÃÓ¢ÎÄÓïÑÔÎÄ¼ş×÷ÎªÄ¬ÈÏÓïÑÔ; GroupDescription: Restools±à¼­Æ÷¸½¼ÓÑ¡Ïî; Components: Extensions\Unpack\InnoExp;
+Name: Restools_Lang_En; Description: Compatible Restools Designer, using English language files as the default language; GroupDescription: Restools Editor Additional Options; Components: Extensions\Unpack\InnoExp;
 
 [Run]
-;£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡ÒªĞŞ¸Ä-Ä¬ÈÏ±àÒëÆ÷»ñÈ¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡
+; . . . . . . . . . . . To modify - the default compiler gets! . . . . . . . . . . .
 Filename: {app}\Compil32.exe; WorkingDir: {app}; Description: {cm:LaunchProgram,Inno Setup}; Flags: nowait postinstall skipifsilent; 
 
 [Files]
@@ -265,7 +264,7 @@ Source: What's new.txt; DestDir: {#SetupSetting("UninstallFilesDir")}; Flags: is
 #expr AddFiles("Macros")
 #expr AddFiles("InstFiles", "", "", "", "", "", "ISPP")
 
-;Ô¤ÊÍ·ÅÎÄ¼ş
+; Pre-release files
 Source: Res\Uninst.ico; Flags: solidbreak dontcopy
 Source: {#Plugins}\UpdateIcon.dll; DestDir: {app}\Plugins; Flags: ignoreversion dontcopy; BeforeInstall: AddToDetaList
 Source: {#SrcPath}\Res\Skins\*; DestDir: {tmp}; Flags: ignoreversion dontcopy; BeforeInstall: AddToDetaList
@@ -440,8 +439,8 @@ Name: {group}\{cm:Help}\{cm:Inno} {cm:Documentation}; Filename: {app}\ISetup.chm
 Name: {group}\{cm:Help}\{cm:ISPP} {cm:Documentation}; Filename: {app}\ISPP.chm
 Name: {group}\{cm:Help}\{cm:Inno} {cm:FAQ}; Filename: {app}\isfaq.htm
 Name: {group}\{cm:Help}\{cm:Inno} {cm:Revision_History}; Filename: {app}\whatsnew.htm
-Name: {group}\{cm:Help}\Ish Í·ÎÄ¼ş Ê¹ÓÃËµÃ÷; Filename: {app}\Docs\[Ish]\ReadMe.txt
-Name: {group}\{cm:Help}\°æ±¾¸üĞÂËµÃ÷; Filename: {app}\{#SetupSetting("UninstallFilesDir")}\What's new.txt
+Name: {group}\{cm:Help}\Ish Header file instructions; Filename: {app}\Docs\[Ish]\ReadMe.txt
+Name: {group}\{cm:Help}\Version update instructions; Filename: {app}\{#SetupSetting("UninstallFilesDir")}\What's new.txt
 
 ;Docs
 Name: {group}\{cm:Docs}\{cm:Inno} {cm:Docs}; Filename: {app}\Docs\
@@ -502,25 +501,25 @@ Root: HKCR; SubKey: Applications\Compil32.exe; Flags: deletekey; Tasks: AssocIss
 Root: HKCR; SubKey: .iss; ValueType: string; ValueData: InnoSetupScriptFile; Flags: uninsdeletekey; Tasks: AssocIss
 Root: HKCR; SubKey: .iss; ValueType: string; ValueName: Content Type; ValueData: text/plain; Flags: uninsdeletekey; Tasks: AssocIss
 
-Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile; ValueType: string; ValueData: Inno Setup ½Å±¾; Flags: uninsdeletekey; Tasks: AssocIss
+Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile; ValueType: string; ValueData: Inno Setup script; Flags: uninsdeletekey; Tasks: AssocIss
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile\DefaultIcon; ValueType: string; ValueData: {app}\Compil32.exe,1; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIss
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile\shell; Flags: uninsdeletekeyifempty; Tasks: AssocIss
-Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile\shell\Compile; ValueType: string; ValueData: ±àÒë(&L); Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIss
+Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile\shell\Compile; ValueType: string; ValueData: Compile(&L); Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIss
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile\shell\Compile\command; ValueType: string; ValueData: """{app}\Compil32.exe"" /cc ""%1"""; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIss
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile\shell\open; Flags: uninsdeletekeyifempty; Tasks: AssocIss
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile\shell\open\command; ValueType: string; ValueData: """{app}\Compil32.exe"" ""%1"""; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIss
-Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile\shell\OpenWithInnoSetup; ValueType: string; ValueData: ÓÃ Inno Setup ´ò¿ª(&I); Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIss
+Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile\shell\OpenWithInnoSetup; ValueType: string; ValueData: Open with Inno Setup(&L); Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIss
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupScriptFile\shell\OpenWithInnoSetup\command; ValueType: string; ValueData: """{app}\Compil32.exe"" ""%1"""; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIss
 
 Root: HKCR; SubKey: .ish; ValueType: string; ValueData: InnoSetupHeaderFile; Flags: uninsdeletekey; Tasks: AssocIsh
 Root: HKCR; SubKey: .ish; ValueType: string; ValueName: Content Type; ValueData: text/plain; Flags: uninsdeletekey; Tasks: AssocIsh
 
-Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupHeaderFile; ValueType: string; ValueData: Inno Setup Í·ÎÄ¼ş; Flags: uninsdeletekey; Tasks: AssocIsh
+Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupHeaderFile; ValueType: string; ValueData: Inno Setup header file; Flags: uninsdeletekey; Tasks: AssocIsh
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupHeaderFile\DefaultIcon; ValueType: string; ValueData: {app}\Compil32.exe,1; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIsh
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupHeaderFile\shell; Flags: uninsdeletekeyifempty; Tasks: AssocIsh
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupHeaderFile\shell\open; Flags: uninsdeletekeyifempty; Tasks: AssocIsh
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupHeaderFile\shell\open\command; ValueType: string; ValueData: """{app}\Compil32.exe"" ""%1"""; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIsh
-Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupHeaderFile\shell\OpenWithInnoSetup; ValueType: string; ValueData: ÓÃ Inno Setup ´ò¿ª(&I); Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIsh
+Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupHeaderFile\shell\OpenWithInnoSetup; ValueType: string; ValueData: Open with Inno Setup(&I); Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIsh
 Root: HKLM; SubKey: SOFTWARE\Classes\InnoSetupHeaderFile\shell\OpenWithInnoSetup\command; ValueType: string; ValueData: """{app}\Compil32.exe"" ""%1"""; Flags: uninsdeletevalue uninsdeletekeyifempty; Tasks: AssocIsh
 
 #ifdef UsePlugin
@@ -577,7 +576,7 @@ type
     dwExtraInfo: DWORD;
   end;
 
-// »Øµ÷º¯Êı²ÎÊı¸ñÊ½ÉùÃ÷
+// Callback function parameter format declaration
 //TMessageProc = procedure(nCode: LongWord; wParam: LongWord; lParam: LongWord);
   TMessageProc = procedure(nCode: LongWord; wParam: LongWord; lParam: TMouseHookStruct);
 
@@ -650,7 +649,7 @@ begin
   with btn_NewComps do
   begin
     Parent := WizardForm.SelectComponentsPage;
-    Caption := 'ĞÂ´°¿ÚÑ¡Ôñ';
+    Caption := 'New window selection';
     Top := WizardForm.TypesCombo.Top;
   end;
 //  frm_NewComps.Free;
@@ -674,7 +673,7 @@ begin
         Width := WizardForm.Width + ScaleX(100);
         Height := WizardForm.Height + ScaleY(100);
         AutoScroll := False;
-        Caption := '×é¼şÑ¡Ôñ - ' + WizardForm.Caption;
+        Caption := 'Component selection - ' + WizardForm.Caption;
         OnClose := @frm_NewCompsClose;
         Visible := False;
         FormStyle := fsStayOnTop;
@@ -737,7 +736,7 @@ begin
     with btn_NewComps do
     begin
       Parent := pnl_Top;
-      Caption := '·µ»ØÏòµ¼Ò³Ãæ';
+      Caption := 'Return to the wizard page';
       Top := ScaleY(5);
       Cancel := True;
     end;
@@ -764,7 +763,7 @@ begin
   with btn_NewComps do
   begin
     Parent := WizardForm.SelectComponentsPage;
-    Caption := 'ĞÂ´°¿ÚÑ¡Ôñ';
+    Caption := 'New window selection';
     Width := ScaleX(90);
     Height := WizardForm.TypesCombo.Height;
     Left := WizardForm.SelectComponentsPage.Width - Width;
@@ -798,7 +797,7 @@ begin
     Message := GetIniString('Main', 'Message', '', ExpandConstant('{tmp}\d8Inno.tmp'));
     Tips := GetIniString('Main', 'Tips', '', ExpandConstant('{tmp}\d8Inno.tmp'));
 
-    if CompareVersion(Ver, '{#FileVer}') > 0 then  //ÓĞ¸üĞÂ
+    if CompareVersion(Ver, '{#FileVer}') > 0 then  //There are updates
     begin
       //MsgBox('', mbInformation, MB_OK);
       if itd_downloadfile(Message,ExpandConstant('{tmp}\d8Inno.tmp'))=ITDERR_SUCCESS then
@@ -811,7 +810,7 @@ begin
           BorderIcons := [biSystemMenu, biMinimize];
           Width := 397;
           Height := 260;
-      		Caption := '¸üĞÂÍ¨Öª - ' + SetupMessage(msgSetupAppTitle);
+      		Caption := 'Update notifications - ' + SetupMessage(msgSetupAppTitle);
 
           Mmo_UpMessage := TRichEditViewer.Create(Frm_Update);
           with Mmo_UpMessage do
@@ -834,7 +833,7 @@ begin
             Parent := Frm_Update;
             Top := Mmo_UpMessage.Top + Mmo_UpMessage.Height + 10;
             Left := Parent.Width / 2 - Width - 10;
-            Caption := 'Á¢¼´ÏÂÔØ';
+            Caption := 'ç«‹å³ä¸‹è½½';
             ModalResult := mrOk;
           end;
 
@@ -844,7 +843,7 @@ begin
             Parent := Frm_Update;
             Top := Btn_UpOK.Top;
             Left := Btn_UpOK.Left + Btn_UpOK.Width + 20;
-            Caption := '·ÅÆú¸üĞÂ';
+            Caption := 'Download immediately';
             ModalResult := mrCancel;
           end;
           if Frm_Update.ShowModal = mrOk then
@@ -927,15 +926,15 @@ begin
 
   with PreExtractInfo('') do
   begin
-    //ÏÔÊ¾Òş²Ø£¬Ïàµ±ÓÚFormµÄShow¹ı³Ì
+    // Show Hide, the equivalent of Form's Show process
     Show;
     Hide;
 
-    //Í¸Ã÷ÏÔÊ¾
-    //SetLayeredWindowAttributes  º¯ÊıÖ»¶Ô¾ßÓĞWS_EX_LAYEREDÊôĞÔµÄ´°Ìå²ÅÆğ×÷ÓÃ
-    //Í¨³£µÄ´°ÌåÄ¬ÈÏÊÇ²»°üº¬Õâ¸öÊôĞÔµÄ
-    //ËùÒÔµ÷ÓÃSetLayeredWindowAttributes  Ö®Ç°ÒªÓÃSetWindowLong Ê¹´°Ìå¾ßÓĞ
-    //WS_EX_LAYEREDÊôĞÔ
+    // Transparent display
+    // SetLayeredWindowAttributes function only works with forms that have the WS_EX_LAYERED property
+Â Â Â Â // Usually the default form does not contain this property
+Â Â Â Â // So SetLayeredWindowAttributes before using SetWindowLong to make the form with
+Â Â Â Â // WS_EX_LAYERED property
     SetWindowLong(Handle, GWL_EXSTYLE, WS_EX_LAYERED);
     SetLayeredWindowAttributes(Handle, 0, 210, LWA_ALPHA);
 
@@ -945,12 +944,12 @@ begin
 
     for i := 0 to 10 do
     begin
-      lbl_PreEx.Caption := 'ÒÑ¼ÓÔØ£º' + IntToStr(i * 100 / 10) + '%';
+      lbl_PreEx.Caption := 'Loadedï¼š' + IntToStr(i * 100 / 10) + '%';
       Repaint;
       case i of
         1:
         begin
-          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [ÊÍ·ÅISWin7]';
+          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [Release ISWin7]';
           Repaint;
           Sleep(100);
 
@@ -959,7 +958,7 @@ begin
         end;
         2:
         begin
-          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [ÊÍ·ÅWaterLib]';
+          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [freed WaterLib]';
           Repaint;
           Sleep(100);
 
@@ -967,7 +966,7 @@ begin
         end;
         3:
         begin
-          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [ÊÍ·ÅMsgCtrl]';
+          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [Release MsgCtrl]';
           Repaint;
           Sleep(100);
 
@@ -975,7 +974,7 @@ begin
         end;
         4:
         begin
-          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [ÊÍ·ÅISSkin]';
+          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [Release ISSkin]';
           Repaint;
           Sleep(100);
 
@@ -983,7 +982,7 @@ begin
         end;
         5:
         begin
-          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [ÊÍ·ÅIssProc]';
+          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [Release IssProc]';
           Repaint;
           Sleep(100);
 
@@ -992,7 +991,7 @@ begin
         end;
         6:
         begin
-          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [ÊÍ·ÅIsTask]';
+          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [Release IsTask]';
           Repaint;
           Sleep(100);
 
@@ -1000,7 +999,7 @@ begin
         end;
         7:
         begin
-          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [ÊÍ·ÅTrayIconCtrl]';
+          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [Release TrayIconCtrl]';
           Repaint;
           Sleep(100);
 
@@ -1008,18 +1007,16 @@ begin
         end;
         8:
         begin
-          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [¼ì²é¸üĞÂ]';
+          lbl_PreEx.Caption := lbl_PreEx.Caption + ' [Check for updates]';
           Repaint;
-
           if CheckUpdate then Result := False;
         end;
         9:
         begin
           #ifdef UseSkin
-            lbl_PreEx.Caption := lbl_PreEx.Caption + ' [ÆôÓÃÆ¤·ô]';
+            lbl_PreEx.Caption := lbl_PreEx.Caption + ' [Enables skin]';
             Repaint;
             Sleep(100);
-
             RandomSkin(CustomMessage('Skins'));
           #else
           #endif
@@ -1032,7 +1029,7 @@ begin
         Break;
         Exit;
       end;
-      lbl_PreEx.Caption := 'ÒÑ¼ÓÔØ£º' + IntToStr(i * 100 / 10) + '%';
+      lbl_PreEx.Caption := 'Loadedï¼š' + IntToStr(i * 100 / 10) + '%';
       Repaint;
 
       {#AutoPdirs}
@@ -1040,7 +1037,7 @@ begin
     end;
 
     if not Result then Exit;
-    lbl_PreEx.Caption := 'ÒÑ¼ÓÔØ£º100%';
+    lbl_PreEx.Caption := 'Loadedï¼š100%';
 
     AnimateWindow(Handle, 500, AW_CENTER or AW_HIDE);
     //iswin7_free;
@@ -1051,7 +1048,7 @@ end;
 procedure DeinitializeSetup();
 Begin
   try
-  //Òş²ØµÄÒ²²»Ì«¶Ô£¬ÅĞ¶ÏÖ÷´°ÌåÊÇ·ñ´æÔÚÊÇ¸öÎÊÌâ¡£
+  //Hidden is not too right to determine whether the existence of the main form is a problem.
 
   #ifdef UseSkin
     DeInitSkin;
@@ -1059,7 +1056,7 @@ Begin
 
     WaterAllFree;
 
-    //¸Õ¿ªÊ¼¾ÍÈ¡ÏûµÄÊ±ºò»á³ö´í¡£
+    //Initially canceled when the error.
     UnhookWinHookEx();
     DeinitTray();
   except
@@ -1136,12 +1133,12 @@ begin
     ssInstall:
     begin
 #ifndef IS_ENHANCED
-      sIcon:= ExpandConstant('{tmp}\uninst.ico'); //¶¨ÒåĞ¶ÔØÍ¼±ê
-      ExtractTemporaryFile(ExtractFileName(sIcon)); //ÊÍ·ÅĞ¶ÔØÍ¼±ê
+      sIcon:= ExpandConstant('{tmp}\uninst.ico'); //Defines the uninstall icon
+      ExtractTemporaryFile(ExtractFileName(sIcon)); //Release the uninstall icon
       try
-        UpdateIcon(MainForm.Handle, '', '', sIcon, 0); //Ìæ»»Ğ¶ÔØÍ¼±ê
+        UpdateIcon(MainForm.Handle, '', '', sIcon, 0); //Replace the uninstall icon
       except
-        //ÓĞĞ©»úÆ÷»á³öÏÖ´íÎó¡£¡£¡£
+        //Some machines have errors. . .
       end;
 #endif
     end;
