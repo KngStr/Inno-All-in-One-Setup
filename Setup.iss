@@ -833,7 +833,7 @@ begin
             Parent := Frm_Update;
             Top := Mmo_UpMessage.Top + Mmo_UpMessage.Height + 10;
             Left := Parent.Width / 2 - Width - 10;
-            Caption := '立即下载';
+            Caption := 'download immediately';
             ModalResult := mrOk;
           end;
 
@@ -932,9 +932,9 @@ begin
 
     // Transparent display
     // SetLayeredWindowAttributes function only works with forms that have the WS_EX_LAYERED property
-    // Usually the default form does not contain this property
-    // So SetLayeredWindowAttributes before using SetWindowLong to make the form with
-    // WS_EX_LAYERED property
+    // Usually the default form does not contain this property
+    // So SetLayeredWindowAttributes before using SetWindowLong to make the form with
+    // WS_EX_LAYERED property
     SetWindowLong(Handle, GWL_EXSTYLE, WS_EX_LAYERED);
     SetLayeredWindowAttributes(Handle, 0, 210, LWA_ALPHA);
 
