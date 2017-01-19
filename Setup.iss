@@ -899,15 +899,18 @@ begin
     OnClick := @DirBrowseButtonClick;
   end;
 
-  WaterSupportAuthor(False);
-  F:= ExpandConstant('{tmp}\WizardImage.bmp');
-  WizardForm.WizardBitmapImage.Bitmap.SaveToFile(F);
-  WaterHandle := WaterInit(WizardForm.WelcomePage.Handle, 0, 0);
-  with WizardForm.WizardBitmapImage do
-    WaterSetBounds(WaterHandle, Left, Top, Width, Height);
-  WaterSetFile(WaterHandle, AnsiString(F));
-  WaterSetActive(WaterHandle, True);
-  DeleteFile(F);
+  //不支持缩放
+  if ScaleX(100) = 100 then begin
+    WaterSupportAuthor(False);
+    F:= ExpandConstant('{tmp}\WizardImage.bmp');
+    WizardForm.WizardBitmapImage.Bitmap.SaveToFile(F);
+    WaterHandle := WaterInit(WizardForm.WelcomePage.Handle, 0, 0);
+    with WizardForm.WizardBitmapImage do
+      WaterSetBounds(WaterHandle, Left, Top, Width, Height);
+    WaterSetFile(WaterHandle, AnsiString(F));
+    WaterSetActive(WaterHandle, True);
+    DeleteFile(F);
+  end;
 
   SetWinHookEx(WH_MOUSE, @MyMessageProc);
 
