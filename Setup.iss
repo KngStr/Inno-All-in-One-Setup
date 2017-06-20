@@ -259,7 +259,7 @@ Name: InnoGUI_ICON; Description: {cm:AssocRightFileExtension,Inno Setup Unpacker
 Name: InnoExp_ICON; Description: {cm:AssocRightFileExtension,Inno Setup Unpacker Explorer,.exe}; GroupDescription: {cm:Assoc}; Components: Extensions\Unpack\InnoExp; Flags: unchecked
 
 #ifdef Include_ISCmplr_Restools
-Name: Restools_Lang_En; Description: 兼容Restools设计器，使用英文语言文件作为默认语言; GroupDescription: Restools编辑器附加选项; Components: Extensions\Unpack\InnoExp;
+Name: Restools_Lang_En; Description: 兼容Restools设计器，使用英文语言文件作为默认语言; GroupDescription: Restools编辑器附加选项; Components: IDE\Restools;
 #endif
 
 [Run]
