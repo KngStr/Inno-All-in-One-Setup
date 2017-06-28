@@ -308,6 +308,8 @@ Source: {#Docs}\Inno Setup ISD Format.htm; DestDir: {app}\Docs; Flags: ignorever
 Source: {#Docs}\DelphiKey.htm; DestDir: {app}\Docs; Flags: ignoreversion; Components: Help; Tasks:
 #endif
 
+Source: {#SrcPath}\Res\ISetup.chm; DestDir: {app}; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
+
 ;Extensions
 #expr AddFiles("Graphics")
 ;UninsHs
@@ -433,7 +435,6 @@ Name: {group}\{cm:Inno} {cm:Compiler}; Filename: {app}\Compil32.exe; WorkingDir:
 Name: {group}\{cm:Inno} {cm:Examples}; Filename: {app}\Examples\
 ;Inno Help
 Name: {group}\{cm:Help}\{cm:Inno} {cm:Documentation}; Filename: {app}\ISetup.chm
-Name: {group}\{cm:Help}\{cm:ISPP} {cm:Documentation}; Filename: {app}\ISPP.chm
 Name: {group}\{cm:Help}\{cm:Inno} {cm:FAQ}; Filename: {app}\isfaq.htm
 Name: {group}\{cm:Help}\{cm:Inno} {cm:Revision_History}; Filename: {app}\whatsnew.htm
 Name: {group}\{cm:Help}\Ish 头文件 使用说明; Filename: {app}\Docs\[Ish]\ReadMe.txt

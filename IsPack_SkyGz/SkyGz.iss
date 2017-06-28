@@ -55,8 +55,8 @@ Source: {#CurDir}\{app}\Examples\UninstallCodeDll.iss; DestDir: {app}\Examples; 
 Source: {#CurDir}\{app}\Examples\ExtendExample.iss; DestDir: {app}\Examples\SkyGz; Components: ISCmplr_Setup\SkyGz; Flags: ignoreversion; BeforeInstall: AddToDetaList;
   #endif
 ;Help
-Source: {#CurDir}\{app}\{code_GetDir_help}\ISetup.chm; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
-Source: {#CurDir}\{app}\{code_GetDir_help}\ISPP.chm; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
+;Source: {#CurDir}\{app}\{code_GetDir_help}\ISetup.chm; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
+;Source: {#CurDir}\{app}\{code_GetDir_help}\ISPP.chm; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
 Source: {#CurDir}\{app}\{code_GetDir_help}\isfaq.htm; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
 Source: {#CurDir}\{app}\{code_GetDir_help}\whatsnew.htm; DestDir: {app}; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
 
@@ -79,7 +79,7 @@ Source: {#CurDir}\Examples\UninstallCodeDll.iss; DestDir: {app}\Examples; Flags:
 Source: {#CurDir}\Examples\ExtendExample.iss; DestDir: {app}\Examples\SkyGz; Components: ISCmplr_Setup\SkyGz; Flags: ignoreversion; BeforeInstall: AddToDetaList;
   #endif
 ;Help
-Source: {#CurDir}\Help\*; DestDir: {app}; Excludes: IsExtend.chm; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
+;Source: {#CurDir}\Help\*; DestDir: {app}; Excludes: IsExtend.chm; Components: Inno; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
 Source: {#CurDir}\Help\IsExtend.chm; DestDir: {app}; Components: ISCmplr_Setup\SkyGz; Languages: ChineseSimp; BeforeInstall: AddToDetaList; Flags: ignoreversion
 
 #endif
