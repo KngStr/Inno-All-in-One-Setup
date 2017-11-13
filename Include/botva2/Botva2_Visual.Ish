@@ -63,8 +63,8 @@ begin
 end;
 
 procedure UpdateBtn(Btn: TObject; hBtn: HWND);
-var
-  OldLeft, OldTop, OldWidth, OldHeight: Integer;
+//var
+//  OldLeft, OldTop, OldWidth, OldHeight: Integer;
 begin
   if hBtn = 0 then
   begin
@@ -74,7 +74,15 @@ begin
       Exit;
   end;
 
-  BtnGetPosition(hBtn, OldLeft, OldTop, OldWidth, OldHeight);
+  with TControl(Btn) do
+  begin
+    // if set to be false, it will override checked
+    BtnSetEnabled(hBtn, Enabled);
+    BtnSetVisibility(hBtn, Visible);
+  end;
+
+//  Since we move original button out of visible part, position can not be changed.
+//  BtnGetPosition(hBtn, OldLeft, OldTop, OldWidth, OldHeight);
   if Btn is TButton then
   begin
     with TButton(Btn) do
@@ -133,12 +141,6 @@ begin
 //        Top := Top - (OldTop + OldHeight) + TRadioButton(Btn).Top;
       end;
     end;
-  end;
-
-  with TControl(Btn) do
-  begin
-    BtnSetEnabled(hBtn, Enabled);
-    BtnSetVisibility(hBtn, Visible);
   end;
 
   BtnRefresh(hBtn);

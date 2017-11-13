@@ -10,6 +10,7 @@ AppVerName=progressbar by South.Tver
 DefaultDirName={pf}\progressbar
 OutputBaseFilename=setup
 OutputDir=userdocs:Inno Setup Examples Output
+DisableWelcomePage=no
 
 [Files]
 Source: Files\*; Flags: dontcopy
