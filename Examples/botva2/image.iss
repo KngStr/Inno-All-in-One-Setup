@@ -21,8 +21,7 @@ var
 
 procedure Btn1Click(Sender:TObject);
 begin
-//  img:=ImgLoad(WizardForm.Handle,ExpandConstant('{tmp}\mspaint.png'),ImgLeft,ImgTop,0,0,False,True);
-  img:=ImgLoad(WizardForm.Handle,ExpandConstant('{tmp}\mspaint.png'),ImgLeft,ImgTop,100,100,True,True);
+  img:=ImgLoad(WizardForm.Handle,'mspaint.png',ImgLeft,ImgTop,100,100,True,True);
   ImgApplyChanges(WizardForm.Handle);
   
   Btn1.Enabled:=False;
@@ -92,7 +91,6 @@ begin
     Bevel.Hide;
   end;
   
-  ExtractTemporaryFile('mspaint.png');
   ImgLeft:=0;
   ImgTop:=0;
 
@@ -108,7 +106,7 @@ begin
   with Btn2 do begin
     Parent:=WizardForm;
     SetBounds(300,40,160,25);
-    Caption:='Remove mspaint.png'
+    Caption:='Move mspaint.png'
     OnClick:=@Btn2Click;
     Enabled:=False;
   end;
@@ -149,10 +147,8 @@ begin
     Enabled:=False;
   end;
 
-  ExtractTemporaryFile('l4d.jpg');
-  ExtractTemporaryFile('nfs.jpg');
-  img2:=ImgLoad(WizardForm.Handle,ExpandConstant('{tmp}\l4d.jpg'),0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
-  img3:=ImgLoad(WizardForm.Handle,ExpandConstant('{tmp}\nfs.jpg'),0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
+  img2:=ImgLoad(WizardForm.Handle,'l4d.jpg',0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
+  img3:=ImgLoad(WizardForm.Handle,'nfs.jpg',0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
   ImgSetVisibility(img3,False);
   ImgApplyChanges(WizardForm.Handle);
 

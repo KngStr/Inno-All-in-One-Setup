@@ -66,9 +66,7 @@ begin
     CancelButton.Top:=ClientHeight-50;
   end;
 
-  ExtractTemporaryFile('button2.png');
-
-  hBtn:=BtnCreate(WizardForm.Handle,-50,-50,WizardForm.ClientWidth+100,WizardForm.ClientHeight+100,ExpandConstant('{tmp}\button2.png'),18,True);
+  hBtn:=BtnCreate(WizardForm.Handle,-50,-50,WizardForm.ClientWidth+100,WizardForm.ClientHeight+100,'button2.png',18,True);
   CurSimbol:=0;
 
   TestText:='À»÷≈Õ«»ŒÕÕŒ≈ —Œ√À¿ÿ≈Õ»≈ '+

@@ -1,5 +1,5 @@
 ;Created by South.Tver 02.2011
-;пример работы ??прозрачность?изображения
+;пример работы с с прозрачностью изображения
 
 #include "botva2.ish"
 #include "TrackBar.ish"
@@ -26,7 +26,6 @@ function InitializeSetup:boolean;
 begin
   PDir('{# Botva2_Dll }');
   PDir('{# CallbackCtrl_Dll }');
-
   Result:=True;
 end;
 
@@ -55,10 +54,8 @@ begin
     CancelButton.Top:=515;
   end;
 
-  ExtractTemporaryFile('l4d.jpg');
-  ExtractTemporaryFile('5.jpg');
-  img1:=ImgLoad(WizardForm.Handle,ExpandConstant('{tmp}')+'\l4d.jpg',0,0,0,0,False,True);
-  img2:=ImgLoad(WizardForm.Handle,ExpandConstant('{tmp}')+'\5.jpg',0,0,500,500,True,True);
+  img1:=ImgLoad(WizardForm.Handle,'l4d.jpg',0,0,0,0,False,True);
+  img2:=ImgLoad(WizardForm.Handle,'5.jpg',0,0,500,500,True,True);
   ImgSetVisiblePart(img2,149,21,500,500);
 
   L:=TLabel.Create(WizardForm);
@@ -70,9 +67,7 @@ begin
     Transparent:=True;
   end;
 
-  ExtractTemporaryFile('trackbar_btn.png');
-  ExtractTemporaryFile('trackbar_bkg.png');
-  TB:=ImgTBCreate(WizardForm.Handle,ExpandConstant('{tmp}\trackbar_bkg.png'),ExpandConstant('{tmp}\trackbar_btn.png'),10,517,150,10,7,163,507,18,33,2);
+  TB:=ImgTBCreate(WizardForm.Handle,'trackbar_bkg.png','trackbar_btn.png',10,517,150,10,7,163,507,18,33,2);
   ImgTBSetChangePosEvent(TB,@TBChangePos); 
   ImgTBSetPosition(TB,0);
 

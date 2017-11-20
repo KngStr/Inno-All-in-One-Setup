@@ -446,13 +446,24 @@ procedure AllBackImg(Stretch: boolean; fImg: string);
 var
   i: Integer;
 begin
-  BackImg(WizardForm, WizardForm, Stretch, fImg);
+  if IsUninstaller then begin
+    BackImg(UninstallProgressForm, UninstallProgressForm, Stretch, fImg);
 
-  for i := 0 to WizardForm.OuterNotebook.PageCount - 1 do
-    BackImg(WizardForm.OuterNotebook.Pages[i], WizardForm, Stretch, fImg);
+    for i := 0 to UninstallProgressForm.OuterNotebook.PageCount - 1 do
+      BackImg(UninstallProgressForm.OuterNotebook.Pages[i], UninstallProgressForm, Stretch, fImg);
 
-  for i := 0 to WizardForm.InnerNotebook.PageCount - 1 do
-    BackImg(WizardForm.InnerNotebook.Pages[i], WizardForm, Stretch, fImg);
+    for i := 0 to UninstallProgressForm.InnerNotebook.PageCount - 1 do
+      BackImg(UninstallProgressForm.InnerNotebook.Pages[i], UninstallProgressForm, Stretch, fImg);
+  end
+  else begin
+    BackImg(WizardForm, WizardForm, Stretch, fImg);
+
+    for i := 0 to WizardForm.OuterNotebook.PageCount - 1 do
+      BackImg(WizardForm.OuterNotebook.Pages[i], WizardForm, Stretch, fImg);
+
+    for i := 0 to WizardForm.InnerNotebook.PageCount - 1 do
+      BackImg(WizardForm.InnerNotebook.Pages[i], WizardForm, Stretch, fImg);
+  end;
 end;
 
 [/Code]

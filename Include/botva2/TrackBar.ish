@@ -3,41 +3,41 @@
   #Define _TRACKBAR_ISH_ __PATHFILENAME__
 
 [Code]
-//модуль для работы ?TrackBar'ам? для работы требуе?подключения botva2.iss
-//не рекомендуется для работы ?реальных приложен?
+//модуль для работы с TrackBar'ами. для работы требует подключения botva2.iss
+//не рекомендуется для работы в реальных приложениях
 //Created by South.Tver 09.2010
 
-//создат?трэкба?
+//создать трэкбар
 //function ImgTBCreate(Parent: HWND; BkgImg, BtnImg:AnsiString; BkgLeft, BkgTop, BkgWidth, BkgHeight, MinX, MaxX, BtnTop, BtnWidth, BtnHeight, BtnShadowWidth:integer):integer;
 //BkgImg    - картинка для фона трэкбара
 //BtnImg    - картинка для кнопки трэкбара
-//Parent    - хэнд?родительског?окна
+//Parent    - хэндл родительского окна
 //BkgLeft,
 //BkgTop,
 //BkgWidth,
-//BkgHeight - координаты левого верхнего угла ?ширина/высота фоново?картинки ?координата?родительског?окна (Parent)
+//BkgHeight - координаты левого верхнего угла и ширина/высота фоновой картинки в координатах родительского окна (Parent)
 //MinX,
-//MaxX      - крайне?лево?правое положени?по ос?? ?пределах которы?може?двигаться кнопка (бегуно? трэкбара ?координата?Parent
+//MaxX      - крайнее левое/правое положение по оси Х, в пределах которых может двигаться кнопка (бегунок) трэкбара в координатах Parent
 //BtnTop,
 //BtnWidth,
 //BtnHeight,
-//BtnShadowWidth - см. аналогичны?параметр??BtnCreate
+//BtnShadowWidth - см. аналогичные параметры в BtnCreate
 
-//во всех последующи?функция?процедурах ind - значение, которо?вернул?функция ImgTBCreate
+//во всех последующих функциях/процедурах ind - значение, которое вернула функция ImgTBCreate
 
-//удалит?трэкба?
+//удалить трэкбар
 //procedure ImgTkDelete(ind:integer);
 
-//получить текущу?позици?трэкбара (0-100)
+//получить текущую позицию трэкбара (0-100)
 //function ImgTBGetPosition(ind:integer):integer;
 
-//установить текущу?позици?трэкбара (0-100)
+//установить текущую позицию трэкбара (0-100)
 //procedure ImgTBSetPosition(ind, pos:integer);
 
-//установить видимост?трэкбара
+//установить видимость трэкбара
 //procedure ImgTBSetVisibility(ind:integer; Value:boolean);
 
-//установить процедур? которая буде?выполнять? пр?смен?позици?трэкбара
+//установить процедуру, которая будет выполняться при смене позиции трэкбара
 //procedure ImgTBSetChangePosEvent(ind:integer;proc:TImgTBChangePos);
 
 type
@@ -153,9 +153,9 @@ begin
       if Left<ATB[trind].MinX then Left:=ATB[trind].MinX;
       if Left>ATB[trind].MaxX then Left:=ATB[trind].MaxX;
       BtnSetPosition(h,Left,Top,Width,Height);
-      ImgSetVisibility(ATB[trind].bkgimg,not ImgGetVisibility(ATB[trind].bkgimg)); //хрен?вобщем-то написана ?лишняя нагрузка на процессо?
-      ImgSetVisibility(ATB[trind].bkgimg,not ImgGetVisibility(ATB[trind].bkgimg)); //но бе?этих стро?нормальн?
-      ImgApplyChanges(Parent);                                                     //не перерисовывает? кнопка (бегуно?трэкбара)
+      ImgSetVisibility(ATB[trind].bkgimg,not ImgGetVisibility(ATB[trind].bkgimg)); //хрень вобщем-то написана и лишняя нагрузка на процессор
+      ImgSetVisibility(ATB[trind].bkgimg,not ImgGetVisibility(ATB[trind].bkgimg)); //но без этих строк нормально
+      ImgApplyChanges(Parent);                                                     //не перерисовывается кнопка (бегунок трэкбара)
     end;
   end;
 end;
@@ -183,7 +183,7 @@ procedure ImgTBDelete(ind:integer);
 //var
 //  Last,i:integer;
 begin
-//нель? удалять элемен?массив?
+//нельзя удалять элемент массива
 //  Last:=GetArrayLength(ATB)-1;
 //  if (ind>=0) and (ind<=Last) then begin
     ImgRelease(ATB[ind].bkgimg);

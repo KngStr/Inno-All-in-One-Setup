@@ -97,12 +97,9 @@ procedure CurStepChanged(CurStep: TSetupStep);
 begin
   case CurStep of
     ssInstall: begin
-      ExtractTemporaryFile('nfs.jpg');
-      ImgLoad(WizardForm.InstallingPage.Handle,ExpandConstant('{tmp}\nfs.jpg'),0,0,WizardForm.InstallingPage.Width,WizardForm.InstallingPage.Height,True,True);
+      ImgLoad(WizardForm.InstallingPage.Handle,'nfs.jpg',0,0,WizardForm.InstallingPage.Width,WizardForm.InstallingPage.Height,True,True);
 
-      ExtractTemporaryFile('pbbkg.png');
-      ExtractTemporaryFile('pb.png');
-      NewPB:=ImgPBCreate(WizardForm.InstallingPage.Handle, ExpandConstant('{tmp}\pbbkg.png'), ExpandConstant('{tmp}\pb.png'),WizardForm.ProgressGauge.Left,100,WizardForm.ProgressGauge.Width,25);
+      NewPB:=ImgPBCreate(WizardForm.InstallingPage.Handle, 'pbbkg.png', 'pb.png',WizardForm.ProgressGauge.Left,100,WizardForm.ProgressGauge.Width,25);
       ImgApplyChanges(WizardForm.InstallingPage.Handle);
       
       WFCaption:=WizardForm.Caption;

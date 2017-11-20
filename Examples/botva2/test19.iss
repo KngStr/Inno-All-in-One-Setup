@@ -103,18 +103,9 @@ procedure InitializeWizard;
 var
   h:HWND;
   i,l1:integer;
+  cr:Cardinal;
 begin
-  ExtractTemporaryFile('nfs.jpg');
-  ExtractTemporaryFile('l4d.jpg');
-  ExtractTemporaryFile('hz.jpg');
-  ExtractTemporaryFile('Panel1.png');
-  ExtractTemporaryFile('Panel2.png');
-  ExtractTemporaryFile('glass2.png');
-  ExtractTemporaryFile('mspaint.png');
-  ExtractTemporaryFile('button.png');
-  ExtractTemporaryFile('button2.png');
   ExtractTemporaryFile('cursor.ani');
-  ExtractTemporaryFile('glassbutton.png');
 
   //фоновый рисунок на MainForm
   //with MainForm do begin
@@ -197,22 +188,22 @@ begin
   l:=0;
   t:=90;
   SetArrayLength(BkgImg,3); //задаем количество фоновых рисунков
-  BkgImg[0]:=ImgLoad(h,ExpandConstant('{tmp}\nfs.jpg'),0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
-  BkgImg[1]:=ImgLoad(h,ExpandConstant('{tmp}\l4d.jpg'),0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
-  BkgImg[2]:=ImgLoad(h,ExpandConstant('{tmp}\hz.jpg'),0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
+  BkgImg[0]:=ImgLoad(h,'nfs.jpg',0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
+  BkgImg[1]:=ImgLoad(h,'l4d.jpg',0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
+  BkgImg[2]:=ImgLoad(h,'hz.jpg',0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
   CurrentImage:=0;
   ImgSetVisibility(BkgImg[1],False);
   ImgSetVisibility(BkgImg[2],False);
 
-  ImgLoad(h,ExpandConstant('{tmp}\mspaint.png'),280,365,0,0,False,True);
-  ImgLoad(h,ExpandConstant('{tmp}\glass2.png'),40,180,WizardForm.ClientWidth-80,300,True,True);
-  ImgLoad(h,ExpandConstant('{tmp}\Panel1.png'),0,t,WizardForm.ClientWidth,20,True,True);
-  img:=ImgLoad(h,ExpandConstant('{tmp}\Panel2.png'),0,t,0,0,False,False);
-  img2:=ImgLoad(h,ExpandConstant('{tmp}\mspaint.png'),0,0,0,0,False,False);
+  ImgLoad(h,'mspaint.png',280,365,0,0,False,True);
+  ImgLoad(h,'glass2.png',40,180,WizardForm.ClientWidth-80,300,True,True);
+  ImgLoad(h,'Panel1.png',0,t,WizardForm.ClientWidth,20,True,True);
+  img:=ImgLoad(h,'Panel2.png',0,t,0,0,False,False);
+  img2:=ImgLoad(h,'mspaint.png',0,0,0,0,False,False);
 
   //заменим стандартный NextButton, CancelButton на свои
   with WizardForm.CancelButton do begin
-    hCancelBtn:=BtnCreate(WizardForm.Handle,Left-8,Top-8,Width+16,Height+16,ExpandConstant('{tmp}\button.png'),18,False);
+    hCancelBtn:=BtnCreate(WizardForm.Handle,Left-8,Top-8,Width+16,Height+16,'button.png',18,False);
     BtnSetEvent(hCancelBtn,BtnClickEventID,WrapBtnCallback(@WizardFormBtnClick,1));
     BtnSetText(hCancelBtn,'Cancel');
     BtnSetFont(hCancelBtn,Font.Handle);
@@ -221,7 +212,7 @@ begin
     Height:=0;
   end;
   with WizardForm.NextButton do begin
-    hNextBtn:=BtnCreate(WizardForm.Handle,Left-8,Top-8,Width+16,Height+16,ExpandConstant('{tmp}\button.png'),18,False);
+    hNextBtn:=BtnCreate(WizardForm.Handle,Left-8,Top-8,Width+16,Height+16,'button.png',18,False);
     BtnSetEvent(hNextBtn,BtnClickEventID,WrapBtnCallback(@WizardFormBtnClick,1));
     BtnSetText(hNextBtn,'Next');
     BtnSetFont(hNextBtn,Font.Handle);
@@ -237,14 +228,14 @@ begin
     Style:=[fsBold];
   end;
   //первая кнопка
-  hTestBtn1:=BtnCreate(WizardForm.Handle,200,485,100,44,ExpandConstant('{tmp}\button2.png'),18,True);
+  hTestBtn1:=BtnCreate(WizardForm.Handle,200,485,100,44,'button2.png',18,True);
   BtnSetEvent(hTestBtn1,BtnClickEventID,WrapBtnCallback(@TestBtn1Click,1));
   BtnSetFont(hTestBtn1,Font.Handle);
   BtnSetFontColor(hTestBtn1,$22A4CA,$22A4CA,$22A4CA,$B6B6B6);
   BtnSetText(hTestBtn1,'Disable');
   BtnSetCursor(hTestBtn1,GetSysCursorHandle(32649)); //установим стандартный курсор OCR_HAND=32649, константы OCR_... ищем в инете
   //вторая кнопка
-  hTestBtn2:=BtnCreate(WizardForm.Handle,80,485,120,44,ExpandConstant('{tmp}\button.png'),18,False);
+  hTestBtn2:=BtnCreate(WizardForm.Handle,80,485,120,44,'button.png',18,False);
   BtnSetEvent(hTestBtn2,BtnClickEventID,WrapBtnCallback(@TestBtn2Click,1));
   BtnSetFont(hTestBtn2,Font.Handle);
   BtnSetFontColor(hTestBtn2,$DAE369,$DAE369,$DAE369,$B6B6B6);
@@ -252,8 +243,8 @@ begin
   BtnSetCursor(hTestBtn2,LoadCursorFromFile(ExpandConstant('{tmp}\cursor.ani'))); //установим свой анимированный курсор
   
   //еще кнопочка до кучи
-  ImgLoad(WizardForm.Handle,ExpandConstant('{tmp}\mspaint.png'),90,330,123,123,True,False);
-  hGlassButton:=BtnCreate(WizardForm.Handle,80,320,143,143,ExpandConstant('{tmp}\glassbutton.png'),0,False);
+  ImgLoad(WizardForm.Handle,'mspaint.png',90,330,123,123,True,False);
+  hGlassButton:=BtnCreate(WizardForm.Handle,80,320,143,143,'glassbutton.png',0,False);
   BtnSetEvent(hGlassButton,BtnClickEventID,WrapBtnCallback(@GlassBtnClick,1));
 
   //установим еще события для hTestBtn2 и отразим их в BtnEventLabel

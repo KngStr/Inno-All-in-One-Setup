@@ -1,6 +1,7 @@
 ;Created by South.Tver 02.2010
 
 ;т.к. BtnGetText на больших текстах (как в примере BtnPrint.iss) будет прилично тормозить,
+;больше не тормозит, но пример оставлю, раз написан
 ;то вот аналогичный пример без BtnGetText
 
 #include "botva2.ish"
@@ -67,9 +68,7 @@ begin
     CancelButton.Top:=ClientHeight-50;
   end;
 
-  ExtractTemporaryFile('button2.png');
-
-  hBtn:=BtnCreate(WizardForm.Handle,-50,-50,WizardForm.ClientWidth+100,WizardForm.ClientHeight+100,ExpandConstant('{tmp}\button2.png'),18,True);
+  hBtn:=BtnCreate(WizardForm.Handle,-50,-50,WizardForm.ClientWidth+100,WizardForm.ClientHeight+100,'button2.png',18,True);
   CurSimbol:=0;
 
   TestText:='Ћ»÷≈Ќ«»ќЌЌќ≈ —ќ√ЋјЎ≈Ќ»≈ '+

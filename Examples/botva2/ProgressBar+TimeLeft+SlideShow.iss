@@ -49,7 +49,7 @@ var
 function GetTickCount: DWORD; external 'GetTickCount@kernel32.dll stdcall';
 
 function SetWindowLong(hWnd: HWND; nIndex: Integer; dwNewLong: Longint): Longint; external 'SetWindowLong{#A}@user32.dll stdcall';
-function CallBackProc(P:TPBProc;ParamCount:integer):LongWord; external 'WrapCallbackAddr@{#Plugin_CodeDir(CallbackCtrl_Dll)} {#Plugin_CodeFlags}';
+function CallBackProc(P:TPBProc;ParamCount:integer):LongWord; {# CallbackCtrl_External };
 function CallWindowProc(lpPrevWndFunc: Longint; hWnd: HWND; Msg: UINT; wParam, lParam: Longint): Longint; external 'CallWindowProc{#A}@user32.dll stdcall';
 
 function mciSendString(lpstrCommand, lpstrReturnString: PChar; uReturnLength: Cardinal; hWndCallback: HWND): Cardinal; external 'mciSendString{#A}@winmm.dll stdcall';
@@ -152,9 +152,7 @@ begin
       ImgSetVisibility(AImg[0],True);
       SetStateNewButtons;
       
-      ExtractTemporaryFile('pbbkg.png');
-      ExtractTemporaryFile('pb.png');
-      NewPB:=ImgPBCreate(WizardForm.Handle, ExpandConstant('{tmp}\pbbkg.png'), ExpandConstant('{tmp}\pb.png'),10,10,WizardForm.ClientWidth-20,25);
+      NewPB:=ImgPBCreate(WizardForm.Handle, 'pbbkg.png', 'pb.png',10,10,WizardForm.ClientWidth-20,25);
       ImgApplyChanges(WizardForm.Handle);
 
       WFCaption:=WizardForm.Caption;
@@ -384,21 +382,6 @@ begin
              'Нажмите "Далее", чтобы продолжить, или "Отмена", чтобы выйти из программы установки';    //с текстом тоже сам
   end;
 
-  ExtractTemporaryFile('nfs.jpg');
-  ExtractTemporaryFile('Panel1.png');
-  ExtractTemporaryFile('Panel2.png');
-  ExtractTemporaryFile('glass2.png');
-  ExtractTemporaryFile('mspaint.png');
-
-  ExtractTemporaryFile('1.jpg');
-  ExtractTemporaryFile('2.jpg');
-  ExtractTemporaryFile('3.jpg');
-  ExtractTemporaryFile('4.jpg');
-  ExtractTemporaryFile('5.jpg');
-  ExtractTemporaryFile('6.jpg');
-  ExtractTemporaryFile('7.jpg');
-  ExtractTemporaryFile('8.jpg');
-
   //фоновый рисунок на MainForm
   //with MainForm do begin
   //  //MainForm.BorderStyle:=bsNone; //косячная херня - пропадает надпись в заголовке WizardForm, сделаем по другому
@@ -414,27 +397,26 @@ begin
 
   //добавляем фоновый рисунок на WizardForm
   h:=WizardForm.Handle;
-  WFBkg:=ImgLoad(h,ExpandConstant('{tmp}\nfs.jpg'),0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
+  WFBkg:=ImgLoad(h,'nfs.jpg',0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
   //заполняем массив для слайд-шоу
   SetArrayLength(AImg,8);
   for i:=0 to GetArrayLength(AImg)-1 do begin
-    AImg[i]:=ImgLoad(h,ExpandConstant('{tmp}\'+IntToStr(i+1)+'.jpg'),0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
+    AImg[i]:=ImgLoad(h,IntToStr(i+1)+'.jpg',0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
     ImgSetVisibility(AImg[i],False);
   end;
 
   l:=0;
   t:=90;
-  ImgLoad(h,ExpandConstant('{tmp}\mspaint.png'),280,365,0,0,False,True);
-  ImgLoad(h,ExpandConstant('{tmp}\glass2.png'),40,180,WizardForm.ClientWidth-80,300,True,True);
-  ImgLoad(h,ExpandConstant('{tmp}\Panel1.png'),0,t,WizardForm.ClientWidth,20,True,False);
-  img:=ImgLoad(h,ExpandConstant('{tmp}\Panel2.png'),0,t,0,0,False,False);
+  ImgLoad(h,'mspaint.png',280,365,0,0,False,True);
+  ImgLoad(h,'glass2.png',40,180,WizardForm.ClientWidth-80,300,True,True);
+  ImgLoad(h,'Panel1.png',0,t,WizardForm.ClientWidth,20,True,False);
+  img:=ImgLoad(h,'Panel2.png',0,t,0,0,False,False);
 
   //заменим стандартные NextButton,CancelButton,BackButton на скинированные кнопки
   //скрывать стандартные кнопки нельзя, поэтому просто поставим им высоту и ширину 0
-  ExtractTemporaryFile('button.png');
 
   with WizardForm.CancelButton do begin
-    hCancelBtn:=BtnCreate(WizardForm.Handle,Left-8,Top-8,Width+16,Height+16,ExpandConstant('{tmp}\button.png'),18,False);
+    hCancelBtn:=BtnCreate(WizardForm.Handle,Left-8,Top-8,Width+16,Height+16,'button.png',18,False);
     BtnSetEvent(hCancelBtn,BtnClickEventID,WrapBtnCallback(@WizardFormBtnClick,1));
     BtnSetFont(hCancelBtn,Font.Handle);
     BtnSetFontColor(hCancelBtn,$DAE369,$DAE369,$DAE369,$B6B6B6);
@@ -442,7 +424,7 @@ begin
     Height:=0;
   end;
   with WizardForm.NextButton do begin
-    hNextBtn:=BtnCreate(WizardForm.Handle,Left-8,Top-8,Width+16,Height+16,ExpandConstant('{tmp}\button.png'),18,False);
+    hNextBtn:=BtnCreate(WizardForm.Handle,Left-8,Top-8,Width+16,Height+16,'button.png',18,False);
     BtnSetEvent(hNextBtn,BtnClickEventID,WrapBtnCallback(@WizardFormBtnClick,1));
     BtnSetFont(hNextBtn,Font.Handle);
     BtnSetFontColor(hNextBtn,$DAE369,$DAE369,$DAE369,$B6B6B6);
@@ -450,7 +432,7 @@ begin
     Height:=0;
   end;
   with WizardForm.BackButton do begin
-    hBackBtn:=BtnCreate(WizardForm.Handle,Left-8,Top-8,Width+16,Height+16,ExpandConstant('{tmp}\button.png'),18,False);
+    hBackBtn:=BtnCreate(WizardForm.Handle,Left-8,Top-8,Width+16,Height+16,'button.png',18,False);
     BtnSetEvent(hBackBtn,BtnClickEventID,WrapBtnCallback(@WizardFormBtnClick,1));
     BtnSetFont(hBackBtn,Font.Handle);
     BtnSetFontColor(hBackBtn,$DAE369,$DAE369,$DAE369,$B6B6B6);
@@ -459,7 +441,6 @@ begin
   end;
 
   //ну, еще пару кнопок для примера Button.Enabled:=False / Button.Enabled:=True
-  ExtractTemporaryFile('button2.png');
   ExtractTemporaryFile('click.wav');
   ExtractTemporaryFile('enter.wav');
   ExtractTemporaryFile('leave.wav');
@@ -470,14 +451,14 @@ begin
     Style:=[fsBold];
   end;
   //первая кнопка
-  hTestBtn1:=BtnCreate(WizardForm.Handle,200,485,100,44,ExpandConstant('{tmp}\button2.png'),18,True);
+  hTestBtn1:=BtnCreate(WizardForm.Handle,200,485,100,44,'button2.png',18,True);
   BtnSetEvent(hTestBtn1,BtnClickEventID,WrapBtnCallback(@TestBtn1Click,1));
   BtnSetFont(hTestBtn1,Font.Handle);
   BtnSetFontColor(hTestBtn1,$22A4CA,$22A4CA,$22A4CA,$B6B6B6);
   BtnSetText(hTestBtn1,'Disable');
   BtnSetCursor(hTestBtn1,GetSysCursorHandle(32649)); //установим стандартный курсор OCR_HAND=32649, константы OCR_... ищем в инете
   //вторая кнопка
-  hTestBtn2:=BtnCreate(WizardForm.Handle,80,485,120,44,ExpandConstant('{tmp}\button.png'),18,False);
+  hTestBtn2:=BtnCreate(WizardForm.Handle,80,485,120,44,'button.png',18,False);
   BtnSetEvent(hTestBtn2,BtnClickEventID,WrapBtnCallback(@TestBtn2Click,1));
   BtnSetFont(hTestBtn2,Font.Handle);
   BtnSetFontColor(hTestBtn2,$DAE369,$DAE369,$DAE369,$B6B6B6);
@@ -486,9 +467,8 @@ begin
   BtnSetCursor(hTestBtn2,LoadCursorFromFile(ExpandConstant('{tmp}\cursor.ani'))); //установим свой анимированный курсор
 
   //а это пример, который ты просил
-  ImgLoad(WizardForm.Handle,ExpandConstant('{tmp}\mspaint.png'),90,330,123,123,True,False);
-  ExtractTemporaryFile('glassbutton.png');
-  hGlassButton:=BtnCreate(WizardForm.Handle,80,320,143,143,ExpandConstant('{tmp}\glassbutton.png'),0,False);
+  ImgLoad(WizardForm.Handle,'mspaint.png',90,330,123,123,True,False);
+  hGlassButton:=BtnCreate(WizardForm.Handle,80,320,143,143,'glassbutton.png',0,False);
   BtnSetEvent(hGlassButton,BtnClickEventID,WrapBtnCallback(@GlassBtnClick,1));
 
   //установим еще события для hTestBtn2 и отразим их в BtnEventLabel

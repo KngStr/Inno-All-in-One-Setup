@@ -1,15 +1,18 @@
-;Created by South.Tver 02.2010
-;пример работы с изображениями - прогрессбары
+;Created by South.Tver 02.2012
+;пример работы с изображениями - прогрессбары 2
+;блочное заполнение
+
+#define pb "pb3.png"
+#define pbbkg "pbbkg3.png"
 
 #include "botva2.ish"
-#include "ProgressBar.ish"
+#include "ProgressBar2.ish"
 
 [Setup]
-AppName=progressbar by South.Tver
-AppVerName=progressbar by South.Tver
-DefaultDirName={pf}\progressbar
+AppName=progressbar2 by South.Tver
+AppVerName=progressbar2 by South.Tver
+DefaultDirName={pf}\progressbar2
 OutputBaseFilename=setup
-OutputDir=userdocs:Inno Setup Examples Output
 DisableWelcomePage=no
 
 [Files]
@@ -18,7 +21,7 @@ Source: Files\*; Flags: dontcopy
 [Code]
 
 var
-  PB1,PB2 : TImgPB;
+  PB1,PB2 : TImgPB2;
   br,bl   : TButton;
   e       : TEdit;
 
@@ -35,8 +38,8 @@ begin
     e.Text:='100';
     Exit;
   end;
-  ImgPBSetPosition(PB1,np);
-  ImgPBSetPosition(PB2,np);
+  ImgPBSetPosition2(PB1,np);
+  ImgPBSetPosition2(PB2,np);
   ImgApplyChanges(WizardForm.Handle);
 end;
 
@@ -52,13 +55,13 @@ end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;
 begin
-  ImgPBDelete(PB2);
+  ImgPBDelete2(PB2);
   ImgApplyChanges(WizardForm.Handle);
 end;
 
 function InitializeSetup:boolean;
 begin
-  PDir('{# Botva2_Dll }');
+  if not FileExists(ExpandConstant('{tmp}\botva2.dll')) then ExtractTemporaryFile('botva2.dll');
   Result:=True;
 end;
 
@@ -71,8 +74,8 @@ begin
   end;
 
   ImgLoad(WizardForm.Handle,'nfs.jpg',0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
-  PB1:=ImgPBCreate(WizardForm.Handle, 'pbbkg.png', 'pb.png', 10, 250, WizardForm.ClientWidth-20, 25);
-  PB2:=ImgPBCreate(WizardForm.Handle, 'pbbkg2.png', 'pb2.png', 10, 285, WizardForm.ClientWidth-20, 25);
+  PB1:=ImgPBCreate2(WizardForm.Handle,'{#pbbkg}','{#pb}',10,250,WizardForm.ClientWidth-20,41,5,8,0);
+  PB2:=ImgPBCreate2(WizardForm.Handle,'{#pbbkg}','{#pb}',10,200,WizardForm.ClientWidth-20,22,8,8,4);
   ImgApplyChanges(WizardForm.Handle);
 
   //управление прогрессбарами
@@ -106,4 +109,3 @@ procedure DeinitializeSetup;
 begin
   gdipShutdown;
 end;
-

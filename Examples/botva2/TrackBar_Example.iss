@@ -45,11 +45,6 @@ procedure InitializeWizard;
 var
   i:integer;
 begin
-  PDir('nfs.jpg');
-  PDir('trackbar_btn.png');
-  PDir('trackbar_bkg.png');
-  PDir('pbbkg.png');
-  PDir('pb.png');
   //скрываем элементы формы
   with WizardForm do begin
     InnerNotebook.Hide;
@@ -78,15 +73,15 @@ begin
   end;
   
   //фоновая картинка
-  ImgLoad(WizardForm.Handle,ExpandConstant('{tmp}\nfs.jpg'),0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
+  ImgLoad(WizardForm.Handle,'nfs.jpg',0,0,WizardForm.ClientWidth,WizardForm.ClientHeight,True,True);
   //прогрессбар
-  PB1:=ImgPBCreate(WizardForm.Handle, ExpandConstant('{tmp}\pbbkg.png'), ExpandConstant('{tmp}\pb.png'), 10, 250, WizardForm.ClientWidth-20, 25);
+  PB1:=ImgPBCreate(WizardForm.Handle, 'pbbkg.png', 'pb.png', 10, 250, WizardForm.ClientWidth-20, 25);
   //первый трэкбар
-  TB:=ImgTBCreate(WizardForm.Handle,ExpandConstant('{tmp}\trackbar_bkg.png'),ExpandConstant('{tmp}\trackbar_btn.png'),10,170,150,10,7,163,160,18,33,2);
+  TB:=ImgTBCreate(WizardForm.Handle,'trackbar_bkg.png','trackbar_btn.png',10,170,150,10,7,163,160,18,33,2);
   ImgTBSetChangePosEvent(TB,@TBChangePos); //при измененении позиции трэкбара TB будет выполняться процедура TBChangePos
   ImgTBSetPosition(TB,50);
   //второй трэкбар
-  TB2:=ImgTBCreate(WizardForm.Handle,ExpandConstant('{tmp}\trackbar_bkg.png'),ExpandConstant('{tmp}\trackbar_btn.png'),200,170,150,10,197,353,160,18,33,2);
+  TB2:=ImgTBCreate(WizardForm.Handle,'trackbar_bkg.png','trackbar_btn.png',200,170,150,10,197,353,160,18,33,2);
   ImgTBSetChangePosEvent(TB2,@TBChangePos2); //при измененении позиции трэкбара TB2 будет выполняться процедура TBChangePos2
 
   ImgApplyChanges(WizardForm.Handle);
