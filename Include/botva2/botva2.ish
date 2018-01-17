@@ -315,48 +315,48 @@ begin
   Result := string(buf);
 end;
 
-function ImgLoad(Wnd :HWND; FileName :PAnsiChar; Left, Top, Width, Height :integer; Stretch, IsBkg :boolean) :Longint;
+function ImgLoad(Wnd :HWND; FileName :String; Left, Top, Width, Height :integer; Stretch, IsBkg :boolean) :Longint;
 begin
   if FileName = '' then
     Exit;
   if not FileExists(FileName) then begin
     ExtractTemporaryFile(FileName);
-    Result:=_ImgLoad(Wnd,ExpandConstant('{tmp}\')+FileName,Left,Top,Width,Height,Stretch,IsBkg);
+    Result:=_ImgLoad(Wnd,PAnsiChar(ExpandConstant('{tmp}\')+FileName),Left,Top,Width,Height,Stretch,IsBkg);
     DeleteFile(ExpandConstant('{tmp}\')+FileName);
-  end else Result:=_ImgLoad(Wnd,FileName,Left,Top,Width,Height,Stretch,IsBkg);
+  end else Result:=_ImgLoad(Wnd,PAnsiChar(FileName),Left,Top,Width,Height,Stretch,IsBkg);
 end;
 
-function BtnCreate(hParent :HWND; Left, Top, Width, Height :integer; FileName :PAnsiChar; ShadowWidth :integer; IsCheckBtn :boolean) :HWND; 
+function BtnCreate(hParent :HWND; Left, Top, Width, Height :integer; FileName :String; ShadowWidth :integer; IsCheckBtn :boolean) :HWND; 
 begin
   if FileName = '' then
     Exit;
   if not FileExists(FileName) then begin
     ExtractTemporaryFile(FileName);
-    Result:=_BtnCreate(hParent,Left,Top,Width,Height,ExpandConstant('{tmp}\')+FileName,ShadowWidth,IsCheckBtn);
+    Result:=_BtnCreate(hParent,Left,Top,Width,Height,PAnsiChar(ExpandConstant('{tmp}\')+FileName),ShadowWidth,IsCheckBtn);
     DeleteFile(ExpandConstant('{tmp}\')+FileName);
-  end else Result:=_BtnCreate(hParent,Left,Top,Width,Height,FileName,ShadowWidth,IsCheckBtn);
+  end else Result:=_BtnCreate(hParent,Left,Top,Width,Height,PAnsiChar(FileName),ShadowWidth,IsCheckBtn);
 end;
 
-function CheckBoxCreate(hParent:HWND; Left,Top,Width,Height:integer; FileName:PAnsiChar; GroupID, TextIndent:integer):HWND;
+function CheckBoxCreate(hParent:HWND; Left,Top,Width,Height:integer; FileName:String; GroupID, TextIndent:integer):HWND;
 begin
   if FileName = '' then
     Exit;
   if not FileExists(FileName) then begin
     ExtractTemporaryFile(FileName);
-    Result:=_CheckBoxCreate(hParent,Left,Top,Width,Height,ExpandConstant('{tmp}\')+FileName,GroupID,TextIndent);
+    Result:=_CheckBoxCreate(hParent,Left,Top,Width,Height,PAnsiChar(ExpandConstant('{tmp}\')+FileName),GroupID,TextIndent);
     DeleteFile(ExpandConstant('{tmp}\')+FileName);
-  end else Result:=_CheckBoxCreate(hParent,Left,Top,Width,Height,FileName,GroupID,TextIndent);
+  end else Result:=_CheckBoxCreate(hParent,Left,Top,Width,Height,PAnsiChar(FileName),GroupID,TextIndent);
 end;
 
-procedure CreateFormFromImage(h:HWND; FileName:PAnsiChar);
+procedure CreateFormFromImage(h:HWND; FileName:String);
 begin
   if FileName = '' then
     Exit;
   if not FileExists(FileName) then begin
     ExtractTemporaryFile(FileName);
-    _CreateFormFromImage(h, ExpandConstant('{tmp}\')+FileName);
+    _CreateFormFromImage(h, PAnsiChar(ExpandConstant('{tmp}\')+FileName));
     DeleteFile(ExpandConstant('{tmp}\')+FileName);
-  end else _CreateFormFromImage(h, FileName);
+  end else _CreateFormFromImage(h, PAnsiChar(FileName));
 end;
 [/Code]
 
