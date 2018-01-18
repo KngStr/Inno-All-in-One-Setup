@@ -30,6 +30,7 @@ Name: Plugins\CallbackCtrl; Description: CallbackCtrl  回调函数插件   (Restools)
 Name: Plugins\ExecCtrl; Description: ExecCtrl  线程执行插件   (Restools); Types: full
 #endif
 Name: Plugins\CallNsis; Description: CallNsis  调用 NSIS 插件的通用插件   (Restools); Types: full
+Name: Plugins\ksiCallNsis; Description: ksiCallNsis  调用 NSIS 插件的通用插件   (KngStr); Types: full
 Name: Plugins\WebCtrl; Description: WebCtrl  网页显示插件   (Restools); Types: full
 Name: Plugins\TrayIconCtrl; Description: TrayIconCtrl  系统托盘图标插件   (Restools); Types: full
 Name: Plugins\CpuDesc; Description: CpuDesc CPU  参数检测插件   (Restools); Types: full
@@ -101,7 +102,9 @@ Source: {#Extensions}\ISSkinEx\Styles\Sakura.cjstyles; DestDir: {app}\Extensions
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Restools Plugins;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;CallNsis
   #expr AddPlugin("CallNsis", "", "Restools")
-  Source: {#Plugins}\Nsis\*; DestDir: {app}\Plugins\Nsis; Components: Plugins\CallNsis; Tasks: ; Flags: ignoreversion recursesubdirs; BeforeInstall: AddToDetaList
+  ;ksiCallNsis
+  #expr AddPlugin("ksiCallNsis", "", "")
+  Source: {#Plugins}\Nsis\*; DestDir: {app}\Plugins\Nsis; Components: Plugins\CallNsis or Plugins\ksiCallNsis; Tasks: ; Flags: ignoreversion recursesubdirs; BeforeInstall: AddToDetaList
   ;WaterCtrl
   #expr AddPlugin("WaterCtrl", "", "Restools")
   ;GifCtrl

@@ -1,0 +1,142 @@
+#ifndef _KSICALLNSIS_ISH_
+  #define _KSICALLNSIS_ISH_ __PATHFILENAME__
+  #expr Plugin_Init
+
+  #define ksiCallNsis_DLL "ksiCallNsis.dll"
+
+[Files]
+Source: {#PluginDir}\{# ksiCallNsis_DLL}; DestDir: {#Plugin_DestDir}; Flags: {#Plugin_FileFlags}
+
+[Code]
+type
+  TNsisVarConstants = (
+    Nsis_INST_0,         // $0
+    Nsis_INST_1,         // $1
+    Nsis_INST_2,         // $2
+    Nsis_INST_3,         // $3
+    Nsis_INST_4,         // $4
+    Nsis_INST_5,         // $5
+    Nsis_INST_6,         // $6
+    Nsis_INST_7,         // $7
+    Nsis_INST_8,         // $8
+    Nsis_INST_9,         // $9
+    Nsis_INST_R0,        // $R0
+    Nsis_INST_R1,        // $R1
+    Nsis_INST_R2,        // $R2
+    Nsis_INST_R3,        // $R3
+    Nsis_INST_R4,        // $R4
+    Nsis_INST_R5,        // $R5
+    Nsis_INST_R6,        // $R6
+    Nsis_INST_R7,        // $R7
+    Nsis_INST_R8,        // $R8
+    Nsis_INST_R9,        // $R9
+    Nsis_INST_CMDLINE,   // $CMDLINE
+    Nsis_INST_INSTDIR,   // $INSTDIR
+    Nsis_INST_OUTDIR,    // $OUTDIR
+    Nsis_INST_EXEDIR,    // $EXEDIR
+    Nsis_INST_LANG,      // $LANGUAGE
+    Nsis___INST_LAST
+  );
+
+procedure _PushNsisString(const str: PAnsiChar);
+external 'PushNsisString@{#Plugin_CodeDir(ksiCallNsis_DLL)} {#Plugin_CodeFlags}';
+
+procedure _PopNsisString(Buffer: PAnsiChar; MaxLen: Integer);
+external 'PopNsisString@{#Plugin_CodeDir(ksiCallNsis_DLL)} {#Plugin_CodeFlags}';
+
+function _GetPopNsisLength(): Integer;
+external 'GetPopNsisLength@{#Plugin_CodeDir(ksiCallNsis_DLL)} {#Plugin_CodeFlags}';
+
+procedure InitNsisPlug(Parent: THandle);
+external 'InitNsisPlug@{#Plugin_CodeDir(ksiCallNsis_DLL)} {#Plugin_CodeFlags}';
+
+function _CallNsisPlug(Plugin, Func: PAnsiChar): Boolean;
+external 'CallNsisPlug@{#Plugin_CodeDir(ksiCallNsis_DLL)} {#Plugin_CodeFlags}';
+
+procedure FreeNsisPlug();
+external 'FreeNsisPlug@{#Plugin_CodeDir(ksiCallNsis_DLL)} {#Plugin_CodeFlags}';
+
+procedure _SetNsisVariable(const varnum: TNsisVarConstants; const value: PAnsiChar);
+external 'SetNsisVariable@{#Plugin_CodeDir(ksiCallNsis_DLL)} {#Plugin_CodeFlags}';
+
+procedure _GetNsisVariable(Buffer: PAnsiChar; MaxLen: Integer);
+external 'GetNsisVariable@{#Plugin_CodeDir(ksiCallNsis_DLL)} {#Plugin_CodeFlags}';
+
+function _GetNsisVariableLength(const varnum: TNsisVarConstants): Integer;
+external 'GetNsisVariableLength@{#Plugin_CodeDir(ksiCallNsis_DLL)} {#Plugin_CodeFlags}';
+
+function GetNsisVariable(const varnum: TNsisVarConstants): String;
+var
+  len: Integer;
+  s: AnsiString;
+begin
+  len := _GetNsisVariableLength(varnum);
+  if len = 0 then begin
+    Result := '';
+    Exit;
+  end;
+
+  SetLength(s, len);
+  _GetNsisVariable(s, len);
+  Result := String(s);
+end;
+
+procedure SetNsisVariable(const varnum: TNsisVarConstants; const value: string);
+begin
+  _SetNsisVariable(varnum, PAnsiChar(value));
+end;
+
+procedure PushNsisString(const str: String);
+begin
+  _PushNsisString(PAnsiChar(str));
+end;
+
+function PopNsisString(): String;
+var
+  len: Integer;
+  s: AnsiString;
+begin
+  len := _GetPopNsisLength;
+  if len = 0 then begin
+    Result := '';
+    Exit;
+  end;
+
+  SetLength(s, len);
+  _PopNsisString(s, len);
+  Result := String(s);
+end;
+
+function CallNsisPlug(Plugin, Func: PAnsiChar): Boolean;
+begin
+  Result := _CallNsisPlug(PAnsiChar(Plugin), PAnsiChar(Func));
+end;
+
+function CallNsisPlugEx(Plugin, Func: String; Params: Array of String): Boolean;
+var
+  i: Integer;
+begin
+  for i := GetArrayLength(Params) - 1 downto 0 do
+    PushNsisString(Params[i]);
+
+  if (GetArrayLength(Params) = 0) or (Params[0] <> '/NOUNLOAD') then
+    PushNsisString('');
+
+  Result := CallNsisPlug(Plugin, Func);
+end;
+
+//compatible with restools
+function callplug(parentwnd: THandle; pluginname,funcname,param1,param2,param3,param4,param5,param6,param7,param8,param9,param10: string): Integer;
+begin
+  Result := -1;
+  InitNsisPlug(parentwnd);
+  try
+    if CallNsisPlugEx(pluginname,funcname, [param1,param2,param3,param4,param5,param6,param7,param8,param9,param10]) then
+      Result := StrToIntDef(PopNsisString, -1);
+  finally
+    FreeNsisPlug();
+  end;
+end;
+[/Code]
+
+#endif
