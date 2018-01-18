@@ -271,6 +271,7 @@ Source: What's new.txt; DestDir: {#SetupSetting("UninstallFilesDir")}; Flags: is
 #expr AddFiles("[Ish]")
 #expr AddFiles("System")
 #expr AddFiles("Macros")
+#expr AddFiles("Isxkb")
 #expr AddFiles("InstFiles", "", "", "", "", "", "ISPP")
 
 ;Ô¤ÊÍ·ÅÎÄ¼þ

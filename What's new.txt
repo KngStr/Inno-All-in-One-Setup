@@ -1,4 +1,4 @@
-?
+Inno_559_180118_KngStr.exe(2018-1-18)
 新增：
 1、KngStr修改版(DiskSpanning=no且DiskSpanning=no单文件，但会增加文件大小慎用)
 2、重新添加Restools版本(警告：只会使用低版本Inno，慎用)
@@ -6,6 +6,7 @@
 4、修改中文帮助为王苏的版本（感谢王苏 感谢苦瓜甘甜）
 5、增加CallNsis例子nsProcess
 6、本人制作的ksiCallNsis插件及更多nsis插件例子
+7、Isxkb添加到默认安装
 更新：
 1、更新ISStudio至2.2.2.32
 2、取消包名中(原D8团队版)
