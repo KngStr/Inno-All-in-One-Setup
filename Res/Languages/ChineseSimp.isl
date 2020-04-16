@@ -30,6 +30,7 @@ ErrorTitle=错误
 SetupLdrStartupMessage=现在将安装 %1。您想要继续吗？
 LdrCannotCreateTemp=不能创建临时文件。安装中断。
 LdrCannotExecTemp=不能执行临时目录中的文件。安装中断。
+HelpTextNote=
 
 ; *** 启动错误消息
 LastErrorMessage=%1.%n%n错误 %2: %3
