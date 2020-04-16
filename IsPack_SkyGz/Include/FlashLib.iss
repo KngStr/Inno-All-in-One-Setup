@@ -1,5 +1,5 @@
 [Files]
-Source: compiler:FlashLib.dll; DestDir: {tmp}; Flags: noencryption nocompression
+Source: compiler:FlashLib.dll; DestDir: {tmp}; Flags: dontcopy noencryption
 
 [Code]
 //hWndParent　将FLASH创建在那个句柄上
