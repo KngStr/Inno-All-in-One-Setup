@@ -47,6 +47,8 @@ Root: HKLM; Subkey: SOFTWARE\Classes\ISStudio Files; ValueType: String; ValueDat
 Root: HKLM; Subkey: SOFTWARE\Classes\ISStudio Files\Shell\Open\Command; ValueType: String; ValueData: """{app}\ISStudio\ISStudio.exe"" ""%1"""; Components: IDE\ISStudio; Tasks: AssocIsh AssocIss; Flags: uninsdeletevalue
 Root: HKLM; Subkey: SOFTWARE\Classes\ISStudio Files\DefaultIcon; ValueType: String; ValueData: {app}\ISStudio\ISStudio.exe,-1; Components: IDE\ISStudio; Tasks: AssocIsh AssocIss; Flags: uninsdeletevalue
 
+Root: HKCU; Subkey: "Software\Kymoto Solutions\Inno Script Studio 2\Toolbars"; Flags: uninsdeletekey; Components: IDE\ISStudio;
+
 [UninstallDelete]
 Type: files; Name: "{app}\ISStudio\Settings.ini";
 
