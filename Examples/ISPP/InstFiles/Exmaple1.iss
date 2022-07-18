@@ -17,4 +17,4 @@ OutputDir=userdocs:Inno Setup Examples Output
 CreateUninstallRegKey=no
 Uninstallable=no
 
-#expr InstFiles("D:\Users", "*.*")
+#expr InstFiles("D:\Users", "*.*" ,"")
