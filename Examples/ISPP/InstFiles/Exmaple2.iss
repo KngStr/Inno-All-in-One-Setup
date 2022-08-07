@@ -28,7 +28,7 @@ Uninstallable=no
 #define start_time GetDateTimeString('hh:nn:ss', '-', ':')
 
 #define InstFiles_Tmp_Inc 2000
-#expr InstFiles("D:\Users", "*.*")
+#expr InstFiles("D:\Users", "*.*", "")
 
 #define end_time GetDateTimeString('hh:nn:ss', '-', ':')
 #pragma warning start_time + " - " + end_time
